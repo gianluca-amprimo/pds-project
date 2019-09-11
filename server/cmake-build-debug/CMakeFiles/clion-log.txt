@@ -1,0 +1,4 @@
+/snap/clion/82/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/gianluca/Qt/5.12.3/gcc_64/lib/cmake -G "CodeBlocks - Unix Makefiles" /home/gianluca/CLionProjects/untitled
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/gianluca/CLionProjects/untitled/cmake-build-debug
