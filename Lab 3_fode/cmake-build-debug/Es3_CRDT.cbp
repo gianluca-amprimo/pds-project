@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="Es3_CRDT"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Es3_CRDT">
+				<Option output="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Es3_CRDT" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 Es3_CRDT"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="Es3_CRDT/fast">
+				<Option output="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Es3_CRDT" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/Library/Developer/CommandLineTools/usr/bin/../include/c++/v1"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/lib/clang/11.0.0/include"/>
+					<Add directory="/Library/Developer/CommandLineTools/usr/include"/>
+					<Add directory="/System/Library/Frameworks"/>
+					<Add directory="/Library/Frameworks"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 Es3_CRDT/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/Message.cpp">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/Message.h">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/NetworkServer.cpp">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/NetworkServer.h">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/SharedEditor.cpp">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/SharedEditor.h">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/Symbol.cpp">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/Symbol.h">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/main.cpp">
+			<Option target="Es3_CRDT"/>
+		</Unit>
+		<Unit filename="/Users/andreafoderaro/CLionProjects/PDS/Es3_CRDT/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>
