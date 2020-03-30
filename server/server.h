@@ -3,32 +3,26 @@
 
 #include <QDialog>
 #include <QString>
-#include <QVector>
 
 QT_BEGIN_NAMESPACE
-class QLabel;
 class QTcpServer;
 class QNetworkSession;
+namespace Ui { class Server; }
 QT_END_NAMESPACE
 
-//! [0]
-class Server : public QDialog
-{
+class Server : public QDialog {
     Q_OBJECT
-
 public:
     explicit Server(QWidget *parent = nullptr);
+    ~Server() override;
 
 private slots:
-            void sessionOpened();
-    void sendFortune();
+    void sessionOpened();
 
 private:
-    QLabel *statusLabel = nullptr;
+    Ui::Server *ui;
     QTcpServer *tcpServer = nullptr;
-    QVector<QString> fortunes;
     QNetworkSession *networkSession = nullptr;
 };
-//! [0]
 
 #endif

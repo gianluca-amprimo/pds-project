@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.14)
 project(server)
 
+# localizzare il path di Qt nell'attuale sistema operativo
+# set(CMAKE_PREFIX_PATH "/home/pioniere/Qt/5.12.7/gcc_64/")
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
@@ -20,5 +23,9 @@ list(APPEND LIBRARIES
         Qt5::Charts )
 list(REMOVE_DUPLICATES LIBRARIES)
 
-add_executable(server main.cpp server.cpp server.h)
+add_executable(server
+    main.cpp
+    server.cpp
+    server.h
+    server.ui)
 target_link_libraries(server ${LIBRARIES})
