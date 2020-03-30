@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(server)
 
 # localizzare il path di Qt nell'attuale sistema operativo
-# set(CMAKE_PREFIX_PATH "/home/pioniere/Qt/5.12.7/gcc_64/")
+set(CMAKE_PREFIX_PATH "/home/pioniere/Qt/5.12.7/gcc_64/")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
