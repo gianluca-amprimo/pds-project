@@ -1,4 +1,4 @@
-/home/gianluca/CLionProjects/untitled/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/gianluca/CLionProjects/untitled/cmake-build-debug/CMakeFiles/untitled.dir
-/home/gianluca/CLionProjects/untitled/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/gianluca/CLionProjects/untitled/cmake-build-debug/CMakeFiles/untitled_autogen.dir
+/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/server.dir
+/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/server_autogen.dir

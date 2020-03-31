@@ -1,110 +1,42 @@
 #include <QtWidgets>
 #include <QtNetwork>
-
+#include <QtCore>
 #include "client.h"
-
+#include "ui_login.h"
+#include <iostream>
+#include <string>
 //! [0]
 Client::Client(QWidget *parent)
-        : QDialog(parent)
-        , hostCombo(new QComboBox)
-        , portLineEdit(new QLineEdit)
-        , getFortuneButton(new QPushButton(tr("Get Fortune")))
-        , tcpSocket(new QTcpSocket(this))
+        : QDialog(parent),tcpSocket(new QTcpSocket(this)),ui(new Ui::Client)
+
 {
+    ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 //! [0]
-    hostCombo->setEditable(true);
-    // find out name of this machine
-    QString name = QHostInfo::localHostName();
-    if (!name.isEmpty()) {
-        hostCombo->addItem(name);
-        QString domain = QHostInfo::localDomainName();
-        if (!domain.isEmpty())
-            hostCombo->addItem(name + QChar('.') + domain);
-    }
-    if (name != QLatin1String("localhost"))
-        hostCombo->addItem(QString("localhost"));
-    // find out IP addresses of this machine
-    QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
-    // add non-localhost addresses
-    for (int i = 0; i < ipAddressesList.size(); ++i) {
-        if (!ipAddressesList.at(i).isLoopback())
-            hostCombo->addItem(ipAddressesList.at(i).toString());
-    }
-    // add localhost addresses
-    for (int i = 0; i < ipAddressesList.size(); ++i) {
-        if (ipAddressesList.at(i).isLoopback())
-            hostCombo->addItem(ipAddressesList.at(i).toString());
-    }
-
-    portLineEdit->setValidator(new QIntValidator(1, 65535, this));
-
-    auto hostLabel = new QLabel(tr("&Server name:"));
-    hostLabel->setBuddy(hostCombo);
-    auto portLabel = new QLabel(tr("S&erver port:"));
-    portLabel->setBuddy(portLineEdit);
-
-    statusLabel = new QLabel(tr("This examples requires that you run the "
-                                "Fortune Server example as well."));
-
-    getFortuneButton->setDefault(true);
-    getFortuneButton->setEnabled(false);
-
-    auto quitButton = new QPushButton(tr("Quit"));
-
-    auto buttonBox = new QDialogButtonBox;
-    buttonBox->addButton(getFortuneButton, QDialogButtonBox::ActionRole);
-    buttonBox->addButton(quitButton, QDialogButtonBox::RejectRole);
+    ui->logButton->setDefault(true);
+    ui->logButton->setEnabled(false);
 
 //! [1]
     in.setDevice(tcpSocket);
     in.setVersion(QDataStream::Qt_4_0);
+
 //! [1]
 
-    connect(hostCombo, &QComboBox::editTextChanged,
-            this, &Client::enableGetFortuneButton);
-    connect(portLineEdit, &QLineEdit::textChanged,
-            this, &Client::enableGetFortuneButton);
-    connect(getFortuneButton, &QAbstractButton::clicked,
-            this, &Client::requestNewFortune);
-    connect(quitButton, &QAbstractButton::clicked, this, &QWidget::close);
-//! [2] //! [3]
-    connect(tcpSocket, &QIODevice::readyRead, this, &Client::readFortune);
+    connect(ui->passwordLE, &QLineEdit::textChanged, this, &Client::enableLogButton);
+    connect(ui->logButton, &QAbstractButton::clicked,this, &Client::requestLogin);
+    connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
+    connect(tcpSocket, &QAbstractSocket::connected  ,this, &Client::sendCredentials);
 //! [2] //! [4]
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error),
 //! [3]
             this, &Client::displayError);
 //! [4]
 
-    QGridLayout *mainLayout = nullptr;
-    if (QGuiApplication::styleHints()->showIsFullScreen() || QGuiApplication::styleHints()->showIsMaximized()) {
-        auto outerVerticalLayout = new QVBoxLayout(this);
-        outerVerticalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::MinimumExpanding));
-        auto outerHorizontalLayout = new QHBoxLayout;
-        outerHorizontalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Ignored));
-        auto groupBox = new QGroupBox(QGuiApplication::applicationDisplayName());
-        mainLayout = new QGridLayout(groupBox);
-        outerHorizontalLayout->addWidget(groupBox);
-        outerHorizontalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::MinimumExpanding, QSizePolicy::Ignored));
-        outerVerticalLayout->addLayout(outerHorizontalLayout);
-        outerVerticalLayout->addItem(new QSpacerItem(0, 0, QSizePolicy::Ignored, QSizePolicy::MinimumExpanding));
-    } else {
-        mainLayout = new QGridLayout(this);
-    }
-    mainLayout->addWidget(hostLabel, 0, 0);
-    mainLayout->addWidget(hostCombo, 0, 1);
-    mainLayout->addWidget(portLabel, 1, 0);
-    mainLayout->addWidget(portLineEdit, 1, 1);
-    mainLayout->addWidget(statusLabel, 2, 0, 1, 2);
-    mainLayout->addWidget(buttonBox, 3, 0, 1, 2);
-
-    setWindowTitle(QGuiApplication::applicationDisplayName());
-    portLineEdit->setFocus();
 
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
         // Get saved network configuration
-        QSettings settings(QSettings::UserScope, QLatin1String("QtProject"));
+        QSettings settings(QSettings::UserScope, QLatin1String("PdsProject"));
         settings.beginGroup(QLatin1String("QtNetwork"));
         const QString id = settings.value(QLatin1String("DefaultNetworkConfiguration")).toString();
         settings.endGroup();
@@ -119,8 +51,8 @@ Client::Client(QWidget *parent)
         networkSession = new QNetworkSession(config, this);
         connect(networkSession, &QNetworkSession::opened, this, &Client::sessionOpened);
 
-        getFortuneButton->setEnabled(false);
-        statusLabel->setText(tr("Opening network session."));
+        ui->logButton->setEnabled(false);
+        ui->ResultTE->setText(tr("Opening network session."));
         networkSession->open();
     }
 //! [5]
@@ -128,36 +60,35 @@ Client::Client(QWidget *parent)
 //! [5]
 
 //! [6]
-void Client::requestNewFortune()
+void Client::requestLogin()
 {
-    getFortuneButton->setEnabled(false);
+    auto host="192.168.1.86";
+    int port=36107;
+    ui->logButton->setEnabled(false);
     tcpSocket->abort();
 //! [7]
-    tcpSocket->connectToHost(hostCombo->currentText(),
-                             portLineEdit->text().toInt());
+    tcpSocket->connectToHost(host,
+                             port);
 //! [7]
+    ui->ResultTE->setText("Trying to connect...");
+
 }
 //! [6]
 
 //! [8]
-void Client::readFortune()
+void Client::readResponse()
 {
+    ui->ResultTE->append("Reading the response");
     in.startTransaction();
 
-    QString nextFortune;
-    in >> nextFortune;
+    QString response;
+    in >> response;
 
     if (!in.commitTransaction())
         return;
 
-    if (nextFortune == currentFortune) {
-        QTimer::singleShot(0, this, &Client::requestNewFortune);
-        return;
-    }
-
-    currentFortune = nextFortune;
-    statusLabel->setText(currentFortune);
-    getFortuneButton->setEnabled(true);
+    ui->ResultTE->append(response);
+    ui->logButton->setEnabled(true);
 }
 //! [8]
 
@@ -185,15 +116,15 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
                                              .arg(tcpSocket->errorString()));
     }
 
-    getFortuneButton->setEnabled(true);
+   ui->logButton->setEnabled(true);
 }
 //! [13]
 
-void Client::enableGetFortuneButton()
+void Client::enableLogButton()
 {
-    getFortuneButton->setEnabled((!networkSession || networkSession->isOpen()) &&
-                                 !hostCombo->currentText().isEmpty() &&
-                                 !portLineEdit->text().isEmpty());
+    ui->logButton->setEnabled((!networkSession || networkSession->isOpen()) &&
+                                 !ui->userLE->text().isEmpty() &&
+                                 !ui->passwordLE->text().isEmpty());
 
 }
 
@@ -212,8 +143,35 @@ void Client::sessionOpened()
     settings.setValue(QLatin1String("DefaultNetworkConfiguration"), id);
     settings.endGroup();
 
-    statusLabel->setText(tr("This examples requires that you run the "
-                            "Fortune Server example as well."));
-
-    enableGetFortuneButton();
+    enableLogButton();
 }
+
+void Client::sendCredentials(){
+
+    ui->ResultTE->append("Connected to server");
+
+    if (tcpSocket != nullptr) {
+        if (!tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        out << QString(ui->userLE->text() + "_" + ui->passwordLE->text());
+        if (!tcpSocket->write(block)) {
+            QMessageBox::information(this, tr("Server"), tr("Could not send message"));
+        }
+        tcpSocket->flush();
+    }
+
+    ui->ResultTE->append("Credential sent, waiting for reply...");
+
+}
+

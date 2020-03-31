@@ -4,12 +4,12 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/mocs_compilation.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor.dir/Editor_autogen/mocs_compilation.cpp.o"
-  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/LoginWindow.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor.dir/LoginWindow.cpp.o"
-  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/RegistrationWindow.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor.dir/RegistrationWindow.cpp.o"
-  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/Server.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor.dir/Server.cpp.o"
-  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/TextEdit.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor.dir/TextEdit.cpp.o"
-  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/main.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor.dir/main.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/mocs_compilation.cpp" "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir/Editor_autogen/mocs_compilation.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/Editor/LoginWindow.cpp" "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir/LoginWindow.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/Editor/RegistrationWindow.cpp" "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir/RegistrationWindow.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/Editor/Server.cpp" "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir/Server.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/Editor/TextEdit.cpp" "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir/TextEdit.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/Editor/main.cpp" "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

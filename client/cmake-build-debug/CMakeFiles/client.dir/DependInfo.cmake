@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/gianluca/CLionProjects/client/client.cpp" "/home/gianluca/CLionProjects/client/cmake-build-debug/CMakeFiles/client.dir/client.cpp.o"
-  "/home/gianluca/CLionProjects/client/cmake-build-debug/client_autogen/mocs_compilation.cpp" "/home/gianluca/CLionProjects/client/cmake-build-debug/CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o"
-  "/home/gianluca/CLionProjects/client/main.cpp" "/home/gianluca/CLionProjects/client/cmake-build-debug/CMakeFiles/client.dir/main.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/client/client.cpp" "/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/CMakeFiles/client.dir/client.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/client_autogen/mocs_compilation.cpp" "/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/CMakeFiles/client.dir/client_autogen/mocs_compilation.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/client/main.cpp" "/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/CMakeFiles/client.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

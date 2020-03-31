@@ -1,4 +1,4 @@
-# Install script for directory: /home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor
+# Install script for directory: /home/gianluca/Desktop/pdsproject/Editor
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

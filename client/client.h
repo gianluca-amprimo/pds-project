@@ -6,12 +6,9 @@
 #include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
-class QComboBox;
-class QLabel;
-class QLineEdit;
-class QPushButton;
 class QTcpSocket;
 class QNetworkSession;
+namespace Ui { class Client; }
 QT_END_NAMESPACE
 
 //! [0]
@@ -23,22 +20,19 @@ public:
     explicit Client(QWidget *parent = nullptr);
 
 private slots:
-            void requestNewFortune();
-    void readFortune();
+            void requestLogin();
+    void readResponse();
     void displayError(QAbstractSocket::SocketError socketError);
-    void enableGetFortuneButton();
+    void enableLogButton();
     void sessionOpened();
+    void sendCredentials();
 
 private:
-    QComboBox *hostCombo = nullptr;
-    QLineEdit *portLineEdit = nullptr;
-    QLabel *statusLabel = nullptr;
-    QPushButton *getFortuneButton = nullptr;
 
     QTcpSocket *tcpSocket = nullptr;
     QDataStream in;
-    QString currentFortune;
-
+    QString loginReply;
+    Ui::Client *ui;
     QNetworkSession *networkSession = nullptr;
 };
 //! [0]

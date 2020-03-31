@@ -20,6 +20,10 @@ list(APPEND LIBRARIES
         Qt5::Charts )
 list(REMOVE_DUPLICATES LIBRARIES)
 
-add_executable(client main.cpp client.cpp client.h)
+add_executable(client
+               main.cpp
+               client.cpp
+               client.h
+               login.ui)
 target_link_libraries(client ${LIBRARIES})
 
