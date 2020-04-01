@@ -6,39 +6,29 @@
 
 #IncludeRegexTransform: 
 
-/home/gianluca/CLionProjects/client/client.cpp
+/home/gianluca/Desktop/pdsproject/client/client.cpp
 QtWidgets
 -
 QtNetwork
 -
+QtCore
+-
 client.h
-/home/gianluca/CLionProjects/client/client.h
+/home/gianluca/Desktop/pdsproject/client/client.h
+ui_login.h
+/home/gianluca/Desktop/pdsproject/client/ui_login.h
+iostream
+-
+string
+-
 
-/home/gianluca/CLionProjects/client/client.h
+/home/gianluca/Desktop/pdsproject/client/client.h
 QDataStream
 -
 QDialog
 -
 QTcpSocket
 -
-
-/home/gianluca/CLionProjects/client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp
-../../../client.h
-/home/gianluca/CLionProjects/client/client.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/home/gianluca/CLionProjects/client/cmake-build-debug/client_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_client.cpp
-/home/gianluca/CLionProjects/client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp
-
-/home/gianluca/CLionProjects/client/main.cpp
-QApplication
--
-client.h
-/home/gianluca/CLionProjects/client/client.h
 
 /home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QByteArray
 qbytearray.h
@@ -4006,13 +3996,37 @@ qcommonstyle.h
 qdialog.h
 /home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
 
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLabel
+qlabel.h
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
+
 /home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLayout
 qlayout.h
 /home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
 
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLineEdit
+qlineedit.h
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
+
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton
+qpushbutton.h
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h
+
 /home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QScrollerProperties
 qscrollerproperties.h
 /home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollerproperties.h
+
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar
+qstatusbar.h
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QTextEdit
+qtextedit.h
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
+
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout
+qboxlayout.h
+/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
 
 /home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 qwidget.h
@@ -5436,5 +5450,27 @@ QtWidgets/qaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
+-
+
+client_autogen/include/ui_login.h
+QtCore/QVariant
+-
+QtWidgets/QApplication
+-
+QtWidgets/QDialog
+-
+QtWidgets/QLabel
+-
+QtWidgets/QLineEdit
+-
+QtWidgets/QPushButton
+-
+QtWidgets/QStatusBar
+-
+QtWidgets/QTextEdit
+-
+QtWidgets/QVBoxLayout
+-
+QtWidgets/QWidget
 -
 

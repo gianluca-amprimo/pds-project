@@ -1,4 +1,4 @@
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor.dir
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/CMakeFiles/Editor_autogen.dir
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor_autogen.dir

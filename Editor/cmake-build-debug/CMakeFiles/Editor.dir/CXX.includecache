@@ -6,45 +6,45 @@
 
 #IncludeRegexTransform: 
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/LoginWindow.cpp
+/home/gianluca/Desktop/pdsproject/Editor/LoginWindow.cpp
 fstream
 -
 LoginWindow.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/LoginWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/LoginWindow.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/LoginWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/LoginWindow.h
 QDialog
 -
 QtWidgets
 -
 TextEdit.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/TextEdit.h
+/home/gianluca/Desktop/pdsproject/Editor/TextEdit.h
 RegistrationWindow.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/RegistrationWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/RegistrationWindow.h
 Server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/Server.h
+/home/gianluca/Desktop/pdsproject/Editor/Server.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/RegistrationWindow.cpp
+/home/gianluca/Desktop/pdsproject/Editor/RegistrationWindow.cpp
 QtWidgets
 -
 RegistrationWindow.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/RegistrationWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/RegistrationWindow.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/RegistrationWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/RegistrationWindow.h
 Server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/Server.h
+/home/gianluca/Desktop/pdsproject/Editor/Server.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/Server.cpp
+/home/gianluca/Desktop/pdsproject/Editor/Server.cpp
 QtWidgets
 -
 Server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/Server.h
+/home/gianluca/Desktop/pdsproject/Editor/Server.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/Server.h
+/home/gianluca/Desktop/pdsproject/Editor/Server.h
 QCoreApplication
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/TextEdit.cpp
+/home/gianluca/Desktop/pdsproject/Editor/TextEdit.cpp
 QAction
 -
 QApplication
@@ -104,9 +104,9 @@ QPrinter
 QPrintPreviewDialog
 -
 TextEdit.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/TextEdit.h
+/home/gianluca/Desktop/pdsproject/Editor/TextEdit.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/TextEdit.h
+/home/gianluca/Desktop/pdsproject/Editor/TextEdit.h
 QMainWindow
 -
 QMap
@@ -114,49 +114,49 @@ QMap
 QPointer
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_LoginWindow.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_LoginWindow.cpp
 ../../../LoginWindow.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/LoginWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/LoginWindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_RegistrationWindow.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_RegistrationWindow.cpp
 ../../../RegistrationWindow.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/RegistrationWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/RegistrationWindow.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_Server.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_Server.cpp
 ../../../Server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/Server.h
+/home/gianluca/Desktop/pdsproject/Editor/Server.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_TextEdit.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_TextEdit.cpp
 ../../../TextEdit.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/TextEdit.h
+/home/gianluca/Desktop/pdsproject/Editor/TextEdit.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/mocs_compilation.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/mocs_compilation.cpp
 EWIEGA46WW/moc_LoginWindow.cpp
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_LoginWindow.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_LoginWindow.cpp
 EWIEGA46WW/moc_RegistrationWindow.cpp
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_RegistrationWindow.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_RegistrationWindow.cpp
 EWIEGA46WW/moc_Server.cpp
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_Server.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_Server.cpp
 EWIEGA46WW/moc_TextEdit.cpp
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_TextEdit.cpp
+/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/Editor_autogen/EWIEGA46WW/moc_TextEdit.cpp
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/main.cpp
+/home/gianluca/Desktop/pdsproject/Editor/main.cpp
 QApplication
 -
 QCommandLineParser
@@ -164,7 +164,7 @@ QCommandLineParser
 QCommandLineOption
 -
 LoginWindow.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/Esempi QT/Editor/LoginWindow.h
+/home/gianluca/Desktop/pdsproject/Editor/LoginWindow.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QCommandLineOption
 qcommandlineoption.h

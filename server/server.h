@@ -3,6 +3,7 @@
 
 #include <QDialog>
 #include <QString>
+#include <QTcpSocket>
 
 QT_BEGIN_NAMESPACE
 class QTcpServer;
@@ -18,10 +19,13 @@ public:
 
 private slots:
     void sessionOpened();
-
+    void checkUser();
+    void getConnectedSocket();
 private:
     Ui::Server *ui;
     QTcpServer *tcpServer = nullptr;
+    QTcpSocket *active_socket = nullptr;
+    QDataStream in;
     QNetworkSession *networkSession = nullptr;
 };
 
