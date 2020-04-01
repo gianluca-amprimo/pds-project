@@ -22,6 +22,7 @@ private slots:
     void checkUser();
     void getConnectedSocket();
 private:
+    void printConsole(std::string &&msg, bool err = false);
     Ui::Server *ui;
     QTcpServer *tcpServer = nullptr;
     QTcpSocket *active_socket = nullptr;

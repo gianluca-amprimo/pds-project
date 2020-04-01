@@ -34,20 +34,20 @@ Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
         networkSession = new QNetworkSession(config, this);
         connect(networkSession, &QNetworkSession::opened, this, &Server::sessionOpened);
 
-        ui->stato->setText(tr("Apro la sessione di rete ..."));
+        printConsole("Ripristino la sessione di rete precedente ...");
         networkSession->open();
     } else {
         sessionOpened();
     }
     // connect(tcpServer, &QTcpServer::newConnection, this, CALLBACK FOR NEW CONNECTION);
     connect(tcpServer, &QTcpServer::newConnection, this, &Server::getConnectedSocket);
-    connect(ui->esci, &QAbstractButton::clicked, this, &QWidget::close);
-
 
     setWindowTitle(QGuiApplication::applicationDisplayName());
 }
 
 void Server::sessionOpened() {
+    int port = 4848;
+
     // Save the used configuration
     if (networkSession) {
         QNetworkConfiguration config = networkSession->configuration();
@@ -64,10 +64,8 @@ void Server::sessionOpened() {
     }
 
     tcpServer = new QTcpServer(this);
-    if (!tcpServer->listen()) {
-        QMessageBox::critical(this, tr("PiDiEsse [server]"),
-                              tr("Impossibile avviare il server: %1.")
-                                      .arg(tcpServer->errorString()));
+    if (!tcpServer->listen(QHostAddress::Any, port)) {
+        printConsole("Impossibile avviare il server - " + tcpServer->errorString().toStdString(), true);
         close();
         return;
     }
@@ -83,9 +81,7 @@ void Server::sessionOpened() {
     // If we did not find one, use IPv4 localhost
     if (ipAddress.isEmpty())
         ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
-    ui->stato->setText(tr("Il server si trova qui\n———————————————\nindirizzo IP: %1\nporta: %2\n———————————————\n"
-                            "Ora puoi connettere i client.")
-                                 .arg(ipAddress).arg(tcpServer->serverPort()));
+    printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" + QString::number(tcpServer->serverPort()).toStdString() + "</u>");
 }
 
 Server::~Server() {
@@ -134,7 +130,25 @@ void Server::checkUser() {
 }
 
 void Server::getConnectedSocket(){
-
     active_socket=tcpServer->nextPendingConnection();
     connect(active_socket, &QIODevice::readyRead, this, &Server::checkUser);
+}
+
+
+void Server::printConsole(std::string &&msg, bool err) {
+    // Get the current time
+    std::time_t t = std::time(nullptr);
+    std::string timeStr;
+    char mbstr[100];
+    std::strftime(mbstr, sizeof(mbstr), "%T", std::localtime(&t));
+
+    // Print information on the graphical console
+    if(err)
+        this->ui->console->insertHtml(QString::fromStdString(
+                "<p style=\"color:red;\"><b>" + std::string(mbstr) + "</b> " + msg + "</p>"
+                ));
+    else
+        this->ui->console->insertHtml(QString::fromStdString(
+                "<p><b>" + std::string(mbstr) + "</b> " + msg + "</p>"
+                ));
 }
