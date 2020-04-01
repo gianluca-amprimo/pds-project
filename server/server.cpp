@@ -89,7 +89,6 @@ Server::~Server() {
 }
 
 void Server::checkUser() {
-
     in.setDevice(active_socket);
     in.setVersion(QDataStream::Qt_4_0);
 
@@ -100,17 +99,17 @@ void Server::checkUser() {
 
     if (!in.commitTransaction())
         return;
+    printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" + QString::number(active_socket->peerPort()).toStdString() + "] " + credentials.toStdString());
 
-
-    //qui bisognerebbe controllare le credenziali, per verificare che funzioni lo scambio mi limito a rimandargliele indietro
+    // qui bisognerebbe controllare le credenziali, per verificare che funzioni lo scambio mi limito a rimandargliele indietro
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
-            qDebug() << "tcp socket invalid";
+            printConsole("Socket TCP non valida", true);
             return;
         }
         if (!active_socket->isOpen()) {
-            qDebug() << "tcp socket not open";
+            printConsole("Socket TCP non aperta", true);
             return;
         }
 
@@ -120,7 +119,7 @@ void Server::checkUser() {
 
         out << QString(credentials);
         if (!active_socket->write(block)) {
-            QMessageBox::information(this, tr("Server"), tr("Could not send message"));
+            printConsole("Impossibile rispondere al client", true);
         }
         active_socket->flush();
         connect(active_socket, &QAbstractSocket::disconnected,
@@ -145,10 +144,10 @@ void Server::printConsole(std::string &&msg, bool err) {
     // Print information on the graphical console
     if(err)
         this->ui->console->insertHtml(QString::fromStdString(
-                "<p style=\"color:red;\"><b>" + std::string(mbstr) + "</b> " + msg + "</p>"
+                "<p style=\"color:red;\"><b>" + std::string(mbstr) + "</b> " + msg + "<br></p>"
                 ));
     else
         this->ui->console->insertHtml(QString::fromStdString(
-                "<p><b>" + std::string(mbstr) + "</b> " + msg + "</p>"
+                "<p><b>" + std::string(mbstr) + "</b> " + msg + "<br></p>"
                 ));
 }
