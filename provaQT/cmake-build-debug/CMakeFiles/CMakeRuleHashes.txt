@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+4470070a26fb57ea67386d7b55b69391 CMakeFiles/provaQT_autogen
