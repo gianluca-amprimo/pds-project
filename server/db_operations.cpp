@@ -18,7 +18,7 @@ int checkUser(std::string usr, std::string password){
     char* errMsg = nullptr;
 
     // open database connection
-    rc = sqlite3_open("/Users/andreafoderaro/CLionProjects/PDS/sql/sql_db.db", &db);
+    rc = sqlite3_open("sql_db.db", &db);
 
     // check the connection has been established
     if (rc != SQLITE_OK) {
@@ -68,7 +68,7 @@ int readFiles(){
     char* errMsg = nullptr;
 
     // open database connection
-    rc = sqlite3_open("/Users/andreafoderaro/CLionProjects/PDS/sql/sql_db.db", &db);
+    rc = sqlite3_open("sql_db.db", &db);
 
     // check the connection has been established
     if (rc != SQLITE_OK) {
