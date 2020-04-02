@@ -73,6 +73,7 @@ void Server::sessionOpened() {
         return;
     }
     QString ipAddress;
+#ifndef LOCALHOST
     QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
     // use the first non-localhost IPv4 address
     for (const auto & i : ipAddressesList) {
@@ -80,10 +81,14 @@ void Server::sessionOpened() {
             ipAddress = i.toString();
             break;
         }
-    }
+    }*/
+
     // If we did not find one, use IPv4 localhost
     if (ipAddress.isEmpty())
         ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+#else
+    ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+#endif
     printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" + QString::number(tcpServer->serverPort()).toStdString() + "</u>");
 }
 

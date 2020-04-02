@@ -1,6 +1,8 @@
 #ifndef SERVER_H
 #define SERVER_H
 
+#define LOCALHOST 1
+
 #include <QDialog>
 #include <QString>
 #include <QTcpSocket>
