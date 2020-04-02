@@ -2,8 +2,11 @@
 #include <QtNetwork>
 #include <QtCore>
 #include <iostream>
+#include <sstream>
+
 #include "server.h"
 #include "ui_server.h"
+#include "db_operations.cpp"
 
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
@@ -101,7 +104,23 @@ void Server::checkUser() {
         return;
     printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" + QString::number(active_socket->peerPort()).toStdString() + "] " + credentials.toStdString());
 
-    // qui bisognerebbe controllare le credenziali, per verificare che funzioni lo scambio mi limito a rimandargliele indietro
+    // TODO: qui bisognerebbe controllare le credenziali,
+    //  per verificare che funzioni lo scambio mi limito a rimandargliele indietro
+    std::string usr_pass = credentials.toStdString(); // converto QString in stringa standard
+
+    // divide the string username_password in two separate string
+    std::istringstream iss(usr_pass);
+    std::string username, password;
+    std::getline(iss, username, '_');
+    iss >> password;
+    // std::cout << username << std::endl << password << std::endl;
+
+    // check the credentials
+    QString loginResult;
+    if(::checkUser(username, password))
+        loginResult = "Success";
+    else
+        loginResult = "Login Failed";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -117,7 +136,7 @@ void Server::checkUser() {
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
 
-        out << QString(credentials);
+        out << QString(loginResult);
         if (!active_socket->write(block)) {
             printConsole("Impossibile rispondere al client", true);
         }

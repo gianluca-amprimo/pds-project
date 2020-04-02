@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(server)
 
 # localizzare il path di Qt nell'attuale sistema operativo
-set(CMAKE_PREFIX_PATH "/home/pioniere/Qt/5.12.7/gcc_64/")
+# set(CMAKE_PREFIX_PATH "/home/pioniere/Qt/5.12.7/gcc_64/")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
@@ -15,12 +15,15 @@ find_package(Qt5Network REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Charts REQUIRED)
 
+find_package(sqlite3 REQUIRED)
+
 list(APPEND LIBRARIES
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
         Qt5::Network
-        Qt5::Charts )
+        Qt5::Charts
+        sqlite3 )
 list(REMOVE_DUPLICATES LIBRARIES)
 
 add_executable(server
