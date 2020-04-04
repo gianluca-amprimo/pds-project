@@ -13,17 +13,18 @@ find_package(Qt5Core REQUIRED)
 find_package(Qt5Gui REQUIRED)
 find_package(Qt5Network REQUIRED)
 find_package(Qt5Widgets REQUIRED)
-find_package(Qt5Charts REQUIRED)
+#find_package(Qt5Charts REQUIRED)
 
-find_package(sqlite3 REQUIRED)
+find_package(SQLite3 REQUIRED)
 
 list(APPEND LIBRARIES
         Qt5::Core
         Qt5::Gui
         Qt5::Widgets
         Qt5::Network
-        Qt5::Charts
-        sqlite3 )
+#        Qt5::Charts
+        sqlite3
+        )
 list(REMOVE_DUPLICATES LIBRARIES)
 
 add_executable(server

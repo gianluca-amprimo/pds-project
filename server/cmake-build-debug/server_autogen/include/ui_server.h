@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'server.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.7
+** Created by: Qt User Interface Compiler version 5.9.5
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -50,27 +50,20 @@ public:
         brush2.setStyle(Qt::SolidPattern);
         palette.setBrush(QPalette::Active, QPalette::Highlight, brush2);
         palette.setBrush(QPalette::Active, QPalette::HighlightedText, brush);
-        QBrush brush3(QColor(243, 243, 243, 128));
-        brush3.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Active, QPalette::PlaceholderText, brush3);
         palette.setBrush(QPalette::Inactive, QPalette::Text, brush);
         palette.setBrush(QPalette::Inactive, QPalette::Base, brush1);
         palette.setBrush(QPalette::Inactive, QPalette::Highlight, brush2);
         palette.setBrush(QPalette::Inactive, QPalette::HighlightedText, brush);
-        palette.setBrush(QPalette::Inactive, QPalette::PlaceholderText, brush3);
-        QBrush brush4(QColor(190, 190, 190, 255));
+        QBrush brush3(QColor(190, 190, 190, 255));
+        brush3.setStyle(Qt::SolidPattern);
+        palette.setBrush(QPalette::Disabled, QPalette::Text, brush3);
+        QBrush brush4(QColor(239, 239, 239, 255));
         brush4.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Text, brush4);
-        QBrush brush5(QColor(239, 239, 239, 255));
+        palette.setBrush(QPalette::Disabled, QPalette::Base, brush4);
+        QBrush brush5(QColor(145, 145, 145, 255));
         brush5.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Base, brush5);
-        QBrush brush6(QColor(145, 145, 145, 255));
-        brush6.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::Highlight, brush6);
+        palette.setBrush(QPalette::Disabled, QPalette::Highlight, brush5);
         palette.setBrush(QPalette::Disabled, QPalette::HighlightedText, brush);
-        QBrush brush7(QColor(0, 0, 0, 128));
-        brush7.setStyle(Qt::SolidPattern);
-        palette.setBrush(QPalette::Disabled, QPalette::PlaceholderText, brush7);
         console->setPalette(palette);
         QFont font;
         font.setFamily(QStringLiteral("Fira Mono"));

@@ -6,489 +6,465 @@
 
 #IncludeRegexTransform: 
 
-/home/gianluca/Desktop/pdsproject/client/client.cpp
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/client.cpp
 QtWidgets
 -
 QtNetwork
 -
 QtCore
 -
-client.h
-/home/gianluca/Desktop/pdsproject/client/client.h
-ui_login.h
-/home/gianluca/Desktop/pdsproject/client/ui_login.h
-iostream
--
 string
 -
+client.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/client.h
+ui_loginwindow.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/ui_loginwindow.h
 
-/home/gianluca/Desktop/pdsproject/client/client.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/client.h
 QDataStream
 -
 QDialog
 -
 QTcpSocket
 -
+QStatusBar
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QByteArray
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QByteArray
 qbytearray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QCryptographicHash
-qcryptographichash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcryptographichash.h
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QDataStream
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDataStream
 qdatastream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QEvent
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QEvent
 qcoreevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QFlags
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QFlags
 qflags.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qflags.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QHash
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QHash
 qhash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhash.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QIODevice
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QIODevice
 qiodevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QList
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QList
 qlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QMargins
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QMargins
 qmargins.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QMetaType
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaType
 qmetatype.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QObject
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QObject
 qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QPointF
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QPointF
 qpoint.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QRect
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QRect
 qrect.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrect.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QScopedPointer
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QScopedPointer
 qscopedpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QSharedDataPointer
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QSharedDataPointer
 qshareddata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QSize
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QSize
 qsize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QSizeF
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QSizeF
 qsize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QString
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QString
 qstring.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstring.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QStringList
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QStringList
 qstringlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QUrl
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QUrl
 qurl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurl.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QVariant
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QVariant
 qvariant.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QVector
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QVector
 qvector.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvector.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCore
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore
 QtCore/QtCoreDepends
 -
 qglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h
 qabstractanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
 qabstracteventdispatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracteventdispatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracteventdispatcher.h
 qabstractitemmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 qabstractnativeeventfilter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractnativeeventfilter.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractnativeeventfilter.h
 qabstractproxymodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractproxymodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h
 qabstractstate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractstate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractstate.h
 qabstracttransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracttransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracttransition.h
 qalgorithms.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 qanimationgroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qanimationgroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qanimationgroup.h
 qarraydata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydata.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 qarraydataops.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydataops.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydataops.h
 qarraydatapointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydatapointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydatapointer.h
 qatomic.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
 qbasictimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbasictimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
 qbitarray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbitarray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbitarray.h
 qbuffer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbuffer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbuffer.h
 qbytearray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
 qbytearraylist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
 qbytearraymatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraymatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraymatcher.h
 qcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcache.h
-qcborarray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborarray.h
-qcborcommon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborcommon.h
-qcbormap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcbormap.h
-qcborstream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborstream.h
-qcborvalue.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborvalue.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcache.h
 qchar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qchar.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
 qcollator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcollator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcollator.h
 qcommandlineoption.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineoption.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcommandlineoption.h
 qcommandlineparser.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineparser.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcommandlineparser.h
 qcompilerdetection.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h
 qcontainerfwd.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h
 qcontiguouscache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 qcoreapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h
 qcoreevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h
 qcryptographichash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcryptographichash.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcryptographichash.h
 qdatastream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h
 qdatetime.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatetime.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h
 qdeadlinetimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdeadlinetimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdeadlinetimer.h
 qdebug.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdebug.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h
 qdir.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdir.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h
 qdiriterator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdiriterator.h
 qeasingcurve.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeasingcurve.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeasingcurve.h
 qelapsedtimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qelapsedtimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qelapsedtimer.h
 qendian.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qendian.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qendian.h
 qeventloop.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventloop.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h
 qeventtransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventtransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeventtransition.h
 qexception.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qexception.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qexception.h
 qfactoryinterface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfactoryinterface.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfactoryinterface.h
 qfile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
 qfiledevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
 qfileinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h
 qfileselector.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileselector.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileselector.h
 qfilesystemwatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfilesystemwatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfilesystemwatcher.h
 qfinalstate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfinalstate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfinalstate.h
 qflags.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qflags.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
 qfuture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuture.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuture.h
 qfutureinterface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfutureinterface.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfutureinterface.h
 qfuturesynchronizer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturesynchronizer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturesynchronizer.h
 qfuturewatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturewatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturewatcher.h
 qgenericatomic.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h
 qglobalstatic.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h
 qhash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhash.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h
 qhashfunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h
 qhistorystate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhistorystate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhistorystate.h
 qidentityproxymodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qidentityproxymodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qidentityproxymodel.h
 qiodevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
 qisenum.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qisenum.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h
 qitemselectionmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h
 qiterator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiterator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h
 qjsonarray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonarray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonarray.h
 qjsondocument.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsondocument.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsondocument.h
 qjsonobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h
 qjsonvalue.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonvalue.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h
 qlibrary.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibrary.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlibrary.h
 qlibraryinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibraryinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlibraryinfo.h
 qline.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qline.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h
 qlinkedlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlinkedlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlinkedlist.h
 qlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
 qlocale.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
 qlockfile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlockfile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlockfile.h
 qloggingcategory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qloggingcategory.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qloggingcategory.h
 qmap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmap.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
 qmargins.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
 qmath.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmath.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
 qmessageauthenticationcode.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmessageauthenticationcode.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmessageauthenticationcode.h
 qmetaobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetaobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmetaobject.h
 qmetatype.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
 qmimedata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedata.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimedata.h
 qmimedatabase.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedatabase.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimedatabase.h
 qmimetype.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimetype.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimetype.h
 qmutex.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmutex.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
 qnamespace.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnamespace.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
 qnumeric.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnumeric.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h
 qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h
 qobjectcleanuphandler.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectcleanuphandler.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectcleanuphandler.h
 qobjectdefs.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h
 qoperatingsystemversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qoperatingsystemversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qoperatingsystemversion.h
 qpair.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpair.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h
 qparallelanimationgroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qparallelanimationgroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qparallelanimationgroup.h
 qpauseanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpauseanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpauseanimation.h
 qplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h
 qpluginloader.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpluginloader.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpluginloader.h
 qpoint.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h
 qpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpointer.h
 qprocess.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocess.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qprocess.h
 qprocessordetection.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h
 qpropertyanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpropertyanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpropertyanimation.h
 qqueue.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qqueue.h
-qrandom.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrandom.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qqueue.h
 qreadwritelock.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qreadwritelock.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qreadwritelock.h
 qrect.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrect.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h
 qrefcount.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrefcount.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h
 qregexp.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregexp.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h
 qregularexpression.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h
 qresource.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresource.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qresource.h
 qresultstore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresultstore.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qresultstore.h
 qrunnable.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrunnable.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrunnable.h
 qsavefile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsavefile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsavefile.h
 qscopedpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h
 qscopedvaluerollback.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedvaluerollback.h
-qscopeguard.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopeguard.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedvaluerollback.h
 qsemaphore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsemaphore.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsemaphore.h
 qsequentialanimationgroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsequentialanimationgroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsequentialanimationgroup.h
 qset.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qset.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h
 qsettings.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsettings.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h
 qshareddata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
 qsharedmemory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedmemory.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedmemory.h
 qsharedpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h
 qsignalmapper.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignalmapper.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignalmapper.h
 qsignaltransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignaltransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignaltransition.h
 qsize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h
 qsocketnotifier.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsocketnotifier.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsocketnotifier.h
 qsortfilterproxymodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsortfilterproxymodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsortfilterproxymodel.h
 qstack.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstack.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstack.h
 qstandardpaths.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstandardpaths.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h
 qstate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstate.h
 qstatemachine.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstatemachine.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstatemachine.h
 qstorageinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstorageinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstorageinfo.h
 qstring.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstring.h
-qstringalgorithms.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h
 qstringbuilder.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringbuilder.h
 qstringlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h
 qstringlistmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlistmodel.h
-qstringliteral.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlistmodel.h
 qstringmatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h
-qstringview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringview.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h
 qsysinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h
 qsystemdetection.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h
 qsystemsemaphore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemsemaphore.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemsemaphore.h
 qtemporarydir.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporarydir.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporarydir.h
 qtemporaryfile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporaryfile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporaryfile.h
 qtextboundaryfinder.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextboundaryfinder.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextboundaryfinder.h
 qtextcodec.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextcodec.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextcodec.h
 qtextstream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextstream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
 qthread.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthread.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
 qthreadpool.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadpool.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
 qthreadstorage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadstorage.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadstorage.h
 qtimeline.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimeline.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimeline.h
 qtimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
 qtimezone.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimezone.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimezone.h
 qtranslator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtranslator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
 qtypeinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
 qtypetraits.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypetraits.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h
 qurl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurl.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
 qurlquery.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurlquery.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
 quuid.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/quuid.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h
 qvariant.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
 qvariantanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariantanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariantanimation.h
 qvarlengtharray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h
 qvector.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvector.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
 qversionnumber.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversionnumber.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qversionnumber.h
 qversiontagging.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
 qwaitcondition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwaitcondition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qwaitcondition.h
 qwineventnotifier.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwineventnotifier.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qwineventnotifier.h
 qxmlstream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qxmlstream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qxmlstream.h
 qtcoreversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtcoreversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtcoreversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCoreDepends
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCoreDepends
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracteventdispatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracteventdispatcher.h
 QtCore/qobject.h
 -
 QtCore/qeventloop.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h
 QtCore/qvariant.h
 -
 QtCore/qobject.h
@@ -498,41 +474,41 @@ QtCore/qhash.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractnativeeventfilter.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractnativeeventfilter.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractproxymodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h
 QtCore/qabstractitemmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractstate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractstate.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracttransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracttransition.h
 QtCore/qobject.h
 -
 QtCore/qlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h
 QtCore/qglobal.h
 -
 intrin.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qanimationgroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qanimationgroup.h
 QtCore/qabstractanimation.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydata.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h
 QtCore/qrefcount.h
 -
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydataops.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydataops.h
 QtCore/qarraydata.h
 -
 new
@@ -540,31 +516,31 @@ new
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydatapointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydatapointer.h
 QtCore/qarraydataops.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h
 QtCore/qglobal.h
 -
 QtCore/qbasicatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_bootstrap.h
 QtCore/qgenericatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h
 QtCore/qgenericatomic.h
 -
 atomic
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_msvc.h
 QtCore/qgenericatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasicatomic.h
 QtCore/qatomic.h
 -
 QtCore/qatomic_bootstrap.h
@@ -574,23 +550,23 @@ QtCore/qatomic_cxx11.h
 QtCore/qatomic_msvc.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbasictimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h
 QtCore/qglobal.h
 -
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbitarray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbitarray.h
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbuffer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbuffer.h
 QtCore/qiodevice.h
 -
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h
 QtCore/qrefcount.h
 -
 QtCore/qnamespace.h
@@ -607,86 +583,28 @@ string
 -
 iterator
 -
+QtCore/qstring.h
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h
 QtCore/qlist.h
 -
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraymatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraymatcher.h
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcache.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcache.h
 QtCore/qhash.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborarray.h
-QtCore/qcborvalue.h
--
-initializer_list
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborcommon.h
-QtCore/qobjectdefs.h
--
-QtCore/qmetatype.h
--
-QtCore/qdebug.h
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcbormap.h
-QtCore/qcborvalue.h
--
-QtCore/qpair.h
--
-initializer_list
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborstream.h
-QtCore/qbytearray.h
--
-QtCore/qcborcommon.h
--
-QtCore/qfloat16.h
--
-QtCore/qscopedpointer.h
--
-QtCore/qstring.h
--
-QtCore/qstringview.h
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborvalue.h
-QtCore/qbytearray.h
--
-QtCore/qdatetime.h
--
-QtCore/qcborcommon.h
--
-QtCore/qregularexpression.h
--
-QtCore/qstring.h
--
-QtCore/qstringview.h
--
-QtCore/qurl.h
--
-QtCore/quuid.h
--
-QtCore/qvariant.h
--
-QtCore/qvector.h
--
-compare
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qchar.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcollator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcollator.h
 QtCore/qstring.h
 -
 QtCore/qstringlist.h
@@ -694,13 +612,13 @@ QtCore/qstringlist.h
 QtCore/qlocale.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineoption.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcommandlineoption.h
 QtCore/qstringlist.h
 -
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineparser.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcommandlineparser.h
 QtCore/qstringlist.h
 -
 QtCore/qcoreapplication.h
@@ -708,21 +626,21 @@ QtCore/qcoreapplication.h
 QtCore/qcommandlineoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h
 QtCore/qglobal.h
 -
 utility
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig-bootstrapped.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qconfig.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qconfig.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h
 QtCore/qatomic.h
 -
 limits.h
@@ -730,7 +648,7 @@ limits.h
 new
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
@@ -744,7 +662,7 @@ QtCore/qeventloop.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h
 QtCore/qnamespace.h
 -
 QtCore/qbytearray.h
@@ -752,13 +670,13 @@ QtCore/qbytearray.h
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcryptographichash.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcryptographichash.h
 QtCore/qbytearray.h
 -
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatastream.h
 QtCore/qscopedpointer.h
 -
 QtCore/qiodevice.h
@@ -766,7 +684,7 @@ QtCore/qiodevice.h
 QtCore/qpair.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatetime.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h
 QtCore/qstring.h
 -
 QtCore/qnamespace.h
@@ -776,21 +694,19 @@ QtCore/qshareddata.h
 limits
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdeadlinetimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdeadlinetimer.h
 QtCore/qelapsedtimer.h
 -
 QtCore/qmetatype.h
 -
 QtCore/qnamespace.h
 -
-QtCore/qpair.h
--
 limits
 -
 chrono
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdebug.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdebug.h
 QtCore/qalgorithms.h
 -
 QtCore/qhash.h
@@ -822,7 +738,7 @@ map
 utility
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdir.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdir.h
 QtCore/qstring.h
 -
 QtCore/qfileinfo.h
@@ -832,11 +748,11 @@ QtCore/qstringlist.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdiriterator.h
 QtCore/qdir.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeasingcurve.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeasingcurve.h
 QtCore/qglobal.h
 -
 QtCore/qobjectdefs.h
@@ -848,13 +764,11 @@ QtCore/qlist.h
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qelapsedtimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qelapsedtimer.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qendian.h
-QtCore/qfloat16.h
--
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qendian.h
 QtCore/qglobal.h
 -
 stdlib.h
@@ -862,17 +776,19 @@ stdlib.h
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventloop.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventtransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qeventtransition.h
 QtCore/qabstracttransition.h
 -
 QtCore/qcoreevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qexception.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qexception.h
+QtCore/qglobal.h
+-
 QtCore/qatomic.h
 -
 QtCore/qshareddata.h
@@ -880,13 +796,13 @@ QtCore/qshareddata.h
 exception
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfactoryinterface.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfactoryinterface.h
 QtCore/qobject.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h
 QtCore/qfiledevice.h
 -
 QtCore/qstring.h
@@ -894,13 +810,13 @@ QtCore/qstring.h
 stdio.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfiledevice.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h
 QtCore/qfile.h
 -
 QtCore/qlist.h
@@ -910,37 +826,27 @@ QtCore/qshareddata.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileselector.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileselector.h
 QtCore/QObject
 -
 QtCore/QStringList
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfilesystemwatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfilesystemwatcher.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfinalstate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfinalstate.h
 QtCore/qabstractstate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qflags.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qflags.h
 QtCore/qglobal.h
 -
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfloat16.h
-QtCore/qglobal.h
--
-QtCore/qmetatype.h
--
-string.h
--
-immintrin.h
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuture.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuture.h
 QtCore/qglobal.h
 -
 QtCore/qfutureinterface.h
@@ -948,7 +854,7 @@ QtCore/qfutureinterface.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfutureinterface.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfutureinterface.h
 QtCore/qrunnable.h
 -
 QtCore/qmutex.h
@@ -958,30 +864,28 @@ QtCore/qexception.h
 QtCore/qresultstore.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturesynchronizer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturesynchronizer.h
 QtCore/qfuture.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturewatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturewatcher.h
 QtCore/qfuture.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h
 QtCore/qglobal.h
 -
 QtCore/qtypeinfo.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h
 type_traits
 -
 cstddef
 -
 utility
--
-assert.h
 -
 stddef.h
 -
@@ -1016,7 +920,7 @@ QtCore/qnumeric.h
 QtCore/qversiontagging.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1024,7 +928,7 @@ QtCore/qatomic.h
 QtCore/qmutex.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhash.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h
 QtCore/qchar.h
 -
 QtCore/qiterator.h
@@ -1040,23 +944,23 @@ initializer_list
 algorithm
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h
-QtCore/qstring.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhashfunctions.h
+QtCore/qchar.h
 -
 QtCore/qpair.h
 -
 numeric
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhistorystate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qhistorystate.h
 QtCore/qabstractstate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qidentityproxymodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qidentityproxymodel.h
 QtCore/qabstractproxymodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h
 QtCore/qglobal.h
 -
 QtCore/qobject.h
@@ -1068,11 +972,11 @@ QtCore/qscopedpointer.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qisenum.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h
 QtCore/qglobal.h
 -
 QtCore/qset.h
@@ -1084,11 +988,11 @@ QtCore/qlist.h
 QtCore/qabstractitemmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiterator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonarray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonarray.h
 QtCore/qjsonvalue.h
 -
 QtCore/qiterator.h
@@ -1096,11 +1000,11 @@ QtCore/qiterator.h
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsondocument.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsondocument.h
 QtCore/qjsonvalue.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h
 QtCore/qjsonvalue.h
 -
 QtCore/qiterator.h
@@ -1110,17 +1014,17 @@ QtCore/qpair.h
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonvalue.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibrary.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlibrary.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibraryinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlibraryinfo.h
 QtCore/qstring.h
 -
 QtCore/qdatetime.h
@@ -1128,11 +1032,11 @@ QtCore/qdatetime.h
 QtCore/qversionnumber.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qline.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlinkedlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlinkedlist.h
 QtCore/qiterator.h
 -
 QtCore/qrefcount.h
@@ -1146,7 +1050,7 @@ algorithm
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h
 QtCore/qalgorithms.h
 -
 QtCore/qiterator.h
@@ -1178,7 +1082,7 @@ QtCore/qbytearraylist.h
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h
 QtCore/qvariant.h
 -
 QtCore/qstring.h
@@ -1188,23 +1092,23 @@ QtCore/qobjectdefs.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlockfile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlockfile.h
 QtCore/qstring.h
 -
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlogging.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qloggingcategory.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qloggingcategory.h
 QtCore/qglobal.h
 -
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmap.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h
 QtCore/qiterator.h
 -
 QtCore/qlist.h
@@ -1224,11 +1128,11 @@ functional
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmath.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h
 QtCore/qglobal.h
 -
 QtCore/qalgorithms.h
@@ -1236,17 +1140,17 @@ QtCore/qalgorithms.h
 cmath
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmessageauthenticationcode.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmessageauthenticationcode.h
 QtCore/qcryptographichash.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetaobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmetaobject.h
 QtCore/qobjectdefs.h
 -
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1266,29 +1170,27 @@ list
 map
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedata.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimedata.h
 QtCore/qvariant.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedatabase.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimedatabase.h
 QtCore/qmimetype.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimetype.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimetype.h
 QtCore/qglobal.h
--
-QtCore/qobjectdefs.h
 -
 QtCore/qshareddata.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmutex.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1300,15 +1202,15 @@ chrono
 limits
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnamespace.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnumeric.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qnumeric.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h
 QtCore/qobjectdefs.h
 -
 QtCore/qstring.h
@@ -1328,39 +1230,39 @@ QtCore/qobject_impl.h
 chrono
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectcleanuphandler.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectcleanuphandler.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h
 QtCore/qnamespace.h
 -
 QtCore/qobjectdefs_impl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qoperatingsystemversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qoperatingsystemversion.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpair.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qparallelanimationgroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qparallelanimationgroup.h
 QtCore/qanimationgroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpauseanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpauseanimation.h
 QtCore/qanimationgroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h
 QtCore/qobject.h
 -
 QtCore/qpointer.h
@@ -1368,7 +1270,7 @@ QtCore/qpointer.h
 QtCore/qjsonobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpluginloader.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpluginloader.h
 QtCore/qglobal.h
 -
 QtCore/qlibrary.h
@@ -1376,17 +1278,17 @@ QtCore/qlibrary.h
 QtCore/qplugin.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpoint.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpointer.h
 QtCore/qsharedpointer.h
 -
 QtCore/qtypeinfo.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocess.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qprocess.h
 QtCore/qiodevice.h
 -
 QtCore/qstringlist.h
@@ -1396,31 +1298,23 @@ QtCore/qshareddata.h
 functional
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpropertyanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpropertyanimation.h
 QtCore/qvariantanimation.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qqueue.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qqueue.h
 QtCore/qlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrandom.h
-QtCore/qglobal.h
--
-algorithm
--
-random
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qreadwritelock.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qreadwritelock.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrect.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h
 QtCore/qmargins.h
 -
 QtCore/qsize.h
@@ -1428,17 +1322,17 @@ QtCore/qsize.h
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrefcount.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h
 QtCore/qatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregexp.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qregularexpression.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
@@ -1450,7 +1344,7 @@ QtCore/qshareddata.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresource.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qresource.h
 QtCore/qstring.h
 -
 QtCore/qlocale.h
@@ -1462,17 +1356,19 @@ QtCore/qlist.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresultstore.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qresultstore.h
+QtCore/qglobal.h
+-
 QtCore/qmap.h
 -
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrunnable.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrunnable.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsavefile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsavefile.h
 QtCore/qglobal.h
 -
 QtCore/qfiledevice.h
@@ -1480,29 +1376,25 @@ QtCore/qfiledevice.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h
 QtCore/qglobal.h
 -
 stdlib.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedvaluerollback.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedvaluerollback.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopeguard.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsemaphore.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsemaphore.h
-QtCore/qglobal.h
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsequentialanimationgroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsequentialanimationgroup.h
 QtCore/qanimationgroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qset.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h
 QtCore/qhash.h
 -
 initializer_list
@@ -1510,7 +1402,7 @@ initializer_list
 iterator
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsettings.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h
 QtCore/qobject.h
 -
 QtCore/qvariant.h
@@ -1522,7 +1414,7 @@ QtCore/qscopedpointer.h
 ctype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1532,11 +1424,11 @@ QtCore/qhash.h
 QtCore/qhashfunctions.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedmemory.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedmemory.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1546,7 +1438,7 @@ QtCore/qshareddata.h
 QtCore/qsharedpointer_impl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h
 new
 -
 QtCore/qatomic.h
@@ -1558,43 +1450,41 @@ QtCore/qhash.h
 QtCore/qhashfunctions.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignalmapper.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignalmapper.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignaltransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignaltransition.h
 QtCore/qabstracttransition.h
 -
 QtCore/qmetaobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsize.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsocketnotifier.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsocketnotifier.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsortfilterproxymodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsortfilterproxymodel.h
 QtCore/qabstractproxymodel.h
 -
 QtCore/qregexp.h
 -
-QtCore/qregularexpression.h
--
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstack.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstack.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstandardpaths.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h
 QtCore/qstringlist.h
 -
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstate.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstate.h
 QtCore/qabstractstate.h
 -
 QtCore/qlist.h
@@ -1602,7 +1492,7 @@ QtCore/qlist.h
 QtCore/qmetaobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstatemachine.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstatemachine.h
 QtCore/qstate.h
 -
 QtCore/qcoreevent.h
@@ -1616,7 +1506,7 @@ QtCore/qset.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstorageinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstorageinfo.h
 QtCore/qbytearray.h
 -
 QtCore/qdir.h
@@ -1630,7 +1520,7 @@ QtCore/qstring.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstring.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h
 QtCore/qchar.h
 -
 QtCore/qbytearray.h
@@ -1638,12 +1528,6 @@ QtCore/qbytearray.h
 QtCore/qrefcount.h
 -
 QtCore/qnamespace.h
--
-QtCore/qstringliteral.h
--
-QtCore/qstringalgorithms.h
--
-QtCore/qstringview.h
 -
 string
 -
@@ -1654,11 +1538,7 @@ stdarg.h
 QtCore/qstringbuilder.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h
-QtCore/qnamespace.h
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringbuilder.h
 QtCore/qstring.h
 -
 QtCore/qbytearray.h
@@ -1666,7 +1546,7 @@ QtCore/qbytearray.h
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h
 QtCore/qlist.h
 -
 QtCore/qalgorithms.h
@@ -1678,37 +1558,21 @@ QtCore/qstring.h
 QtCore/qstringmatcher.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlistmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlistmodel.h
 QtCore/qabstractitemmodel.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h
-QtCore/qarraydata.h
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringview.h
-QtCore/qchar.h
--
-QtCore/qbytearray.h
--
-QtCore/qstringliteral.h
--
-QtCore/qstringalgorithms.h
--
-string
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsysinfo.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h
 QtCore/qglobal.h
 -
 TargetConditionals.h
@@ -1718,45 +1582,45 @@ Availability.h
 AvailabilityMacros.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemsemaphore.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemsemaphore.h
 QtCore/qstring.h
 -
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qt_windows.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qt_windows.h
 windows.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtcore-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtcoreversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtcoreversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporarydir.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporarydir.h
 QtCore/qdir.h
 -
-QtCore/qscopedpointer.h
+QtCore/QScopedPointer
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporaryfile.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporaryfile.h
 QtCore/qiodevice.h
 -
 QtCore/qfile.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextboundaryfinder.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextboundaryfinder.h
 QtCore/qchar.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextcodec.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextcodec.h
 QtCore/qstring.h
 -
 QtCore/qlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextstream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
@@ -1770,17 +1634,13 @@ QtCore/qscopedpointer.h
 stdio.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthread.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h
 QtCore/qobject.h
--
-future
--
-functional
 -
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadpool.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h
 QtCore/qglobal.h
 -
 QtCore/qthread.h
@@ -1788,21 +1648,17 @@ QtCore/qthread.h
 QtCore/qrunnable.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadstorage.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadstorage.h
 QtCore/qglobal.h
 -
-QtCore/qscopedpointer.h
--
-type_traits
--
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimeline.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimeline.h
 QtCore/qeasingcurve.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimer.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimer.h
 QtCore/qglobal.h
 -
 QtCore/qbasictimer.h
@@ -1812,7 +1668,7 @@ QtCore/qobject.h
 chrono
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimezone.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimezone.h
 QtCore/qshareddata.h
 -
 QtCore/qlocale.h
@@ -1820,21 +1676,21 @@ QtCore/qlocale.h
 QtCore/qdatetime.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtranslator.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h
 QtCore/qobject.h
 -
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypeinfo.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypetraits.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h
 QtCore/qglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCore/qglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qglobal.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurl.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h
 QtCore/qbytearray.h
 -
 QtCore/qobjectdefs.h
@@ -1850,7 +1706,7 @@ QtCore/qglobal.h
 QtCore/qurlquery.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurlquery.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h
 QtCore/qpair.h
 -
 QtCore/qshareddata.h
@@ -1860,11 +1716,11 @@ QtCore/qurl.h
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/quuid.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h
 QtCore/qatomic.h
 -
 QtCore/qbytearray.h
@@ -1885,10 +1741,8 @@ QtCore/qobject.h
 -
 QtCore/qbytearraylist.h
 -
-variant
--
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariantanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariantanimation.h
 QtCore/qeasingcurve.h
 -
 QtCore/qabstractanimation.h
@@ -1900,7 +1754,7 @@ QtCore/qvariant.h
 QtCore/qpair.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h
 QtCore/qcontainerfwd.h
 -
 QtCore/qglobal.h
@@ -1920,7 +1774,7 @@ initializer_list
 iterator
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvector.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h
 QtCore/qalgorithms.h
 -
 QtCore/qiterator.h
@@ -1948,7 +1802,7 @@ algorithm
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversionnumber.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qversionnumber.h
 QtCore/qnamespace.h
 -
 QtCore/qstring.h
@@ -1960,21 +1814,21 @@ QtCore/qmetatype.h
 QtCore/qtypeinfo.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwaitcondition.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qwaitcondition.h
 QtCore/qglobal.h
 -
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwineventnotifier.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qwineventnotifier.h
 QtCore/qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCore/qobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore/qobject.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qxmlstream.h
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qxmlstream.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
@@ -1984,261 +1838,261 @@ QtCore/qvector.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QImage
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QImage
 qimage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimage.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QMatrix3x3
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QMatrix3x3
 qgenericmatrix.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericmatrix.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericmatrix.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QMatrix4x4
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QMatrix4x4
 qmatrix4x4.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix4x4.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix4x4.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QOpenGLContext
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QOpenGLContext
 qopenglcontext.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglcontext.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglcontext.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QPaintDevice
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QPaintDevice
 qpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QPaintDeviceWindow
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QPaintDeviceWindow
 qpaintdevicewindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevicewindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevicewindow.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QSurfaceFormat
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QSurfaceFormat
 qsurfaceformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurfaceformat.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurfaceformat.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QTransform
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QTransform
 qtransform.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QVector3D
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QVector3D
 qvector3d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector3d.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector3d.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QWindow
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QWindow
 qwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindow.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QtGui
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QtGui
 QtGui/QtGuiDepends
 -
 qtguiglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
 qabstracttextdocumentlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qabstracttextdocumentlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qabstracttextdocumentlayout.h
 qaccessible.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessible.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessible.h
 qaccessiblebridge.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessiblebridge.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessiblebridge.h
 qaccessibleobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessibleobject.h
 qaccessibleplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessibleplugin.h
 qbackingstore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbackingstore.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qbackingstore.h
 qbitmap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbitmap.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qbitmap.h
 qbrush.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbrush.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
 qclipboard.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qclipboard.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qclipboard.h
 qcolor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcolor.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
 qcursor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcursor.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h
 qdesktopservices.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdesktopservices.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qdesktopservices.h
 qdrag.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdrag.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qdrag.h
 qevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qevent.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h
 qfont.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfont.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h
 qfontdatabase.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontdatabase.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontdatabase.h
 qfontinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h
 qfontmetrics.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h
 qgenericmatrix.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericmatrix.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericmatrix.h
 qgenericplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericplugin.h
 qgenericpluginfactory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericpluginfactory.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericpluginfactory.h
 qglyphrun.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qglyphrun.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qglyphrun.h
 qguiapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qguiapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h
 qicon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qicon.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
 qiconengine.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengine.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qiconengine.h
 qiconengineplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengineplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qiconengineplugin.h
 qimage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimage.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h
 qimageiohandler.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimageiohandler.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimageiohandler.h
 qimagereader.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagereader.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimagereader.h
 qimagewriter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagewriter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimagewriter.h
 qinputmethod.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qinputmethod.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h
 qkeysequence.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
 qmatrix.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h
 qmatrix4x4.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix4x4.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix4x4.h
 qmovie.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmovie.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qmovie.h
 qoffscreensurface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qoffscreensurface.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qoffscreensurface.h
 qopengl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengl.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengl.h
 qopenglbuffer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglbuffer.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglbuffer.h
 qopenglcontext.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglcontext.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglcontext.h
 qopengldebug.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengldebug.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengldebug.h
 qopenglextrafunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglextrafunctions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglextrafunctions.h
 qopenglframebufferobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglframebufferobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglframebufferobject.h
 qopenglfunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglfunctions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglfunctions.h
 qopenglpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpaintdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglpaintdevice.h
 qopenglpixeltransferoptions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpixeltransferoptions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglpixeltransferoptions.h
 qopenglshaderprogram.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglshaderprogram.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglshaderprogram.h
 qopengltexture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltexture.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengltexture.h
 qopengltextureblitter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltextureblitter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengltextureblitter.h
 qopengltimerquery.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltimerquery.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengltimerquery.h
 qopenglversionfunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglversionfunctions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglversionfunctions.h
 qopenglvertexarrayobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglvertexarrayobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglvertexarrayobject.h
 qopenglwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglwindow.h
 qpagedpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagedpaintdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpagedpaintdevice.h
 qpagelayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagelayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpagelayout.h
 qpagesize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagesize.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpagesize.h
 qpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
 qpaintdevicewindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevicewindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevicewindow.h
 qpaintengine.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintengine.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintengine.h
 qpainter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h
 qpainterpath.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h
 qpalette.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpalette.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
 qpdfwriter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpdfwriter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpdfwriter.h
 qpen.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpen.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
 qpicture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpicture.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpicture.h
 qpictureformatplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpictureformatplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpictureformatplugin.h
 qpixelformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
 qpixmap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmap.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
 qpixmapcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmapcache.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmapcache.h
 qpolygon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpolygon.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h
 qquaternion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qquaternion.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qquaternion.h
 qrasterwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrasterwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrasterwindow.h
 qrawfont.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrawfont.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrawfont.h
 qregion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qregion.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h
 qrgb.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgb.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
 qrgba64.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgba64.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h
 qscreen.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qscreen.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h
 qsessionmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsessionmanager.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsessionmanager.h
 qstandarditemmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstandarditemmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstandarditemmodel.h
 qstatictext.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstatictext.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstatictext.h
 qstylehints.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstylehints.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstylehints.h
 qsurface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurface.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurface.h
 qsurfaceformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurfaceformat.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurfaceformat.h
 qsyntaxhighlighter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsyntaxhighlighter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsyntaxhighlighter.h
 qtextcursor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextcursor.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h
 qtextdocument.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocument.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h
 qtextdocumentfragment.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentfragment.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocumentfragment.h
 qtextdocumentwriter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentwriter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocumentwriter.h
 qtextformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextformat.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h
 qtextlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextlayout.h
 qtextlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextlist.h
 qtextobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextobject.h
 qtextoption.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextoption.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
 qtexttable.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtexttable.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtexttable.h
 qtouchdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
 qtransform.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h
 qvalidator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvalidator.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h
 qvector2d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
 qvector3d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector3d.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector3d.h
 qvector4d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector4d.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector4d.h
 qwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindow.h
 qwindowdefs.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 qtguiversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QtGuiDepends
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QtGuiDepends
 QtCore/QtCore
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qabstracttextdocumentlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qabstracttextdocumentlayout.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -2252,7 +2106,7 @@ QtGui/qtextcursor.h
 QtGui/qpalette.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessible.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessible.h
 QtGui/qtguiglobal.h
 -
 QtCore/qcoreapplication.h
@@ -2278,7 +2132,7 @@ QtGui/qevent.h
 stdlib.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessiblebridge.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessiblebridge.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -2286,13 +2140,13 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessibleobject.h
 QtGui/qtguiglobal.h
 -
 QtGui/qaccessible.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessibleplugin.h
 QtGui/qtguiglobal.h
 -
 QtGui/qaccessible.h
@@ -2300,7 +2154,7 @@ QtGui/qaccessible.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbackingstore.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qbackingstore.h
 QtGui/qtguiglobal.h
 -
 QtCore/qrect.h
@@ -2310,13 +2164,13 @@ QtGui/qwindow.h
 QtGui/qregion.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbitmap.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qbitmap.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbrush.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qbrush.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpair.h
@@ -2338,13 +2192,13 @@ QtGui/qimage.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qclipboard.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qclipboard.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcolor.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h
 QtGui/qtguiglobal.h
 -
 QtGui/qrgb.h
@@ -2356,7 +2210,7 @@ QtCore/qstringlist.h
 QtGui/qrgba64.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcursor.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -2364,7 +2218,7 @@ QtCore/qpoint.h
 QtGui/qwindowdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdesktopservices.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qdesktopservices.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -2372,13 +2226,13 @@ QtCore/qstring.h
 QtCore/qstandardpaths.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdrag.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qdrag.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qevent.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2410,7 +2264,7 @@ QtGui/qvector2d.h
 QtGui/qtouchdevice.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfont.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2420,7 +2274,7 @@ QtCore/qstring.h
 QtCore/qsharedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontdatabase.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontdatabase.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2430,7 +2284,7 @@ QtCore/qstring.h
 QtGui/qfont.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontinfo.h
 QtGui/qtguiglobal.h
 -
 QtGui/qfont.h
@@ -2438,7 +2292,7 @@ QtGui/qfont.h
 QtCore/qsharedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfontmetrics.h
 QtGui/qtguiglobal.h
 -
 QtGui/qfont.h
@@ -2448,7 +2302,7 @@ QtCore/qsharedpointer.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericmatrix.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericmatrix.h
 QtGui/qtguiglobal.h
 -
 QtCore/qmetatype.h
@@ -2458,7 +2312,7 @@ QtCore/qdebug.h
 QtCore/qdatastream.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericplugin.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -2466,13 +2320,13 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericpluginfactory.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericpluginfactory.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qglyphrun.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qglyphrun.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsharedpointer.h
@@ -2484,7 +2338,7 @@ QtCore/qpoint.h
 QtGui/qrawfont.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qguiapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h
 QtGui/qtguiglobal.h
 -
 QtCore/qcoreapplication.h
@@ -2500,7 +2354,7 @@ QtCore/qpoint.h
 QtCore/qsize.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qicon.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qicon.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsize.h
@@ -2510,7 +2364,7 @@ QtCore/qlist.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengine.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qiconengine.h
 QtGui/qtguiglobal.h
 -
 QtCore/qlist.h
@@ -2518,7 +2372,7 @@ QtCore/qlist.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengineplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qiconengineplugin.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -2526,7 +2380,7 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimage.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimage.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -2548,7 +2402,7 @@ QtCore/qstring.h
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimageiohandler.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimageiohandler.h
 QtGui/qtguiglobal.h
 -
 QtCore/qiodevice.h
@@ -2560,7 +2414,7 @@ QtCore/qfactoryinterface.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagereader.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimagereader.h
 QtGui/qtguiglobal.h
 -
 QtCore/qbytearray.h
@@ -2572,7 +2426,7 @@ QtGui/qimage.h
 QtGui/qimageiohandler.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagewriter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qimagewriter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qbytearray.h
@@ -2584,13 +2438,13 @@ QtCore/qlist.h
 QtGui/qimageiohandler.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qinputmethod.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -2598,7 +2452,7 @@ QtCore/qstring.h
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpolygon.h
@@ -2614,7 +2468,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix4x4.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qmatrix4x4.h
 QtGui/qtguiglobal.h
 -
 QtGui/qvector3d.h
@@ -2628,7 +2482,7 @@ QtGui/qgenericmatrix.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmovie.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qmovie.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -2640,7 +2494,7 @@ QtCore/qlist.h
 QtGui/qimagereader.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qoffscreensurface.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qoffscreensurface.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -2648,7 +2502,7 @@ QtCore/QObject
 QtGui/qsurface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengl.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengl.h
 QtGui/qtguiglobal.h
 -
 QtCore/qt_windows.h
@@ -2660,8 +2514,6 @@ OpenGLES/ES3/glext.h
 OpenGLES/ES2/gl.h
 -
 OpenGLES/ES2/glext.h
--
-GLES3/gl32.h
 -
 GLES3/gl31.h
 -
@@ -2689,12 +2541,16 @@ inttypes.h
 -
 inttypes.h
 -
+inttypes.h
+-
+stdint.h
+-
 stdint.h
 -
 inttypes.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglbuffer.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglbuffer.h
 QtGui/qtguiglobal.h
 -
 QtCore/qscopedpointer.h
@@ -2702,7 +2558,7 @@ QtCore/qscopedpointer.h
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglcontext.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglcontext.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -2726,7 +2582,7 @@ QtCore/qpair.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengldebug.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengldebug.h
 QtGui/qtguiglobal.h
 -
 QtCore/qshareddata.h
@@ -2744,9 +2600,9 @@ QtCore/qdebug.h
 QtGui/qopenglcontext.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengles2ext.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengles2ext.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglext.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglext.h
 windows.h
 -
 stddef.h
@@ -2755,18 +2611,22 @@ inttypes.h
 -
 inttypes.h
 -
+inttypes.h
+-
+stdint.h
+-
 stdint.h
 -
 inttypes.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglextrafunctions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglextrafunctions.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopenglfunctions.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglframebufferobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglframebufferobject.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2776,7 +2636,7 @@ QtGui/qpaintdevice.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglfunctions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglfunctions.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2786,7 +2646,7 @@ QtGui/qopenglcontext.h
 stdio.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpaintdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglpaintdevice.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpaintdevice.h
@@ -2796,13 +2656,13 @@ QtGui/qopengl.h
 QtGui/qopenglcontext.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpixeltransferoptions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglpixeltransferoptions.h
 QtGui/qtguiglobal.h
 -
 QtCore/QSharedDataPointer
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglshaderprogram.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglshaderprogram.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2816,7 +2676,7 @@ QtGui/qvector4d.h
 QtGui/qmatrix4x4.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltexture.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengltexture.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2826,7 +2686,7 @@ QtGui/qimage.h
 QtCore/QScopedPointer
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltextureblitter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengltextureblitter.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2836,7 +2696,7 @@ QtGui/QMatrix3x3
 QtGui/QMatrix4x4
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltimerquery.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengltimerquery.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -2844,7 +2704,7 @@ QtCore/QObject
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglversionfunctions.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglversionfunctions.h
 QtGui/qtguiglobal.h
 -
 QtCore/qhash.h
@@ -2856,7 +2716,7 @@ QtCore/qpair.h
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglvertexarrayobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglvertexarrayobject.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -2864,7 +2724,7 @@ QtCore/QObject
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglwindow.h
 QtGui/qtguiglobal.h
 -
 QtGui/QPaintDeviceWindow
@@ -2874,7 +2734,7 @@ QtGui/QOpenGLContext
 QtGui/QImage
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagedpaintdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpagedpaintdevice.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpaintdevice.h
@@ -2882,7 +2742,7 @@ QtGui/qpaintdevice.h
 QtGui/qpagelayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagelayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpagelayout.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsharedpointer.h
@@ -2894,13 +2754,13 @@ QtCore/qmargins.h
 QtGui/qpagesize.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagesize.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpagesize.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsharedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2908,7 +2768,7 @@ QtGui/qwindowdefs.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevicewindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevicewindow.h
 QtGui/qtguiglobal.h
 -
 QtGui/QWindow
@@ -2916,7 +2776,7 @@ QtGui/QWindow
 QtGui/QPaintDevice
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintengine.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintengine.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -2928,7 +2788,7 @@ QtCore/qscopedpointer.h
 QtGui/qpainter.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpainter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -2960,7 +2820,7 @@ QtGui/qfontinfo.h
 QtGui/qfontmetrics.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpainterpath.h
 QtGui/qtguiglobal.h
 -
 QtGui/qmatrix.h
@@ -2976,7 +2836,7 @@ QtCore/qvector.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpalette.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpalette.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2986,7 +2846,7 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpdfwriter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpdfwriter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -2996,7 +2856,7 @@ QtGui/qpagedpaintdevice.h
 QtGui/qpagelayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpen.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpen.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -3004,7 +2864,7 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpicture.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpicture.h
 QtGui/qtguiglobal.h
 -
 QtCore/qiodevice.h
@@ -3016,7 +2876,7 @@ QtCore/qsharedpointer.h
 QtGui/qpaintdevice.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpictureformatplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpictureformatplugin.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -3024,11 +2884,11 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h
 QtGui/qtguiglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmap.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpaintdevice.h
@@ -3046,13 +2906,13 @@ QtGui/qimage.h
 QtGui/qtransform.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmapcache.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmapcache.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpolygon.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h
 QtGui/qtguiglobal.h
 -
 QtCore/qvector.h
@@ -3062,7 +2922,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qquaternion.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qquaternion.h
 QtGui/qtguiglobal.h
 -
 QtGui/qgenericmatrix.h
@@ -3072,13 +2932,13 @@ QtGui/qvector3d.h
 QtGui/qvector4d.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrasterwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrasterwindow.h
 QtGui/qtguiglobal.h
 -
 QtGui/QPaintDeviceWindow
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrawfont.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrawfont.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -3098,7 +2958,7 @@ QtGui/qtransform.h
 QtGui/qfontdatabase.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qregion.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h
 QtGui/qtguiglobal.h
 -
 QtCore/qatomic.h
@@ -3110,19 +2970,19 @@ QtGui/qwindowdefs.h
 QtCore/qdatastream.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgb.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgba64.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qrgba64.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qscreen.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qscreen.h
 QtGui/qtguiglobal.h
 -
 QtCore/QList
@@ -3140,7 +3000,7 @@ QtGui/QTransform
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsessionmanager.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsessionmanager.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3152,7 +3012,7 @@ QtCore/qstring.h
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstandarditemmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstandarditemmodel.h
 QtGui/qtguiglobal.h
 -
 QtCore/qabstractitemmodel.h
@@ -3166,7 +3026,7 @@ QtGui/qicon.h
 QtCore/qdatastream.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstatictext.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstatictext.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsize.h
@@ -3182,13 +3042,13 @@ QtGui/qfont.h
 QtGui/qtextoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstylehints.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qstylehints.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurface.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurface.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -3200,7 +3060,7 @@ QtCore/qmetatype.h
 QtCore/qsize.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurfaceformat.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurfaceformat.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpair.h
@@ -3208,7 +3068,7 @@ QtCore/qpair.h
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsyntaxhighlighter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsyntaxhighlighter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3216,7 +3076,7 @@ QtCore/qobject.h
 QtGui/qtextobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextcursor.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextcursor.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -3226,7 +3086,7 @@ QtCore/qshareddata.h
 QtGui/qtextformat.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocument.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocument.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3242,19 +3102,19 @@ QtGui/qfont.h
 QtCore/qurl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentfragment.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocumentfragment.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentwriter.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextdocumentwriter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextformat.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextformat.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -3274,7 +3134,7 @@ QtGui/qbrush.h
 QtGui/qtextoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextlayout.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -3298,7 +3158,7 @@ QtGui/qglyphrun.h
 QtGui/qtextcursor.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlist.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextlist.h
 QtGui/qtguiglobal.h
 -
 QtGui/qtextobject.h
@@ -3306,7 +3166,7 @@ QtGui/qtextobject.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextobject.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3318,7 +3178,7 @@ QtGui/qtextlayout.h
 QtGui/qglyphrun.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextoption.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtextoption.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -3328,7 +3188,7 @@ QtCore/qchar.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtexttable.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtexttable.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3336,23 +3196,23 @@ QtCore/qobject.h
 QtGui/qtextobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h
 QtCore/qglobal.h
 -
 QtGui/qtgui-config.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtouchdevice.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h
 QtGui/qtguiglobal.h
 -
 QtGui/qmatrix.h
@@ -3372,7 +3232,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvalidator.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvalidator.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3386,7 +3246,7 @@ QtCore/qregularexpression.h
 QtCore/qlocale.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -3394,7 +3254,7 @@ QtCore/qpoint.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector3d.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector3d.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -3402,7 +3262,7 @@ QtCore/qpoint.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector4d.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector4d.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -3410,7 +3270,7 @@ QtCore/qpoint.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindow.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -3434,7 +3294,7 @@ QtGui/qicon.h
 QtGui/qcursor.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobjectdefs.h
@@ -3444,123 +3304,119 @@ QtCore/qnamespace.h
 QtGui/qwindowdefs_win.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs_win.h
 QtGui/qtguiglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QNetworkAccessManager
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/QNetworkAccessManager
 qnetworkaccessmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkaccessmanager.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QNetworkRequest
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/QNetworkRequest
 qnetworkrequest.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkrequest.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkrequest.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QSslConfiguration
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/QSslConfiguration
 qsslconfiguration.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslconfiguration.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslconfiguration.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/QSslPreSharedKeyAuthenticator
 qsslpresharedkeyauthenticator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslpresharedkeyauthenticator.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QTcpSocket
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/QTcpSocket
 qtcpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtcpsocket.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QtNetwork
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/QtNetwork
 QtNetwork/QtNetworkDepends
 -
 qtnetworkglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetworkglobal.h
 qabstractnetworkcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractnetworkcache.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qabstractnetworkcache.h
 qabstractsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qabstractsocket.h
 qauthenticator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qauthenticator.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qauthenticator.h
 qdnslookup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdnslookup.h
-qdtls.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdtls.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qdnslookup.h
 qhostaddress.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostaddress.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhostaddress.h
 qhostinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhostinfo.h
 qhstspolicy.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhstspolicy.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhstspolicy.h
 qhttpmultipart.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhttpmultipart.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhttpmultipart.h
 qlocalserver.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalserver.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qlocalserver.h
 qlocalsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qlocalsocket.h
 qnetworkaccessmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkaccessmanager.h
 qnetworkconfigmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfigmanager.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkconfigmanager.h
 qnetworkconfiguration.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfiguration.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkconfiguration.h
 qnetworkcookie.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookie.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkcookie.h
 qnetworkcookiejar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookiejar.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkcookiejar.h
 qnetworkdatagram.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdatagram.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkdatagram.h
 qnetworkdiskcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdiskcache.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkdiskcache.h
 qnetworkinterface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkinterface.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkinterface.h
 qnetworkproxy.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkproxy.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkproxy.h
 qnetworkreply.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkreply.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkreply.h
 qnetworkrequest.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkrequest.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkrequest.h
 qnetworksession.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworksession.h
-qpassworddigestor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qpassworddigestor.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworksession.h
 qsctpserver.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpserver.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsctpserver.h
 qsctpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsctpsocket.h
 qssl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssl.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qssl.h
 qsslcertificate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificate.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslcertificate.h
 qsslcertificateextension.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificateextension.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslcertificateextension.h
 qsslcipher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcipher.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslcipher.h
 qsslconfiguration.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslconfiguration.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslconfiguration.h
 qssldiffiehellmanparameters.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssldiffiehellmanparameters.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qssldiffiehellmanparameters.h
 qsslellipticcurve.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslellipticcurve.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslellipticcurve.h
 qsslerror.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslerror.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslerror.h
 qsslkey.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslkey.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslkey.h
 qsslpresharedkeyauthenticator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslpresharedkeyauthenticator.h
 qsslsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslsocket.h
 qtcpserver.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpserver.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtcpserver.h
 qtcpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtcpsocket.h
 qudpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qudpsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qudpsocket.h
 qtnetworkversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetworkversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QtNetworkDepends
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/QtNetworkDepends
 QtCore/QtCore
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractnetworkcache.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qabstractnetworkcache.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3572,7 +3428,7 @@ QtCore/qpair.h
 QtNetwork/qnetworkrequest.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qabstractsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qiodevice.h
@@ -3582,7 +3438,7 @@ QtCore/qobject.h
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qauthenticator.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qauthenticator.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qstring.h
@@ -3590,7 +3446,7 @@ QtCore/qstring.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdnslookup.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qdnslookup.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qlist.h
@@ -3604,19 +3460,7 @@ QtCore/qsharedpointer.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdtls.h
-QtNetwork/qtnetworkglobal.h
--
-QtNetwork/qsslsocket.h
--
-QtNetwork/qssl.h
--
-QtCore/qcryptographichash.h
--
-QtCore/qobject.h
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostaddress.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhostaddress.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qpair.h
@@ -3628,7 +3472,7 @@ QtCore/qshareddata.h
 QtNetwork/qabstractsocket.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostinfo.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhostinfo.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qlist.h
@@ -3638,7 +3482,7 @@ QtCore/qscopedpointer.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhstspolicy.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhstspolicy.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qshareddata.h
@@ -3648,7 +3492,7 @@ QtCore/qflags.h
 QtCore/qurl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhttpmultipart.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qhttpmultipart.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QSharedDataPointer
@@ -3660,13 +3504,13 @@ QtCore/QIODevice
 QtNetwork/QNetworkRequest
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalserver.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qlocalserver.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractsocket.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qlocalsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qiodevice.h
@@ -3676,12 +3520,10 @@ QtNetwork/qabstractsocket.h
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkaccessmanager.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qnetworkrequest.h
--
-QtCore/QString
 -
 QtCore/QVector
 -
@@ -3692,7 +3534,7 @@ QtNetwork/QSslConfiguration
 QtNetwork/QSslPreSharedKeyAuthenticator
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfigmanager.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkconfigmanager.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3700,7 +3542,7 @@ QtCore/qobject.h
 QtNetwork/qnetworkconfiguration.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfiguration.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkconfiguration.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qshareddata.h
@@ -3712,7 +3554,7 @@ QtCore/qlist.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookie.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkcookie.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QSharedDataPointer
@@ -3724,7 +3566,7 @@ QtCore/QMetaType
 QtCore/QObject
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookiejar.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkcookiejar.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QObject
@@ -3732,19 +3574,19 @@ QtCore/QObject
 QtCore/QUrl
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdatagram.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkdatagram.h
 QtCore/qbytearray.h
 -
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdiskcache.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkdiskcache.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractnetworkcache.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkinterface.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkinterface.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qshareddata.h
@@ -3754,7 +3596,7 @@ QtCore/qscopedpointer.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkproxy.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkproxy.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qhostaddress.h
@@ -3764,7 +3606,7 @@ QtNetwork/qnetworkrequest.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkreply.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkreply.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QIODevice
@@ -3778,7 +3620,7 @@ QtNetwork/QNetworkRequest
 QtNetwork/QNetworkAccessManager
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkrequest.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworkrequest.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QSharedDataPointer
@@ -3790,7 +3632,7 @@ QtCore/QUrl
 QtCore/QVariant
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworksession.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qnetworksession.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3806,31 +3648,23 @@ QtNetwork/qnetworkconfiguration.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qpassworddigestor.h
-QtNetwork/qtnetworkglobal.h
--
-QtCore/QByteArray
--
-QtCore/QCryptographicHash
--
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpserver.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsctpserver.h
 QtNetwork/qtcpserver.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsctpsocket.h
 QtNetwork/qtcpsocket.h
 -
 QtNetwork/qnetworkdatagram.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssl.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qssl.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QFlags
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificate.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslcertificate.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qnamespace.h
@@ -3850,7 +3684,7 @@ QtCore/qmap.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificateextension.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslcertificateextension.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qnamespace.h
@@ -3862,7 +3696,7 @@ QtCore/qstring.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcipher.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslcipher.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qstring.h
@@ -3872,10 +3706,8 @@ QtCore/qscopedpointer.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslconfiguration.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslconfiguration.h
 QtNetwork/qtnetworkglobal.h
--
-QtCore/qmap.h
 -
 QtCore/qshareddata.h
 -
@@ -3884,7 +3716,7 @@ QtNetwork/qsslsocket.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssldiffiehellmanparameters.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qssldiffiehellmanparameters.h
 QtNetwork/qssl.h
 -
 QtCore/qnamespace.h
@@ -3894,7 +3726,7 @@ QtCore/qbytearray.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslellipticcurve.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslellipticcurve.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QString
@@ -3906,7 +3738,7 @@ QtCore/QHash
 QtCore/qhashfunctions.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslerror.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslerror.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qvariant.h
@@ -3914,7 +3746,7 @@ QtCore/qvariant.h
 QtNetwork/qsslcertificate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslkey.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslkey.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qnamespace.h
@@ -3926,7 +3758,7 @@ QtCore/qsharedpointer.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslpresharedkeyauthenticator.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QString
@@ -3936,7 +3768,7 @@ QtCore/QSharedDataPointer
 QtCore/QMetaType
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qsslsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qlist.h
@@ -3948,7 +3780,7 @@ QtNetwork/qtcpsocket.h
 QtNetwork/qsslerror.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpserver.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtcpserver.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3958,7 +3790,7 @@ QtNetwork/qabstractsocket.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtcpsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractsocket.h
@@ -3966,17 +3798,17 @@ QtNetwork/qabstractsocket.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetwork-config.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetwork-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetworkglobal.h
 QtCore/qglobal.h
 -
 QtNetwork/qtnetwork-config.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetworkversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qudpsocket.h
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qudpsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractsocket.h
@@ -3984,321 +3816,341 @@ QtNetwork/qabstractsocket.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QAction
+qaction.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication
 qapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QCommonStyle
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QButtonGroup
+qbuttongroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qbuttongroup.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QCommonStyle
 qcommonstyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommonstyle.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QDialog
 qdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLabel
-qlabel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QFrame
+qframe.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLayout
-qlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QGridLayout
+qgridlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLineEdit
-qlineedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton
-qpushbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QScrollerProperties
-qscrollerproperties.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollerproperties.h
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar
-qstatusbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QTextEdit
-qtextedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHBoxLayout
 qboxlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QHeaderView
+qheaderview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLabel
+qlabel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLayout
+qlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QLineEdit
+qlineedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QPushButton
+qpushbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QScrollerProperties
+qscrollerproperties.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollerproperties.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QStatusBar
+qstatusbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QVBoxLayout
+qboxlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QWidget
 qwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QtWidgets
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QtWidgets
 QtWidgets/QtWidgetsDepends
 -
 qtwidgetsglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 qabstractbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h
 qabstractitemdelegate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h
 qabstractitemview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h
 qabstractscrollarea.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h
 qabstractslider.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractslider.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
 qabstractspinbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
 qaccessiblewidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaccessiblewidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaccessiblewidget.h
 qaction.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
 qactiongroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
 qapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 qboxlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
 qbuttongroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qbuttongroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qbuttongroup.h
 qcalendarwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcalendarwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcalendarwidget.h
 qcheckbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcheckbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcheckbox.h
 qcolordialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolordialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcolordialog.h
 qcolormap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolormap.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcolormap.h
 qcolumnview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolumnview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcolumnview.h
 qcombobox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcombobox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
 qcommandlinkbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommandlinkbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommandlinkbutton.h
 qcommonstyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommonstyle.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h
 qcompleter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcompleter.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcompleter.h
 qdatawidgetmapper.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatawidgetmapper.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdatawidgetmapper.h
 qdatetimeedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatetimeedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdatetimeedit.h
 qdesktopwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
 qdial.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdial.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
 qdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 qdialogbuttonbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialogbuttonbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialogbuttonbox.h
 qdirmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdirmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdirmodel.h
 qdockwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdockwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
 qdrawutil.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdrawutil.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdrawutil.h
 qerrormessage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qerrormessage.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qerrormessage.h
 qfiledialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfiledialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h
 qfileiconprovider.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfileiconprovider.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfileiconprovider.h
 qfilesystemmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfilesystemmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfilesystemmodel.h
 qfocusframe.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfocusframe.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfocusframe.h
 qfontcombobox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontcombobox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfontcombobox.h
 qfontdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfontdialog.h
 qformlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qformlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qformlayout.h
 qframe.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 qgesture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesture.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgesture.h
 qgesturerecognizer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesturerecognizer.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgesturerecognizer.h
 qgraphicsanchorlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsanchorlayout.h
 qgraphicseffect.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicseffect.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicseffect.h
 qgraphicsgridlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsgridlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsgridlayout.h
 qgraphicsitem.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitem.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
 qgraphicsitemanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitemanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitemanimation.h
 qgraphicslayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicslayout.h
 qgraphicslayoutitem.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicslayoutitem.h
 qgraphicslinearlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslinearlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicslinearlayout.h
 qgraphicsproxywidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsproxywidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsproxywidget.h
 qgraphicsscene.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsscene.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsscene.h
 qgraphicssceneevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicssceneevent.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicssceneevent.h
 qgraphicstransform.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicstransform.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicstransform.h
 qgraphicsview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsview.h
 qgraphicswidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicswidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicswidget.h
 qgridlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
 qgroupbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgroupbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h
 qheaderview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qheaderview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
 qinputdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qinputdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h
 qitemdelegate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemdelegate.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qitemdelegate.h
 qitemeditorfactory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemeditorfactory.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qitemeditorfactory.h
 qkeyeventtransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeyeventtransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qkeyeventtransition.h
 qkeysequenceedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeysequenceedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qkeysequenceedit.h
 qlabel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
 qlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
 qlayoutitem.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
 qlcdnumber.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlcdnumber.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
 qlineedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h
 qlistview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h
 qlistwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistwidget.h
 qmainwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 qmdiarea.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdiarea.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmdiarea.h
 qmdisubwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdisubwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmdisubwindow.h
 qmenu.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
 qmenubar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
 qmessagebox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmessagebox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h
 qmouseeventtransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmouseeventtransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmouseeventtransition.h
 qopenglwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qopenglwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qopenglwidget.h
 qplaintextedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qplaintextedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qplaintextedit.h
 qprogressbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qprogressbar.h
 qprogressdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qprogressdialog.h
 qproxystyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qproxystyle.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qproxystyle.h
 qpushbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
 qradiobutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qradiobutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qradiobutton.h
 qrubberband.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h
 qscrollarea.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollarea.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollarea.h
 qscrollbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollbar.h
 qscroller.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscroller.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscroller.h
 qscrollerproperties.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollerproperties.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollerproperties.h
 qshortcut.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qshortcut.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qshortcut.h
 qsizegrip.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizegrip.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizegrip.h
 qsizepolicy.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
 qslider.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qslider.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h
 qspinbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qspinbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qspinbox.h
 qsplashscreen.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplashscreen.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplashscreen.h
 qsplitter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplitter.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h
 qstackedlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstackedlayout.h
 qstackedwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstackedwidget.h
 qstatusbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
 qstyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
 qstyleditemdelegate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleditemdelegate.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h
 qstylefactory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylefactory.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstylefactory.h
 qstyleoption.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h
 qstylepainter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylepainter.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstylepainter.h
 qstyleplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleplugin.h
 qsystemtrayicon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsystemtrayicon.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsystemtrayicon.h
 qtabbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h
 qtableview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtableview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h
 qtablewidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtablewidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h
 qtabwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 qtextbrowser.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextbrowser.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextbrowser.h
 qtextedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h
 qtoolbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h
 qtoolbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbox.h
 qtoolbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbutton.h
 qtooltip.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtooltip.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtooltip.h
 qtreeview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtreeview.h
 qtreewidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtreewidget.h
 qtreewidgetitemiterator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtreewidgetitemiterator.h
 qundogroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundogroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qundogroup.h
 qundostack.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundostack.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qundostack.h
 qundoview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundoview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qundoview.h
 qwhatsthis.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwhatsthis.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwhatsthis.h
 qwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 qwidgetaction.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidgetaction.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidgetaction.h
 qwizard.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwizard.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwizard.h
 qtwidgetsversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QtWidgetsDepends
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QtWidgetsDepends
 QtCore/QtCore
 -
 QtGui/QtGui
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qicon.h
@@ -4308,7 +4160,7 @@ QtGui/qkeysequence.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemdelegate.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4316,7 +4168,7 @@ QtCore/qobject.h
 QtWidgets/qstyleoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractitemview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
@@ -4328,19 +4180,19 @@ QtCore/qitemselectionmodel.h
 QtWidgets/qabstractitemdelegate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractscrollarea.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractslider.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractslider.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qabstractspinbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4348,13 +4200,13 @@ QtWidgets/qwidget.h
 QtGui/qvalidator.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaccessiblewidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaccessiblewidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qaccessibleobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qkeysequence.h
@@ -4370,13 +4222,13 @@ QtGui/qicon.h
 QtWidgets/qactiongroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qactiongroup.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qaction.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qcoreapplication.h
@@ -4394,7 +4246,7 @@ QtWidgets/qdesktopwidget.h
 QtGui/qguiapplication.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qboxlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
@@ -4404,13 +4256,13 @@ QtWidgets/qwidget.h
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qbuttongroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qbuttongroup.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcalendarwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcalendarwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4418,19 +4270,19 @@ QtWidgets/qwidget.h
 QtCore/qdatetime.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcheckbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcheckbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolordialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcolordialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolormap.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcolormap.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qatomic.h
@@ -4442,13 +4294,13 @@ QtCore/qvector.h
 QtGui/qwindowdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolumnview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcolumnview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcombobox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcombobox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4462,19 +4314,19 @@ QtCore/qvariant.h
 QtGui/qvalidator.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommandlinkbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommandlinkbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qpushbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommonstyle.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcommonstyle.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qstyle.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcompleter.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qcompleter.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4488,13 +4340,13 @@ QtCore/qabstractitemmodel.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatawidgetmapper.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdatawidgetmapper.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QtCore/qobject.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QtCore/qobject.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatetimeedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdatetimeedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qdatetime.h
@@ -4504,31 +4356,31 @@ QtCore/qvariant.h
 QtWidgets/qabstractspinbox.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdesktopwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdial.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdial.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractslider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialogbuttonbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdialogbuttonbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdirmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdirmodel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qabstractitemmodel.h
@@ -4538,13 +4390,13 @@ QtCore/qdir.h
 QtWidgets/qfileiconprovider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdockwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdockwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdrawutil.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qdrawutil.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qnamespace.h
@@ -4556,13 +4408,13 @@ QtCore/qmargins.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qerrormessage.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qerrormessage.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfiledialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfiledialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qdir.h
@@ -4574,7 +4426,7 @@ QtCore/qurl.h
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfileiconprovider.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfileiconprovider.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qfileinfo.h
@@ -4584,7 +4436,7 @@ QtCore/qscopedpointer.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfilesystemmodel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfilesystemmodel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qabstractitemmodel.h
@@ -4598,13 +4450,13 @@ QtGui/qicon.h
 QtCore/qdiriterator.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfocusframe.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfocusframe.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontcombobox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfontcombobox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qcombobox.h
@@ -4612,7 +4464,7 @@ QtWidgets/qcombobox.h
 QtGui/qfontdatabase.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qfontdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qwindowdefs.h
@@ -4622,19 +4474,19 @@ QtGui/qfont.h
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qformlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qformlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/QLayout
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qframe.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesture.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgesture.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4652,13 +4504,13 @@ QtCore/qmetatype.h
 QtGui/qevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesturerecognizer.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgesturerecognizer.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsanchorlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicsitem.h
@@ -4666,7 +4518,7 @@ QtWidgets/qgraphicsitem.h
 QtWidgets/qgraphicslayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicseffect.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicseffect.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4680,7 +4532,7 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsgridlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsgridlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicsitem.h
@@ -4688,7 +4540,7 @@ QtWidgets/qgraphicsitem.h
 QtWidgets/qgraphicslayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitem.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitem.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4704,19 +4556,19 @@ QtGui/qpainterpath.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitemanimation.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsitemanimation.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicslayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicslayoutitem.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicslayoutitem.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qscopedpointer.h
@@ -4726,7 +4578,7 @@ QtWidgets/qsizepolicy.h
 QtGui/qevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslinearlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicslinearlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicsitem.h
@@ -4734,13 +4586,13 @@ QtWidgets/qgraphicsitem.h
 QtWidgets/qgraphicslayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsproxywidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsproxywidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicswidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsscene.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsscene.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4760,7 +4612,7 @@ QtGui/qmatrix.h
 QtGui/qpen.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicssceneevent.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicssceneevent.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qcoreevent.h
@@ -4778,7 +4630,7 @@ QtCore/qset.h
 QtCore/qhash.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicstransform.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicstransform.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/QObject
@@ -4790,7 +4642,7 @@ QtGui/QTransform
 QtGui/QMatrix4x4
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicsview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qmetatype.h
@@ -4802,7 +4654,7 @@ QtWidgets/qscrollarea.h
 QtWidgets/qgraphicsscene.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicswidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgraphicswidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qfont.h
@@ -4814,7 +4666,7 @@ QtWidgets/qgraphicsitem.h
 QtGui/qpalette.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgridlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
@@ -4824,19 +4676,19 @@ QtWidgets/qwidget.h
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgroupbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qgroupbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qheaderview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qheaderview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qinputdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qinputdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qstring.h
@@ -4846,7 +4698,7 @@ QtWidgets/qlineedit.h
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemdelegate.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qitemdelegate.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemdelegate.h
@@ -4858,7 +4710,7 @@ QtGui/qpixmap.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemeditorfactory.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qitemeditorfactory.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qmetaobject.h
@@ -4870,25 +4722,25 @@ QtCore/qhash.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeyeventtransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qkeyeventtransition.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qeventtransition.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeysequenceedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qkeysequenceedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlabel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4908,7 +4760,7 @@ QtWidgets/qboxlayout.h
 QtWidgets/qgridlayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlayoutitem.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qsizepolicy.h
@@ -4918,13 +4770,13 @@ QtCore/qrect.h
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlcdnumber.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlcdnumber.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlineedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
@@ -4936,13 +4788,13 @@ QtCore/qstring.h
 QtCore/qmargins.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qlistwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlistview.h
@@ -4954,7 +4806,7 @@ QtCore/qvector.h
 QtCore/qitemselectionmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmainwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4962,7 +4814,7 @@ QtWidgets/qwidget.h
 QtWidgets/qtabwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdiarea.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmdiarea.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
@@ -4970,13 +4822,13 @@ QtWidgets/qabstractscrollarea.h
 QtWidgets/qtabwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdisubwindow.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmdisubwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenu.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4988,25 +4840,25 @@ QtGui/qicon.h
 QtWidgets/qaction.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmenubar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qmenu.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmessagebox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmessagebox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmouseeventtransition.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qmouseeventtransition.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qeventtransition.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qopenglwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qopenglwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/QWidget
@@ -5016,7 +4868,7 @@ QtGui/QSurfaceFormat
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qplaintextedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qplaintextedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtextedit.h
@@ -5034,49 +4886,49 @@ QtGui/qtextformat.h
 QtGui/qabstracttextdocumentlayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qprogressbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressdialog.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qprogressdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qproxystyle.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qproxystyle.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/QCommonStyle
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qpushbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qradiobutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qradiobutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qrubberband.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollarea.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollarea.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -5084,7 +4936,7 @@ QtWidgets/qwidget.h
 QtWidgets/qabstractslider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscroller.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscroller.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/QObject
@@ -5094,7 +4946,7 @@ QtCore/QPointF
 QtWidgets/QScrollerProperties
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollerproperties.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qscrollerproperties.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/QScopedPointer
@@ -5104,7 +4956,7 @@ QtCore/QMetaType
 QtCore/QVariant
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qshortcut.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qshortcut.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -5112,13 +4964,13 @@ QtWidgets/qwidget.h
 QtGui/qkeysequence.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizegrip.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizegrip.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsizepolicy.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5126,19 +4978,19 @@ QtCore/qobject.h
 QtCore/qalgorithms.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qslider.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qslider.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractslider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qspinbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qspinbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractspinbox.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplashscreen.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplashscreen.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qpixmap.h
@@ -5146,7 +4998,7 @@ QtGui/qpixmap.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplitter.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsplitter.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
@@ -5154,25 +5006,25 @@ QtWidgets/qframe.h
 QtWidgets/qsizepolicy.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedlayout.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstackedlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstackedwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstatusbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyle.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5190,7 +5042,7 @@ QtGui/qpalette.h
 QtWidgets/qsizepolicy.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleditemdelegate.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleditemdelegate.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemdelegate.h
@@ -5202,13 +5054,13 @@ QtGui/qpixmap.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylefactory.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstylefactory.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleoption.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qlocale.h
@@ -5236,7 +5088,7 @@ QtWidgets/qframe.h
 QtCore/qabstractitemmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylepainter.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstylepainter.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qpainter.h
@@ -5246,7 +5098,7 @@ QtWidgets/qstyle.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleplugin.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qstyleplugin.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qplugin.h
@@ -5254,7 +5106,7 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsystemtrayicon.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qsystemtrayicon.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5262,19 +5114,19 @@ QtCore/qobject.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtableview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtableview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtablewidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtablewidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtableview.h
@@ -5284,7 +5136,7 @@ QtCore/qvariant.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtabwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -5292,7 +5144,7 @@ QtWidgets/qwidget.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextbrowser.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextbrowser.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtextedit.h
@@ -5300,7 +5152,7 @@ QtWidgets/qtextedit.h
 QtCore/qurl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtextedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
@@ -5314,7 +5166,7 @@ QtGui/qtextcursor.h
 QtGui/qtextformat.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbar.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qaction.h
@@ -5322,7 +5174,7 @@ QtWidgets/qaction.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbox.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
@@ -5330,25 +5182,25 @@ QtWidgets/qframe.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbutton.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtoolbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtooltip.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtooltip.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtreeview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtreewidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtreeview.h
@@ -5360,23 +5212,23 @@ QtCore/qvariant.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtreewidgetitemiterator.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgets-config.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h
 QtGui/qtguiglobal.h
 -
 QtWidgets/qtwidgets-config.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsversion.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundogroup.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qundogroup.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5384,7 +5236,7 @@ QtCore/qobject.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundostack.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qundostack.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5392,7 +5244,7 @@ QtCore/qobject.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundoview.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qundoview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlistview.h
@@ -5400,7 +5252,7 @@ QtWidgets/qlistview.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwhatsthis.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwhatsthis.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5408,7 +5260,7 @@ QtCore/qobject.h
 QtGui/qcursor.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qwindowdefs.h
@@ -5440,24 +5292,36 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidgetaction.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwidgetaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qaction.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwizard.h
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qwizard.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-client_autogen/include/ui_login.h
+client_autogen/include/ui_loginwindow.h
 QtCore/QVariant
+-
+QtWidgets/QAction
 -
 QtWidgets/QApplication
 -
+QtWidgets/QButtonGroup
+-
 QtWidgets/QDialog
+-
+QtWidgets/QFrame
+-
+QtWidgets/QGridLayout
+-
+QtWidgets/QHBoxLayout
+-
+QtWidgets/QHeaderView
 -
 QtWidgets/QLabel
 -
@@ -5465,12 +5329,6 @@ QtWidgets/QLineEdit
 -
 QtWidgets/QPushButton
 -
-QtWidgets/QStatusBar
--
-QtWidgets/QTextEdit
--
 QtWidgets/QVBoxLayout
--
-QtWidgets/QWidget
 -
 
