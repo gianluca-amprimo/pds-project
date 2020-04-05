@@ -9,7 +9,6 @@
 #ifndef UI_PROVATEXT_H
 #define UI_PROVATEXT_H
 
-#include <iostream>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -21,13 +20,11 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QWidget>
-#include "../../../FileSaver.h"
 
 QT_BEGIN_NAMESPACE
 
 class Ui_MainWindow
 {
-
 public:
     QAction *actionSave_As;
     QWidget *centralwidget;
@@ -37,8 +34,6 @@ public:
     QMenuBar *menubar;
     QMenu *menuFile;
     QStatusBar *statusbar;
-    FileSaver *fs;
-
 
     void setupUi(QMainWindow *MainWindow)
     {
@@ -60,7 +55,6 @@ public:
         gridLayout->addWidget(pushButton, 1, 0, 1, 1);
 
         plainTextEdit = new QPlainTextEdit(centralwidget);
-        fs  = new FileSaver(plainTextEdit);
         plainTextEdit->setObjectName(QString::fromUtf8("plainTextEdit"));
 
         gridLayout->addWidget(plainTextEdit, 0, 0, 1, 1);
@@ -80,9 +74,7 @@ public:
         menuFile->addAction(actionSave_As);
 
         retranslateUi(MainWindow);
-        QObject::connect(pushButton, SIGNAL(pressed()), fs, SLOT(save()));
 
-        QMetaObject::connectSlotsByName(fs);
     } // setupUi
 
     void retranslateUi(QMainWindow *MainWindow)
@@ -93,6 +85,7 @@ public:
         plainTextEdit->setPlainText(QString());
         menuFile->setTitle(QApplication::translate("MainWindow", "File", nullptr));
     } // retranslateUi
+
 };
 
 namespace Ui {

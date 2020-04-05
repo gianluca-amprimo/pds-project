@@ -6,7 +6,9 @@
 int main(int argc, char** argv){
     QApplication app(argc, argv);
     QMainWindow* mainWindow;
-    Ui::MyTextEditor textProva{};
+    Ui::MainWindow textEditor;
+
+
 
     textProva.setupUi(mainWindow);
     mainWindow->show();

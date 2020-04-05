@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/FileSaver.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/FileSaver.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/provaQT.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/provaQT_autogen/mocs_compilation.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o"
+  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/FileSaver.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/FileSaver.cpp.o"
+  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/provaQT.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT.cpp.o"
+  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/provaQT_autogen/mocs_compilation.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

@@ -43,10 +43,10 @@ RM = /snap/clion/107/bin/cmake/linux/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT
+CMAKE_SOURCE_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug
+CMAKE_BINARY_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug
 
 # Utility rule file for provaQT_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/prov
 include CMakeFiles/provaQT_autogen.dir/progress.make
 
 CMakeFiles/provaQT_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target provaQT"
-	/snap/clion/107/bin/cmake/linux/bin/cmake -E cmake_autogen /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT_autogen.dir/AutogenInfo.cmake Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target provaQT"
+	/snap/clion/107/bin/cmake/linux/bin/cmake -E cmake_autogen /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/CMakeFiles/provaQT_autogen.dir/AutogenInfo.cmake Debug
 
 provaQT_autogen: CMakeFiles/provaQT_autogen
 provaQT_autogen: CMakeFiles/provaQT_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/provaQT_autogen.dir/clean:
 .PHONY : CMakeFiles/provaQT_autogen.dir/clean
 
 CMakeFiles/provaQT_autogen.dir/depend:
-	cd /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/CMakeFiles/provaQT_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/provaQT_autogen.dir/depend
 

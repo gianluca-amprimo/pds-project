@@ -11,10 +11,12 @@
 
 class FileSaver : public QObject{
     Q_OBJECT
+private:
+    std::string fileName;
+
 public slots:
-
-
     void save();
+    void setFileName(std::string filename);
 
 public:
     FileSaver(QPlainTextEdit *plainTextEdit);

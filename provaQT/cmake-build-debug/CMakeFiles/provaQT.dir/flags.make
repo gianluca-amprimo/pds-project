@@ -6,5 +6,5 @@ CXX_FLAGS = -g   -fPIC -std=gnu++1z
 
 CXX_DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_NETWORK_LIB -DQT_WIDGETS_LIB
 
-CXX_INCLUDES = -I/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/provaQT_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtNetwork 
+CXX_INCLUDES = -I/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/provaQT/cmake-build-debug/provaQT_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtNetwork 
 

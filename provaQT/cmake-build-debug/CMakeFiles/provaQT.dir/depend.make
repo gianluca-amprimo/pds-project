@@ -241,13 +241,18 @@ CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtGui/qwindo
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QAction
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QDialogButtonBox
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QGridLayout
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QLabel
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QLineEdit
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QMainWindow
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QMenu
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QMenuBar
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QPlainTextEdit
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h
@@ -256,10 +261,14 @@ CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qa
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdialogbuttonbox.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h
+CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h
@@ -273,6 +282,7 @@ CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qt
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: /opt/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
 CMakeFiles/provaQT.dir/provaQT.cpp.o: provaQT_autogen/include/ui_provaText.h
+CMakeFiles/provaQT.dir/provaQT.cpp.o: provaQT_autogen/include/ui_saveDialog.h
 
 CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o: ../FileSaver.h
 CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o: provaQT_autogen/EWIEGA46WW/moc_FileSaver.cpp
