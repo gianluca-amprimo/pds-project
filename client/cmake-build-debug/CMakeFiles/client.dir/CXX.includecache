@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/gianluca/Desktop/pdsproject/client/client.cpp
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/client.cpp
 QtWidgets
 -
 QtNetwork
@@ -16,11 +16,15 @@ QtCore
 string
 -
 client.h
-/home/gianluca/Desktop/pdsproject/client/client.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/client.h
 ui_loginwindow.h
-/home/gianluca/Desktop/pdsproject/client/ui_loginwindow.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/ui_loginwindow.h
+ui_registrationwindow.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/ui_registrationwindow.h
+ui_cancellationwindow.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/ui_cancellationwindow.h
 
-/home/gianluca/Desktop/pdsproject/client/client.h
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/client.h
 QDataStream
 -
 QDialog
@@ -30,483 +34,471 @@ QTcpSocket
 QStatusBar
 -
 
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp
-../../../client.h
-/home/gianluca/Desktop/pdsproject/client/client.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/client_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_client.cpp
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp
-
-/home/gianluca/Desktop/pdsproject/client/main.cpp
-QApplication
--
-client.h
-/home/gianluca/Desktop/pdsproject/client/client.h
-
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QByteArray
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QByteArray
 qbytearray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbytearray.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QCryptographicHash
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QCryptographicHash
 qcryptographichash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcryptographichash.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcryptographichash.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QDataStream
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QDataStream
 qdatastream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdatastream.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QEvent
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QEvent
 qcoreevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcoreevent.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QFlags
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QFlags
 qflags.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qflags.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qflags.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QHash
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QHash
 qhash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhash.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qhash.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QIODevice
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QIODevice
 qiodevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qiodevice.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QList
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QList
 qlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlist.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QMargins
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QMargins
 qmargins.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmargins.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QMetaType
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QMetaType
 qmetatype.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmetatype.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QObject
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QObject
 qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobject.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QPointF
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QPointF
 qpoint.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpoint.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QRect
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QRect
 qrect.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrect.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrect.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QScopedPointer
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QScopedPointer
 qscopedpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qscopedpointer.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QSharedDataPointer
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QSharedDataPointer
 qshareddata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qshareddata.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QSize
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QSize
 qsize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsize.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QSizeF
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QSizeF
 qsize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsize.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QString
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QString
 qstring.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstring.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstring.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QStringList
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QStringList
 qstringlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringlist.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QUrl
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QUrl
 qurl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qurl.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QVariant
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QVariant
 qvariant.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvariant.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QVector
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QVector
 qvector.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvector.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvector.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCore
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QtCore
 QtCore/QtCoreDepends
 -
 qglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qglobal.h
 qabstractanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractanimation.h
 qabstracteventdispatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracteventdispatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstracteventdispatcher.h
 qabstractitemmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractitemmodel.h
 qabstractnativeeventfilter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractnativeeventfilter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractnativeeventfilter.h
 qabstractproxymodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractproxymodel.h
 qabstractstate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractstate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractstate.h
 qabstracttransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracttransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstracttransition.h
 qalgorithms.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qalgorithms.h
 qanimationgroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qanimationgroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qanimationgroup.h
 qarraydata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydata.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qarraydata.h
 qarraydataops.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydataops.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qarraydataops.h
 qarraydatapointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydatapointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qarraydatapointer.h
 qatomic.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qatomic.h
 qbasictimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbasictimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbasictimer.h
 qbitarray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbitarray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbitarray.h
 qbuffer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbuffer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbuffer.h
 qbytearray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbytearray.h
 qbytearraylist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbytearraylist.h
 qbytearraymatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraymatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbytearraymatcher.h
 qcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcache.h
+qcalendar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcalendar.h
 qcborarray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborarray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborarray.h
 qcborcommon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborcommon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborcommon.h
 qcbormap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcbormap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcbormap.h
 qcborstream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborstream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborstream.h
 qcborvalue.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborvalue.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborvalue.h
 qchar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qchar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qchar.h
 qcollator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcollator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcollator.h
 qcommandlineoption.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineoption.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcommandlineoption.h
 qcommandlineparser.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineparser.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcommandlineparser.h
 qcompilerdetection.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h
+qconcatenatetablesproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h
 qcontainerfwd.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h
 qcontiguouscache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h
 qcoreapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcoreapplication.h
 qcoreevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcoreevent.h
 qcryptographichash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcryptographichash.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcryptographichash.h
 qdatastream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdatastream.h
 qdatetime.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatetime.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdatetime.h
 qdeadlinetimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdeadlinetimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdeadlinetimer.h
 qdebug.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdebug.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdebug.h
 qdir.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdir.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdir.h
 qdiriterator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdiriterator.h
 qeasingcurve.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeasingcurve.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qeasingcurve.h
 qelapsedtimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qelapsedtimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qelapsedtimer.h
 qendian.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qendian.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qendian.h
 qeventloop.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventloop.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qeventloop.h
 qeventtransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventtransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qeventtransition.h
 qexception.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qexception.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qexception.h
 qfactoryinterface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfactoryinterface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfactoryinterface.h
 qfile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfile.h
 qfiledevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfiledevice.h
 qfileinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfileinfo.h
 qfileselector.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileselector.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfileselector.h
 qfilesystemwatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfilesystemwatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfilesystemwatcher.h
 qfinalstate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfinalstate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfinalstate.h
 qflags.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qflags.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qflags.h
 qfuture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfuture.h
 qfutureinterface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfutureinterface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfutureinterface.h
 qfuturesynchronizer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturesynchronizer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfuturesynchronizer.h
 qfuturewatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturewatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfuturewatcher.h
 qgenericatomic.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qgenericatomic.h
 qglobalstatic.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qglobalstatic.h
 qhash.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhash.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qhash.h
 qhashfunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qhashfunctions.h
 qhistorystate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhistorystate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qhistorystate.h
 qidentityproxymodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qidentityproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qidentityproxymodel.h
 qiodevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qiodevice.h
 qisenum.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qisenum.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qisenum.h
 qitemselectionmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qitemselectionmodel.h
 qiterator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiterator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qiterator.h
 qjsonarray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonarray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsonarray.h
 qjsondocument.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsondocument.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsondocument.h
 qjsonobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsonobject.h
 qjsonvalue.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonvalue.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsonvalue.h
 qlibrary.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibrary.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlibrary.h
 qlibraryinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibraryinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlibraryinfo.h
 qline.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qline.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qline.h
 qlinkedlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlinkedlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlinkedlist.h
 qlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlist.h
 qlocale.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlocale.h
 qlockfile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlockfile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlockfile.h
 qloggingcategory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qloggingcategory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qloggingcategory.h
 qmap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmap.h
 qmargins.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmargins.h
 qmath.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmath.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmath.h
 qmessageauthenticationcode.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmessageauthenticationcode.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmessageauthenticationcode.h
 qmetaobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetaobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmetaobject.h
 qmetatype.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmetatype.h
 qmimedata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedata.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmimedata.h
 qmimedatabase.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedatabase.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmimedatabase.h
 qmimetype.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimetype.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmimetype.h
 qmutex.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmutex.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmutex.h
 qnamespace.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnamespace.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qnamespace.h
 qnumeric.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnumeric.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qnumeric.h
 qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobject.h
 qobjectcleanuphandler.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectcleanuphandler.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobjectcleanuphandler.h
 qobjectdefs.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobjectdefs.h
 qoperatingsystemversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qoperatingsystemversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qoperatingsystemversion.h
 qpair.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpair.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpair.h
 qparallelanimationgroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qparallelanimationgroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qparallelanimationgroup.h
 qpauseanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpauseanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpauseanimation.h
 qplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qplugin.h
 qpluginloader.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpluginloader.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpluginloader.h
 qpoint.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpoint.h
 qpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpointer.h
 qprocess.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocess.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qprocess.h
 qprocessordetection.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qprocessordetection.h
 qpropertyanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpropertyanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpropertyanimation.h
 qqueue.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qqueue.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qqueue.h
 qrandom.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrandom.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrandom.h
 qreadwritelock.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qreadwritelock.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qreadwritelock.h
 qrect.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrect.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrect.h
 qrefcount.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrefcount.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrefcount.h
 qregexp.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregexp.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qregexp.h
 qregularexpression.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qregularexpression.h
 qresource.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresource.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qresource.h
 qresultstore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresultstore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qresultstore.h
 qrunnable.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrunnable.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrunnable.h
 qsavefile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsavefile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsavefile.h
 qscopedpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qscopedpointer.h
 qscopedvaluerollback.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedvaluerollback.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qscopedvaluerollback.h
 qscopeguard.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopeguard.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qscopeguard.h
 qsemaphore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsemaphore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsemaphore.h
 qsequentialanimationgroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsequentialanimationgroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsequentialanimationgroup.h
 qset.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qset.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qset.h
 qsettings.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsettings.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsettings.h
 qshareddata.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qshareddata.h
 qsharedmemory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedmemory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsharedmemory.h
 qsharedpointer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsharedpointer.h
 qsignalmapper.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignalmapper.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsignalmapper.h
 qsignaltransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignaltransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsignaltransition.h
 qsize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsize.h
 qsocketnotifier.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsocketnotifier.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsocketnotifier.h
 qsortfilterproxymodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsortfilterproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsortfilterproxymodel.h
 qstack.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstack.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstack.h
 qstandardpaths.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstandardpaths.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstandardpaths.h
 qstate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstate.h
 qstatemachine.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstatemachine.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstatemachine.h
 qstorageinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstorageinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstorageinfo.h
 qstring.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstring.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstring.h
 qstringalgorithms.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h
 qstringbuilder.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringbuilder.h
 qstringlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringlist.h
 qstringlistmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlistmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringlistmodel.h
 qstringliteral.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringliteral.h
 qstringmatcher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringmatcher.h
 qstringview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringview.h
 qsysinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsysinfo.h
 qsystemdetection.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsystemdetection.h
 qsystemsemaphore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemsemaphore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsystemsemaphore.h
 qtemporarydir.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporarydir.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtemporarydir.h
 qtemporaryfile.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporaryfile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtemporaryfile.h
 qtextboundaryfinder.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextboundaryfinder.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtextboundaryfinder.h
 qtextcodec.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextcodec.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtextcodec.h
 qtextstream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextstream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtextstream.h
 qthread.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthread.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qthread.h
 qthreadpool.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadpool.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qthreadpool.h
 qthreadstorage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadstorage.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qthreadstorage.h
 qtimeline.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimeline.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtimeline.h
 qtimer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtimer.h
 qtimezone.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimezone.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtimezone.h
 qtranslator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtranslator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtranslator.h
+qtransposeproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtransposeproxymodel.h
 qtypeinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtypeinfo.h
 qtypetraits.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypetraits.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtypetraits.h
 qurl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qurl.h
 qurlquery.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurlquery.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qurlquery.h
 quuid.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/quuid.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/quuid.h
 qvariant.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvariant.h
 qvariantanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariantanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvariantanimation.h
 qvarlengtharray.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h
 qvector.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvector.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvector.h
 qversionnumber.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversionnumber.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qversionnumber.h
 qversiontagging.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qversiontagging.h
 qwaitcondition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwaitcondition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qwaitcondition.h
 qwineventnotifier.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwineventnotifier.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qwineventnotifier.h
 qxmlstream.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qxmlstream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qxmlstream.h
 qtcoreversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtcoreversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtcoreversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCoreDepends
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QtCoreDepends
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractanimation.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracteventdispatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstracteventdispatcher.h
 QtCore/qobject.h
 -
 QtCore/qeventloop.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractitemmodel.h
 QtCore/qvariant.h
 -
 QtCore/qobject.h
@@ -516,41 +508,41 @@ QtCore/qhash.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractnativeeventfilter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractnativeeventfilter.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractproxymodel.h
 QtCore/qabstractitemmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstractstate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstractstate.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qabstracttransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qabstracttransition.h
 QtCore/qobject.h
 -
 QtCore/qlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qalgorithms.h
 QtCore/qglobal.h
 -
 intrin.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qanimationgroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qanimationgroup.h
 QtCore/qabstractanimation.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydata.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qarraydata.h
 QtCore/qrefcount.h
 -
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydataops.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qarraydataops.h
 QtCore/qarraydata.h
 -
 new
@@ -558,32 +550,32 @@ new
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qarraydatapointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qarraydatapointer.h
 QtCore/qarraydataops.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qatomic.h
 QtCore/qglobal.h
 -
 QtCore/qbasicatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qatomic_bootstrap.h
 QtCore/qgenericatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qatomic_cxx11.h
 QtCore/qgenericatomic.h
 -
 atomic
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qatomic_msvc.h
 QtCore/qgenericatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h
-QtCore/qatomic.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbasicatomic.h
+QtCore/qglobal.h
 -
 QtCore/qatomic_bootstrap.h
 -
@@ -592,23 +584,23 @@ QtCore/qatomic_cxx11.h
 QtCore/qatomic_msvc.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbasictimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbasictimer.h
 QtCore/qglobal.h
 -
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbitarray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbitarray.h
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbuffer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbuffer.h
 QtCore/qiodevice.h
 -
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbytearray.h
 QtCore/qrefcount.h
 -
 QtCore/qnamespace.h
@@ -626,27 +618,39 @@ string
 iterator
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbytearraylist.h
 QtCore/qlist.h
 -
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qbytearraymatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qbytearraymatcher.h
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcache.h
 QtCore/qhash.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborarray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcalendar.h
+limits
+-
+QtCore/qglobal.h
+-
+QtCore/qlocale.h
+-
+QtCore/qstring.h
+-
+QtCore/qstringview.h
+-
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborarray.h
 QtCore/qcborvalue.h
 -
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborcommon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborcommon.h
 QtCore/qobjectdefs.h
 -
 QtCore/qmetatype.h
@@ -654,7 +658,7 @@ QtCore/qmetatype.h
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcbormap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcbormap.h
 QtCore/qcborvalue.h
 -
 QtCore/qpair.h
@@ -662,7 +666,7 @@ QtCore/qpair.h
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborstream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborstream.h
 QtCore/qbytearray.h
 -
 QtCore/qcborcommon.h
@@ -676,7 +680,7 @@ QtCore/qstring.h
 QtCore/qstringview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcborvalue.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcborvalue.h
 QtCore/qbytearray.h
 -
 QtCore/qdatetime.h
@@ -700,11 +704,11 @@ QtCore/qvector.h
 compare
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qchar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qchar.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcollator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcollator.h
 QtCore/qstring.h
 -
 QtCore/qstringlist.h
@@ -712,13 +716,13 @@ QtCore/qstringlist.h
 QtCore/qlocale.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineoption.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcommandlineoption.h
 QtCore/qstringlist.h
 -
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcommandlineparser.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcommandlineparser.h
 QtCore/qstringlist.h
 -
 QtCore/qcoreapplication.h
@@ -726,21 +730,31 @@ QtCore/qcoreapplication.h
 QtCore/qcommandlineoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcompilerdetection.h
 QtCore/qglobal.h
 -
 utility
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qconcatenatetablesproxymodel.h
+QtCore/qabstractitemmodel.h
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qconfig.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qconfig-bootstrapped.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qconfig.h
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcontainerfwd.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcontainertools_impl.h
+QtCore/qglobal.h
+-
+iterator
+-
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcontiguouscache.h
 QtCore/qatomic.h
 -
 limits.h
@@ -748,7 +762,7 @@ limits.h
 new
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcoreapplication.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
@@ -762,7 +776,7 @@ QtCore/qeventloop.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcoreevent.h
 QtCore/qnamespace.h
 -
 QtCore/qbytearray.h
@@ -770,13 +784,13 @@ QtCore/qbytearray.h
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qcryptographichash.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qcryptographichash.h
 QtCore/qbytearray.h
 -
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdatastream.h
 QtCore/qscopedpointer.h
 -
 QtCore/qiodevice.h
@@ -784,7 +798,7 @@ QtCore/qiodevice.h
 QtCore/qpair.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdatetime.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdatetime.h
 QtCore/qstring.h
 -
 QtCore/qnamespace.h
@@ -794,7 +808,7 @@ QtCore/qshareddata.h
 limits
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdeadlinetimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdeadlinetimer.h
 QtCore/qelapsedtimer.h
 -
 QtCore/qmetatype.h
@@ -808,7 +822,7 @@ limits
 chrono
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdebug.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdebug.h
 QtCore/qalgorithms.h
 -
 QtCore/qhash.h
@@ -840,7 +854,7 @@ map
 utility
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdir.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdir.h
 QtCore/qstring.h
 -
 QtCore/qfileinfo.h
@@ -850,11 +864,11 @@ QtCore/qstringlist.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qdiriterator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qdiriterator.h
 QtCore/qdir.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeasingcurve.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qeasingcurve.h
 QtCore/qglobal.h
 -
 QtCore/qobjectdefs.h
@@ -866,11 +880,11 @@ QtCore/qlist.h
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qelapsedtimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qelapsedtimer.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qendian.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qendian.h
 QtCore/qfloat16.h
 -
 QtCore/qglobal.h
@@ -880,17 +894,17 @@ stdlib.h
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventloop.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qeventloop.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qeventtransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qeventtransition.h
 QtCore/qabstracttransition.h
 -
 QtCore/qcoreevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qexception.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qexception.h
 QtCore/qatomic.h
 -
 QtCore/qshareddata.h
@@ -898,13 +912,13 @@ QtCore/qshareddata.h
 exception
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfactoryinterface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfactoryinterface.h
 QtCore/qobject.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfile.h
 QtCore/qfiledevice.h
 -
 QtCore/qstring.h
@@ -912,13 +926,13 @@ QtCore/qstring.h
 stdio.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfiledevice.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfileinfo.h
 QtCore/qfile.h
 -
 QtCore/qlist.h
@@ -928,27 +942,27 @@ QtCore/qshareddata.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfileselector.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfileselector.h
 QtCore/QObject
 -
 QtCore/QStringList
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfilesystemwatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfilesystemwatcher.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfinalstate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfinalstate.h
 QtCore/qabstractstate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qflags.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qflags.h
 QtCore/qglobal.h
 -
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfloat16.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfloat16.h
 QtCore/qglobal.h
 -
 QtCore/qmetatype.h
@@ -958,7 +972,7 @@ string.h
 immintrin.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfuture.h
 QtCore/qglobal.h
 -
 QtCore/qfutureinterface.h
@@ -966,7 +980,7 @@ QtCore/qfutureinterface.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfutureinterface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfutureinterface.h
 QtCore/qrunnable.h
 -
 QtCore/qmutex.h
@@ -975,24 +989,26 @@ QtCore/qexception.h
 -
 QtCore/qresultstore.h
 -
+mutex
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturesynchronizer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfuturesynchronizer.h
 QtCore/qfuture.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qfuturewatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qfuturewatcher.h
 QtCore/qfuture.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qgenericatomic.h
 QtCore/qglobal.h
 -
 QtCore/qtypeinfo.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qglobal.h
 type_traits
 -
 cstddef
@@ -1034,15 +1050,17 @@ QtCore/qnumeric.h
 QtCore/qversiontagging.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qglobalstatic.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
 -
 QtCore/qmutex.h
 -
+mutex
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhash.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qhash.h
 QtCore/qchar.h
 -
 QtCore/qiterator.h
@@ -1053,28 +1071,32 @@ QtCore/qrefcount.h
 -
 QtCore/qhashfunctions.h
 -
-initializer_list
+QtCore/qcontainertools_impl.h
 -
 algorithm
 -
+initializer_list
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qhashfunctions.h
 QtCore/qstring.h
 -
 QtCore/qpair.h
 -
 numeric
 -
+functional
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qhistorystate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qhistorystate.h
 QtCore/qabstractstate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qidentityproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qidentityproxymodel.h
 QtCore/qabstractproxymodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qiodevice.h
 QtCore/qglobal.h
 -
 QtCore/qobject.h
@@ -1086,11 +1108,11 @@ QtCore/qscopedpointer.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qisenum.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qisenum.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qitemselectionmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qitemselectionmodel.h
 QtCore/qglobal.h
 -
 QtCore/qset.h
@@ -1102,11 +1124,11 @@ QtCore/qlist.h
 QtCore/qabstractitemmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qiterator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qiterator.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonarray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsonarray.h
 QtCore/qjsonvalue.h
 -
 QtCore/qiterator.h
@@ -1114,11 +1136,11 @@ QtCore/qiterator.h
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsondocument.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsondocument.h
 QtCore/qjsonvalue.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsonobject.h
 QtCore/qjsonvalue.h
 -
 QtCore/qiterator.h
@@ -1128,17 +1150,17 @@ QtCore/qpair.h
 initializer_list
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qjsonvalue.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qjsonvalue.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibrary.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlibrary.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlibraryinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlibraryinfo.h
 QtCore/qstring.h
 -
 QtCore/qdatetime.h
@@ -1146,25 +1168,33 @@ QtCore/qdatetime.h
 QtCore/qversionnumber.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qline.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qline.h
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlinkedlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlinkedlist.h
+QtCore/qglobal.h
+-
 QtCore/qiterator.h
 -
 QtCore/qrefcount.h
 -
-iterator
+QtCore/qcontainertools_impl.h
 -
-list
+QtCore/qdatastream.h
+-
+QtCore/qtypeinfo.h
 -
 algorithm
 -
 initializer_list
 -
+iterator
+-
+list
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlist.h
 QtCore/qalgorithms.h
 -
 QtCore/qiterator.h
@@ -1175,13 +1205,17 @@ QtCore/qarraydata.h
 -
 QtCore/qhashfunctions.h
 -
-iterator
+QtCore/qvector.h
 -
-list
+QtCore/qcontainertools_impl.h
 -
 algorithm
 -
 initializer_list
+-
+iterator
+-
+list
 -
 stdlib.h
 -
@@ -1196,7 +1230,7 @@ QtCore/qbytearraylist.h
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlocale.h
 QtCore/qvariant.h
 -
 QtCore/qstring.h
@@ -1206,23 +1240,23 @@ QtCore/qobjectdefs.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlockfile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlockfile.h
 QtCore/qstring.h
 -
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qlogging.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qlogging.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qloggingcategory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qloggingcategory.h
 QtCore/qglobal.h
 -
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmap.h
 QtCore/qiterator.h
 -
 QtCore/qlist.h
@@ -1233,20 +1267,20 @@ QtCore/qpair.h
 -
 QtCore/qdebug.h
 -
-map
--
-new
--
 functional
 -
 initializer_list
 -
+map
+-
+new
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmargins.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmath.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmath.h
 QtCore/qglobal.h
 -
 QtCore/qalgorithms.h
@@ -1254,17 +1288,17 @@ QtCore/qalgorithms.h
 cmath
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmessageauthenticationcode.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmessageauthenticationcode.h
 QtCore/qcryptographichash.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetaobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmetaobject.h
 QtCore/qobjectdefs.h
 -
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmetatype.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1284,19 +1318,19 @@ list
 map
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedata.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmimedata.h
 QtCore/qvariant.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimedatabase.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmimedatabase.h
 QtCore/qmimetype.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmimetype.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmimetype.h
 QtCore/qglobal.h
 -
 QtCore/qobjectdefs.h
@@ -1305,8 +1339,10 @@ QtCore/qshareddata.h
 -
 QtCore/qstring.h
 -
+QtCore/qstringlist.h
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qmutex.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qmutex.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1318,15 +1354,15 @@ chrono
 limits
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnamespace.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qnamespace.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qnumeric.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qnumeric.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobject.h
 QtCore/qobjectdefs.h
 -
 QtCore/qstring.h
@@ -1346,39 +1382,39 @@ QtCore/qobject_impl.h
 chrono
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobject_impl.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectcleanuphandler.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobjectcleanuphandler.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobjectdefs.h
 QtCore/qnamespace.h
 -
 QtCore/qobjectdefs_impl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qobjectdefs_impl.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qoperatingsystemversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qoperatingsystemversion.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpair.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpair.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qparallelanimationgroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qparallelanimationgroup.h
 QtCore/qanimationgroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpauseanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpauseanimation.h
 QtCore/qanimationgroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qplugin.h
 QtCore/qobject.h
 -
 QtCore/qpointer.h
@@ -1386,7 +1422,7 @@ QtCore/qpointer.h
 QtCore/qjsonobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpluginloader.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpluginloader.h
 QtCore/qglobal.h
 -
 QtCore/qlibrary.h
@@ -1394,17 +1430,17 @@ QtCore/qlibrary.h
 QtCore/qplugin.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpoint.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpointer.h
 QtCore/qsharedpointer.h
 -
 QtCore/qtypeinfo.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocess.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qprocess.h
 QtCore/qiodevice.h
 -
 QtCore/qstringlist.h
@@ -1414,19 +1450,19 @@ QtCore/qshareddata.h
 functional
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qprocessordetection.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qpropertyanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qpropertyanimation.h
 QtCore/qvariantanimation.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qqueue.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qqueue.h
 QtCore/qlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrandom.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrandom.h
 QtCore/qglobal.h
 -
 algorithm
@@ -1434,11 +1470,11 @@ algorithm
 random
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qreadwritelock.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qreadwritelock.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrect.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrect.h
 QtCore/qmargins.h
 -
 QtCore/qsize.h
@@ -1446,17 +1482,17 @@ QtCore/qsize.h
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrefcount.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrefcount.h
 QtCore/qatomic.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregexp.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qregexp.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qregularexpression.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
@@ -1468,7 +1504,7 @@ QtCore/qshareddata.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresource.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qresource.h
 QtCore/qstring.h
 -
 QtCore/qlocale.h
@@ -1480,17 +1516,17 @@ QtCore/qlist.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qresultstore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qresultstore.h
 QtCore/qmap.h
 -
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qrunnable.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qrunnable.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsavefile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsavefile.h
 QtCore/qglobal.h
 -
 QtCore/qfiledevice.h
@@ -1498,37 +1534,39 @@ QtCore/qfiledevice.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qscopedpointer.h
 QtCore/qglobal.h
 -
 stdlib.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopedvaluerollback.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qscopedvaluerollback.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qscopeguard.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qscopeguard.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsemaphore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsemaphore.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsequentialanimationgroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsequentialanimationgroup.h
 QtCore/qanimationgroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qset.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qset.h
 QtCore/qhash.h
+-
+QtCore/qcontainertools_impl.h
 -
 initializer_list
 -
 iterator
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsettings.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsettings.h
 QtCore/qobject.h
 -
 QtCore/qvariant.h
@@ -1540,7 +1578,7 @@ QtCore/qscopedpointer.h
 ctype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qshareddata.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1550,11 +1588,19 @@ QtCore/qhash.h
 QtCore/qhashfunctions.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedmemory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsharedmemory.h
+QtCore/qglobal.h
+-
 QtCore/qobject.h
 -
+QtCore/qobjectdefs.h
+-
+QtCore/qscopedpointer.h
+-
+QtCore/qstring.h
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsharedpointer.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -1563,8 +1609,10 @@ QtCore/qshareddata.h
 -
 QtCore/qsharedpointer_impl.h
 -
+memory
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsharedpointer_impl.h
 new
 -
 QtCore/qatomic.h
@@ -1575,26 +1623,30 @@ QtCore/qhash.h
 -
 QtCore/qhashfunctions.h
 -
+memory
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignalmapper.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsignalmapper.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsignaltransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsignaltransition.h
 QtCore/qabstracttransition.h
 -
 QtCore/qmetaobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsize.h
 QtCore/qnamespace.h
 -
+QtCore/qmargins.h
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsocketnotifier.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsocketnotifier.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsortfilterproxymodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsortfilterproxymodel.h
 QtCore/qabstractproxymodel.h
 -
 QtCore/qregexp.h
@@ -1602,17 +1654,17 @@ QtCore/qregexp.h
 QtCore/qregularexpression.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstack.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstack.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstandardpaths.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstandardpaths.h
 QtCore/qstringlist.h
 -
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstate.h
 QtCore/qabstractstate.h
 -
 QtCore/qlist.h
@@ -1620,7 +1672,7 @@ QtCore/qlist.h
 QtCore/qmetaobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstatemachine.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstatemachine.h
 QtCore/qstate.h
 -
 QtCore/qcoreevent.h
@@ -1634,7 +1686,7 @@ QtCore/qset.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstorageinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstorageinfo.h
 QtCore/qbytearray.h
 -
 QtCore/qdir.h
@@ -1648,7 +1700,7 @@ QtCore/qstring.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstring.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstring.h
 QtCore/qchar.h
 -
 QtCore/qbytearray.h
@@ -1672,11 +1724,11 @@ stdarg.h
 QtCore/qstringbuilder.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringalgorithms.h
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringbuilder.h
 QtCore/qstring.h
 -
 QtCore/qbytearray.h
@@ -1684,10 +1736,12 @@ QtCore/qbytearray.h
 string.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringlist.h
 QtCore/qlist.h
 -
 QtCore/qalgorithms.h
+-
+QtCore/qcontainertools_impl.h
 -
 QtCore/qregexp.h
 -
@@ -1696,21 +1750,23 @@ QtCore/qstring.h
 QtCore/qstringmatcher.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringlistmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringlistmodel.h
 QtCore/qabstractitemmodel.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringliteral.h
 QtCore/qarraydata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringmatcher.h
 QtCore/qstring.h
 -
+QtCore/qstringview.h
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qstringview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qstringview.h
 QtCore/qchar.h
 -
 QtCore/qbytearray.h
@@ -1722,11 +1778,11 @@ QtCore/qstringalgorithms.h
 string
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsysinfo.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsystemdetection.h
 QtCore/qglobal.h
 -
 TargetConditionals.h
@@ -1736,45 +1792,45 @@ Availability.h
 AvailabilityMacros.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qsystemsemaphore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qsystemsemaphore.h
 QtCore/qstring.h
 -
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qt_windows.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qt_windows.h
 windows.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtcore-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtcoreversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtcoreversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporarydir.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtemporarydir.h
 QtCore/qdir.h
 -
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtemporaryfile.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtemporaryfile.h
 QtCore/qiodevice.h
 -
 QtCore/qfile.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextboundaryfinder.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtextboundaryfinder.h
 QtCore/qchar.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextcodec.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtextcodec.h
 QtCore/qstring.h
 -
 QtCore/qlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtextstream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtextstream.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
@@ -1788,7 +1844,7 @@ QtCore/qscopedpointer.h
 stdio.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthread.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qthread.h
 QtCore/qobject.h
 -
 future
@@ -1798,7 +1854,7 @@ functional
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadpool.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qthreadpool.h
 QtCore/qglobal.h
 -
 QtCore/qthread.h
@@ -1806,7 +1862,7 @@ QtCore/qthread.h
 QtCore/qrunnable.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qthreadstorage.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qthreadstorage.h
 QtCore/qglobal.h
 -
 QtCore/qscopedpointer.h
@@ -1814,13 +1870,15 @@ QtCore/qscopedpointer.h
 type_traits
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimeline.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtimeline.h
+QtCore/qglobal.h
+-
 QtCore/qeasingcurve.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtimer.h
 QtCore/qglobal.h
 -
 QtCore/qbasictimer.h
@@ -1830,7 +1888,7 @@ QtCore/qobject.h
 chrono
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtimezone.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtimezone.h
 QtCore/qshareddata.h
 -
 QtCore/qlocale.h
@@ -1838,21 +1896,27 @@ QtCore/qlocale.h
 QtCore/qdatetime.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtranslator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtranslator.h
 QtCore/qobject.h
 -
 QtCore/qbytearray.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtransposeproxymodel.h
+QtCore/qabstractproxymodel.h
+-
+QtCore/qscopedpointer.h
+-
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtypeinfo.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qtypetraits.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qtypetraits.h
 QtCore/qglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCore/qglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QtCore/qglobal.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qurl.h
 QtCore/qbytearray.h
 -
 QtCore/qobjectdefs.h
@@ -1868,7 +1932,7 @@ QtCore/qglobal.h
 QtCore/qurlquery.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qurlquery.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qurlquery.h
 QtCore/qpair.h
 -
 QtCore/qshareddata.h
@@ -1877,12 +1941,14 @@ QtCore/qurl.h
 -
 QtCore/qstringlist.h
 -
+initializer_list
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/quuid.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/quuid.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvariant.h
 QtCore/qatomic.h
 -
 QtCore/qbytearray.h
@@ -1906,7 +1972,7 @@ QtCore/qbytearraylist.h
 variant
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvariantanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvariantanimation.h
 QtCore/qeasingcurve.h
 -
 QtCore/qabstractanimation.h
@@ -1918,12 +1984,22 @@ QtCore/qvariant.h
 QtCore/qpair.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvarlengtharray.h
 QtCore/qcontainerfwd.h
 -
 QtCore/qglobal.h
 -
 QtCore/qalgorithms.h
+-
+QtCore/qcontainertools_impl.h
+-
+QtCore/qhashfunctions.h
+-
+algorithm
+-
+initializer_list
+-
+iterator
 -
 new
 -
@@ -1931,19 +2007,11 @@ string.h
 -
 stdlib.h
 -
-algorithm
--
-initializer_list
--
-iterator
--
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qvector.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qvector.h
 QtCore/qalgorithms.h
 -
 QtCore/qiterator.h
--
-QtCore/qlist.h
 -
 QtCore/qrefcount.h
 -
@@ -1951,7 +2019,11 @@ QtCore/qarraydata.h
 -
 QtCore/qhashfunctions.h
 -
+QtCore/qcontainertools_impl.h
+-
 iterator
+-
+initializer_list
 -
 vector
 -
@@ -1959,14 +2031,12 @@ stdlib.h
 -
 string.h
 -
-initializer_list
--
 algorithm
 -
 QtCore/qpoint.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversionnumber.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qversionnumber.h
 QtCore/qnamespace.h
 -
 QtCore/qstring.h
@@ -1978,21 +2048,21 @@ QtCore/qmetatype.h
 QtCore/qtypeinfo.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qversiontagging.h
 QtCore/qglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwaitcondition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qwaitcondition.h
 QtCore/qglobal.h
 -
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qwineventnotifier.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qwineventnotifier.h
 QtCore/qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/QtCore/qobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/QtCore/qobject.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtCore/qxmlstream.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtCore/qxmlstream.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
@@ -2002,261 +2072,265 @@ QtCore/qvector.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QImage
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QImage
 qimage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimage.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimage.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QMatrix3x3
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QMatrix3x3
 qgenericmatrix.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericmatrix.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qgenericmatrix.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QMatrix4x4
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QMatrix4x4
 qmatrix4x4.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix4x4.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qmatrix4x4.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QOpenGLContext
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QOpenGLContext
 qopenglcontext.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglcontext.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglcontext.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QPaintDevice
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QPaintDevice
 qpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintdevice.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QPaintDeviceWindow
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QPaintDeviceWindow
 qpaintdevicewindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevicewindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintdevicewindow.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QSurfaceFormat
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QSurfaceFormat
 qsurfaceformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurfaceformat.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsurfaceformat.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QTransform
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QTransform
 qtransform.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtransform.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QVector3D
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QVector3D
 qvector3d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector3d.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvector3d.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QWindow
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QWindow
 qwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qwindow.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QtGui
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QtGui
 QtGui/QtGuiDepends
 -
 qtguiglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtguiglobal.h
 qabstracttextdocumentlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qabstracttextdocumentlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qabstracttextdocumentlayout.h
 qaccessible.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessible.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessible.h
 qaccessiblebridge.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessiblebridge.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessiblebridge.h
 qaccessibleobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessibleobject.h
 qaccessibleplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessibleplugin.h
 qbackingstore.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbackingstore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qbackingstore.h
 qbitmap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbitmap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qbitmap.h
 qbrush.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbrush.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qbrush.h
 qclipboard.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qclipboard.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qclipboard.h
 qcolor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcolor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcolor.h
+qcolorspace.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcolorspace.h
+qcolortransform.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcolortransform.h
 qcursor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcursor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcursor.h
 qdesktopservices.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdesktopservices.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qdesktopservices.h
 qdrag.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdrag.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qdrag.h
 qevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qevent.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qevent.h
 qfont.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfont.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfont.h
 qfontdatabase.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontdatabase.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfontdatabase.h
 qfontinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfontinfo.h
 qfontmetrics.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfontmetrics.h
 qgenericmatrix.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericmatrix.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qgenericmatrix.h
 qgenericplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qgenericplugin.h
 qgenericpluginfactory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericpluginfactory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qgenericpluginfactory.h
 qglyphrun.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qglyphrun.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qglyphrun.h
 qguiapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qguiapplication.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qguiapplication.h
 qicon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qicon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qicon.h
 qiconengine.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengine.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qiconengine.h
 qiconengineplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengineplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qiconengineplugin.h
 qimage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimage.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimage.h
 qimageiohandler.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimageiohandler.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimageiohandler.h
 qimagereader.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagereader.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimagereader.h
 qimagewriter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagewriter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimagewriter.h
 qinputmethod.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qinputmethod.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qinputmethod.h
 qkeysequence.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qkeysequence.h
 qmatrix.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qmatrix.h
 qmatrix4x4.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix4x4.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qmatrix4x4.h
 qmovie.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmovie.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qmovie.h
 qoffscreensurface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qoffscreensurface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qoffscreensurface.h
 qopengl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengl.h
 qopenglbuffer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglbuffer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglbuffer.h
 qopenglcontext.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglcontext.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglcontext.h
 qopengldebug.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengldebug.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengldebug.h
 qopenglextrafunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglextrafunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglextrafunctions.h
 qopenglframebufferobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglframebufferobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglframebufferobject.h
 qopenglfunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglfunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglfunctions.h
 qopenglpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpaintdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglpaintdevice.h
 qopenglpixeltransferoptions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpixeltransferoptions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglpixeltransferoptions.h
 qopenglshaderprogram.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglshaderprogram.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglshaderprogram.h
 qopengltexture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltexture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengltexture.h
 qopengltextureblitter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltextureblitter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengltextureblitter.h
 qopengltimerquery.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltimerquery.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengltimerquery.h
 qopenglversionfunctions.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglversionfunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglversionfunctions.h
 qopenglvertexarrayobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglvertexarrayobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglvertexarrayobject.h
 qopenglwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglwindow.h
 qpagedpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagedpaintdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpagedpaintdevice.h
 qpagelayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagelayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpagelayout.h
 qpagesize.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagesize.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpagesize.h
 qpaintdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintdevice.h
 qpaintdevicewindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevicewindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintdevicewindow.h
 qpaintengine.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintengine.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintengine.h
 qpainter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpainter.h
 qpainterpath.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpainterpath.h
 qpalette.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpalette.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpalette.h
 qpdfwriter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpdfwriter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpdfwriter.h
 qpen.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpen.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpen.h
 qpicture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpicture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpicture.h
 qpictureformatplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpictureformatplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpictureformatplugin.h
 qpixelformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpixelformat.h
 qpixmap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpixmap.h
 qpixmapcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmapcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpixmapcache.h
 qpolygon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpolygon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpolygon.h
 qquaternion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qquaternion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qquaternion.h
 qrasterwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrasterwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrasterwindow.h
 qrawfont.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrawfont.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrawfont.h
 qregion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qregion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qregion.h
 qrgb.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgb.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrgb.h
 qrgba64.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgba64.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrgba64.h
 qscreen.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qscreen.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qscreen.h
 qsessionmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsessionmanager.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsessionmanager.h
 qstandarditemmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstandarditemmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qstandarditemmodel.h
 qstatictext.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstatictext.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qstatictext.h
 qstylehints.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstylehints.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qstylehints.h
 qsurface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsurface.h
 qsurfaceformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurfaceformat.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsurfaceformat.h
 qsyntaxhighlighter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsyntaxhighlighter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsyntaxhighlighter.h
 qtextcursor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextcursor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextcursor.h
 qtextdocument.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocument.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextdocument.h
 qtextdocumentfragment.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentfragment.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextdocumentfragment.h
 qtextdocumentwriter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentwriter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextdocumentwriter.h
 qtextformat.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextformat.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextformat.h
 qtextlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextlayout.h
 qtextlist.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextlist.h
 qtextobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextobject.h
 qtextoption.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextoption.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextoption.h
 qtexttable.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtexttable.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtexttable.h
 qtouchdevice.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtouchdevice.h
 qtransform.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtransform.h
 qvalidator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvalidator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvalidator.h
 qvector2d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvector2d.h
 qvector3d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector3d.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvector3d.h
 qvector4d.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector4d.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvector4d.h
 qwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qwindow.h
 qwindowdefs.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qwindowdefs.h
 qtguiversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtguiversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/QtGuiDepends
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/QtGuiDepends
 QtCore/QtCore
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qabstracttextdocumentlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qabstracttextdocumentlayout.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -2270,7 +2344,7 @@ QtGui/qtextcursor.h
 QtGui/qpalette.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessible.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessible.h
 QtGui/qtguiglobal.h
 -
 QtCore/qcoreapplication.h
@@ -2296,7 +2370,7 @@ QtGui/qevent.h
 stdlib.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessiblebridge.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessiblebridge.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -2304,13 +2378,13 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessibleobject.h
 QtGui/qtguiglobal.h
 -
 QtGui/qaccessible.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qaccessibleplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qaccessibleplugin.h
 QtGui/qtguiglobal.h
 -
 QtGui/qaccessible.h
@@ -2318,7 +2392,7 @@ QtGui/qaccessible.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbackingstore.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qbackingstore.h
 QtGui/qtguiglobal.h
 -
 QtCore/qrect.h
@@ -2328,13 +2402,13 @@ QtGui/qwindow.h
 QtGui/qregion.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbitmap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qbitmap.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qbrush.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qbrush.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpair.h
@@ -2356,13 +2430,13 @@ QtGui/qimage.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qclipboard.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qclipboard.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcolor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcolor.h
 QtGui/qtguiglobal.h
 -
 QtGui/qrgb.h
@@ -2374,7 +2448,23 @@ QtCore/qstringlist.h
 QtGui/qrgba64.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qcursor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcolorspace.h
+QtGui/qtguiglobal.h
+-
+QtGui/qcolortransform.h
+-
+QtCore/qobjectdefs.h
+-
+QtCore/qshareddata.h
+-
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcolortransform.h
+QtGui/qtguiglobal.h
+-
+QtGui/qrgb.h
+-
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qcursor.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -2382,7 +2472,7 @@ QtCore/qpoint.h
 QtGui/qwindowdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdesktopservices.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qdesktopservices.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -2390,13 +2480,13 @@ QtCore/qstring.h
 QtCore/qstandardpaths.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qdrag.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qdrag.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qevent.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qevent.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2428,7 +2518,7 @@ QtGui/qvector2d.h
 QtGui/qtouchdevice.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfont.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfont.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2438,7 +2528,7 @@ QtCore/qstring.h
 QtCore/qsharedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontdatabase.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfontdatabase.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2448,7 +2538,7 @@ QtCore/qstring.h
 QtGui/qfont.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfontinfo.h
 QtGui/qtguiglobal.h
 -
 QtGui/qfont.h
@@ -2456,7 +2546,7 @@ QtGui/qfont.h
 QtCore/qsharedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qfontmetrics.h
 QtGui/qtguiglobal.h
 -
 QtGui/qfont.h
@@ -2466,7 +2556,7 @@ QtCore/qsharedpointer.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericmatrix.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qgenericmatrix.h
 QtGui/qtguiglobal.h
 -
 QtCore/qmetatype.h
@@ -2476,7 +2566,7 @@ QtCore/qdebug.h
 QtCore/qdatastream.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qgenericplugin.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -2484,13 +2574,13 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qgenericpluginfactory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qgenericpluginfactory.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qglyphrun.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qglyphrun.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsharedpointer.h
@@ -2502,7 +2592,7 @@ QtCore/qpoint.h
 QtGui/qrawfont.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qguiapplication.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qguiapplication.h
 QtGui/qtguiglobal.h
 -
 QtCore/qcoreapplication.h
@@ -2518,7 +2608,7 @@ QtCore/qpoint.h
 QtCore/qsize.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qicon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qicon.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsize.h
@@ -2528,7 +2618,7 @@ QtCore/qlist.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengine.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qiconengine.h
 QtGui/qtguiglobal.h
 -
 QtCore/qlist.h
@@ -2536,7 +2626,7 @@ QtCore/qlist.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qiconengineplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qiconengineplugin.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -2544,7 +2634,7 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimage.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimage.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -2566,7 +2656,7 @@ QtCore/qstring.h
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimageiohandler.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimageiohandler.h
 QtGui/qtguiglobal.h
 -
 QtCore/qiodevice.h
@@ -2578,7 +2668,7 @@ QtCore/qfactoryinterface.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagereader.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimagereader.h
 QtGui/qtguiglobal.h
 -
 QtCore/qbytearray.h
@@ -2590,7 +2680,7 @@ QtGui/qimage.h
 QtGui/qimageiohandler.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qimagewriter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qimagewriter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qbytearray.h
@@ -2602,13 +2692,13 @@ QtCore/qlist.h
 QtGui/qimageiohandler.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qinputmethod.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qinputmethod.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qkeysequence.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -2616,7 +2706,7 @@ QtCore/qstring.h
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qmatrix.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpolygon.h
@@ -2632,7 +2722,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmatrix4x4.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qmatrix4x4.h
 QtGui/qtguiglobal.h
 -
 QtGui/qvector3d.h
@@ -2646,7 +2736,7 @@ QtGui/qgenericmatrix.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qmovie.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qmovie.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -2658,7 +2748,7 @@ QtCore/qlist.h
 QtGui/qimagereader.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qoffscreensurface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qoffscreensurface.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -2666,7 +2756,7 @@ QtCore/QObject
 QtGui/qsurface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengl.h
 QtGui/qtguiglobal.h
 -
 QtCore/qt_windows.h
@@ -2712,7 +2802,7 @@ stdint.h
 inttypes.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglbuffer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglbuffer.h
 QtGui/qtguiglobal.h
 -
 QtCore/qscopedpointer.h
@@ -2720,7 +2810,7 @@ QtCore/qscopedpointer.h
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglcontext.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglcontext.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -2744,7 +2834,7 @@ QtCore/qpair.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengldebug.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengldebug.h
 QtGui/qtguiglobal.h
 -
 QtCore/qshareddata.h
@@ -2762,12 +2852,10 @@ QtCore/qdebug.h
 QtGui/qopenglcontext.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengles2ext.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengles2ext.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglext.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglext.h
 windows.h
--
-stddef.h
 -
 inttypes.h
 -
@@ -2778,13 +2866,13 @@ stdint.h
 inttypes.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglextrafunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglextrafunctions.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopenglfunctions.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglframebufferobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglframebufferobject.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2794,7 +2882,7 @@ QtGui/qpaintdevice.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglfunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglfunctions.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2804,7 +2892,7 @@ QtGui/qopenglcontext.h
 stdio.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpaintdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglpaintdevice.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpaintdevice.h
@@ -2814,13 +2902,13 @@ QtGui/qopengl.h
 QtGui/qopenglcontext.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglpixeltransferoptions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglpixeltransferoptions.h
 QtGui/qtguiglobal.h
 -
 QtCore/QSharedDataPointer
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglshaderprogram.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglshaderprogram.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2834,7 +2922,7 @@ QtGui/qvector4d.h
 QtGui/qmatrix4x4.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltexture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengltexture.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2844,7 +2932,7 @@ QtGui/qimage.h
 QtCore/QScopedPointer
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltextureblitter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengltextureblitter.h
 QtGui/qtguiglobal.h
 -
 QtGui/qopengl.h
@@ -2854,7 +2942,7 @@ QtGui/QMatrix3x3
 QtGui/QMatrix4x4
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopengltimerquery.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopengltimerquery.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -2862,7 +2950,7 @@ QtCore/QObject
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglversionfunctions.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglversionfunctions.h
 QtGui/qtguiglobal.h
 -
 QtCore/qhash.h
@@ -2874,7 +2962,7 @@ QtCore/qpair.h
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglvertexarrayobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglvertexarrayobject.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -2882,7 +2970,7 @@ QtCore/QObject
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qopenglwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qopenglwindow.h
 QtGui/qtguiglobal.h
 -
 QtGui/QPaintDeviceWindow
@@ -2892,7 +2980,7 @@ QtGui/QOpenGLContext
 QtGui/QImage
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagedpaintdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpagedpaintdevice.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpaintdevice.h
@@ -2900,7 +2988,7 @@ QtGui/qpaintdevice.h
 QtGui/qpagelayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagelayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpagelayout.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsharedpointer.h
@@ -2912,13 +3000,13 @@ QtCore/qmargins.h
 QtGui/qpagesize.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpagesize.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpagesize.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsharedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintdevice.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -2926,7 +3014,7 @@ QtGui/qwindowdefs.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevicewindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintdevicewindow.h
 QtGui/qtguiglobal.h
 -
 QtGui/QWindow
@@ -2934,7 +3022,7 @@ QtGui/QWindow
 QtGui/QPaintDevice
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpaintengine.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpaintengine.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -2946,7 +3034,7 @@ QtCore/qscopedpointer.h
 QtGui/qpainter.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpainter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -2978,7 +3066,7 @@ QtGui/qfontinfo.h
 QtGui/qfontmetrics.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpainterpath.h
 QtGui/qtguiglobal.h
 -
 QtGui/qmatrix.h
@@ -2994,7 +3082,7 @@ QtCore/qvector.h
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpalette.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpalette.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -3004,7 +3092,7 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpdfwriter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpdfwriter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3014,7 +3102,7 @@ QtGui/qpagedpaintdevice.h
 QtGui/qpagelayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpen.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpen.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -3022,7 +3110,7 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpicture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpicture.h
 QtGui/qtguiglobal.h
 -
 QtCore/qiodevice.h
@@ -3034,7 +3122,7 @@ QtCore/qsharedpointer.h
 QtGui/qpaintdevice.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpictureformatplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpictureformatplugin.h
 QtGui/qtguiglobal.h
 -
 QtCore/qplugin.h
@@ -3042,11 +3130,11 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpixelformat.h
 QtGui/qtguiglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpixmap.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpaintdevice.h
@@ -3064,13 +3152,13 @@ QtGui/qimage.h
 QtGui/qtransform.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpixmapcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpixmapcache.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qpolygon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qpolygon.h
 QtGui/qtguiglobal.h
 -
 QtCore/qvector.h
@@ -3080,7 +3168,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qquaternion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qquaternion.h
 QtGui/qtguiglobal.h
 -
 QtGui/qgenericmatrix.h
@@ -3090,13 +3178,13 @@ QtGui/qvector3d.h
 QtGui/qvector4d.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrasterwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrasterwindow.h
 QtGui/qtguiglobal.h
 -
 QtGui/QPaintDeviceWindow
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrawfont.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrawfont.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -3116,7 +3204,7 @@ QtGui/qtransform.h
 QtGui/qfontdatabase.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qregion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qregion.h
 QtGui/qtguiglobal.h
 -
 QtCore/qatomic.h
@@ -3128,19 +3216,19 @@ QtGui/qwindowdefs.h
 QtCore/qdatastream.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgb.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrgb.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qrgba64.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qrgba64.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qscreen.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qscreen.h
 QtGui/qtguiglobal.h
 -
 QtCore/QList
@@ -3158,7 +3246,7 @@ QtGui/QTransform
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsessionmanager.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsessionmanager.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3170,7 +3258,7 @@ QtCore/qstring.h
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstandarditemmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qstandarditemmodel.h
 QtGui/qtguiglobal.h
 -
 QtCore/qabstractitemmodel.h
@@ -3184,7 +3272,7 @@ QtGui/qicon.h
 QtCore/qdatastream.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstatictext.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qstatictext.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsize.h
@@ -3200,13 +3288,13 @@ QtGui/qfont.h
 QtGui/qtextoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qstylehints.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qstylehints.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsurface.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -3218,7 +3306,7 @@ QtCore/qmetatype.h
 QtCore/qsize.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsurfaceformat.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsurfaceformat.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpair.h
@@ -3226,7 +3314,7 @@ QtCore/qpair.h
 QtCore/qobjectdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qsyntaxhighlighter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qsyntaxhighlighter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3234,7 +3322,7 @@ QtCore/qobject.h
 QtGui/qtextobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextcursor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextcursor.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -3244,7 +3332,7 @@ QtCore/qshareddata.h
 QtGui/qtextformat.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocument.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextdocument.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3260,19 +3348,19 @@ QtGui/qfont.h
 QtCore/qurl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentfragment.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextdocumentfragment.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextdocumentwriter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextdocumentwriter.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextformat.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextformat.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -3292,7 +3380,7 @@ QtGui/qbrush.h
 QtGui/qtextoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextlayout.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -3316,7 +3404,7 @@ QtGui/qglyphrun.h
 QtGui/qtextcursor.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextlist.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextlist.h
 QtGui/qtguiglobal.h
 -
 QtGui/qtextobject.h
@@ -3324,7 +3412,7 @@ QtGui/qtextobject.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextobject.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3336,7 +3424,7 @@ QtGui/qtextlayout.h
 QtGui/qglyphrun.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtextoption.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtextoption.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -3346,7 +3434,7 @@ QtCore/qchar.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtexttable.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtexttable.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3354,23 +3442,23 @@ QtCore/qobject.h
 QtGui/qtextobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtgui-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtguiglobal.h
 QtCore/qglobal.h
 -
 QtGui/qtgui-config.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtguiversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtguiversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtouchdevice.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qtransform.h
 QtGui/qtguiglobal.h
 -
 QtGui/qmatrix.h
@@ -3390,7 +3478,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvalidator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvalidator.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -3404,7 +3492,7 @@ QtCore/qregularexpression.h
 QtCore/qlocale.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvector2d.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -3412,7 +3500,7 @@ QtCore/qpoint.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector3d.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvector3d.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -3420,7 +3508,7 @@ QtCore/qpoint.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qvector4d.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qvector4d.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -3428,7 +3516,7 @@ QtCore/qpoint.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qwindow.h
 QtGui/qtguiglobal.h
 -
 QtCore/QObject
@@ -3452,7 +3540,7 @@ QtGui/qicon.h
 QtGui/qcursor.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qwindowdefs.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobjectdefs.h
@@ -3462,123 +3550,127 @@ QtCore/qnamespace.h
 QtGui/qwindowdefs_win.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtGui/qwindowdefs_win.h
 QtGui/qtguiglobal.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QNetworkAccessManager
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/QNetworkAccessManager
 qnetworkaccessmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QNetworkRequest
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/QNetworkRequest
 qnetworkrequest.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkrequest.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QSslConfiguration
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/QSslConfiguration
 qsslconfiguration.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslconfiguration.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/QSslPreSharedKeyAuthenticator
 qsslpresharedkeyauthenticator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QTcpSocket
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/QTcpSocket
 qtcpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QtNetwork
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/QtNetwork
 QtNetwork/QtNetworkDepends
 -
 qtnetworkglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtnetworkglobal.h
 qabstractnetworkcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractnetworkcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qabstractnetworkcache.h
 qabstractsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qabstractsocket.h
 qauthenticator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qauthenticator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qauthenticator.h
 qdnslookup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdnslookup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qdnslookup.h
 qdtls.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdtls.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qdtls.h
 qhostaddress.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostaddress.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhostaddress.h
 qhostinfo.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhostinfo.h
 qhstspolicy.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhstspolicy.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhstspolicy.h
+qhttp2configuration.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhttp2configuration.h
 qhttpmultipart.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhttpmultipart.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhttpmultipart.h
 qlocalserver.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalserver.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qlocalserver.h
 qlocalsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qlocalsocket.h
 qnetworkaccessmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
 qnetworkconfigmanager.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfigmanager.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkconfigmanager.h
 qnetworkconfiguration.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfiguration.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkconfiguration.h
 qnetworkcookie.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookie.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkcookie.h
 qnetworkcookiejar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookiejar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkcookiejar.h
 qnetworkdatagram.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdatagram.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkdatagram.h
 qnetworkdiskcache.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdiskcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkdiskcache.h
 qnetworkinterface.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkinterface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkinterface.h
 qnetworkproxy.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkproxy.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkproxy.h
 qnetworkreply.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkreply.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkreply.h
 qnetworkrequest.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkrequest.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h
 qnetworksession.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworksession.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworksession.h
+qocspresponse.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qocspresponse.h
 qpassworddigestor.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qpassworddigestor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qpassworddigestor.h
 qsctpserver.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpserver.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsctpserver.h
 qsctpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsctpsocket.h
 qssl.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qssl.h
 qsslcertificate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslcertificate.h
 qsslcertificateextension.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificateextension.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslcertificateextension.h
 qsslcipher.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcipher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslcipher.h
 qsslconfiguration.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslconfiguration.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h
 qssldiffiehellmanparameters.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssldiffiehellmanparameters.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qssldiffiehellmanparameters.h
 qsslellipticcurve.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslellipticcurve.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslellipticcurve.h
 qsslerror.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslerror.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslerror.h
 qsslkey.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslkey.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslkey.h
 qsslpresharedkeyauthenticator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
 qsslsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslsocket.h
 qtcpserver.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpserver.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtcpserver.h
 qtcpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h
 qudpsocket.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qudpsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qudpsocket.h
 qtnetworkversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtnetworkversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/QtNetworkDepends
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/QtNetworkDepends
 QtCore/QtCore
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractnetworkcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qabstractnetworkcache.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3590,7 +3682,7 @@ QtCore/qpair.h
 QtNetwork/qnetworkrequest.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qabstractsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qabstractsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qiodevice.h
@@ -3600,7 +3692,7 @@ QtCore/qobject.h
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qauthenticator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qauthenticator.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qstring.h
@@ -3608,7 +3700,7 @@ QtCore/qstring.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdnslookup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qdnslookup.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qlist.h
@@ -3622,7 +3714,7 @@ QtCore/qsharedpointer.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qdtls.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qdtls.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qsslsocket.h
@@ -3634,7 +3726,7 @@ QtCore/qcryptographichash.h
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostaddress.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhostaddress.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qpair.h
@@ -3646,7 +3738,7 @@ QtCore/qshareddata.h
 QtNetwork/qabstractsocket.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhostinfo.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhostinfo.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qlist.h
@@ -3656,7 +3748,7 @@ QtCore/qscopedpointer.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhstspolicy.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhstspolicy.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qshareddata.h
@@ -3666,7 +3758,13 @@ QtCore/qflags.h
 QtCore/qurl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qhttpmultipart.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhttp2configuration.h
+QtNetwork/qtnetworkglobal.h
+-
+QtCore/qshareddata.h
+-
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qhttpmultipart.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QSharedDataPointer
@@ -3678,13 +3776,13 @@ QtCore/QIODevice
 QtNetwork/QNetworkRequest
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalserver.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qlocalserver.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractsocket.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qlocalsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qlocalsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qiodevice.h
@@ -3694,7 +3792,7 @@ QtNetwork/qabstractsocket.h
 QtCore/qdebug.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkaccessmanager.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qnetworkrequest.h
@@ -3710,7 +3808,7 @@ QtNetwork/QSslConfiguration
 QtNetwork/QSslPreSharedKeyAuthenticator
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfigmanager.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkconfigmanager.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3718,7 +3816,7 @@ QtCore/qobject.h
 QtNetwork/qnetworkconfiguration.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkconfiguration.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkconfiguration.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qshareddata.h
@@ -3730,7 +3828,7 @@ QtCore/qlist.h
 QtCore/qmetatype.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookie.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkcookie.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QSharedDataPointer
@@ -3742,7 +3840,7 @@ QtCore/QMetaType
 QtCore/QObject
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkcookiejar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkcookiejar.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QObject
@@ -3750,19 +3848,19 @@ QtCore/QObject
 QtCore/QUrl
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdatagram.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkdatagram.h
 QtCore/qbytearray.h
 -
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkdiskcache.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkdiskcache.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractnetworkcache.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkinterface.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkinterface.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qshareddata.h
@@ -3772,7 +3870,7 @@ QtCore/qscopedpointer.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkproxy.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkproxy.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qhostaddress.h
@@ -3782,7 +3880,7 @@ QtNetwork/qnetworkrequest.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkreply.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkreply.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QIODevice
@@ -3796,7 +3894,7 @@ QtNetwork/QNetworkRequest
 QtNetwork/QNetworkAccessManager
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworkrequest.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworkrequest.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QSharedDataPointer
@@ -3808,7 +3906,7 @@ QtCore/QUrl
 QtCore/QVariant
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qnetworksession.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qnetworksession.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3824,7 +3922,17 @@ QtNetwork/qnetworkconfiguration.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qpassworddigestor.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qocspresponse.h
+QtNetwork/qtnetworkglobal.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qmetatype.h
+-
+QtCore/qobject.h
+-
+
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qpassworddigestor.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QByteArray
@@ -3832,23 +3940,23 @@ QtCore/QByteArray
 QtCore/QCryptographicHash
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpserver.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsctpserver.h
 QtNetwork/qtcpserver.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsctpsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsctpsocket.h
 QtNetwork/qtcpsocket.h
 -
 QtNetwork/qnetworkdatagram.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssl.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qssl.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QFlags
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslcertificate.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qnamespace.h
@@ -3868,7 +3976,7 @@ QtCore/qmap.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcertificateextension.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslcertificateextension.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qnamespace.h
@@ -3880,7 +3988,7 @@ QtCore/qstring.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslcipher.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslcipher.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qstring.h
@@ -3890,7 +3998,7 @@ QtCore/qscopedpointer.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslconfiguration.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslconfiguration.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qmap.h
@@ -3902,7 +4010,7 @@ QtNetwork/qsslsocket.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qssldiffiehellmanparameters.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qssldiffiehellmanparameters.h
 QtNetwork/qssl.h
 -
 QtCore/qnamespace.h
@@ -3912,7 +4020,7 @@ QtCore/qbytearray.h
 QtCore/qshareddata.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslellipticcurve.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslellipticcurve.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QString
@@ -3924,7 +4032,7 @@ QtCore/QHash
 QtCore/qhashfunctions.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslerror.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslerror.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qvariant.h
@@ -3932,7 +4040,7 @@ QtCore/qvariant.h
 QtNetwork/qsslcertificate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslkey.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslkey.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qnamespace.h
@@ -3944,7 +4052,7 @@ QtCore/qsharedpointer.h
 QtNetwork/qssl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslpresharedkeyauthenticator.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/QString
@@ -3954,19 +4062,21 @@ QtCore/QSharedDataPointer
 QtCore/QMetaType
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qsslsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qsslsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qlist.h
 -
 QtCore/qregexp.h
 -
+QtCore/qvector.h
+-
 QtNetwork/qtcpsocket.h
 -
 QtNetwork/qsslerror.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpserver.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtcpserver.h
 QtNetwork/qtnetworkglobal.h
 -
 QtCore/qobject.h
@@ -3976,7 +4086,7 @@ QtNetwork/qabstractsocket.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtcpsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtcpsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractsocket.h
@@ -3984,17 +4094,17 @@ QtNetwork/qabstractsocket.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetwork-config.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtnetwork-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtnetworkglobal.h
 QtCore/qglobal.h
 -
 QtNetwork/qtnetwork-config.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qtnetworkversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qtnetworkversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtNetwork/qudpsocket.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtNetwork/qudpsocket.h
 QtNetwork/qtnetworkglobal.h
 -
 QtNetwork/qabstractsocket.h
@@ -4002,329 +4112,329 @@ QtNetwork/qabstractsocket.h
 QtNetwork/qhostaddress.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QApplication
 qapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qapplication.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QCommonStyle
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QCommonStyle
 qcommonstyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommonstyle.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcommonstyle.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QDialog
 qdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdialog.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QFrame
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QFrame
 qframe.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qframe.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QGridLayout
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QGridLayout
 qgridlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QHBoxLayout
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QHBoxLayout
 qboxlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLabel
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QLabel
 qlabel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlabel.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLayout
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QLayout
 qlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlayout.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QLineEdit
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QLineEdit
 qlineedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlineedit.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QPushButton
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QPushButton
 qpushbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QScrollerProperties
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QScrollerProperties
 qscrollerproperties.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollerproperties.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscrollerproperties.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QStatusBar
 qstatusbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstatusbar.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QVBoxLayout
 qboxlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QWidget
 qwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwidget.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QtWidgets
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QtWidgets
 QtWidgets/QtWidgetsDepends
 -
 qtwidgetsglobal.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h
 qabstractbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h
 qabstractitemdelegate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h
 qabstractitemview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractitemview.h
 qabstractscrollarea.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractscrollarea.h
 qabstractslider.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractslider.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractslider.h
 qabstractspinbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractspinbox.h
 qaccessiblewidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaccessiblewidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qaccessiblewidget.h
 qaction.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qaction.h
 qactiongroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qactiongroup.h
 qapplication.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qapplication.h
 qboxlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h
 qbuttongroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qbuttongroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qbuttongroup.h
 qcalendarwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcalendarwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcalendarwidget.h
 qcheckbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcheckbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcheckbox.h
 qcolordialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolordialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcolordialog.h
 qcolormap.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolormap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcolormap.h
 qcolumnview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolumnview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcolumnview.h
 qcombobox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcombobox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcombobox.h
 qcommandlinkbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommandlinkbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcommandlinkbutton.h
 qcommonstyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommonstyle.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcommonstyle.h
 qcompleter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcompleter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcompleter.h
 qdatawidgetmapper.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatawidgetmapper.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdatawidgetmapper.h
 qdatetimeedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatetimeedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdatetimeedit.h
 qdesktopwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h
 qdial.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdial.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdial.h
 qdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdialog.h
 qdialogbuttonbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialogbuttonbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h
 qdirmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdirmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdirmodel.h
 qdockwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdockwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdockwidget.h
 qdrawutil.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdrawutil.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdrawutil.h
 qerrormessage.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qerrormessage.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qerrormessage.h
 qfiledialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfiledialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfiledialog.h
 qfileiconprovider.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfileiconprovider.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfileiconprovider.h
 qfilesystemmodel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfilesystemmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfilesystemmodel.h
 qfocusframe.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfocusframe.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfocusframe.h
 qfontcombobox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontcombobox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfontcombobox.h
 qfontdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfontdialog.h
 qformlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qformlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qformlayout.h
 qframe.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qframe.h
 qgesture.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgesture.h
 qgesturerecognizer.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesturerecognizer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgesturerecognizer.h
 qgraphicsanchorlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h
 qgraphicseffect.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicseffect.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicseffect.h
 qgraphicsgridlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsgridlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsgridlayout.h
 qgraphicsitem.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitem.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsitem.h
 qgraphicsitemanimation.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitemanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsitemanimation.h
 qgraphicslayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicslayout.h
 qgraphicslayoutitem.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicslayoutitem.h
 qgraphicslinearlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslinearlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicslinearlayout.h
 qgraphicsproxywidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsproxywidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsproxywidget.h
 qgraphicsscene.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsscene.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsscene.h
 qgraphicssceneevent.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicssceneevent.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h
 qgraphicstransform.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicstransform.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicstransform.h
 qgraphicsview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsview.h
 qgraphicswidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicswidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicswidget.h
 qgridlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h
 qgroupbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgroupbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgroupbox.h
 qheaderview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qheaderview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qheaderview.h
 qinputdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qinputdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qinputdialog.h
 qitemdelegate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemdelegate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qitemdelegate.h
 qitemeditorfactory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemeditorfactory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qitemeditorfactory.h
 qkeyeventtransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeyeventtransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qkeyeventtransition.h
 qkeysequenceedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeysequenceedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qkeysequenceedit.h
 qlabel.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlabel.h
 qlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlayout.h
 qlayoutitem.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h
 qlcdnumber.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlcdnumber.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlcdnumber.h
 qlineedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlineedit.h
 qlistview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlistview.h
 qlistwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlistwidget.h
 qmainwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmainwindow.h
 qmdiarea.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdiarea.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmdiarea.h
 qmdisubwindow.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdisubwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmdisubwindow.h
 qmenu.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmenu.h
 qmenubar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmenubar.h
 qmessagebox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmessagebox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmessagebox.h
 qmouseeventtransition.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmouseeventtransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmouseeventtransition.h
 qopenglwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qopenglwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qopenglwidget.h
 qplaintextedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qplaintextedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qplaintextedit.h
 qprogressbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qprogressbar.h
 qprogressdialog.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qprogressdialog.h
 qproxystyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qproxystyle.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qproxystyle.h
 qpushbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h
 qradiobutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qradiobutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qradiobutton.h
 qrubberband.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qrubberband.h
 qscrollarea.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollarea.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscrollarea.h
 qscrollbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscrollbar.h
 qscroller.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscroller.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscroller.h
 qscrollerproperties.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollerproperties.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscrollerproperties.h
 qshortcut.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qshortcut.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qshortcut.h
 qsizegrip.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizegrip.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsizegrip.h
 qsizepolicy.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h
 qslider.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qslider.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qslider.h
 qspinbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qspinbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qspinbox.h
 qsplashscreen.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplashscreen.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsplashscreen.h
 qsplitter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplitter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsplitter.h
 qstackedlayout.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstackedlayout.h
 qstackedwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstackedwidget.h
 qstatusbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstatusbar.h
 qstyle.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyle.h
 qstyleditemdelegate.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleditemdelegate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyleditemdelegate.h
 qstylefactory.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylefactory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstylefactory.h
 qstyleoption.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyleoption.h
 qstylepainter.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylepainter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstylepainter.h
 qstyleplugin.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyleplugin.h
 qsystemtrayicon.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsystemtrayicon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsystemtrayicon.h
 qtabbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtabbar.h
 qtableview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtableview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtableview.h
 qtablewidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtablewidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtablewidget.h
 qtabwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtabwidget.h
 qtextbrowser.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextbrowser.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtextbrowser.h
 qtextedit.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtextedit.h
 qtoolbar.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtoolbar.h
 qtoolbox.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtoolbox.h
 qtoolbutton.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtoolbutton.h
 qtooltip.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtooltip.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtooltip.h
 qtreeview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtreeview.h
 qtreewidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtreewidget.h
 qtreewidgetitemiterator.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h
 qundogroup.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundogroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qundogroup.h
 qundostack.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundostack.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qundostack.h
 qundoview.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundoview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qundoview.h
 qwhatsthis.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwhatsthis.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwhatsthis.h
 qwidget.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwidget.h
 qwidgetaction.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidgetaction.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwidgetaction.h
 qwizard.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwizard.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwizard.h
 qtwidgetsversion.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtwidgetsversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QtWidgetsDepends
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QtWidgetsDepends
 QtCore/QtCore
 -
 QtGui/QtGui
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qicon.h
@@ -4334,7 +4444,7 @@ QtGui/qkeysequence.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractitemdelegate.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4342,7 +4452,7 @@ QtCore/qobject.h
 QtWidgets/qstyleoption.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractitemview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
@@ -4354,19 +4464,19 @@ QtCore/qitemselectionmodel.h
 QtWidgets/qabstractitemdelegate.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractscrollarea.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractslider.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractslider.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qabstractspinbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4374,13 +4484,13 @@ QtWidgets/qwidget.h
 QtGui/qvalidator.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaccessiblewidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qaccessiblewidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qaccessibleobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qkeysequence.h
@@ -4396,13 +4506,13 @@ QtGui/qicon.h
 QtWidgets/qactiongroup.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qactiongroup.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qaction.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qapplication.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qcoreapplication.h
@@ -4420,7 +4530,7 @@ QtWidgets/qdesktopwidget.h
 QtGui/qguiapplication.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qboxlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
@@ -4430,13 +4540,13 @@ QtWidgets/qwidget.h
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qbuttongroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qbuttongroup.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcalendarwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcalendarwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4444,19 +4554,19 @@ QtWidgets/qwidget.h
 QtCore/qdatetime.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcheckbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcheckbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolordialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcolordialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolormap.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcolormap.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qatomic.h
@@ -4468,13 +4578,13 @@ QtCore/qvector.h
 QtGui/qwindowdefs.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcolumnview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcolumnview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcombobox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcombobox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4488,19 +4598,19 @@ QtCore/qvariant.h
 QtGui/qvalidator.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommandlinkbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcommandlinkbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qpushbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcommonstyle.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcommonstyle.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qstyle.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qcompleter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qcompleter.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4514,47 +4624,49 @@ QtCore/qabstractitemmodel.h
 QtCore/qrect.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatawidgetmapper.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdatawidgetmapper.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/QtCore/qobject.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/QtCore/qobject.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdatetimeedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdatetimeedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qdatetime.h
+-
+QtCore/qcalendar.h
 -
 QtCore/qvariant.h
 -
 QtWidgets/qabstractspinbox.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdesktopwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdial.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdial.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractslider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdialogbuttonbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdialogbuttonbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdirmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdirmodel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qabstractitemmodel.h
@@ -4564,13 +4676,13 @@ QtCore/qdir.h
 QtWidgets/qfileiconprovider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdockwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdockwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qdrawutil.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qdrawutil.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qnamespace.h
@@ -4582,13 +4694,13 @@ QtCore/qmargins.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qerrormessage.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qerrormessage.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfiledialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfiledialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qdir.h
@@ -4599,8 +4711,10 @@ QtCore/qurl.h
 -
 QtWidgets/qdialog.h
 -
+functional
+-
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfileiconprovider.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfileiconprovider.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qfileinfo.h
@@ -4610,7 +4724,7 @@ QtCore/qscopedpointer.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfilesystemmodel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfilesystemmodel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qabstractitemmodel.h
@@ -4624,13 +4738,13 @@ QtGui/qicon.h
 QtCore/qdiriterator.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfocusframe.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfocusframe.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontcombobox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfontcombobox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qcombobox.h
@@ -4638,7 +4752,7 @@ QtWidgets/qcombobox.h
 QtGui/qfontdatabase.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qfontdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qfontdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qwindowdefs.h
@@ -4648,19 +4762,19 @@ QtGui/qfont.h
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qformlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qformlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/QLayout
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qframe.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesture.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgesture.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4678,13 +4792,13 @@ QtCore/qmetatype.h
 QtGui/qevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgesturerecognizer.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgesturerecognizer.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qnamespace.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsanchorlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicsitem.h
@@ -4692,7 +4806,7 @@ QtWidgets/qgraphicsitem.h
 QtWidgets/qgraphicslayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicseffect.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicseffect.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4706,7 +4820,7 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsgridlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsgridlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicsitem.h
@@ -4714,7 +4828,7 @@ QtWidgets/qgraphicsitem.h
 QtWidgets/qgraphicslayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitem.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsitem.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4730,19 +4844,19 @@ QtGui/qpainterpath.h
 QtGui/qpixmap.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsitemanimation.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsitemanimation.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicslayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicslayoutitem.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslayoutitem.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicslayoutitem.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qscopedpointer.h
@@ -4752,7 +4866,7 @@ QtWidgets/qsizepolicy.h
 QtGui/qevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicslinearlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicslinearlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicsitem.h
@@ -4760,13 +4874,13 @@ QtWidgets/qgraphicsitem.h
 QtWidgets/qgraphicslayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsproxywidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsproxywidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qgraphicswidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsscene.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsscene.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4786,7 +4900,7 @@ QtGui/qmatrix.h
 QtGui/qpen.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicssceneevent.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicssceneevent.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qcoreevent.h
@@ -4804,7 +4918,7 @@ QtCore/qset.h
 QtCore/qhash.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicstransform.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicstransform.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/QObject
@@ -4816,7 +4930,7 @@ QtGui/QTransform
 QtGui/QMatrix4x4
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicsview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicsview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qmetatype.h
@@ -4828,7 +4942,7 @@ QtWidgets/qscrollarea.h
 QtWidgets/qgraphicsscene.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgraphicswidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgraphicswidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qfont.h
@@ -4840,7 +4954,7 @@ QtWidgets/qgraphicsitem.h
 QtGui/qpalette.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgridlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
@@ -4850,19 +4964,19 @@ QtWidgets/qwidget.h
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qgroupbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qgroupbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qheaderview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qheaderview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qinputdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qinputdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qstring.h
@@ -4872,7 +4986,7 @@ QtWidgets/qlineedit.h
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemdelegate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qitemdelegate.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemdelegate.h
@@ -4884,7 +4998,7 @@ QtGui/qpixmap.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qitemeditorfactory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qitemeditorfactory.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qmetaobject.h
@@ -4896,25 +5010,25 @@ QtCore/qhash.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeyeventtransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qkeyeventtransition.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qeventtransition.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qkeysequenceedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qkeysequenceedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlabel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -4934,7 +5048,7 @@ QtWidgets/qboxlayout.h
 QtWidgets/qgridlayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlayoutitem.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qsizepolicy.h
@@ -4944,13 +5058,13 @@ QtCore/qrect.h
 limits.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlcdnumber.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlcdnumber.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlineedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
@@ -4962,13 +5076,13 @@ QtCore/qstring.h
 QtCore/qmargins.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlistview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qlistwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qlistwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlistview.h
@@ -4980,7 +5094,7 @@ QtCore/qvector.h
 QtCore/qitemselectionmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmainwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -4988,7 +5102,7 @@ QtWidgets/qwidget.h
 QtWidgets/qtabwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdiarea.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmdiarea.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
@@ -4996,13 +5110,13 @@ QtWidgets/qabstractscrollarea.h
 QtWidgets/qtabwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmdisubwindow.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmdisubwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmenu.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -5014,25 +5128,25 @@ QtGui/qicon.h
 QtWidgets/qaction.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmenubar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qmenu.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmessagebox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmessagebox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qmouseeventtransition.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qmouseeventtransition.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qeventtransition.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qopenglwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qopenglwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/QWidget
@@ -5042,7 +5156,7 @@ QtGui/QSurfaceFormat
 QtGui/qopengl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qplaintextedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qplaintextedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtextedit.h
@@ -5060,49 +5174,49 @@ QtGui/qtextformat.h
 QtGui/qabstracttextdocumentlayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qprogressbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qprogressdialog.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qprogressdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qproxystyle.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qproxystyle.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/QCommonStyle
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qpushbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qpushbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qradiobutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qradiobutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qrubberband.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollarea.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscrollarea.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscrollbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -5110,7 +5224,7 @@ QtWidgets/qwidget.h
 QtWidgets/qabstractslider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscroller.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscroller.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/QObject
@@ -5120,7 +5234,7 @@ QtCore/QPointF
 QtWidgets/QScrollerProperties
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qscrollerproperties.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qscrollerproperties.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/QScopedPointer
@@ -5130,7 +5244,7 @@ QtCore/QMetaType
 QtCore/QVariant
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qshortcut.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qshortcut.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -5138,13 +5252,13 @@ QtWidgets/qwidget.h
 QtGui/qkeysequence.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizegrip.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsizegrip.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsizepolicy.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5152,19 +5266,19 @@ QtCore/qobject.h
 QtCore/qalgorithms.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qslider.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qslider.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractslider.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qspinbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qspinbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractspinbox.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplashscreen.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsplashscreen.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qpixmap.h
@@ -5172,7 +5286,7 @@ QtGui/qpixmap.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsplitter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsplitter.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
@@ -5180,25 +5294,25 @@ QtWidgets/qframe.h
 QtWidgets/qsizepolicy.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedlayout.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstackedlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstackedwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstackedwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstatusbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyle.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5216,7 +5330,7 @@ QtGui/qpalette.h
 QtWidgets/qsizepolicy.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleditemdelegate.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyleditemdelegate.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemdelegate.h
@@ -5228,13 +5342,13 @@ QtGui/qpixmap.h
 QtCore/qvariant.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylefactory.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstylefactory.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qstringlist.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyleoption.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qlocale.h
@@ -5262,7 +5376,7 @@ QtWidgets/qframe.h
 QtCore/qabstractitemmodel.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstylepainter.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstylepainter.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qpainter.h
@@ -5272,7 +5386,7 @@ QtWidgets/qstyle.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleplugin.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qstyleplugin.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qplugin.h
@@ -5280,7 +5394,7 @@ QtCore/qplugin.h
 QtCore/qfactoryinterface.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qsystemtrayicon.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qsystemtrayicon.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5288,19 +5402,19 @@ QtCore/qobject.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtabbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtableview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtableview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtablewidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtablewidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtableview.h
@@ -5310,7 +5424,7 @@ QtCore/qvariant.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtabwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -5318,7 +5432,7 @@ QtWidgets/qwidget.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextbrowser.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtextbrowser.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtextedit.h
@@ -5326,7 +5440,7 @@ QtWidgets/qtextedit.h
 QtCore/qurl.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtextedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
@@ -5340,7 +5454,7 @@ QtGui/qtextcursor.h
 QtGui/qtextformat.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbar.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtoolbar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qaction.h
@@ -5348,7 +5462,7 @@ QtWidgets/qaction.h
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbox.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtoolbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
@@ -5356,25 +5470,25 @@ QtWidgets/qframe.h
 QtGui/qicon.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbutton.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtoolbutton.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractbutton.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtooltip.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtooltip.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreeview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtreeview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractitemview.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtreewidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qtreeview.h
@@ -5386,23 +5500,23 @@ QtCore/qvariant.h
 QtCore/qvector.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtreewidgetitemiterator.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qscopedpointer.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgets-config.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtwidgets-config.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtwidgetsglobal.h
 QtGui/qtguiglobal.h
 -
 QtWidgets/qtwidgets-config.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsversion.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qtwidgetsversion.h
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundogroup.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qundogroup.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5410,7 +5524,7 @@ QtCore/qobject.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundostack.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qundostack.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5418,7 +5532,7 @@ QtCore/qobject.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qundoview.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qundoview.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlistview.h
@@ -5426,7 +5540,7 @@ QtWidgets/qlistview.h
 QtCore/qstring.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwhatsthis.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwhatsthis.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -5434,7 +5548,7 @@ QtCore/qobject.h
 QtGui/qcursor.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qwindowdefs.h
@@ -5466,19 +5580,63 @@ QtGui/qkeysequence.h
 QtGui/qevent.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwidgetaction.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwidgetaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qaction.h
 -
 
-/home/gianluca/Qt/5.12.3/gcc_64/include/QtWidgets/qwizard.h
+/home/matteo/Qt/5.14.2/gcc_64/include/QtWidgets/qwizard.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qdialog.h
 -
 
+client_autogen/include/ui_cancellationwindow.h
+QtCore/QVariant
+-
+QtWidgets/QApplication
+-
+QtWidgets/QDialog
+-
+QtWidgets/QFrame
+-
+QtWidgets/QGridLayout
+-
+QtWidgets/QHBoxLayout
+-
+QtWidgets/QLabel
+-
+QtWidgets/QLineEdit
+-
+QtWidgets/QPushButton
+-
+QtWidgets/QVBoxLayout
+-
+
 client_autogen/include/ui_loginwindow.h
+QtCore/QVariant
+-
+QtWidgets/QApplication
+-
+QtWidgets/QDialog
+-
+QtWidgets/QFrame
+-
+QtWidgets/QGridLayout
+-
+QtWidgets/QHBoxLayout
+-
+QtWidgets/QLabel
+-
+QtWidgets/QLineEdit
+-
+QtWidgets/QPushButton
+-
+QtWidgets/QVBoxLayout
+-
+
+client_autogen/include/ui_registrationwindow.h
 QtCore/QVariant
 -
 QtWidgets/QApplication

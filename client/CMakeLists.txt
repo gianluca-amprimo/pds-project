@@ -24,7 +24,6 @@ list(REMOVE_DUPLICATES LIBRARIES)
 add_executable(client
                main.cpp
                client.cpp
-               client.h
-               login.ui)
+               client.h)
 target_link_libraries(client ${LIBRARIES})
 

@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'loginwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.3
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -32,16 +32,16 @@ public:
     QLabel *PasswordLabel;
     QLineEdit *PasswordEdit;
     QHBoxLayout *horizontalLayout;
-    QPushButton *CancelButton;
     QPushButton *LoginButton;
     QLabel *RegistrationLink;
+    QLabel *CancellationLink;
     QFrame *line;
 
     void setupUi(QDialog *LoginWindow)
     {
         if (LoginWindow->objectName().isEmpty())
             LoginWindow->setObjectName(QString::fromUtf8("LoginWindow"));
-        LoginWindow->resize(288, 141);
+        LoginWindow->resize(288, 173);
         verticalLayout = new QVBoxLayout(LoginWindow);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         gridLayout = new QGridLayout();
@@ -73,17 +73,10 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(2);
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        horizontalLayout->setContentsMargins(100, -1, -1, -1);
-        CancelButton = new QPushButton(LoginWindow);
-        CancelButton->setObjectName(QString::fromUtf8("CancelButton"));
-        CancelButton->setMaximumSize(QSize(100, 25));
-        CancelButton->setLayoutDirection(Qt::RightToLeft);
-
-        horizontalLayout->addWidget(CancelButton);
-
+        horizontalLayout->setContentsMargins(170, -1, -1, -1);
         LoginButton = new QPushButton(LoginWindow);
         LoginButton->setObjectName(QString::fromUtf8("LoginButton"));
-        LoginButton->setEnabled(true);
+        LoginButton->setEnabled(false);
         LoginButton->setMaximumSize(QSize(100, 25));
         LoginButton->setMouseTracking(false);
         LoginButton->setLayoutDirection(Qt::RightToLeft);
@@ -96,9 +89,15 @@ public:
         RegistrationLink = new QLabel(LoginWindow);
         RegistrationLink->setObjectName(QString::fromUtf8("RegistrationLink"));
         RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
+        RegistrationLink->setAutoFillBackground(false);
         RegistrationLink->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
 
         verticalLayout->addWidget(RegistrationLink);
+
+        CancellationLink = new QLabel(LoginWindow);
+        CancellationLink->setObjectName(QString::fromUtf8("CancellationLink"));
+
+        verticalLayout->addWidget(CancellationLink);
 
         line = new QFrame(LoginWindow);
         line->setObjectName(QString::fromUtf8("line"));
@@ -110,18 +109,21 @@ public:
 
         retranslateUi(LoginWindow);
 
+        LoginButton->setDefault(true);
+
+
         QMetaObject::connectSlotsByName(LoginWindow);
     } // setupUi
 
     void retranslateUi(QDialog *LoginWindow)
     {
-        LoginWindow->setWindowTitle(QApplication::translate("LoginWindow", "Login", nullptr));
-        UsernameLabel->setText(QApplication::translate("LoginWindow", "Username", nullptr));
-        PasswordLabel->setText(QApplication::translate("LoginWindow", "Password", nullptr));
+        LoginWindow->setWindowTitle(QCoreApplication::translate("LoginWindow", "Login", nullptr));
+        UsernameLabel->setText(QCoreApplication::translate("LoginWindow", "Username", nullptr));
+        PasswordLabel->setText(QCoreApplication::translate("LoginWindow", "Password", nullptr));
         PasswordEdit->setText(QString());
-        CancelButton->setText(QApplication::translate("LoginWindow", "Cancel", nullptr));
-        LoginButton->setText(QApplication::translate("LoginWindow", "Login", nullptr));
-        RegistrationLink->setText(QApplication::translate("LoginWindow", "<html><head/><body><p><span style=\" text-decoration: underline; color:#0000ff;\">Are you not registered yet?</span></p></body></html>", nullptr));
+        LoginButton->setText(QCoreApplication::translate("LoginWindow", "Login", nullptr));
+        RegistrationLink->setText(QCoreApplication::translate("LoginWindow", "<html><head/><body><p><span style=\" color:#000000;\">Are you not registered yet?</span></p></body></html>", nullptr));
+        CancellationLink->setText(QCoreApplication::translate("LoginWindow", "Do you want to delete your account?", nullptr));
     } // retranslateUi
 
 };
