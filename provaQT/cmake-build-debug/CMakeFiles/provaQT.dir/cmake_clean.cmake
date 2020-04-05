@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/provaQT_autogen.dir/AutogenOldSettings.txt"
+  "CMakeFiles/provaQT_autogen.dir/AutogenUsed.txt"
   "CMakeFiles/provaQT_autogen.dir/ParseCache.txt"
   "provaQT_autogen"
   "CMakeFiles/provaQT.dir/FileSaver.cpp.o"

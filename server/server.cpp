@@ -6,7 +6,7 @@
 
 #include "server.h"
 #include "ui_server.h"
-#include "db_operations.cpp"
+//#include "db_operations.cpp"
 
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
@@ -97,6 +97,7 @@ Server::~Server() {
 }
 
 void Server::checkUser() {
+    QTcpSocket* active_socket=(QTcpSocket*)sender();
     in.setDevice(active_socket);
     in.setVersion(QDataStream::Qt_4_0);
 
@@ -118,14 +119,16 @@ void Server::checkUser() {
     std::string username, password;
     std::getline(iss, username, '_');
     iss >> password;
-    // std::cout << username << std::endl << password << std::endl;
+
 
     // check the credentials
     QString loginResult;
-    if(::checkUser(username, password))
+   /* if(::checkUser(username, password))
         loginResult = "Success";
     else
-        loginResult = "Login Failed";
+        loginResult = "Login Failed";*/
+    loginResult="Success";
+
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -148,12 +151,17 @@ void Server::checkUser() {
         active_socket->flush();
         connect(active_socket, &QAbstractSocket::disconnected,
                 active_socket, &QObject::deleteLater);
+        active_sockets.erase(active_socket->socketDescriptor());
 
     }
 }
 
 void Server::getConnectedSocket(){
-    active_socket=tcpServer->nextPendingConnection();
+    //accetta la connessione al socket e prendi il socket connesso
+    auto active_socket=tcpServer->nextPendingConnection();
+    int id = active_socket->socketDescriptor();
+    //inserisci il socket nella hashmap dei socket attivi usando id del socket
+    active_sockets.insert({id, active_socket});
     connect(active_socket, &QIODevice::readyRead, this, &Server::checkUser);
 }
 

@@ -6,6 +6,7 @@
 #include <QDialog>
 #include <QString>
 #include <QTcpSocket>
+#include <map>
 
 QT_BEGIN_NAMESPACE
 class QTcpServer;
@@ -27,7 +28,7 @@ private:
     void printConsole(std::string &&msg, bool err = false);
     Ui::Server *ui;
     QTcpServer *tcpServer = nullptr;
-    QTcpSocket *active_socket = nullptr;
+    std::map<int, QTcpSocket*>  active_sockets; //stores all the connected sockets with different clients
     QDataStream in;
     QNetworkSession *networkSession = nullptr;
 };

@@ -6,17 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/db_operations.cpp
-iostream
--
-stdlib.h
--
-stdio.h
--
-sqlite3.h
--
-
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.cpp
+/home/gianluca/Desktop/pdsproject/server/server.cpp
 QtWidgets
 -
 QtNetwork
@@ -28,18 +18,18 @@ iostream
 sstream
 -
 server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.h
+/home/gianluca/Desktop/pdsproject/server/server.h
 ui_server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/ui_server.h
-db_operations.cpp
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/db_operations.cpp
+/home/gianluca/Desktop/pdsproject/server/ui_server.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.h
+/home/gianluca/Desktop/pdsproject/server/server.h
 QDialog
 -
 QString
 -
 QTcpSocket
+-
+map
 -
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QByteArray

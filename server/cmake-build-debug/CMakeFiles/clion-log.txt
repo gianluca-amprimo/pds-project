@@ -1,4 +1,4 @@
-/home/matteo/Documenti/Programmi/CLion-2019.2.2/clion-2019.2.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/usr/local -G "CodeBlocks - Unix Makefiles" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server"
+/snap/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/gianluca/Desktop/pdsproject/server
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug
+-- Build files have been written to: /home/gianluca/Desktop/pdsproject/server/cmake-build-debug

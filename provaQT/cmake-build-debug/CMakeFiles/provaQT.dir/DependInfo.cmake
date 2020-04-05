@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/FileSaver.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/FileSaver.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/provaQT.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/provaQT_autogen/mocs_compilation.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/provaQT/FileSaver.cpp" "/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/FileSaver.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/provaQT/provaQT.cpp" "/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT.cpp.o"
+  "/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/provaQT_autogen/mocs_compilation.cpp" "/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -21,12 +21,12 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "provaQT_autogen/include"
-  "/opt/Qt/5.12.3/gcc_64/include"
-  "/opt/Qt/5.12.3/gcc_64/include/QtCore"
-  "/opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++"
-  "/opt/Qt/5.12.3/gcc_64/include/QtGui"
-  "/opt/Qt/5.12.3/gcc_64/include/QtWidgets"
-  "/opt/Qt/5.12.3/gcc_64/include/QtNetwork"
+  "/usr/include/x86_64-linux-gnu/qt5"
+  "/usr/include/x86_64-linux-gnu/qt5/QtCore"
+  "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
+  "/usr/include/x86_64-linux-gnu/qt5/QtGui"
+  "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
+  "/usr/include/x86_64-linux-gnu/qt5/QtNetwork"
   )
 
 # Targets to which this target links.

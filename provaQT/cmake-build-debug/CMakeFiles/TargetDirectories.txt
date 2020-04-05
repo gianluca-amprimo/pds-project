@@ -1,4 +1,4 @@
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/provaQT/cmake-build-debug/CMakeFiles/provaQT_autogen.dir
+/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/CMakeFiles/provaQT.dir
+/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/gianluca/Desktop/pdsproject/provaQT/cmake-build-debug/CMakeFiles/provaQT_autogen.dir
