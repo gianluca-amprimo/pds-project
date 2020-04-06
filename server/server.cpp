@@ -128,7 +128,7 @@ void Server::checkUser() {
     else
         loginResult = "Login Failed";*/
     loginResult="Success";
-
+    //TODO: in caso di successo crea lo user e aggiungilo a activeUsers con il suo socket, se già presente aggiungi solo il nuovo socket.
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {

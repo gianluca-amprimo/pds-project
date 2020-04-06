@@ -7,6 +7,8 @@
 #include <QString>
 #include <QTcpSocket>
 #include <map>
+#include <list>
+#include "User.h"
 
 QT_BEGIN_NAMESPACE
 class QTcpServer;
@@ -31,6 +33,9 @@ private:
     std::map<int, QTcpSocket*>  active_sockets; //stores all the connected sockets with different clients
     QDataStream in;
     QNetworkSession *networkSession = nullptr;
+    std::map<User, std::list<QTcpSocket*>> activeUsers(); //map che contiene key-pair: utente-socket a lui associati (se runna due volte il cliente sono più di uno)
+    std::map<QString,std::list<User>> openDocuments(); //lista di file aperti e chi ci sta lavorando
+
 };
 
 #endif
