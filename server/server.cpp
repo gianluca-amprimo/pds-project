@@ -6,7 +6,7 @@
 
 #include "server.h"
 #include "ui_server.h"
-//#include "db_operations.cpp"
+#include "db_operations.cpp"
 
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
@@ -123,11 +123,13 @@ void Server::checkUser() {
 
     // check the credentials
     QString loginResult;
-   /* if(::checkUser(username, password))
+    int queryResult=::checkCredentials(username, password);
+    if(queryResult==1)
         loginResult = "Success";
+    else if (queryResult==0)
+        loginResult = "Login Failed";
     else
-        loginResult = "Login Failed";*/
-    loginResult="Success";
+        loginResult="Utente non registrato";
     //TODO: in caso di successo crea lo user e aggiungilo a activeUsers con il suo socket, se già presente aggiungi solo il nuovo socket.
 
     if (active_socket != nullptr) {

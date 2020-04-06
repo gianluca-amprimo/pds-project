@@ -6,6 +6,24 @@
 
 #IncludeRegexTransform: 
 
+/home/gianluca/Desktop/pdsproject/server/User.h
+QString
+-
+QTcpSocket
+-
+list
+-
+
+/home/gianluca/Desktop/pdsproject/server/db_operations.cpp
+iostream
+-
+stdlib.h
+-
+stdio.h
+-
+sqlite3.h
+-
+
 /home/gianluca/Desktop/pdsproject/server/server.cpp
 QtWidgets
 -
@@ -21,6 +39,8 @@ server.h
 /home/gianluca/Desktop/pdsproject/server/server.h
 ui_server.h
 /home/gianluca/Desktop/pdsproject/server/ui_server.h
+db_operations.cpp
+/home/gianluca/Desktop/pdsproject/server/db_operations.cpp
 
 /home/gianluca/Desktop/pdsproject/server/server.h
 QDialog
@@ -31,6 +51,10 @@ QTcpSocket
 -
 map
 -
+list
+-
+User.h
+/home/gianluca/Desktop/pdsproject/server/User.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QByteArray
 qbytearray.h
