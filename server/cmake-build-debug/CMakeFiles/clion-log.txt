@@ -1,5 +1,18 @@
-/snap/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/gianluca/Desktop/pdsproject/server
--- Found SQLite3: /usr/include (found version "3.22.0") 
+/home/matteo/Documenti/Programmi/CLion-2019.2.2/clion-2019.2.2/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/matteo/Qt/5.14.2/gcc_64/lib/cmake -G "CodeBlocks - Unix Makefiles" /home/matteo/Scrivania/Progetto/GitHub/pds-project/server
+-- The C compiler identification is GNU 7.4.0
+-- The CXX compiler identification is GNU 7.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/gianluca/Desktop/pdsproject/server/cmake-build-debug
+-- Build files have been written to: /home/matteo/Scrivania/Progetto/GitHub/pds-project/server/cmake-build-debug
