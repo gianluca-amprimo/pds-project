@@ -12,8 +12,8 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
     uiLog->setupUi(this);
     logStatusBar = new QStatusBar(this);
     uiLog->verticalLayout->addWidget(logStatusBar);
-	uiLog->RegistrationLink->setText("<a href=\"whatever\">Are you registered yet?</a>");
-	uiLog->CancellationLink->setText("<a href=\"whatever\">Do you want to cancel your account?</a>");
+	uiLog->RegistrationLink->setText("<a href=\"whatever\">Click here to register</a>");
+	uiLog->CancellationLink->setText("<a href=\"whatever\">Click here to cancel your account</a>");
 	
 	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 	
@@ -194,6 +194,8 @@ void Client::openRegistrationWindow() {
 	regStatusBar = new QStatusBar(RegWin);
 	uiReg->verticalLayout->addWidget(regStatusBar);
 	
+	connect(uiReg->NameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
+	connect(uiReg->SurnameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->UsernameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->PasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->RepeatPasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
@@ -204,7 +206,7 @@ void Client::openRegistrationWindow() {
 }
 
 void Client::enableRegButton() {
-	if (!uiReg->UsernameEdit->text().isEmpty() & !uiReg->PasswordEdit->text().isEmpty()) {
+	if (!uiReg->NameEdit->text().isEmpty() & !uiReg->SurnameEdit->text().isEmpty() & !uiReg->UsernameEdit->text().isEmpty() & !uiReg->PasswordEdit->text().isEmpty()) {
 		if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text()) {
 			if (uiReg->RegisterButton->isEnabled()) {
 				uiReg->RegisterButton->setEnabled(false);
@@ -217,10 +219,17 @@ void Client::enableRegButton() {
 			regStatusBar->showMessage(tr(""));
 			uiReg->RegisterButton->setEnabled(true);
 		}
+	} else if (uiReg->PasswordEdit->text().isEmpty() & uiReg->RepeatPasswordEdit->text().isEmpty() & regStatusBar->currentMessage() != QString(tr(""))) {
+		regStatusBar->showMessage(tr(""));
 	}
 }
 
 void Client::requestRegistration() {
+	uiReg->NameEdit->setReadOnly(true);
+	uiReg->SurnameEdit->setReadOnly(true);
+	uiReg->UsernameEdit->setReadOnly(true);
+	uiReg->PasswordEdit->setReadOnly(true);
+	
 	regStatusBar->showMessage(tr("Checking database..."));
 	qDebug() << "Checking database...";
 	
@@ -234,6 +243,11 @@ void Client::requestRegistration() {
 		RegWin->close();
 		reactivateLoginWindow();
 	} else {
+		uiReg->NameEdit->setReadOnly(false);
+		uiReg->SurnameEdit->setReadOnly(false);
+		uiReg->UsernameEdit->setReadOnly(false);
+		uiReg->PasswordEdit->setReadOnly(false);
+		
 		regStatusBar->showMessage(tr("Registration failed"));
 		qDebug() << "Registration failed";
 	}
