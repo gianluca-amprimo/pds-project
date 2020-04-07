@@ -15,28 +15,13 @@
     <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/client.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client.dir/client.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/client_autogen.dir/ParseCache.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/User.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/User.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/progress.marks" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/DependInfo.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/build.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/cmake_clean.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/cmake_clean.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/depend.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/link.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server_autogen.dir/progress.make" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/CMakeFiles/server_autogen.dir/progress.make" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server.cbp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +105,8 @@
       <workItem from="1586191594609" duration="298000" />
       <workItem from="1586252574035" duration="549000" />
       <workItem from="1586253446385" duration="301000" />
-      <workItem from="1586266210018" duration="1108000" />
+      <workItem from="1586266210018" duration="2719000" />
+      <workItem from="1586270088315" duration="2345000" />
     </task>
     <servers />
   </component>
@@ -141,22 +127,26 @@
     </option>
   </component>
   <component name="WindowStateProjectService">
-    <state width="917" height="242" key="GridCell.Tab.0.bottom" timestamp="1586267604639">
+    <state width="917" height="241" key="GridCell.Tab.0.bottom" timestamp="1586272207691">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="242" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1586267604639" />
-    <state width="917" height="242" key="GridCell.Tab.0.center" timestamp="1586267604638">
+    <state width="917" height="241" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1586272207691" />
+    <state width="917" height="241" key="GridCell.Tab.0.center" timestamp="1586272207691">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="242" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1586267604638" />
-    <state width="917" height="242" key="GridCell.Tab.0.left" timestamp="1586267604638">
+    <state width="917" height="241" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1586272207691" />
+    <state width="917" height="241" key="GridCell.Tab.0.left" timestamp="1586272207691">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="242" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1586267604638" />
-    <state width="917" height="242" key="GridCell.Tab.0.right" timestamp="1586267604639">
+    <state width="917" height="241" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1586272207691" />
+    <state width="917" height="241" key="GridCell.Tab.0.right" timestamp="1586272207691">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="242" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1586267604639" />
+    <state width="917" height="241" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1586272207691" />
+    <state x="679" y="31" width="551" height="1049" key="RollbackChangesDialog" timestamp="1586270377494">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="679" y="31" width="551" height="1049" key="RollbackChangesDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1586270377494" />
     <state x="512" y="335" key="com.intellij.ide.util.TipDialog" timestamp="1586253029594">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
@@ -165,5 +155,9 @@
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="653" y="440" width="604" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1920.1049@0.31.1920.1049" timestamp="1586253033381" />
+    <state x="539" y="30" key="search.everywhere.popup" timestamp="1586270473947">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="539" y="30" key="search.everywhere.popup/0.31.1920.1049@0.31.1920.1049" timestamp="1586270473947" />
   </component>
 </project>

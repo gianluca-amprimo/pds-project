@@ -116,6 +116,7 @@ void Server::processUserRequest() {
     std::string header, body;
     std::getline(iss, header, ':');
     iss >> body;
+
     bool opResult;
     if (header=="log")
         opResult=Server::checkUser(body, active_socket);
@@ -169,7 +170,7 @@ bool Server::checkUser(std::string user_pass, QTcpSocket* active_socket){
     QString loginResult;
     int queryResult=checkCredentials(username, password);
     if(queryResult==1){
-        loginResult = "Success";
+        loginResult = "log:ok";
         User u(username);
         auto it=activeUsers.begin();
         bool found=false;
@@ -190,9 +191,9 @@ bool Server::checkUser(std::string user_pass, QTcpSocket* active_socket){
         }
     }
     else if (queryResult==0)
-        loginResult = "Login Failed";
+        loginResult = "log:fail";
     else
-        loginResult="Utente non registrato";
+        loginResult="log:unreg";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -225,5 +226,5 @@ bool Server::cancelUser(std::string data, QTcpSocket* active_socket ){
 void Server::handleDisconnect() {
     QTcpSocket* disconnected_socket=(QTcpSocket*)sender();
     //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
-    // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online
+    // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
     }
