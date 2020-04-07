@@ -1,6 +1,7 @@
 #include <QtWidgets>
 #include <QtNetwork>
 #include <QtCore>
+#include <sstream>
 #include <string>
 #include "client.h"
 #include "ui_loginwindow.h"
@@ -28,7 +29,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
     connect(tcpSocket, &QAbstractSocket::connected  ,this, &Client::sendCredentials);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
-    
+
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
 	    // Get saved network configuration
@@ -82,25 +83,62 @@ void Client::readResponse()
 	qDebug() << "Reading the response...";
     in.startTransaction();
 
-    QString response;
-    in >> response;
+    QString qresponse;
+    in >> qresponse;
+    std::string result;
+    std::string response = qresponse.toStdString(); // converto QString in stringa standard
+    // divide the string header_body in two separate string
+    std::istringstream iss(response);
+    std::string header, body;
+    std::getline(iss, header, ':');
+    iss >> result;
 
     if (!in.commitTransaction()) {
     	return;
     }
     
-	logStatusBar->showMessage(response);
-    qDebug().noquote() << response;
-    
-    if (response.toStdString() == "Success") {
-	    // TODO: aprire l'editor
-	    this->close();
-    } else {
-    	uiLog->LoginButton->setEnabled(true);
-	    uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
-	    uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
-	    uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
-	    uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
+	logStatusBar->showMessage(qresponse);
+    qDebug().noquote() << qresponse;
+
+    if(header=="log") {
+        if (result == "ok") {
+            // TODO: aprire l'editor
+            this->close();
+        }
+        if(result=="unreg"){
+            QMessageBox::information(this, tr("PdS Server"), tr("Utente non trovato! Ricontrolla user e password"));
+            uiLog->LoginButton->setEnabled(true);
+            uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+            uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+            uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
+            uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
+        }
+    }
+    if(header=="reg") {
+        if (result=="ok") {
+            logStatusBar->showMessage(tr("Successful registration."), 3000);
+            qDebug() << "Successful registration.";
+            RegWin->close();
+            reactivateLoginWindow();
+        } else {
+            QMessageBox::information(this, tr("PdS Server"), tr("Registrazione fallita per problemi al server, ritentare"));
+            uiReg->NameEdit->setReadOnly(false);
+            uiReg->SurnameEdit->setReadOnly(false);
+            uiReg->UsernameEdit->setReadOnly(false);
+            uiReg->PasswordEdit->setReadOnly(false);
+            regStatusBar->showMessage(tr("Registration failed"));
+            qDebug() << "Registration failed";
+        }
+    }
+    if(header=="canc"){
+        if (result=="ok") {
+            logStatusBar->showMessage(tr("Successful cancellation."), 3000);
+            CancWin->close();
+            reactivateLoginWindow();
+        } else {
+            cancStatusBar->showMessage(tr("Cancellation failed"));
+            qDebug() << "Cancellation failed";
+        }
     }
 }
 
@@ -201,8 +239,10 @@ void Client::openRegistrationWindow() {
 	connect(uiReg->RepeatPasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->RegisterButton, &QPushButton::released, this, &Client::requestRegistration);
 	connect(RegWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
-	
-	RegWin->show();
+
+
+
+    RegWin->show();
 }
 
 void Client::enableRegButton() {
@@ -234,23 +274,15 @@ void Client::requestRegistration() {
 	qDebug() << "Checking database...";
 	
 	// TODO: connettere al server per la registrazione di username e password
-	
-	auto success = true;        // risultato dell'operazione
-	
-	if (success) {
-		logStatusBar->showMessage(tr("Successful registration."), 3000);
-		qDebug() << "Successful registration.";
-		RegWin->close();
-		reactivateLoginWindow();
-	} else {
-		uiReg->NameEdit->setReadOnly(false);
-		uiReg->SurnameEdit->setReadOnly(false);
-		uiReg->UsernameEdit->setReadOnly(false);
-		uiReg->PasswordEdit->setReadOnly(false);
-		
-		regStatusBar->showMessage(tr("Registration failed"));
-		qDebug() << "Registration failed";
-	}
+    QByteArray block;
+    QDataStream out(&block, QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_4_0);
+
+    out << QString("reg:"+uiReg->UsernameEdit->text() + "_" + uiReg->PasswordEdit->text()+"_"+uiReg->NameEdit->text()+"_"+uiReg->SurnameEdit->text());
+    if (!tcpSocket->write(block)) {
+        QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));
+    }
+    tcpSocket->flush();
 }
 
 void Client::reactivateLoginWindow() {
@@ -290,15 +322,4 @@ void Client::requestDeletion() {
 	qDebug() << "Deleting account...";
 	
 	// TODO: connettere al server per la registrazione di username e password
-	
-	auto success = true;            // risultato dell'operazione
-	
-	if (success) {
-		logStatusBar->showMessage(tr("Successful cancellation."), 3000);
-		CancWin->close();
-		reactivateLoginWindow();
-	} else {
-		cancStatusBar->showMessage(tr("Cancellation failed"));
-		qDebug() << "Cancellation failed";
-	}
 }

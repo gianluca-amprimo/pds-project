@@ -13,6 +13,8 @@ QtNetwork
 -
 QtCore
 -
+sstream
+-
 string
 -
 client.h

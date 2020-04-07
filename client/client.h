@@ -32,12 +32,12 @@ private slots:
     void enableLogButton();
     void sessionOpened();
     void sendCredentials();
-    
+
     void openRegistrationWindow();
     void enableRegButton();
     void requestRegistration();
     void reactivateLoginWindow();
-    
+
     void openCancellationWindow();
     void enableDelButton();
     void requestDeletion();
