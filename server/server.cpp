@@ -6,7 +6,7 @@
 
 #include "server.h"
 #include "ui_server.h"
-#include "db_operations.cpp"
+#include "db_operations.h"
 
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
@@ -123,7 +123,7 @@ void Server::checkUser() {
 
     // check the credentials
     QString loginResult;
-    int queryResult=::checkCredentials(username, password);
+    int queryResult=checkCredentials(username, password);
     if(queryResult==1)
         loginResult = "Success";
     else if (queryResult==0)
