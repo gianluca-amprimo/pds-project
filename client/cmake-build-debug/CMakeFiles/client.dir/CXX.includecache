@@ -34,24 +34,6 @@ QTcpSocket
 QStatusBar
 -
 
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp
-../../../client.h
-/home/gianluca/Desktop/pdsproject/client/client.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/client_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_client.cpp
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp
-
-/home/gianluca/Desktop/pdsproject/client/main.cpp
-QApplication
--
-client.h
-/home/gianluca/Desktop/pdsproject/client/client.h
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QByteArray
 qbytearray.h
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h

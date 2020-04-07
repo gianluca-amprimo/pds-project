@@ -24,7 +24,11 @@ public:
 
 private slots:
     void sessionOpened();
-    void checkUser();
+    void processUserRequest();
+    void handleDisconnect();
+    bool checkUser(std::string, QTcpSocket*);
+    bool registerUser(std::string, QTcpSocket*);
+    bool cancelUser(std::string, QTcpSocket*);
     void getConnectedSocket();
 private:
     void printConsole(std::string &&msg, bool err = false);
@@ -33,8 +37,8 @@ private:
     std::map<int, QTcpSocket*>  active_sockets; //stores all the connected sockets with different clients
     QDataStream in;
     QNetworkSession *networkSession = nullptr;
-    std::map<User, std::list<QTcpSocket*>> activeUsers(); //map che contiene key-pair: utente-socket a lui associati (se runna due volte il cliente sono più di uno)
-    std::map<QString,std::list<User>> openDocuments(); //lista di file aperti e chi ci sta lavorando
+    std::map<User, std::list<QTcpSocket*>> activeUsers; //map che contiene key-pair: utente-socket a lui associati (se runna due volte il cliente sono più di uno)
+    std::map<QString,std::list<User>> openDocuments; //lista di file aperti e chi ci sta lavorando
 
 };
 

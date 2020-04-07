@@ -30,5 +30,5 @@ add_executable(server
     main.cpp
     server.cpp
     server.h
-    server.ui db_operations.cpp db_operations.h)
+    server.ui db_operations.cpp db_operations.h User.cpp User.h)
 target_link_libraries(server ${LIBRARIES})

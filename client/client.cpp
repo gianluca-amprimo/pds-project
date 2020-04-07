@@ -173,7 +173,7 @@ void Client::sendCredentials(){
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         
-        out << QString(uiLog->UsernameEdit->text() + "_" + uiLog->PasswordEdit->text());
+        out << QString("log:"+uiLog->UsernameEdit->text() + "_" + uiLog->PasswordEdit->text());
         
         if (!tcpSocket->write(block)) {
             QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));

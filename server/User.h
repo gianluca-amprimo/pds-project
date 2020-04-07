@@ -9,10 +9,24 @@
 #include <QTcpSocket>
 #include <list>
 
+
+
 class User {
 public:
-    User();
+    User(std::string);
     virtual ~User();
+
+    bool operator==(const User &rhs) const;
+
+    bool operator!=(const User &rhs) const;
+
+    bool operator<(const User &rhs) const;
+
+    bool operator>(const User &rhs) const;
+
+    bool operator<=(const User &rhs) const;
+
+    bool operator>=(const User &rhs) const;
 
 private:
     QString username; //lo username è un identificativo univoco (username== non sono possibili)

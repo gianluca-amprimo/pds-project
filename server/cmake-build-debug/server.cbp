@@ -116,6 +116,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/gianluca/Desktop/pdsproject/server/User.cpp">
+			<Option target="server"/>
+		</Unit>
+		<Unit filename="/home/gianluca/Desktop/pdsproject/server/User.h">
+			<Option target="server"/>
+		</Unit>
 		<Unit filename="/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/server_autogen/mocs_compilation.cpp">
 			<Option target="server"/>
 		</Unit>
