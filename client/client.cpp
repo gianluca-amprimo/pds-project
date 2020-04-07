@@ -7,6 +7,7 @@
 #include "ui_loginwindow.h"
 #include "ui_registrationwindow.h"
 #include "ui_cancellationwindow.h"
+#include "ui_filechoicewindow.h"
 
 Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)), uiLog(new Ui::LoginWindow)
 {
@@ -102,12 +103,40 @@ void Client::readResponse()
 
     if(header=="log") {
         if (result == "ok") {
-            // TODO: aprire l'editor
             this->close();
+            
+	        uiChoice = new Ui::FileChoiceWindow;
+	        ChoiceWin = new QDialog;
+	        uiChoice->setupUi(ChoiceWin);
+	        uiChoice->OpenMenu->completer()->setCompletionMode(QCompleter::PopupCompletion);
+	        uiChoice->OpenMenu->completer()->setFilterMode(Qt::MatchContains);
+	        uiChoice->OpenMenu->installEventFilter(this);
+	        auto cbModel = new QStringListModel;
+	        uiChoice->OpenMenu->setModel(cbModel);
+	
+	        // TODO: mettere nome invece che username
+	        uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(uiLog->UsernameEdit->text()));
+	
+	        QStringList fileList;
+	        fileList << "File1.txt" << "File2.txt" <<  "File3.txt" << "File4.txt" << "File5.txt" << "File6.txt" << "File7.txt" << "File8.txt" << "File9.txt" << "File10.txt" << "File11.txt" << "File12.txt" << "Prova" << "Ciao";
+	        for (auto &file: fileList) {
+		        uiChoice->OpenMenu->addItem(file);
+	        }
+	
+	        connect(uiChoice->NewButton, &QPushButton::released, this, &Client::openNewFile);
+	        connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
+	        connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
+	        // TODO: connettere button impostazioni
+	
+	        this->close();
+	        uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
+	        ChoiceWin->show();
         }
         if(result=="unreg"){
             QMessageBox::information(this, tr("PdS Server"), tr("Utente non trovato! Ricontrolla user e password"));
             uiLog->LoginButton->setEnabled(true);
+	        uiLog->UsernameEdit->setReadOnly(false);
+	        uiLog->PasswordEdit->setReadOnly(false);
             uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
             uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
             uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
@@ -239,9 +268,7 @@ void Client::openRegistrationWindow() {
 	connect(uiReg->RepeatPasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->RegisterButton, &QPushButton::released, this, &Client::requestRegistration);
 	connect(RegWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
-
-
-
+	
     RegWin->show();
 }
 
@@ -322,4 +349,29 @@ void Client::requestDeletion() {
 	qDebug() << "Deleting account...";
 	
 	// TODO: connettere al server per la registrazione di username e password
+}
+
+void Client::openNewFile() {
+	// TODO: aprire nuovo file
+	qDebug() << "Opening new file";
+	ChoiceWin->close();
+}
+
+void Client::openExistingFile() {
+	// TODO: aprire file selezionato
+	if (uiChoice->OpenMenu->findText(uiChoice->OpenMenu->currentText()) == -1) {
+		auto mes = QMessageBox::information(ChoiceWin, tr("Error"), tr("The file does not exist."), QMessageBox::Ok);
+		qDebug() << "The file does not exist.";
+		return;
+	}
+	qDebug() << "Opening selected file...";
+	ChoiceWin->close();
+}
+
+bool Client::eventFilter(QObject *object, QEvent *event) {
+	if (event->type() == QEvent::FocusIn) {
+		if (object == uiChoice->OpenMenu) {
+			uiChoice->NewButton->setDefault(false);
+		}
+	}
 }

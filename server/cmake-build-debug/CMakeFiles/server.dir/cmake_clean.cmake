@@ -1,5 +1,5 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/server_autogen.dir/AutogenUsed.txt"
+  "CMakeFiles/server_autogen.dir/AutogenOldSettings.txt"
   "CMakeFiles/server_autogen.dir/ParseCache.txt"
   "server_autogen"
   "CMakeFiles/server.dir/User.cpp.o"

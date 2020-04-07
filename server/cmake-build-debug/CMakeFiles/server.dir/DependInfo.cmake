@@ -4,11 +4,11 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/gianluca/Desktop/pdsproject/server/User.cpp" "/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/server.dir/User.cpp.o"
-  "/home/gianluca/Desktop/pdsproject/server/db_operations.cpp" "/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/server.dir/db_operations.cpp.o"
-  "/home/gianluca/Desktop/pdsproject/server/main.cpp" "/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/server.dir/main.cpp.o"
-  "/home/gianluca/Desktop/pdsproject/server/server.cpp" "/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/server.dir/server.cpp.o"
-  "/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/server_autogen/mocs_compilation.cpp" "/home/gianluca/Desktop/pdsproject/server/cmake-build-debug/CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o"
+  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/User.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/CMakeFiles/server.dir/User.cpp.o"
+  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/db_operations.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/CMakeFiles/server.dir/db_operations.cpp.o"
+  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/main.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/CMakeFiles/server.dir/main.cpp.o"
+  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/CMakeFiles/server.dir/server.cpp.o"
+  "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/server_autogen/mocs_compilation.cpp" "/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/CMakeFiles/server.dir/server_autogen/mocs_compilation.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

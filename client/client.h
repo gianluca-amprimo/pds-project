@@ -15,6 +15,7 @@ namespace Ui {
 	class LoginWindow;
 	class RegistrationWindow;
 	class CancellationWindow;
+	class FileChoiceWindow;
 }
 QT_END_NAMESPACE
 
@@ -41,6 +42,10 @@ private slots:
     void openCancellationWindow();
     void enableDelButton();
     void requestDeletion();
+    
+    void openNewFile();
+    void openExistingFile();
+    bool eventFilter(QObject *object, QEvent *event);
 
 private:
     QTcpSocket *tcpSocket = nullptr;
@@ -58,6 +63,9 @@ private:
 	QDialog *CancWin;
 	Ui::CancellationWindow *uiCanc;
 	QStatusBar *cancStatusBar;
+	
+	QDialog *ChoiceWin;
+	Ui::FileChoiceWindow *uiChoice;
 };
 
 #endif
