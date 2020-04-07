@@ -1,16 +1,24 @@
-//
-// Created by gianluca on 07/04/20.
-//
-
 #ifndef SERVER_DB_OPERATIONS_H
 #define SERVER_DB_OPERATIONS_H
+
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
 #include <sqlite3.h>
-static int count = 0;
-static int check(void *NotUsed, int argc, char** argv, char** azColName);
+
+// TODO: ci va una struttura per quando vengo letti i
+//  file e probabilmente ha bisogno di mutua esclusione
+
+// function to check credentials of the user
 int checkCredentials(std::string usr, std::string password);
-static int files(void *NotUsed, int argc, char** argv, char** azColName);
+
+// function to retrieve the list of files
 int readFiles();
+
+// function to add a user
+// returns 1 for success and -1 for failure
+int addUser(std::string user, std::string password, std::string name, std::string surname);
+
+// function to add a file to the db
+// returns 1 for success and -1 for failure
+int addFile(std::string name, std::string path);
+
 #endif //SERVER_DB_OPERATIONS_H
