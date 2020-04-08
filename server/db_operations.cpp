@@ -6,7 +6,6 @@ static int count = 0;
  * Callback function for checkCredentials
  */
 static int check(void *NotUsed, int argc, char** argv, char** azColName){
-    int i = 0;
     count++;
     return 0;
 }
@@ -31,7 +30,7 @@ int checkCredentials(std::string usr, std::string password){
     }
 
     // prepare sql operation
-    sql = "SELECT * from USERS where USERNAME = '" + usr + "' and PASSWORD = '" + password + "';";
+    sql = "SELECT * FROM USERS WHERE USERNAME = '" + usr + "' AND PASSWORD = '" + password + "'";
 
     // execute sql statement
     count = 0;
@@ -124,7 +123,7 @@ int addUser(std::string user, std::string password, std::string name, std::strin
     }
 
     // prepare sql operation
-    sql = "INSERT INTO users VALUES ('" + user + "', '"
+    sql = "INSERT INTO USERS VALUES ('" + user + "', '"
           + password + "', '"
           + name + "', '"
           + surname + "')";

@@ -90,7 +90,8 @@ void Server::sessionOpened() {
 #else
     ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
 #endif
-    printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" + QString::number(tcpServer->serverPort()).toStdString() + "</u>");
+    printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" +
+                 QString::number(tcpServer->serverPort()).toStdString() + "</u>");
 }
 
 Server::~Server() {
@@ -98,7 +99,7 @@ Server::~Server() {
 }
 
 void Server::processUserRequest() {
-    QTcpSocket* active_socket=(QTcpSocket*)sender();
+    QTcpSocket *active_socket = (QTcpSocket *) sender();
     in.setDevice(active_socket);
     in.setVersion(QDataStream::Qt_4_0);
 
@@ -109,7 +110,8 @@ void Server::processUserRequest() {
 
     if (!in.commitTransaction())
         return;
-    printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" + QString::number(active_socket->peerPort()).toStdString() + "] " + qmessage.toStdString());
+    printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" +
+                 QString::number(active_socket->peerPort()).toStdString() + "] " + qmessage.toStdString());
 
     std::string message = qmessage.toStdString(); // converto QString in stringa standard
     // divide the string header_body in two separate string
@@ -119,19 +121,19 @@ void Server::processUserRequest() {
     iss >> body;
 
     bool opResult;
-    if (header=="log")
-        opResult=Server::checkUser(body, active_socket);
-    if (header=="reg")
-        opResult=Server::registerUser(body, active_socket);
-    if (header=="canc")
-        opResult=Server::cancelUser(body, active_socket);
-    qDebug()<<opResult;
+    if (header == "log")
+        opResult = Server::checkUser(body, active_socket);
+    if (header == "reg")
+        opResult = Server::registerUser(body, active_socket);
+    if (header == "canc")
+        opResult = Server::cancelUser(body, active_socket);
+    qDebug() << opResult;
 
 }
 
-void Server::getConnectedSocket(){
+void Server::getConnectedSocket() {
     //accetta la connessione al socket e prendi il socket connesso
-    auto active_socket=tcpServer->nextPendingConnection();
+    auto active_socket = tcpServer->nextPendingConnection();
     int id = active_socket->socketDescriptor();
     //inserisci il socket nella hashmap dei socket attivi usando id del socket
     active_sockets.insert({id, active_socket});
@@ -149,17 +151,17 @@ void Server::printConsole(std::string &&msg, bool err) {
     std::strftime(mbstr, sizeof(mbstr), "%T", std::localtime(&t));
 
     // Print information on the graphical console
-    if(err)
+    if (err)
         this->ui->console->insertHtml(QString::fromStdString(
                 "<p style=\"color:red;\"><b>" + std::string(mbstr) + "</b> " + msg + "<br></p>"
-                ));
+        ));
     else
         this->ui->console->insertHtml(QString::fromStdString(
                 "<p><b>" + std::string(mbstr) + "</b> " + msg + "<br></p>"
-                ));
+        ));
 }
 
-bool Server::checkUser(std::string user_pass, QTcpSocket* active_socket){
+bool Server::checkUser(std::string user_pass, QTcpSocket *active_socket) {
 
     // divide the string username_password in two separate string
     std::istringstream iss(user_pass);
@@ -169,32 +171,33 @@ bool Server::checkUser(std::string user_pass, QTcpSocket* active_socket){
 
     // check the credentials
     QString loginResult;
-    int queryResult=checkCredentials(username, password);
-    if(queryResult==1){
+    int queryResult = checkCredentials(username, password);
+    if (queryResult == 1) {
         loginResult = "log:ok";
+        std::cout << "PICKLE RICK!!!" << std::endl;
         User u(username);
-        auto it=activeUsers.begin();
-        bool found=false;
+        auto it = activeUsers.begin();
+        bool found = false;
         User *found_u;
-        while(it!=activeUsers.end()){ //a user could open again the client and log again so first check if it's already there
-            User user=it->first;
-            if(user==u) {
+        while (it !=
+               activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
+            User user = it->first;
+            if (user == u) {
                 found = true;
                 activeUsers[user].push_back(active_socket);
                 break;
             }
             it++;
         }
-        if (found!=true){ //inserisci l'utente nella lista di quelli attualmente connessi
-            std::list<QTcpSocket*> temp;
+        if (found != true) { //inserisci l'utente nella lista di quelli attualmente connessi
+            std::list<QTcpSocket *> temp;
             temp.push_back(active_socket);
-            activeUsers[u]=temp;
+            activeUsers[u] = temp;
         }
-    }
-    else if (queryResult==0)
+    } else if (queryResult == 0)
         loginResult = "log:fail";
     else
-        loginResult="log:unreg";
+        loginResult = "log:unreg";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -218,14 +221,17 @@ bool Server::checkUser(std::string user_pass, QTcpSocket* active_socket){
     }
     return true;
 }
-bool Server::registerUser(std::string data, QTcpSocket* active_socket){
- //TODO: registrare l’utente nel DB
+
+bool Server::registerUser(std::string data, QTcpSocket *active_socket) {
+    //TODO: registrare l’utente nel DB
 }
-bool Server::cancelUser(std::string data, QTcpSocket* active_socket ){
+
+bool Server::cancelUser(std::string data, QTcpSocket *active_socket) {
 //TODO: cancellare l’utente dal DB
 }
+
 void Server::handleDisconnect() {
-    QTcpSocket* disconnected_socket=(QTcpSocket*)sender();
+    QTcpSocket *disconnected_socket = (QTcpSocket *) sender();
     //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
     // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
-    }
+}
