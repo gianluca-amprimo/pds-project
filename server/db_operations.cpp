@@ -1,7 +1,7 @@
 #include "db_operations.h"
 
 static int count = 0;
-static std::string db_path ="/home/gianluca/Desktop/pds-project/server/pds_db";
+static std::string db_path = "../pds_db";
 /*
  * Callback function for checkCredentials
  */

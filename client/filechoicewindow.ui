@@ -7,26 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>236</width>
-    <height>268</height>
+    <height>150</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>File choice</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
-   <item>
-    <widget class="QLabel" name="ProfilePicture">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-    </widget>
-   </item>
    <item>
     <widget class="QLabel" name="WelcomeLabel">
      <property name="font">
@@ -48,7 +35,8 @@
       <string>New file</string>
      </property>
      <property name="icon">
-      <iconset theme="document-new"/>
+      <iconset theme="document-new">
+       <normaloff>.</normaloff>.</iconset>
      </property>
      <property name="default">
       <bool>true</bool>
@@ -82,7 +70,8 @@
         <string>Open</string>
        </property>
        <property name="icon">
-        <iconset theme="document-open"/>
+        <iconset theme="document-open">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
      </item>
@@ -94,7 +83,8 @@
       <string>Settings</string>
      </property>
      <property name="icon">
-      <iconset theme="emblem-system"/>
+      <iconset theme="emblem-system">
+       <normaloff>.</normaloff>.</iconset>
      </property>
     </widget>
    </item>

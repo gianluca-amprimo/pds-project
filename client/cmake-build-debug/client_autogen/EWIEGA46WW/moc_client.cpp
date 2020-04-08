@@ -1,18 +1,19 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'client.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.5)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
+#include <memory>
 #include "../../../client.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'client.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.9.5. It"
+#error "This file was generated using the moc from 5.14.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -21,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Client_t {
-    QByteArrayData data[22];
-    char stringdata0[319];
+    QByteArrayData data[24];
+    char stringdata0[349];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -47,12 +48,14 @@ QT_MOC_LITERAL(12, 180, 21), // "reactivateLoginWindow"
 QT_MOC_LITERAL(13, 202, 22), // "openCancellationWindow"
 QT_MOC_LITERAL(14, 225, 15), // "enableDelButton"
 QT_MOC_LITERAL(15, 241, 15), // "requestDeletion"
-QT_MOC_LITERAL(16, 257, 11), // "openNewFile"
-QT_MOC_LITERAL(17, 269, 16), // "openExistingFile"
-QT_MOC_LITERAL(18, 286, 11), // "eventFilter"
-QT_MOC_LITERAL(19, 298, 6), // "object"
-QT_MOC_LITERAL(20, 305, 7), // "QEvent*"
-QT_MOC_LITERAL(21, 313, 5) // "event"
+QT_MOC_LITERAL(16, 257, 20), // "openFileChoiceWindow"
+QT_MOC_LITERAL(17, 278, 8), // "username"
+QT_MOC_LITERAL(18, 287, 11), // "openNewFile"
+QT_MOC_LITERAL(19, 299, 16), // "openExistingFile"
+QT_MOC_LITERAL(20, 316, 11), // "eventFilter"
+QT_MOC_LITERAL(21, 328, 6), // "object"
+QT_MOC_LITERAL(22, 335, 7), // "QEvent*"
+QT_MOC_LITERAL(23, 343, 5) // "event"
 
     },
     "Client\0readResponse\0\0displayError\0"
@@ -62,18 +65,19 @@ QT_MOC_LITERAL(21, 313, 5) // "event"
     "enableRegButton\0requestRegistration\0"
     "reactivateLoginWindow\0openCancellationWindow\0"
     "enableDelButton\0requestDeletion\0"
-    "openNewFile\0openExistingFile\0eventFilter\0"
-    "object\0QEvent*\0event"
+    "openFileChoiceWindow\0username\0openNewFile\0"
+    "openExistingFile\0eventFilter\0object\0"
+    "QEvent*\0event"
 };
 #undef QT_MOC_LITERAL
 
 static const uint qt_meta_data_Client[] = {
 
  // content:
-       7,       // revision
+       8,       // revision
        0,       // classname
        0,    0, // classinfo
-      15,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -81,21 +85,22 @@ static const uint qt_meta_data_Client[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,   89,    2, 0x08 /* Private */,
-       3,    1,   90,    2, 0x08 /* Private */,
-       6,    0,   93,    2, 0x08 /* Private */,
-       7,    0,   94,    2, 0x08 /* Private */,
-       8,    0,   95,    2, 0x08 /* Private */,
-       9,    0,   96,    2, 0x08 /* Private */,
-      10,    0,   97,    2, 0x08 /* Private */,
-      11,    0,   98,    2, 0x08 /* Private */,
-      12,    0,   99,    2, 0x08 /* Private */,
-      13,    0,  100,    2, 0x08 /* Private */,
-      14,    0,  101,    2, 0x08 /* Private */,
-      15,    0,  102,    2, 0x08 /* Private */,
-      16,    0,  103,    2, 0x08 /* Private */,
-      17,    0,  104,    2, 0x08 /* Private */,
-      18,    2,  105,    2, 0x08 /* Private */,
+       1,    0,   94,    2, 0x08 /* Private */,
+       3,    1,   95,    2, 0x08 /* Private */,
+       6,    0,   98,    2, 0x08 /* Private */,
+       7,    0,   99,    2, 0x08 /* Private */,
+       8,    0,  100,    2, 0x08 /* Private */,
+       9,    0,  101,    2, 0x08 /* Private */,
+      10,    0,  102,    2, 0x08 /* Private */,
+      11,    0,  103,    2, 0x08 /* Private */,
+      12,    0,  104,    2, 0x08 /* Private */,
+      13,    0,  105,    2, 0x08 /* Private */,
+      14,    0,  106,    2, 0x08 /* Private */,
+      15,    0,  107,    2, 0x08 /* Private */,
+      16,    1,  108,    2, 0x08 /* Private */,
+      18,    0,  111,    2, 0x08 /* Private */,
+      19,    0,  112,    2, 0x08 /* Private */,
+      20,    2,  113,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -110,9 +115,10 @@ static const uint qt_meta_data_Client[] = {
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::QString,   17,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 20,   19,   21,
+    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 22,   21,   23,
 
        0        // eod
 };
@@ -120,7 +126,7 @@ static const uint qt_meta_data_Client[] = {
 void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        Client *_t = static_cast<Client *>(_o);
+        auto *_t = static_cast<Client *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->readResponse(); break;
@@ -135,9 +141,10 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 9: _t->openCancellationWindow(); break;
         case 10: _t->enableDelButton(); break;
         case 11: _t->requestDeletion(); break;
-        case 12: _t->openNewFile(); break;
-        case 13: _t->openExistingFile(); break;
-        case 14: { bool _r = _t->eventFilter((*reinterpret_cast< QObject*(*)>(_a[1])),(*reinterpret_cast< QEvent*(*)>(_a[2])));
+        case 12: _t->openFileChoiceWindow((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 13: _t->openNewFile(); break;
+        case 14: _t->openExistingFile(); break;
+        case 15: { bool _r = _t->eventFilter((*reinterpret_cast< QObject*(*)>(_a[1])),(*reinterpret_cast< QEvent*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         default: ;
         }
@@ -155,10 +162,14 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     }
 }
 
-const QMetaObject Client::staticMetaObject = {
-    { &QDialog::staticMetaObject, qt_meta_stringdata_Client.data,
-      qt_meta_data_Client,  qt_static_metacall, nullptr, nullptr}
-};
+QT_INIT_METAOBJECT const QMetaObject Client::staticMetaObject = { {
+    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
+    qt_meta_stringdata_Client.data,
+    qt_meta_data_Client,
+    qt_static_metacall,
+    nullptr,
+    nullptr
+} };
 
 
 const QMetaObject *Client::metaObject() const
@@ -180,13 +191,13 @@ int Client::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 15)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 15)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 15;
+        _id -= 16;
     }
     return _id;
 }

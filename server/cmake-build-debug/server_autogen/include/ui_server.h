@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'server.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.5
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,13 +10,10 @@
 #define UI_SERVER_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QTextEdit>
 
 QT_BEGIN_NAMESPACE
@@ -31,14 +28,14 @@ public:
     void setupUi(QDialog *Server)
     {
         if (Server->objectName().isEmpty())
-            Server->setObjectName(QStringLiteral("Server"));
+            Server->setObjectName(QString::fromUtf8("Server"));
         Server->resize(600, 400);
         gridLayout = new QGridLayout(Server);
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         centralLayout = new QHBoxLayout();
-        centralLayout->setObjectName(QStringLiteral("centralLayout"));
+        centralLayout->setObjectName(QString::fromUtf8("centralLayout"));
         console = new QTextEdit(Server);
-        console->setObjectName(QStringLiteral("console"));
+        console->setObjectName(QString::fromUtf8("console"));
         QPalette palette;
         QBrush brush(QColor(243, 243, 243, 255));
         brush.setStyle(Qt::SolidPattern);
@@ -66,7 +63,7 @@ public:
         palette.setBrush(QPalette::Disabled, QPalette::HighlightedText, brush);
         console->setPalette(palette);
         QFont font;
-        font.setFamily(QStringLiteral("Fira Mono"));
+        font.setFamily(QString::fromUtf8("Fira Mono"));
         console->setFont(font);
         console->setUndoRedoEnabled(false);
         console->setReadOnly(true);
@@ -85,7 +82,7 @@ public:
 
     void retranslateUi(QDialog *Server)
     {
-        Server->setWindowTitle(QApplication::translate("Server", "Dialog", Q_NULLPTR));
+        Server->setWindowTitle(QCoreApplication::translate("Server", "Dialog", nullptr));
     } // retranslateUi
 
 };

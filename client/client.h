@@ -42,6 +42,7 @@ private slots:
     void enableDelButton();
     void requestDeletion();
     
+    void openFileChoiceWindow(QString username);
     void openNewFile();
     void openExistingFile();
     bool eventFilter(QObject *object, QEvent *event);

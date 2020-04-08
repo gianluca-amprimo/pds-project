@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'cancellationwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.9.5
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -10,14 +10,11 @@
 #define UI_CANCELLATIONWINDOW_H
 
 #include <QtCore/QVariant>
-#include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
-#include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QHBoxLayout>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -41,29 +38,29 @@ public:
     void setupUi(QDialog *CancellationWindow)
     {
         if (CancellationWindow->objectName().isEmpty())
-            CancellationWindow->setObjectName(QStringLiteral("CancellationWindow"));
+            CancellationWindow->setObjectName(QString::fromUtf8("CancellationWindow"));
         CancellationWindow->resize(283, 120);
         verticalLayout = new QVBoxLayout(CancellationWindow);
-        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         gridLayout = new QGridLayout();
-        gridLayout->setObjectName(QStringLiteral("gridLayout"));
+        gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         UsernameLabel = new QLabel(CancellationWindow);
-        UsernameLabel->setObjectName(QStringLiteral("UsernameLabel"));
+        UsernameLabel->setObjectName(QString::fromUtf8("UsernameLabel"));
 
         gridLayout->addWidget(UsernameLabel, 0, 0, 1, 1);
 
         UsernameEdit = new QLineEdit(CancellationWindow);
-        UsernameEdit->setObjectName(QStringLiteral("UsernameEdit"));
+        UsernameEdit->setObjectName(QString::fromUtf8("UsernameEdit"));
 
         gridLayout->addWidget(UsernameEdit, 0, 1, 1, 1);
 
         PasswordLabel = new QLabel(CancellationWindow);
-        PasswordLabel->setObjectName(QStringLiteral("PasswordLabel"));
+        PasswordLabel->setObjectName(QString::fromUtf8("PasswordLabel"));
 
         gridLayout->addWidget(PasswordLabel, 1, 0, 1, 1);
 
         PasswordEdit = new QLineEdit(CancellationWindow);
-        PasswordEdit->setObjectName(QStringLiteral("PasswordEdit"));
+        PasswordEdit->setObjectName(QString::fromUtf8("PasswordEdit"));
         PasswordEdit->setEchoMode(QLineEdit::Password);
 
         gridLayout->addWidget(PasswordEdit, 1, 1, 1, 1);
@@ -73,10 +70,10 @@ public:
 
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(2);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         horizontalLayout->setContentsMargins(170, -1, -1, -1);
         DeleteButton = new QPushButton(CancellationWindow);
-        DeleteButton->setObjectName(QStringLiteral("DeleteButton"));
+        DeleteButton->setObjectName(QString::fromUtf8("DeleteButton"));
         DeleteButton->setEnabled(false);
         DeleteButton->setMaximumSize(QSize(100, 25));
         DeleteButton->setMouseTracking(false);
@@ -88,7 +85,7 @@ public:
         verticalLayout->addLayout(horizontalLayout);
 
         line = new QFrame(CancellationWindow);
-        line->setObjectName(QStringLiteral("line"));
+        line->setObjectName(QString::fromUtf8("line"));
         line->setFrameShape(QFrame::HLine);
         line->setFrameShadow(QFrame::Sunken);
 
@@ -105,11 +102,11 @@ public:
 
     void retranslateUi(QDialog *CancellationWindow)
     {
-        CancellationWindow->setWindowTitle(QApplication::translate("CancellationWindow", "Cancellation", Q_NULLPTR));
-        UsernameLabel->setText(QApplication::translate("CancellationWindow", "Username", Q_NULLPTR));
-        PasswordLabel->setText(QApplication::translate("CancellationWindow", "Password", Q_NULLPTR));
+        CancellationWindow->setWindowTitle(QCoreApplication::translate("CancellationWindow", "Cancellation", nullptr));
+        UsernameLabel->setText(QCoreApplication::translate("CancellationWindow", "Username", nullptr));
+        PasswordLabel->setText(QCoreApplication::translate("CancellationWindow", "Password", nullptr));
         PasswordEdit->setText(QString());
-        DeleteButton->setText(QApplication::translate("CancellationWindow", "Delete", Q_NULLPTR));
+        DeleteButton->setText(QCoreApplication::translate("CancellationWindow", "Delete", nullptr));
     } // retranslateUi
 
 };

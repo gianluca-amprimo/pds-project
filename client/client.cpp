@@ -94,34 +94,10 @@ void Client::readResponse()
 
     if(header=="log") {
         if (result == "ok") {
+	        qDebug() << "Successful login.";
+	        QString un(uiLog->UsernameEdit->text());
+            openFileChoiceWindow(un);
             this->close();
-            
-	        uiChoice = new Ui::FileChoiceWindow;
-	        ChoiceWin = new QDialog;
-	        uiChoice->setupUi(ChoiceWin);
-	        uiChoice->OpenMenu->completer()->setCompletionMode(QCompleter::PopupCompletion);
-	        uiChoice->OpenMenu->completer()->setFilterMode(Qt::MatchContains);
-	        uiChoice->OpenMenu->installEventFilter(this);
-	        auto cbModel = new QStringListModel;
-	        uiChoice->OpenMenu->setModel(cbModel);
-	
-	        // TODO: mettere nome invece che username
-	        uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(uiLog->UsernameEdit->text()));
-	
-	        QStringList fileList;
-	        fileList << "File1.txt" << "File2.txt" <<  "File3.txt" << "File4.txt" << "File5.txt" << "File6.txt" << "File7.txt" << "File8.txt" << "File9.txt" << "File10.txt" << "File11.txt" << "File12.txt" << "Prova" << "Ciao";
-	        for (auto &file: fileList) {
-		        uiChoice->OpenMenu->addItem(file);
-	        }
-	
-	        connect(uiChoice->NewButton, &QPushButton::released, this, &Client::openNewFile);
-	        connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
-	        connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
-	        // TODO: connettere button impostazioni
-	
-	        this->close();
-	        uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
-	        ChoiceWin->show();
         }
         if(result=="unreg"){
             QMessageBox::information(this, tr("PdS Server"), tr("Utente non trovato! Ricontrolla user e password"));
@@ -146,10 +122,10 @@ void Client::readResponse()
     }
     if(header=="reg") {
         if (result=="ok") {
-            logStatusBar->showMessage(tr("Successful registration."), 3000);
             qDebug() << "Successful registration.";
+	        QString un(uiReg->UsernameEdit->text());
+            openFileChoiceWindow(un);
             RegWin->close();
-            reactivateLoginWindow();
         }
         if (result=="sfail"){
             QMessageBox::information(this, tr("PdS Server"), tr("Registrazione fallita per problemi al server, ritentare"));
@@ -157,6 +133,7 @@ void Client::readResponse()
             uiReg->SurnameEdit->setReadOnly(false);
             uiReg->UsernameEdit->setReadOnly(false);
             uiReg->PasswordEdit->setReadOnly(false);
+	        uiReg->RepeatPasswordEdit->setReadOnly(false);
             regStatusBar->showMessage(tr("Registration failed"));
             qDebug() << "Registration failed";
         }
@@ -294,7 +271,7 @@ void Client::openRegistrationWindow() {
 	connect(uiReg->PasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->RepeatPasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->RegisterButton, &QPushButton::released, this, &Client::requestRegistration);
-	connect(RegWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
+//	connect(RegWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
 	
     RegWin->show();
 }
@@ -323,6 +300,7 @@ void Client::requestRegistration() {
 	uiReg->SurnameEdit->setReadOnly(true);
 	uiReg->UsernameEdit->setReadOnly(true);
 	uiReg->PasswordEdit->setReadOnly(true);
+	uiReg->RepeatPasswordEdit->setReadOnly(true);
 	
 	regStatusBar->showMessage(tr("Checking database..."));
 	qDebug() << "Checking database...";
@@ -386,6 +364,34 @@ void Client::requestDeletion() {
 	qDebug() << "Deleting account...";
 	
 	// TODO: connettere al server per la registrazione di username e password
+}
+
+void Client::openFileChoiceWindow(QString username) {
+	uiChoice = new Ui::FileChoiceWindow;
+	ChoiceWin = new QDialog;
+	uiChoice->setupUi(ChoiceWin);
+	uiChoice->OpenMenu->completer()->setCompletionMode(QCompleter::PopupCompletion);
+	uiChoice->OpenMenu->completer()->setFilterMode(Qt::MatchContains);
+	uiChoice->OpenMenu->installEventFilter(this);
+	auto cbModel = new QStringListModel;
+	uiChoice->OpenMenu->setModel(cbModel);
+	
+	// TODO: mettere nome invece che username
+	uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(username));
+	
+	QStringList fileList;
+	fileList << "File1.txt" << "File2.txt" <<  "File3.txt" << "File4.txt" << "File5.txt" << "File6.txt" << "File7.txt" << "File8.txt" << "File9.txt" << "File10.txt" << "File11.txt" << "File12.txt" << "Prova" << "Ciao";
+	for (auto &file: fileList) {
+		uiChoice->OpenMenu->addItem(file);
+	}
+	uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
+	
+	connect(uiChoice->NewButton, &QPushButton::released, this, &Client::openNewFile);
+	connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
+	connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
+	// TODO: connettere button impostazioni
+	
+	ChoiceWin->show();
 }
 
 void Client::openNewFile() {
