@@ -13,7 +13,7 @@
 
 class User {
 public:
-    User(std::string);
+    User(QString username);
     virtual ~User();
 
     bool operator==(const User &rhs) const;
@@ -29,7 +29,12 @@ public:
     bool operator>=(const User &rhs) const;
 
 private:
-    QString username; //lo username è un identificativo univoco (username== non sono possibili)
+    QString username;
+public:
+    const QString &getUsername() const;
+
+private:
+    //lo username è un identificativo univoco (username== non sono possibili)
     QString propic; //path all’immagine del profilo
 
 

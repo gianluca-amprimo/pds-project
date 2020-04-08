@@ -4,7 +4,7 @@
 
 #include "User.h"
 
-User::User(std::string): username(username) {} //TODO: Insert info about user propic coming from db
+User::User(QString username): username(username) {} //TODO: Insert info about user propic coming from db
 
 User::~User() {
 
@@ -31,4 +31,8 @@ bool User::operator>=(const User &rhs) const {
 
 bool User::operator!=(const User &rhs) const {
     return !(rhs == *this);
+}
+
+const QString &User::getUsername() const {
+    return username;
 }

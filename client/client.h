@@ -27,7 +27,6 @@ public:
     explicit Client(QWidget *parent = nullptr);
 
 private slots:
-	void requestLogin();
     void readResponse();
     void displayError(QAbstractSocket::SocketError socketError);
     void enableLogButton();
@@ -52,7 +51,7 @@ private:
     QDataStream in;
     QString loginReply;
     QNetworkSession *networkSession = nullptr;
-	
+	void requestConnection();
 	Ui::LoginWindow *uiLog;
 	QStatusBar *logStatusBar;
 	

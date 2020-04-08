@@ -6,11 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/User.cpp
-User.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/User.h
-
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/User.h
+/home/gianluca/Desktop/pds-project/server/User.h
 QString
 -
 QTcpSocket
@@ -18,35 +14,13 @@ QTcpSocket
 list
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp
-../../../server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.h
-QtCore/qbytearray.h
--
-QtCore/qmetatype.h
--
-
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/server_autogen/mocs_compilation.cpp
-EWIEGA46WW/moc_server.cpp
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp
-
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/db_operations.cpp
-db_operations.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/db_operations.h
-
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/db_operations.h
+/home/gianluca/Desktop/pds-project/server/db_operations.h
 iostream
 -
 sqlite3.h
 -
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/main.cpp
-QApplication
--
-server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.h
-
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.cpp
+/home/gianluca/Desktop/pds-project/server/server.cpp
 QtWidgets
 -
 QtNetwork
@@ -58,15 +32,15 @@ iostream
 sstream
 -
 User.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/User.h
+/home/gianluca/Desktop/pds-project/server/User.h
 server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.h
+/home/gianluca/Desktop/pds-project/server/server.h
 ui_server.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/ui_server.h
+/home/gianluca/Desktop/pds-project/server/ui_server.h
 db_operations.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/db_operations.h
+/home/gianluca/Desktop/pds-project/server/db_operations.h
 
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/server.h
+/home/gianluca/Desktop/pds-project/server/server.h
 QDialog
 -
 QString
@@ -78,7 +52,7 @@ map
 list
 -
 User.h
-/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/server/User.h
+/home/gianluca/Desktop/pds-project/server/User.h
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QByteArray
 qbytearray.h

@@ -21,4 +21,6 @@ int addUser(std::string user, std::string password, std::string name, std::strin
 // returns 1 for success and -1 for failure
 int addFile(std::string name, std::string path);
 
+int deleteUser(std::string username, std::string password);
+
 #endif //SERVER_DB_OPERATIONS_H

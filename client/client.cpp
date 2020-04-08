@@ -24,13 +24,12 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 
     connect(uiLog->UsernameEdit, &QLineEdit::textChanged, this, &Client::enableLogButton);
 	connect(uiLog->PasswordEdit, &QLineEdit::textChanged, this, &Client::enableLogButton);
-    connect(uiLog->LoginButton, &QPushButton::released, this, &Client::requestLogin);
+    connect(uiLog->LoginButton, &QPushButton::released, this, &Client::sendCredentials);
     connect(uiLog->RegistrationLink, &QLabel::linkActivated, this, &Client::openRegistrationWindow);
 	connect(uiLog->CancellationLink, &QLabel::linkActivated, this, &Client::openCancellationWindow);
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
-    connect(tcpSocket, &QAbstractSocket::connected  ,this, &Client::sendCredentials);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
-
+    Client::requestConnection();
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
 	    // Get saved network configuration
@@ -56,26 +55,18 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
     }
 }
 
-void Client::requestLogin()
+void Client::requestConnection()
 {
+    qDebug()<< "requesting connection";
 #ifndef LOCALHOST
 	auto host = "128.0.0.1";
 #else
 	auto host = QHostAddress(QHostAddress::LocalHost).toString();
 #endif
     int port = 4848;
-    uiLog->LoginButton->setEnabled(false);
     tcpSocket->abort();
     tcpSocket->connectToHost(host, port);
-    uiLog->UsernameEdit->setReadOnly(true);
-    uiLog->PasswordEdit->setReadOnly(true);
-    uiLog->UsernameEdit->clearFocus();
-    uiLog->RegistrationLink->setTextInteractionFlags(Qt::NoTextInteraction);
-	uiLog->CancellationLink->setTextInteractionFlags(Qt::NoTextInteraction);
-	uiLog->RegistrationLink->setCursor(QCursor(Qt::ArrowCursor));
-	uiLog->CancellationLink->setCursor(QCursor(Qt::ArrowCursor));
-    logStatusBar->showMessage(tr("Trying to connect..."));
-    qDebug() << "Trying to connect...";
+    //TODO: do something if connection to server fails
 }
 
 void Client::readResponse()
@@ -142,6 +133,16 @@ void Client::readResponse()
             uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
             uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
         }
+        if(result=="fail"){
+            QMessageBox::information(this, tr("PdS Server"), tr("Errore nel server, riprovare più tardi"));
+            uiLog->LoginButton->setEnabled(true);
+            uiLog->UsernameEdit->setReadOnly(false);
+            uiLog->PasswordEdit->setReadOnly(false);
+            uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+            uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+            uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
+            uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
+        }
     }
     if(header=="reg") {
         if (result=="ok") {
@@ -149,7 +150,8 @@ void Client::readResponse()
             qDebug() << "Successful registration.";
             RegWin->close();
             reactivateLoginWindow();
-        } else {
+        }
+        if (result=="sfail"){
             QMessageBox::information(this, tr("PdS Server"), tr("Registrazione fallita per problemi al server, ritentare"));
             uiReg->NameEdit->setReadOnly(false);
             uiReg->SurnameEdit->setReadOnly(false);
@@ -158,17 +160,34 @@ void Client::readResponse()
             regStatusBar->showMessage(tr("Registration failed"));
             qDebug() << "Registration failed";
         }
+        if(result=="alreadyreg"){
+            QMessageBox::information(this, tr("PdS Server"), tr("Nome utente già registrato! Inserisci un altro user o esegui il login"));
+            uiReg->NameEdit->setReadOnly(false);
+            uiReg->SurnameEdit->setReadOnly(false);
+            uiReg->UsernameEdit->setReadOnly(false);
+            uiReg->PasswordEdit->setReadOnly(false);
+            regStatusBar->showMessage(tr("Registration failed"));
+            qDebug() << "Registration failed";
+        }
+
     }
     if(header=="canc"){
         if (result=="ok") {
             logStatusBar->showMessage(tr("Successful cancellation."), 3000);
             CancWin->close();
             reactivateLoginWindow();
-        } else {
+        }
+        if( result=="notpres"){
+            cancStatusBar->showMessage(tr("Attenzione! L’utente da cancellare non esiste, riprovare"));
+            qDebug() << "User doesnt exist";
+        }
+        if( result=="fail"){
             cancStatusBar->showMessage(tr("Cancellation failed"));
             qDebug() << "Cancellation failed";
         }
     }
+    if(header=="flist");
+
 }
 
 void Client::displayError(QAbstractSocket::SocketError socketError)
@@ -217,14 +236,22 @@ void Client::sessionOpened()
     settings.beginGroup(QLatin1String("QtNetwork"));
     settings.setValue(QLatin1String("DefaultNetworkConfiguration"), id);
     settings.endGroup();
-
     enableLogButton();
+
 }
 
 void Client::sendCredentials(){
-	
-    logStatusBar->showMessage(tr("Connected to the server."));
-    qDebug() << "Connected to the server.";
+
+     uiLog->LoginButton->setEnabled(false);
+     uiLog->UsernameEdit->setReadOnly(true);
+     uiLog->PasswordEdit->setReadOnly(true);
+     uiLog->UsernameEdit->clearFocus();
+     uiLog->RegistrationLink->setTextInteractionFlags(Qt::NoTextInteraction);
+     uiLog->CancellationLink->setTextInteractionFlags(Qt::NoTextInteraction);
+     uiLog->RegistrationLink->setCursor(QCursor(Qt::ArrowCursor));
+     uiLog->CancellationLink->setCursor(QCursor(Qt::ArrowCursor));
+     logStatusBar->showMessage(tr("Connected to the server."));
+     qDebug() << "Connected to the server.";
 
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
@@ -301,6 +328,16 @@ void Client::requestRegistration() {
 	qDebug() << "Checking database...";
 	
 	// TODO: connettere al server per la registrazione di username e password
+    if (tcpSocket != nullptr) {
+        if (!tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+    }
     QByteArray block;
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_0);
