@@ -108,7 +108,7 @@ int readFiles() {
     }
     sqlite3_close(db);
 
-    if (db_counter == 1) // username and password were correct
+    if (db_counter == 1)
         return 1;
     return 0;
 }

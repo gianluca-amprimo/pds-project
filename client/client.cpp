@@ -115,6 +115,7 @@ void Client::readResponse()
     if(header=="log") {
         if (result == "ok") {
 	        qDebug() << "Successful login.";
+	        setFileList(jSobject);
 	        QString un(uiLog->UsernameEdit->text());
             openFileChoiceWindow(un);
             this->close();
@@ -144,6 +145,7 @@ void Client::readResponse()
         if (result=="ok") {
             qDebug() << "Successful registration.";
 	        QString un(uiReg->UsernameEdit->text());
+            setFileList(jSobject);
             openFileChoiceWindow(un);
             RegWin->close();
         }
@@ -440,7 +442,10 @@ void Client::openFileChoiceWindow(QString username) {
 	uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(username));
 	
 	QStringList fileList;
-	fileList << "File1.txt" << "File2.txt" <<  "File3.txt" << "File4.txt" << "File5.txt" << "File6.txt" << "File7.txt" << "File8.txt" << "File9.txt" << "File10.txt" << "File11.txt" << "File12.txt" << "Prova" << "Ciao";
+	for(auto s:avail_file){
+	    fileList+=s;
+	}
+	//fileList << "File1.txt" << "File2.txt" <<  "File3.txt" << "File4.txt" << "File5.txt" << "File6.txt" << "File7.txt" << "File8.txt" << "File9.txt" << "File10.txt" << "File11.txt" << "File12.txt" << "Prova" << "Ciao";
 	for (auto &file: fileList) {
 		uiChoice->OpenMenu->addItem(file);
 	}
@@ -477,4 +482,9 @@ bool Client::eventFilter(QObject *object, QEvent *event) {
 			uiChoice->NewButton->setDefault(false);
 		}
 	}
+}
+void Client::setFileList(QJsonObject& data){
+    for(auto s: data["File list"].toArray()){
+        avail_file.push_back(s.toString());
+    }
 }

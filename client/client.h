@@ -53,7 +53,9 @@ private:
     QString loginReply;
     QNetworkSession *networkSession = nullptr;
 	void requestConnection();
+	void setFileList(QJsonObject&);
 	Ui::LoginWindow *uiLog;
+	std::list<QString> avail_file;
 	QStatusBar *logStatusBar;
 	
 	QDialog *RegWin;

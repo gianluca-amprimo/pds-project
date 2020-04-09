@@ -225,8 +225,9 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket* active_socket){
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
-        message["header"] = "log";
-        message["body"] = loginResult;
+       // message["header"] = "log";
+        //message["body"] = loginResult;
+        message=prepareJsonWithFileList("log", loginResult);
         printConsole("Sending back "+message["header"].toString().toStdString()+" "+message["body"].toString().toStdString());
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
@@ -276,8 +277,9 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket* active_socket) {
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
-        message["header"] = "reg";
-        message["body"] = registrationResult;
+        //message["header"] = "reg";
+        //message["body"] = registrationResult;
+        message=prepareJsonWithFileList("reg", registrationResult);
         printConsole("Sending back "+message["header"].toString().toStdString()+" "+message["body"].toString().toStdString());
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
@@ -334,6 +336,22 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket* active_socket ){
     }
     return true;
 }
+
+QJsonObject Server::prepareJsonWithFileList(QString header, QString result){
+    int ret=readFiles();
+    //TODO: if is not possible to read files do something
+    QJsonObject message;
+    message["header"]=header;
+    message["body"]=result;
+    QJsonArray fileList;
+    auto it=file_list.begin();
+    for(auto t: file_list){
+        fileList.push_back(QString::fromStdString(std::get<0>(t)));
+    }
+    message.insert("File list", fileList);
+    return message;
+}
+
 
 void Server::handleDisconnect() {
     QTcpSocket* disconnected_socket=(QTcpSocket*)sender();
