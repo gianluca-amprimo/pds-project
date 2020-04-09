@@ -3,11 +3,15 @@
 #include <QtCore>
 #include <sstream>
 #include <string>
+#include <sys/stat.h>
 #include "client.h"
 #include "ui_loginwindow.h"
 #include "ui_registrationwindow.h"
 #include "ui_cancellationwindow.h"
 #include "ui_filechoicewindow.h"
+
+static QString pathPictures("../../server/Pictures/");
+static QString defaultPicture("../../server/Pictures/___default_img.png");
 
 Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)), uiLog(new Ui::LoginWindow)
 {
@@ -145,6 +149,9 @@ void Client::readResponse()
         if (result=="ok") {
             qDebug() << "Successful registration.";
 	        QString un(uiReg->UsernameEdit->text());
+	        QFile file(pathPictures + un + ".png");
+	        file.open(QIODevice::WriteOnly);
+	        uiReg->ProfilePicture->pixmap()->save(&file, "png", 100);
             setFileList(jSobject);
             openFileChoiceWindow(un);
             RegWin->close();
@@ -174,6 +181,7 @@ void Client::readResponse()
         if (result=="ok") {
             logStatusBar->showMessage(tr("Successful cancellation."), 3000);
             CancWin->close();
+	        // TODO: cancellare foto profilo dal server
             reactivateLoginWindow();
         }
         if( result=="notpres"){
@@ -290,6 +298,7 @@ void Client::openRegistrationWindow() {
 	uiReg->setupUi(RegWin);
 	regStatusBar = new QStatusBar(RegWin);
 	uiReg->verticalLayout->addWidget(regStatusBar);
+	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(100, 100, Qt::KeepAspectRatio));
 	
 	connect(uiReg->NameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->SurnameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
@@ -297,9 +306,29 @@ void Client::openRegistrationWindow() {
 	connect(uiReg->PasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->RepeatPasswordEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->RegisterButton, &QPushButton::released, this, &Client::requestRegistration);
-//	connect(RegWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
+	connect(uiReg->ProfilePictureButton, &QPushButton::released, this, &Client::uploadProfilePicture);
+	connect(uiReg->DeletePictureButton, &QPushButton::released, this, &Client::deleteProfilePicture);
 	
     RegWin->show();
+}
+
+void Client::uploadProfilePicture() {
+	qDebug() << "Uploading profile picture";
+	QString filename = QFileDialog::getOpenFileName(this, tr("Choose"), "", tr("Images (*.jpg *.png *.jpeg *.bmp *.JPG *.PNG *.JPEG *.BMP)"));
+	if (QString::compare(filename, QString()) != 0) {
+		QImage image;
+		bool valid = image.load(filename);
+		if (valid) {
+			uiReg->ProfilePicture->setPixmap(QPixmap::fromImage(image).scaled(100, 100, Qt::KeepAspectRatio));
+			uiReg->DeletePictureButton->setEnabled(true);
+		}
+	}
+}
+
+void Client::deleteProfilePicture() {
+	qDebug() << "Deleting profile picture";
+	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(100, 100, Qt::KeepAspectRatio));
+	uiReg->DeletePictureButton->setEnabled(false);
 }
 
 void Client::enableRegButton() {
@@ -437,6 +466,14 @@ void Client::openFileChoiceWindow(QString username) {
 	uiChoice->OpenMenu->installEventFilter(this);
 	auto cbModel = new QStringListModel;
 	uiChoice->OpenMenu->setModel(cbModel);
+	
+	QString pathpng(pathPictures + username + ".png");
+	struct stat buffer;
+	if (stat (pathpng.toStdString().c_str(), &buffer) == 0) {
+		uiChoice->ProfilePicture->setPixmap(QPixmap(pathpng).scaled(150, 150, Qt::KeepAspectRatio));
+	} else {
+		uiChoice->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(150, 150, Qt::KeepAspectRatio));
+	}
 	
 	// TODO: mettere nome invece che username
 	uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(username));

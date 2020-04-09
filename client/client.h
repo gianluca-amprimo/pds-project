@@ -34,6 +34,8 @@ private slots:
     void sendCredentials();
 
     void openRegistrationWindow();
+	void uploadProfilePicture();
+	void deleteProfilePicture();
     void enableRegButton();
     void requestRegistration();
     void reactivateLoginWindow();
