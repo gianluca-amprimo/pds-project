@@ -172,6 +172,7 @@ void Client::readResponse()
             uiReg->SurnameEdit->setReadOnly(false);
             uiReg->UsernameEdit->setReadOnly(false);
             uiReg->PasswordEdit->setReadOnly(false);
+	        uiReg->RepeatPasswordEdit->setReadOnly(false);
             regStatusBar->showMessage(tr("Registration failed"));
             qDebug() << "Registration failed";
         }
@@ -185,10 +186,16 @@ void Client::readResponse()
             reactivateLoginWindow();
         }
         if( result=="notpres"){
+	        uiCanc->UsernameEdit->setReadOnly(false);
+	        uiCanc->PasswordEdit->setReadOnly(false);
+	        uiCanc->DeleteButton->setEnabled(true);
             cancStatusBar->showMessage(tr("Attenzione! L’utente da cancellare non esiste, riprovare"));
             qDebug() << "User doesnt exist";
         }
         if( result=="fail"){
+	        uiCanc->UsernameEdit->setReadOnly(false);
+	        uiCanc->PasswordEdit->setReadOnly(false);
+	        uiCanc->DeleteButton->setEnabled(true);
             cancStatusBar->showMessage(tr("Cancellation failed"));
             qDebug() << "Cancellation failed";
         }
@@ -426,6 +433,11 @@ void Client::enableDelButton() {
 void Client::requestDeletion() {
 	cancStatusBar->showMessage(tr("Deleting account..."));
 	qDebug() << "Deleting account...";
+	
+	uiCanc->UsernameEdit->setReadOnly(true);
+	uiCanc->PasswordEdit->setReadOnly(true);
+	uiCanc->DeleteButton->setEnabled(false);
+	
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
