@@ -12,7 +12,7 @@
 class FileSaver : public QObject{
     Q_OBJECT
 private:
-    std::string fileName;
+    std::string fileName = "untitled";
 
 public slots:
     void save();

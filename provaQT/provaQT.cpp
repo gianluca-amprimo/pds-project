@@ -9,18 +9,26 @@ int main(int argc, char *argv[]){
     QApplication app(argc, argv);
     QMainWindow mainWindow;
     auto* saveAsDialog = new QDialog();
+
     Ui::MainWindow textProva{};
     Ui::Dialog saveDialog{};
-//
 
     textProva.setupUi(&mainWindow);
     saveDialog.setupUi(saveAsDialog);
     FileSaver* fs = new FileSaver(textProva.plainTextEdit);
+
     QObject::connect(textProva.pushButton, SIGNAL(pressed()), fs, SLOT(save()));
     QObject::connect(textProva.actionSave_As, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveDialog.buttonBox, &QDialogButtonBox::accepted, fs, [=](){fs->setFileName(saveDialog.lineEdit->text().toStdString());});
 
+    textProva.plainTextEdit->setCursorWidth(4);
+    QTextCursor cursor2 = QTextCursor(textProva.plainTextEdit->textCursor());
+    cursor2.setPosition(4);
+    cursor2.keepPositionOnInsert();
+    cursor2.insertText("Ciao io mi chiamo antonio");
 
+    QTextCursor cursor3 = cursor2;
+    cursor3.setPosition(0);
 
     mainWindow.show();
     return app.exec();
