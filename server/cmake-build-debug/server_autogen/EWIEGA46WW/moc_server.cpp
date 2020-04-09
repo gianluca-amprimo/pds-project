@@ -1,19 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'server.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.14.2)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.9.5)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include <memory>
 #include "../../../server.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'server.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.14.2. It"
+#error "This file was generated using the moc from 5.9.5. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -23,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Server_t {
     QByteArrayData data[11];
-    char stringdata0[135];
+    char stringdata0[136];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,15 +37,15 @@ QT_MOC_LITERAL(2, 21, 0), // ""
 QT_MOC_LITERAL(3, 22, 18), // "processUserRequest"
 QT_MOC_LITERAL(4, 41, 16), // "handleDisconnect"
 QT_MOC_LITERAL(5, 58, 9), // "checkUser"
-QT_MOC_LITERAL(6, 68, 11), // "std::string"
-QT_MOC_LITERAL(7, 80, 11), // "QTcpSocket*"
-QT_MOC_LITERAL(8, 92, 12), // "registerUser"
-QT_MOC_LITERAL(9, 105, 10), // "cancelUser"
-QT_MOC_LITERAL(10, 116, 18) // "getConnectedSocket"
+QT_MOC_LITERAL(6, 68, 12), // "QJsonObject&"
+QT_MOC_LITERAL(7, 81, 11), // "QTcpSocket*"
+QT_MOC_LITERAL(8, 93, 12), // "registerUser"
+QT_MOC_LITERAL(9, 106, 10), // "cancelUser"
+QT_MOC_LITERAL(10, 117, 18) // "getConnectedSocket"
 
     },
     "Server\0sessionOpened\0\0processUserRequest\0"
-    "handleDisconnect\0checkUser\0std::string\0"
+    "handleDisconnect\0checkUser\0QJsonObject&\0"
     "QTcpSocket*\0registerUser\0cancelUser\0"
     "getConnectedSocket"
 };
@@ -55,7 +54,7 @@ QT_MOC_LITERAL(10, 116, 18) // "getConnectedSocket"
 static const uint qt_meta_data_Server[] = {
 
  // content:
-       8,       // revision
+       7,       // revision
        0,       // classname
        0,    0, // classinfo
        7,   14, // methods
@@ -89,17 +88,17 @@ static const uint qt_meta_data_Server[] = {
 void Server::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void **_a)
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
-        auto *_t = static_cast<Server *>(_o);
+        Server *_t = static_cast<Server *>(_o);
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->sessionOpened(); break;
         case 1: _t->processUserRequest(); break;
         case 2: _t->handleDisconnect(); break;
-        case 3: { bool _r = _t->checkUser((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
+        case 3: { bool _r = _t->checkUser((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 4: { bool _r = _t->registerUser((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
+        case 4: { bool _r = _t->registerUser((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 5: { bool _r = _t->cancelUser((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
+        case 5: { bool _r = _t->cancelUser((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 6: _t->getConnectedSocket(); break;
         default: ;
@@ -132,14 +131,10 @@ void Server::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
     }
 }
 
-QT_INIT_METAOBJECT const QMetaObject Server::staticMetaObject = { {
-    QMetaObject::SuperData::link<QDialog::staticMetaObject>(),
-    qt_meta_stringdata_Server.data,
-    qt_meta_data_Server,
-    qt_static_metacall,
-    nullptr,
-    nullptr
-} };
+const QMetaObject Server::staticMetaObject = {
+    { &QDialog::staticMetaObject, qt_meta_stringdata_Server.data,
+      qt_meta_data_Server,  qt_static_metacall, nullptr, nullptr}
+};
 
 
 const QMetaObject *Server::metaObject() const

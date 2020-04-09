@@ -9,6 +9,8 @@
 #include "ui_server.h"
 #include "db_operations.h"
 
+
+
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
@@ -292,6 +294,7 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket* active_socket ){
     // divide the string username_password_name_surname in  separate string
     std::string username=data["username"].toString().toStdString();
     std::string password=data["password"].toString().toStdString();
+    printConsole("Trying to delete "+username+" "+password);
 
     // call function to delete user in db
     QString cancResult;
