@@ -23,7 +23,7 @@ int main(int argc, char *argv[]){
 
     textProva.textEdit->setCursorWidth(4);
     QTextCursor cursor2 = QTextCursor(textProva.textEdit->textCursor());
-    cursor2.setPosition(4);
+    cursor2.setPosition(0);
     cursor2.keepPositionOnInsert();
     cursor2.insertText("Ciao io mi chiamo antonio");
 
