@@ -4,9 +4,10 @@
 #include <iostream>
 #include <sstream>
 
+#include "User.h"
 #include "server.h"
 #include "ui_server.h"
-#include "db_operations.cpp"
+#include "db_operations.h"
 
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
@@ -73,6 +74,7 @@ void Server::sessionOpened() {
         return;
     }
     QString ipAddress;
+#ifndef LOCALHOST
     QList<QHostAddress> ipAddressesList = QNetworkInterface::allAddresses();
     // use the first non-localhost IPv4 address
     for (const auto & i : ipAddressesList) {
@@ -80,10 +82,14 @@ void Server::sessionOpened() {
             ipAddress = i.toString();
             break;
         }
-    }
+    }*/
+
     // If we did not find one, use IPv4 localhost
     if (ipAddress.isEmpty())
         ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+#else
+    ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
+#endif
     printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" + QString::number(tcpServer->serverPort()).toStdString() + "</u>");
 }
 
@@ -91,65 +97,47 @@ Server::~Server() {
     delete ui;
 }
 
-void Server::checkUser() {
+void Server::processUserRequest() {
+    QTcpSocket* active_socket=(QTcpSocket*)sender();
     in.setDevice(active_socket);
     in.setVersion(QDataStream::Qt_4_0);
 
     in.startTransaction();
-    QString credentials;
+    QString qmessage;
     QString reply;
-    in >> credentials;
+    in >> qmessage;
 
     if (!in.commitTransaction())
         return;
-    printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" + QString::number(active_socket->peerPort()).toStdString() + "] " + credentials.toStdString());
+    printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" + QString::number(active_socket->peerPort()).toStdString() + "] " + qmessage.toStdString());
 
-    // TODO: qui bisognerebbe controllare le credenziali,
-    //  per verificare che funzioni lo scambio mi limito a rimandargliele indietro
-    std::string usr_pass = credentials.toStdString(); // converto QString in stringa standard
+    std::string message = qmessage.toStdString(); // converto QString in stringa standard
+    // divide the string header_body in two separate string
+    std::istringstream iss(message);
+    std::string header, body;
+    std::getline(iss, header, ':');
+    iss >> body;
 
-    // divide the string username_password in two separate string
-    std::istringstream iss(usr_pass);
-    std::string username, password;
-    std::getline(iss, username, '_');
-    iss >> password;
-    // std::cout << username << std::endl << password << std::endl;
+    bool opResult;
+    if (header=="log")
+        opResult=Server::checkUser(body, active_socket);
+    if (header=="reg")
+        opResult=Server::registerUser(body, active_socket);
+    if (header=="canc")
+        opResult=Server::cancelUser(body, active_socket);
+    qDebug()<<opResult;
 
-    // check the credentials
-    QString loginResult;
-    if(::checkUser(username, password))
-        loginResult = "Success";
-    else
-        loginResult = "Login Failed";
-
-    if (active_socket != nullptr) {
-        if (!active_socket->isValid()) {
-            printConsole("Socket TCP non valida", true);
-            return;
-        }
-        if (!active_socket->isOpen()) {
-            printConsole("Socket TCP non aperta", true);
-            return;
-        }
-
-        QByteArray block;
-        QDataStream out(&block, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_4_0);
-
-        out << QString(loginResult);
-        if (!active_socket->write(block)) {
-            printConsole("Impossibile rispondere al client", true);
-        }
-        active_socket->flush();
-        connect(active_socket, &QAbstractSocket::disconnected,
-                active_socket, &QObject::deleteLater);
-
-    }
 }
 
 void Server::getConnectedSocket(){
-    active_socket=tcpServer->nextPendingConnection();
-    connect(active_socket, &QIODevice::readyRead, this, &Server::checkUser);
+    //accetta la connessione al socket e prendi il socket connesso
+    auto active_socket=tcpServer->nextPendingConnection();
+    int id = active_socket->socketDescriptor();
+    //inserisci il socket nella hashmap dei socket attivi usando id del socket
+    active_sockets.insert({id, active_socket});
+    connect(active_socket, &QIODevice::readyRead, this, &Server::processUserRequest);
+    connect(active_socket, &QAbstractSocket::disconnected, active_socket, &QObject::deleteLater);
+    connect(active_socket, &QAbstractSocket::disconnected, this, &Server::handleDisconnect);
 }
 
 
@@ -169,4 +157,163 @@ void Server::printConsole(std::string &&msg, bool err) {
         this->ui->console->insertHtml(QString::fromStdString(
                 "<p><b>" + std::string(mbstr) + "</b> " + msg + "<br></p>"
                 ));
+}
+
+bool Server::checkUser(std::string user_pass, QTcpSocket* active_socket){
+
+    // divide the string username_password in two separate string
+    std::istringstream iss(user_pass);
+    std::string operation, username, password;
+    std::getline(iss, username, '_');
+    iss >> password;
+
+    // check the credentials
+    QString loginResult;
+    int queryResult=checkCredentials(username, password);
+    if(queryResult==1){
+        loginResult = "log:ok";
+        QString un=QString::fromStdString(username);
+        User u(un);
+        auto it=activeUsers.begin();
+        bool found=false;
+        while(it!=activeUsers.end()){ //a user could open again the client and log again so first check if it's already there
+            User user=it->first;
+            if(user==u) {
+                found = true;
+                activeUsers[user].push_back(active_socket);
+                break;
+            }
+            it++;
+        }
+        if (found!=true){ //inserisci l'utente nella lista di quelli attualmente connessi
+            std::list<QTcpSocket*> temp;
+            temp.push_back(active_socket);
+            activeUsers[u]=temp;
+        }
+
+    }
+    else if (queryResult==0)
+        loginResult = "log:unreg";
+    else
+        loginResult="log:fail";
+
+    if (active_socket != nullptr) {
+        if (!active_socket->isValid()) {
+            printConsole("Socket TCP non valida", true);
+            return false;
+        }
+        if (!active_socket->isOpen()) {
+            printConsole("Socket TCP non aperta", true);
+            return false;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        out << QString(loginResult);
+        if (!active_socket->write(block)) {
+            printConsole("Impossibile rispondere al client", true);
+        }
+        active_socket->flush();
+    }
+    return true;
+}
+bool Server::registerUser(std::string data, QTcpSocket* active_socket) {
+
+    // divide the string username_password_name_surname in  separate string
+    std::istringstream iss(data);
+    std::string name, surname, username, password;
+    std::getline(iss, username, '_');
+    std::getline(iss, password, '_');
+    std::getline(iss, name, '_');
+    iss >> surname;
+
+    // load data in the DB and create the associated user if insertion works
+    QString registrationResult;
+    int queryResult = addUser(username, password, name, surname);
+    if (queryResult == 1) {
+        registrationResult = "reg:ok";
+        QString un=QString::fromStdString(username);
+        User u(un);
+        //inserisci l'utente nella lista di quelli attualmente connessi
+        std::list<QTcpSocket *> temp;
+        temp.push_back(active_socket);
+        activeUsers[u] = temp;
+    }
+    if(queryResult==-1)
+        registrationResult = "reg:fail";
+    if(queryResult==0)
+        registrationResult="reg:alreadyreg";
+
+    if (active_socket != nullptr) {
+        if (!active_socket->isValid()) {
+            printConsole("Socket TCP non valida", true);
+            return false;
+        }
+        if (!active_socket->isOpen()) {
+            printConsole("Socket TCP non aperta", true);
+            return false;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        out << QString(registrationResult);
+        if (!active_socket->write(block)) {
+            printConsole("Impossibile rispondere al client", true);
+        }
+        active_socket->flush();
+    }
+    return true;
+}
+
+bool Server::cancelUser(std::string data, QTcpSocket* active_socket ){
+
+    // divide the string username_password_name_surname in  separate string
+    std::istringstream iss(data);
+    std::string username, password;
+    std::getline(iss, username, '_');
+    iss >> password;
+
+    // load data in the DB and create the associated user if insertion works
+    QString cancResult;
+    //TODO: controlla che lo user non sia cosi balengo da cercare di cancellare il suo account mentre è connesso su un altro client aperto
+    int queryResult = deleteUser(username, password);
+    if (queryResult == 1) {
+        cancResult = "canc:ok";
+    }
+    if(queryResult==-1)
+        cancResult = "canc:fail";
+    if(queryResult==0)
+        cancResult="canc:notpres";
+
+    if (active_socket != nullptr) {
+        if (!active_socket->isValid()) {
+            printConsole("Socket TCP non valida", true);
+            return false;
+        }
+        if (!active_socket->isOpen()) {
+            printConsole("Socket TCP non aperta", true);
+            return false;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        out << QString(cancResult);
+        if (!active_socket->write(block)) {
+            printConsole("Impossibile rispondere al client", true);
+        }
+        active_socket->flush();
+    }
+    return true;
+}
+
+void Server::handleDisconnect() {
+    QTcpSocket* disconnected_socket=(QTcpSocket*)sender();
+    //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
+    // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
 }

@@ -19,8 +19,8 @@ public slots:
     void setFileName(std::string filename);
 
 public:
-    FileSaver(QPlainTextEdit *plainTextEdit);
-    QPlainTextEdit *plainTextEdit;
+    FileSaver(QTextEdit *textEdit);
+    QTextEdit *textEdit;
 
 };
 

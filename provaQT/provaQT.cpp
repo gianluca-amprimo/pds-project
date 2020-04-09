@@ -15,14 +15,14 @@ int main(int argc, char *argv[]){
 
     textProva.setupUi(&mainWindow);
     saveDialog.setupUi(saveAsDialog);
-    FileSaver* fs = new FileSaver(textProva.plainTextEdit);
+    FileSaver* fs = new FileSaver(textProva.textEdit);
 
     QObject::connect(textProva.pushButton, SIGNAL(pressed()), fs, SLOT(save()));
     QObject::connect(textProva.actionSave_As, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveDialog.buttonBox, &QDialogButtonBox::accepted, fs, [=](){fs->setFileName(saveDialog.lineEdit->text().toStdString());});
 
-    textProva.plainTextEdit->setCursorWidth(4);
-    QTextCursor cursor2 = QTextCursor(textProva.plainTextEdit->textCursor());
+    textProva.textEdit->setCursorWidth(4);
+    QTextCursor cursor2 = QTextCursor(textProva.textEdit->textCursor());
     cursor2.setPosition(4);
     cursor2.keepPositionOnInsert();
     cursor2.insertText("Ciao io mi chiamo antonio");

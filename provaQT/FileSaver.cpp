@@ -9,8 +9,8 @@
 
 
 void FileSaver::save() {
-    if(this->plainTextEdit != nullptr){
-        std::wstring text= this->plainTextEdit->toPlainText().toStdWString();
+    if(this->textEdit != nullptr){
+        std::wstring text= this->textEdit->toPlainText().toStdWString();
         std::wofstream output;
         output.open(this->fileName);
         output << text << std::endl;
@@ -18,8 +18,8 @@ void FileSaver::save() {
     }
 }
 
-FileSaver::FileSaver(QPlainTextEdit *plainTextEdit) {
-    this->plainTextEdit = plainTextEdit;
+FileSaver::FileSaver(QTextEdit *textEdit) {
+    this->textEdit = textEdit;
 
 }
 

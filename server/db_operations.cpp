@@ -1,24 +1,27 @@
-#include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
-#include <sqlite3.h>
+#include "db_operations.h"
 
 static int count = 0;
+static std::string db_path = "../pds_db";
+/*
+ * Callback function for checkCredentials
+ */
 static int check(void *NotUsed, int argc, char** argv, char** azColName){
-    int i = 0;
     count++;
     return 0;
 }
 
 
-int checkUser(std::string usr, std::string password){
+/*
+ * Function to check if the user exists and its credentials are correct
+ */
+int checkCredentials(std::string usr, std::string password){
     int rc;
     sqlite3 *db;
     std::string sql;
     char* errMsg = nullptr;
 
     // open database connection
-    rc = sqlite3_open("sql_db.db", &db);
+    rc = sqlite3_open(db_path.c_str(), &db);
 
     // check the connection has been established
     if (rc != SQLITE_OK) {
@@ -27,7 +30,7 @@ int checkUser(std::string usr, std::string password){
     }
 
     // prepare sql operation
-    sql = "SELECT * from USERS where USERNAME = '" + usr + "' and PASSWORD = '" + password + "';";
+    sql = "SELECT * FROM USERS WHERE USERNAME = '" + usr + "' AND PASSWORD = '" + password + "'";
 
     // execute sql statement
     count = 0;
@@ -45,6 +48,9 @@ int checkUser(std::string usr, std::string password){
 }
 
 
+/*
+ * Callback function for readFiles
+ */
 static int files(void *NotUsed, int argc, char** argv, char** azColName){
     int i = 0;
     // TODO: mettere i file in una struttura
@@ -61,6 +67,10 @@ static int files(void *NotUsed, int argc, char** argv, char** azColName){
 }
 
 
+/*
+ * This function uses the files function as callback
+ * function to modify the list of files structure
+ */
 int readFiles(){
     int rc;
     sqlite3 *db;
@@ -68,7 +78,7 @@ int readFiles(){
     char* errMsg = nullptr;
 
     // open database connection
-    rc = sqlite3_open("sql_db.db", &db);
+    rc = sqlite3_open(db_path.c_str(), &db);
 
     // check the connection has been established
     if (rc != SQLITE_OK) {
@@ -93,3 +103,90 @@ int readFiles(){
     return 0;
 }
 
+
+/*
+ * function to add a new user in the database
+ */
+int addUser(std::string user, std::string password, std::string name, std::string surname){
+    int rc;
+    sqlite3 *db;
+    std::string sql;
+    char* errMsg = nullptr;
+
+    // open database connection
+    rc = sqlite3_open(db_path.c_str(), &db);
+
+    // check the connection has been established
+    if (rc != SQLITE_OK) {
+        std::cerr << "Can't open the database: " << sqlite3_errmsg(db) << std::endl;
+        return -1;
+    }
+
+    //check the chosen username does not exist yet
+    sql="SELECT * FROM USERS WHERE username='"+user+"'";
+    count = 0;
+    rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
+    if(rc != SQLITE_OK){
+        std::cerr << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        return -1;
+    }
+
+    if (count == 1) // username already exists
+        return 0;
+
+    // prepare sql operation
+    sql = "INSERT INTO USERS VALUES ('" + user + "', '"
+          + password + "', '"
+          + name + "', '"
+          + surname + "')";
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
+    if(rc != SQLITE_OK){
+        std::cout << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+        return -1;
+    }
+    sqlite3_close(db);
+    return 1;
+}
+
+
+/*
+ * function to add one file to the db
+ */
+int addFile(std::string name, std::string path){
+    int rc;
+    sqlite3 *db;
+    std::string sql;
+    char* errMsg = nullptr;
+
+    // open database connection
+    rc = sqlite3_open(db_path.c_str(), &db);
+
+    // check the connection has been established
+    if (rc != SQLITE_OK) {
+        std::cerr << "Can't open the database: " << sqlite3_errmsg(db) << std::endl;
+        return -1;
+    }
+
+    // prepare sql operation
+    sql = "INSERT INTO FILES ('NAME', 'PATH') VALUES ('" + name + "', '" + path + "')";
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
+    if(rc != SQLITE_OK){
+        std::cout << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+        return -1;
+    }
+    sqlite3_close(db);
+    return 1;
+}
+
+int deleteUser(std::string username, std::string password){
+    //TODO: implement function to delete a user
+}

@@ -1,4 +1,4 @@
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/CMakeFiles/client.dir
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/gianluca/Desktop/pdsproject/client/cmake-build-debug/CMakeFiles/client_autogen.dir
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/cmake-build-debug/CMakeFiles/client.dir
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/cmake-build-debug/CMakeFiles/client_autogen.dir

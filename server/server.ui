@@ -57,15 +57,6 @@
             </color>
            </brush>
           </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="128">
-             <red>243</red>
-             <green>243</green>
-             <blue>243</blue>
-            </color>
-           </brush>
-          </colorrole>
          </active>
          <inactive>
           <colorrole role="Text">
@@ -98,15 +89,6 @@
           <colorrole role="HighlightedText">
            <brush brushstyle="SolidPattern">
             <color alpha="255">
-             <red>243</red>
-             <green>243</green>
-             <blue>243</blue>
-            </color>
-           </brush>
-          </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="128">
              <red>243</red>
              <green>243</green>
              <blue>243</blue>
@@ -148,15 +130,6 @@
              <red>243</red>
              <green>243</green>
              <blue>243</blue>
-            </color>
-           </brush>
-          </colorrole>
-          <colorrole role="PlaceholderText">
-           <brush brushstyle="SolidPattern">
-            <color alpha="128">
-             <red>0</red>
-             <green>0</green>
-             <blue>0</blue>
             </color>
            </brush>
           </colorrole>
