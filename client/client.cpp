@@ -75,22 +75,42 @@ void Client::readResponse()
 	qDebug() << "Reading the response...";
     in.startTransaction();
 
-    QString qresponse;
-    in >> qresponse;
+//read the Json message received from client, from header understand what to do
+    in.startTransaction();
+
+    QByteArray jSmessage;
+    std::string header;
     std::string result;
-    std::string response = qresponse.toStdString(); // converto QString in stringa standard
-    // divide the string header_body in two separate string
-    std::istringstream iss(response);
-    std::string header, body;
-    std::getline(iss, header, ':');
-    iss >> result;
+    QJsonObject jSobject;
+
+    in >> jSmessage;
+    QJsonParseError parseError;
+    // we try to create a json document with the data we received
+    const QJsonDocument jsonDoc = QJsonDocument::fromJson(jSmessage, &parseError);
+    if (parseError.error == QJsonParseError::NoError) {
+        // if the data was indeed valid JSON
+        if (jsonDoc.isObject()){
+            jSobject=jsonDoc.object();
+            header=jSobject["header"].toString().toStdString();
+            result=jSobject["body"].toString().toStdString();
+            qDebug()<<jSobject["header"].toString()<<" "<<jSobject["body"].toString();
+        }
+        else{
+            //TODO: error with the json do something (implement function for generic error message to client)
+        }
+
+    }
+    else {
+        //TODO: error with the json do something (implement function for generic error message to client)
+    }
+
 
     if (!in.commitTransaction()) {
     	return;
     }
     
-	logStatusBar->showMessage(qresponse);
-    qDebug().noquote() << qresponse;
+	logStatusBar->showMessage(QString::fromStdString(header+':'+result));
+
 
     if(header=="log") {
         if (result == "ok") {
@@ -243,8 +263,12 @@ void Client::sendCredentials(){
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
-        
-        out << QString("log:"+uiLog->UsernameEdit->text() + "_" + uiLog->PasswordEdit->text());
+        QJsonObject message;
+        message["header"] = "log";
+        message["username"] = uiLog->UsernameEdit->text();
+        message["password"] = uiLog->PasswordEdit->text();
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
         
         if (!tcpSocket->write(block)) {
             QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));
@@ -304,8 +328,7 @@ void Client::requestRegistration() {
 	
 	regStatusBar->showMessage(tr("Checking database..."));
 	qDebug() << "Checking database...";
-	
-	// TODO: connettere al server per la registrazione di username e password
+
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
@@ -316,15 +339,25 @@ void Client::requestRegistration() {
             return;
         }
     }
+
     QByteArray block;
     QDataStream out(&block, QIODevice::WriteOnly);
     out.setVersion(QDataStream::Qt_4_0);
+    QJsonObject message;
+    message["header"] = "reg";
+    message["username"] = uiReg->UsernameEdit->text();
+    message["password"] = uiReg->PasswordEdit->text();
+    message["name"] = uiReg->NameEdit->text();
+    message["surname"] = uiReg->SurnameEdit->text();
 
-    out << QString("reg:"+uiReg->UsernameEdit->text() + "_" + uiReg->PasswordEdit->text()+"_"+uiReg->NameEdit->text()+"_"+uiReg->SurnameEdit->text());
+    // send the JSON using QDataStream
+    out << QJsonDocument(message).toJson();
+
     if (!tcpSocket->write(block)) {
         QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));
     }
     tcpSocket->flush();
+
 }
 
 void Client::reactivateLoginWindow() {
@@ -362,8 +395,35 @@ void Client::enableDelButton() {
 void Client::requestDeletion() {
 	cancStatusBar->showMessage(tr("Deleting account..."));
 	qDebug() << "Deleting account...";
-	
-	// TODO: connettere al server per la registrazione di username e password
+    if (tcpSocket != nullptr) {
+        if (!tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        QJsonObject message;
+        message["header"] = "canc";
+        message["username"] = uiCanc->UsernameEdit->text();
+        message["password"] = uiCanc->PasswordEdit->text();
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!tcpSocket->write(block)) {
+            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));
+        }
+        tcpSocket->flush();
+    }
+
+    logStatusBar->showMessage(tr("Credential sent, waiting for reply..."));
+    qDebug() << "Credential sent, waiting for reply...";
+
 }
 
 void Client::openFileChoiceWindow(QString username) {

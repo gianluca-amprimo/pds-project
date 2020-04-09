@@ -26,9 +26,9 @@ private slots:
     void sessionOpened();
     void processUserRequest();
     void handleDisconnect();
-    bool checkUser(std::string, QTcpSocket*);
-    bool registerUser(std::string, QTcpSocket*);
-    bool cancelUser(std::string, QTcpSocket*);
+    bool checkUser(QJsonObject&, QTcpSocket*);
+    bool registerUser(QJsonObject&, QTcpSocket*);
+    bool cancelUser(QJsonObject&, QTcpSocket*);
     void getConnectedSocket();
 private:
     void printConsole(std::string &&msg, bool err = false);

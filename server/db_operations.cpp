@@ -1,9 +1,11 @@
 #include "db_operations.h"
 
+
 static std::string db_path = "../pds_db";
 
 static int db_counter = 0;
 
+std::set<std::tuple<std::string, std::string>> file_list;
 
 /*
  * Callback function for checkCredentials

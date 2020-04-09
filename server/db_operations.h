@@ -3,12 +3,12 @@
 
 #include <iostream>
 #include <set>
+#include <tuple>
 
 #include <sqlite3.h>
 
 // data structure for the files available on the server
 // TODO: mutual exclusion
-std::set<std::tuple<std::string, std::string>> file_list;
 
 // function to check credentials of the user
 int checkCredentials(std::string usr, std::string password);
