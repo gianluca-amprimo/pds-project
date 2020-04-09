@@ -25,6 +25,7 @@ class Ui_FileChoiceWindow
 {
 public:
     QVBoxLayout *verticalLayout;
+    QLabel *ProfilePicture;
     QLabel *WelcomeLabel;
     QPushButton *NewButton;
     QHBoxLayout *horizontalLayout;
@@ -36,9 +37,21 @@ public:
     {
         if (FileChoiceWindow->objectName().isEmpty())
             FileChoiceWindow->setObjectName(QString::fromUtf8("FileChoiceWindow"));
-        FileChoiceWindow->resize(236, 150);
+        FileChoiceWindow->resize(236, 269);
         verticalLayout = new QVBoxLayout(FileChoiceWindow);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setSizeConstraint(QLayout::SetFixedSize);
+        ProfilePicture = new QLabel(FileChoiceWindow);
+        ProfilePicture->setObjectName(QString::fromUtf8("ProfilePicture"));
+        QSizePolicy sizePolicy(QSizePolicy::Preferred, QSizePolicy::Expanding);
+        sizePolicy.setHorizontalStretch(0);
+        sizePolicy.setVerticalStretch(0);
+        sizePolicy.setHeightForWidth(ProfilePicture->sizePolicy().hasHeightForWidth());
+        ProfilePicture->setSizePolicy(sizePolicy);
+        ProfilePicture->setAlignment(Qt::AlignCenter);
+
+        verticalLayout->addWidget(ProfilePicture);
+
         WelcomeLabel = new QLabel(FileChoiceWindow);
         WelcomeLabel->setObjectName(QString::fromUtf8("WelcomeLabel"));
         QFont font;
@@ -113,6 +126,7 @@ public:
     void retranslateUi(QDialog *FileChoiceWindow)
     {
         FileChoiceWindow->setWindowTitle(QCoreApplication::translate("FileChoiceWindow", "File choice", nullptr));
+        ProfilePicture->setText(QString());
         WelcomeLabel->setText(QCoreApplication::translate("FileChoiceWindow", "Welcome back!", nullptr));
         NewButton->setText(QCoreApplication::translate("FileChoiceWindow", "New file", nullptr));
         OpenButton->setText(QCoreApplication::translate("FileChoiceWindow", "Open", nullptr));

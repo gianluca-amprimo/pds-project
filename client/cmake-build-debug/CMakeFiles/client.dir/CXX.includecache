@@ -17,6 +17,8 @@ sstream
 -
 string
 -
+sys/stat.h
+-
 client.h
 /home/matteo/Documenti/Poli/4th year/2nd semester/Programmazione di Sistema/Malnati/Progetto/GitHub/pds-project/client/client.h
 ui_loginwindow.h

@@ -23,7 +23,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Server_t {
     QByteArrayData data[11];
-    char stringdata0[135];
+    char stringdata0[136];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -38,15 +38,15 @@ QT_MOC_LITERAL(2, 21, 0), // ""
 QT_MOC_LITERAL(3, 22, 18), // "processUserRequest"
 QT_MOC_LITERAL(4, 41, 16), // "handleDisconnect"
 QT_MOC_LITERAL(5, 58, 9), // "checkUser"
-QT_MOC_LITERAL(6, 68, 11), // "std::string"
-QT_MOC_LITERAL(7, 80, 11), // "QTcpSocket*"
-QT_MOC_LITERAL(8, 92, 12), // "registerUser"
-QT_MOC_LITERAL(9, 105, 10), // "cancelUser"
-QT_MOC_LITERAL(10, 116, 18) // "getConnectedSocket"
+QT_MOC_LITERAL(6, 68, 12), // "QJsonObject&"
+QT_MOC_LITERAL(7, 81, 11), // "QTcpSocket*"
+QT_MOC_LITERAL(8, 93, 12), // "registerUser"
+QT_MOC_LITERAL(9, 106, 10), // "cancelUser"
+QT_MOC_LITERAL(10, 117, 18) // "getConnectedSocket"
 
     },
     "Server\0sessionOpened\0\0processUserRequest\0"
-    "handleDisconnect\0checkUser\0std::string\0"
+    "handleDisconnect\0checkUser\0QJsonObject&\0"
     "QTcpSocket*\0registerUser\0cancelUser\0"
     "getConnectedSocket"
 };
@@ -95,11 +95,11 @@ void Server::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 0: _t->sessionOpened(); break;
         case 1: _t->processUserRequest(); break;
         case 2: _t->handleDisconnect(); break;
-        case 3: { bool _r = _t->checkUser((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
+        case 3: { bool _r = _t->checkUser((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 4: { bool _r = _t->registerUser((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
+        case 4: { bool _r = _t->registerUser((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 5: { bool _r = _t->cancelUser((*reinterpret_cast< std::string(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
+        case 5: { bool _r = _t->cancelUser((*reinterpret_cast< QJsonObject(*)>(_a[1])),(*reinterpret_cast< QTcpSocket*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
         case 6: _t->getConnectedSocket(); break;
         default: ;

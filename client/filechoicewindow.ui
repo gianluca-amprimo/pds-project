@@ -7,13 +7,32 @@
     <x>0</x>
     <y>0</y>
     <width>236</width>
-    <height>150</height>
+    <height>269</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>File choice</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
+   <property name="sizeConstraint">
+    <enum>QLayout::SetFixedSize</enum>
+   </property>
+   <item>
+    <widget class="QLabel" name="ProfilePicture">
+     <property name="sizePolicy">
+      <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="text">
+      <string/>
+     </property>
+     <property name="alignment">
+      <set>Qt::AlignCenter</set>
+     </property>
+    </widget>
+   </item>
    <item>
     <widget class="QLabel" name="WelcomeLabel">
      <property name="font">

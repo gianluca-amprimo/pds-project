@@ -44,6 +44,7 @@ public:
         LoginWindow->resize(288, 173);
         verticalLayout = new QVBoxLayout(LoginWindow);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setSizeConstraint(QLayout::SetFixedSize);
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         UsernameLabel = new QLabel(LoginWindow);

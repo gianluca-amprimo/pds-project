@@ -42,6 +42,7 @@ public:
         CancellationWindow->resize(283, 120);
         verticalLayout = new QVBoxLayout(CancellationWindow);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
+        verticalLayout->setSizeConstraint(QLayout::SetFixedSize);
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         UsernameLabel = new QLabel(CancellationWindow);
