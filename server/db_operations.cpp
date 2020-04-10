@@ -6,6 +6,7 @@ static std::string db_path = "../pds_db";
 static int db_counter = 0;
 
 std::set<std::tuple<std::string, std::string>> file_list;
+std::hash<std::string> cypher;
 
 /*
  * Callback function for checkCredentials
@@ -35,7 +36,9 @@ int checkCredentials(std::string usr, std::string password) {
     }
 
     // prepare sql operation
-    sql = "SELECT * FROM USERS WHERE USERNAME = '" + usr + "' AND PASSWORD = '" + password + "'";
+    sql = "SELECT * FROM USERS WHERE USERNAME = '" + usr
+          + "' AND PASSWORD = '" + std::to_string(cypher(password))
+          + "'";
 
     // execute sql statement
     db_counter = 0;
@@ -143,7 +146,7 @@ int addUser(std::string user, std::string password, std::string name, std::strin
         return -1;
     }
 
-    if (db_counter == 1){
+    if (db_counter == 1) {
         // username already exists
         sqlite3_close(db);
         return 0;
@@ -151,7 +154,7 @@ int addUser(std::string user, std::string password, std::string name, std::strin
 
     // prepare sql operation
     sql = "INSERT INTO USERS VALUES ('" + user + "', '"
-          + password + "', '"
+          + std::to_string(cypher(password)) + "', '"
           + name + "', '"
           + surname + "')";
 
@@ -187,7 +190,9 @@ int addFile(std::string name, std::string path) {
     }
 
     // prepare sql operation to see if the file does not already exist
-    sql = "SELECT * FROM FILES WHERE NAME = '" + name + "' AND PATH = '" + path + "'";
+    sql = "SELECT * FROM FILES WHERE NAME = '" + name
+          + "' AND PATH = '" + path
+          + "'";
     db_counter = 0;
     // execute sql statement
     rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
@@ -198,7 +203,7 @@ int addFile(std::string name, std::string path) {
         return -1;
     }
 
-    if (db_counter == 1){
+    if (db_counter == 1) {
         // file already exists
         sqlite3_close(db);
         return 0;
@@ -235,7 +240,10 @@ int deleteUser(std::string username, std::string password) {
     }
 
     // prepare sql operation to check if user exists
-    sql = "SELECT * FROM USERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "';";
+    sql = "SELECT * FROM USERS WHERE USERNAME = '" + username
+          + "' AND PASSWORD = '" + std::to_string(cypher(password))
+          + "';";
+    db_counter = 0;
 
     // execute sql statement
     rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
@@ -249,7 +257,9 @@ int deleteUser(std::string username, std::string password) {
     if (db_counter == 1) {
         // user exists
         // prepare sql operation to delete the user
-        sql = "DELETE FROM USERS WHERE USERNAME = '" + username + "' AND PASSWORD = '" + password + "';";
+        sql = "DELETE FROM USERS WHERE USERNAME = '" + username
+              + "' AND PASSWORD = '" + std::to_string(cypher(password))
+              + "';";
 
         // execute sql statement
         rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
@@ -284,8 +294,11 @@ int deleteFile(std::string name, std::string path) {
         return -1;
     }
 
-    // prepare sql operation to check if user exists
-    sql = "SELECT * FROM FILES WHERE NAME = '" + name + "' AND PATH = '" + path + "';";
+    // prepare sql operation to check if file exists
+    sql = "SELECT * FROM FILES WHERE NAME = '" + name
+          + "' AND PATH = '" + path
+          + "';";
+    db_counter = 0;
 
     // execute sql statement
     rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
@@ -299,7 +312,9 @@ int deleteFile(std::string name, std::string path) {
     if (db_counter == 1) {
         // file exists
         // prepare sql operation to delete the file
-        sql = "DELETE FROM FILES WHERE NAME = '" + name + "' AND PATH = '" + path + "';";
+        sql = "DELETE FROM FILES WHERE NAME = '" + name
+              + "' AND PATH = '" + path
+              + "';";
 
         // execute sql statement
         rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
