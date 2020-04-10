@@ -10,8 +10,8 @@
 #include "ui_cancellationwindow.h"
 #include "ui_filechoicewindow.h"
 
-static QString pathPictures("../../server/Pictures/");
-static QString defaultPicture("../../server/Pictures/___default_img.png");
+//static QString pathPictures("../../server/Pictures/");
+static QString defaultPicture("../Icons/___default_img.png");
 
 Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)), uiLog(new Ui::LoginWindow)
 {
@@ -21,11 +21,11 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	uiLog->RegistrationLink->setText("<a href=\"whatever\">Click here to register</a>");
 	uiLog->CancellationLink->setText("<a href=\"whatever\">Click here to cancel your account</a>");
 	
-	hidePassword = uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
-	logPasswordButton = qobject_cast<QToolButton *>(hidePassword->associatedWidgets().last());
+	logHidePassword = uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	logPasswordButton = qobject_cast<QToolButton *>(logHidePassword->associatedWidgets().last());
 	logPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
-	connect(logPasswordButton, &QToolButton::pressed, this, &Client::pressPasswordButton);
-	connect(logPasswordButton, &QToolButton::released, this, &Client::releasePasswordButton);
+	connect(logPasswordButton, &QToolButton::pressed, this, &Client::pressLogPasswordButton);
+	connect(logPasswordButton, &QToolButton::released, this, &Client::releaseLogPasswordButton);
 
 	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 	
@@ -128,12 +128,10 @@ void Client::readResponse()
         if (result == "ok") {
 	        qDebug() << "Successful login.";
 	        setFileList(jSobject);
-	        QString un(uiLog->UsernameEdit->text());
 	        //create the associated user
-
 	        User u(uiLog->UsernameEdit->text(),pixmapFrom(jSobject["propic"]));
 	        loggedUser=std::make_shared<User>(u);
-            openFileChoiceWindow(un);
+            openFileChoiceWindow(false);
             this->close();
         }
         if (result=="unreg") {
@@ -162,14 +160,13 @@ void Client::readResponse()
     if (header=="reg") {
         if (result=="ok") {
             qDebug() << "Successful registration.";
-	        QString un(uiReg->UsernameEdit->text());
 	        /*QFile file(pathPictures + un + ".png");
 	        file.open(QIODevice::WriteOnly);
 	        uiReg->ProfilePicture->pixmap()->save(&file, "png", 100);*/
             User u(uiReg->UsernameEdit->text(),pixmapFrom(jSobject["propic"]));
             loggedUser=std::make_shared<User>(u);
             setFileList(jSobject);
-            openFileChoiceWindow(un);
+            openFileChoiceWindow(true);
             RegWin->close();
         }
         if (result=="sfail") {
@@ -209,8 +206,6 @@ void Client::readResponse()
 	        uiCanc->UsernameEdit->setReadOnly(false);
 	        uiCanc->PasswordEdit->setReadOnly(false);
 	        uiCanc->DeleteButton->setEnabled(true);
-            cancStatusBar->showMessage(tr("Attenzione! L’utente da cancellare non esiste, riprovare"));
-            qDebug() << "User doesnt exist";
         }
         if (result=="fail") {
 	        QMessageBox::information(this, tr("PdS Server"), tr("Cancellation failed.\nCheck again username and password."));
@@ -218,8 +213,6 @@ void Client::readResponse()
 	        uiCanc->UsernameEdit->setReadOnly(false);
 	        uiCanc->PasswordEdit->setReadOnly(false);
 	        uiCanc->DeleteButton->setEnabled(true);
-            cancStatusBar->showMessage(tr("Cancellation failed"));
-            qDebug() << "Cancellation failed";
         }
     }
     if(header=="flist");
@@ -236,20 +229,23 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
 	uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
 	uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
 	logStatusBar->showMessage("");
-	qDebug() << "";
 	
     switch (socketError) {
         case QAbstractSocket::RemoteHostClosedError:
             break;
         case QAbstractSocket::HostNotFoundError:
             QMessageBox::information(this, tr("PdS Client"),tr("The host was not found.\nPlease check the host name and port settings."));
+            qDebug() << "The host was not found. Please check the host name and port settings.";
             break;
         case QAbstractSocket::ConnectionRefusedError:
             QMessageBox::information(this, tr("Pds Client"),tr("The connection was refused by the peer.\nMake sure the PdS server is running and check that the host name and port settings are correct."));
+            qDebug() << "The connection was refused by the peer. Make sure the PdS server is running and check that the host name and port settings are correct.";
             break;
         default:
             QMessageBox::information(this, tr("PdS Client"),tr("The following error occurred: %1.").arg(tcpSocket->errorString()));
+            qDebug() << QString("The following error occurred: %1.").arg(tcpSocket->errorString());
     }
+    this->close();
 }
 
 void Client::enableLogButton()
@@ -330,6 +326,18 @@ void Client::openRegistrationWindow() {
 	uiReg->verticalLayout->addWidget(regStatusBar);
 	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(100, 100, Qt::KeepAspectRatio));
 	
+	regHidePassword = uiReg->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	regPasswordButton = qobject_cast<QToolButton *>(regHidePassword->associatedWidgets().last());
+	regPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
+	connect(regPasswordButton, &QToolButton::pressed, this, &Client::pressRegPasswordButton);
+	connect(regPasswordButton, &QToolButton::released, this, &Client::releaseRegPasswordButton);
+	
+	regHideRepeatPassword = uiReg->RepeatPasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	regRepeatPasswordButton = qobject_cast<QToolButton *>(regHideRepeatPassword->associatedWidgets().last());
+	regRepeatPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
+	connect(regRepeatPasswordButton, &QToolButton::pressed, this, &Client::pressRegRepeatPasswordButton);
+	connect(regRepeatPasswordButton, &QToolButton::released, this, &Client::releaseRegRepeatPasswordButton);
+	
 	connect(uiReg->NameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->SurnameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
 	connect(uiReg->UsernameEdit, &QLineEdit::textChanged, this, &Client::enableRegButton);
@@ -338,6 +346,7 @@ void Client::openRegistrationWindow() {
 	connect(uiReg->RegisterButton, &QPushButton::released, this, &Client::requestRegistration);
 	connect(uiReg->ProfilePictureButton, &QPushButton::released, this, &Client::uploadProfilePicture);
 	connect(uiReg->DeletePictureButton, &QPushButton::released, this, &Client::deleteProfilePicture);
+	connect(RegWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
 	
     RegWin->show();
 }
@@ -362,20 +371,24 @@ void Client::deleteProfilePicture() {
 }
 
 void Client::enableRegButton() {
-	if (!uiReg->NameEdit->text().isEmpty() & !uiReg->SurnameEdit->text().isEmpty() & !uiReg->UsernameEdit->text().isEmpty() & !uiReg->PasswordEdit->text().isEmpty()) {
+	if (!uiReg->NameEdit->text().isEmpty() & !uiReg->SurnameEdit->text().isEmpty() & !uiReg->UsernameEdit->text().isEmpty() & !uiReg->PasswordEdit->text().isEmpty() & !uiReg->RepeatPasswordEdit->text().isEmpty()) {
 		if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text()) {
 			if (uiReg->RegisterButton->isEnabled()) {
 				uiReg->RegisterButton->setEnabled(false);
 			}
-			if (regStatusBar->currentMessage() != QString(tr("The two passwords do not coincide!"))) {
-				regStatusBar->showMessage(tr("The two passwords do not coincide!"));
-				qDebug() << "The two passwords do not coincide!";
-			}
-		} else {
-			regStatusBar->showMessage(tr(""));
+		} else if (uiReg->PasswordEdit->text() != QString(tr(""))) {
 			uiReg->RegisterButton->setEnabled(true);
 		}
-	} else if (uiReg->PasswordEdit->text().isEmpty() & uiReg->RepeatPasswordEdit->text().isEmpty() & regStatusBar->currentMessage() != QString(tr(""))) {
+	} else {
+		uiReg->RegisterButton->setEnabled(false);
+	}
+	
+	if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text()) {
+		if (regStatusBar->currentMessage() != QString(tr("The two passwords do not coincide!"))) {
+			regStatusBar->showMessage(tr("The two passwords do not coincide!"));
+			qDebug() << "The two passwords do not coincide!";
+		}
+	} else {
 		regStatusBar->showMessage(tr(""));
 	}
 }
@@ -443,6 +456,12 @@ void Client::openCancellationWindow() {
 	cancStatusBar = new QStatusBar(CancWin);
 	uiCanc->verticalLayout->addWidget(cancStatusBar);
 	
+	cancHidePassword = uiCanc->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	cancPasswordButton = qobject_cast<QToolButton *>(cancHidePassword->associatedWidgets().last());
+	cancPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
+	connect(cancPasswordButton, &QToolButton::pressed, this, &Client::pressCancPasswordButton);
+	connect(cancPasswordButton, &QToolButton::released, this, &Client::releaseCancPasswordButton);
+	
 	connect(uiCanc->UsernameEdit, &QLineEdit::textChanged, this, &Client::enableDelButton);
 	connect(uiCanc->PasswordEdit, &QLineEdit::textChanged, this, &Client::enableDelButton);
 	connect(uiCanc->DeleteButton, &QPushButton::released, this, &Client::requestDeletion);
@@ -495,7 +514,7 @@ void Client::requestDeletion() {
 
 }
 
-void Client::openFileChoiceWindow(QString username) {
+void Client::openFileChoiceWindow(bool firstTime) {
 	uiChoice = new Ui::FileChoiceWindow;
 	ChoiceWin = new QDialog;
 	uiChoice->setupUi(ChoiceWin);
@@ -516,7 +535,11 @@ void Client::openFileChoiceWindow(QString username) {
 
 
     // TODO: mettere nome invece che username
-	uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(username));
+    if (firstTime) {
+	    uiChoice->WelcomeLabel->setText(tr("Welcome,\n%1!").arg(loggedUser->getUsername()));
+    } else {
+	    uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(loggedUser->getUsername()));
+    }
 	
 	QStringList fileList;
 	for(auto s:avail_file){
@@ -566,6 +589,7 @@ void Client::setFileList(QJsonObject& data){
         avail_file.push_back(s.toString());
     }
 }
+
 QPixmap Client::pixmapFrom(const QJsonValue &val) {
     auto const encoded = val.toString().toLatin1();
     QPixmap p;
@@ -573,17 +597,54 @@ QPixmap Client::pixmapFrom(const QJsonValue &val) {
     return p;
 }
 
-void Client::pressPasswordButton() {
+void Client::pressLogPasswordButton() {
 	QToolButton *button = qobject_cast<QToolButton *>(sender());
 	button->setIcon(QIcon("../Icons/eye_on.png"));
 	uiLog->PasswordEdit->setEchoMode(QLineEdit::Normal);
 }
 
-void Client::releasePasswordButton() {
+void Client::releaseLogPasswordButton() {
 	QToolButton *button = qobject_cast<QToolButton *>(sender());
 	button->setIcon(QIcon("../Icons/eye_off.png"));
 	uiLog->PasswordEdit->setEchoMode(QLineEdit::Password);
 }
+
+void Client::pressRegPasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_on.png"));
+	uiReg->PasswordEdit->setEchoMode(QLineEdit::Normal);
+}
+
+void Client::releaseRegPasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_off.png"));
+	uiReg->PasswordEdit->setEchoMode(QLineEdit::Password);
+}
+
+void Client::pressRegRepeatPasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_on.png"));
+	uiReg->RepeatPasswordEdit->setEchoMode(QLineEdit::Normal);
+}
+
+void Client::releaseRegRepeatPasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_off.png"));
+	uiReg->RepeatPasswordEdit->setEchoMode(QLineEdit::Password);
+}
+
+void Client::pressCancPasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_on.png"));
+	uiCanc->PasswordEdit->setEchoMode(QLineEdit::Normal);
+}
+
+void Client::releaseCancPasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_off.png"));
+	uiCanc->PasswordEdit->setEchoMode(QLineEdit::Password);
+}
+
 QJsonValue Client::jsonValFromPixmap(const QPixmap &p) {
     QBuffer buffer;
     buffer.open(QIODevice::WriteOnly);

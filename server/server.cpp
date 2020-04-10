@@ -155,7 +155,6 @@ void Server::getConnectedSocket() {
     connect(active_socket, &QAbstractSocket::disconnected, this, &Server::handleDisconnect);
 }
 
-
 void Server::printConsole(std::string &&msg, bool err) {
     // Get the current time
     std::time_t t = std::time(nullptr);
@@ -365,7 +364,6 @@ QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std:
     message.insert("File list", fileList);
     return message;
 }
-
 
 void Server::handleDisconnect() {
     QTcpSocket *disconnected_socket = (QTcpSocket *) sender();

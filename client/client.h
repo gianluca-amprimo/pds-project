@@ -35,8 +35,14 @@ private slots:
     void enableLogButton();
     void sessionOpened();
     void sendCredentials();
-    void pressPasswordButton();
-    void releasePasswordButton();
+    void pressLogPasswordButton();
+    void releaseLogPasswordButton();
+	void pressRegPasswordButton();
+	void releaseRegPasswordButton();
+	void pressRegRepeatPasswordButton();
+	void releaseRegRepeatPasswordButton();
+	void pressCancPasswordButton();
+	void releaseCancPasswordButton();
 
     void openRegistrationWindow();
 	void uploadProfilePicture();
@@ -49,7 +55,7 @@ private slots:
     void enableDelButton();
     void requestDeletion();
     
-    void openFileChoiceWindow(QString username);
+    void openFileChoiceWindow(bool firstTime);
     void openNewFile();
     void openExistingFile();
     bool eventFilter(QObject *object, QEvent *event);
@@ -68,16 +74,22 @@ private:
 	std::list<QString> avail_file;
 	QStatusBar *logStatusBar;
 	QToolButton *logPasswordButton;
-	QAction *hidePassword;
+	QAction *logHidePassword;
 
 	std::shared_ptr<User> loggedUser;
 	QDialog *RegWin;
 	Ui::RegistrationWindow *uiReg;
 	QStatusBar *regStatusBar;
+	QToolButton *regPasswordButton;
+	QAction *regHidePassword;
+	QToolButton *regRepeatPasswordButton;
+	QAction *regHideRepeatPassword;
 	
 	QDialog *CancWin;
 	Ui::CancellationWindow *uiCanc;
 	QStatusBar *cancStatusBar;
+	QToolButton *cancPasswordButton;
+	QAction *cancHidePassword;
 	
 	QDialog *ChoiceWin;
 	Ui::FileChoiceWindow *uiChoice;
