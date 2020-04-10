@@ -7,6 +7,7 @@
 #include <QDialog>
 #include <QTcpSocket>
 #include <QStatusBar>
+#include <QToolButton>
 
 QT_BEGIN_NAMESPACE
 class QTcpSocket;
@@ -32,6 +33,8 @@ private slots:
     void enableLogButton();
     void sessionOpened();
     void sendCredentials();
+    void pressPasswordButton();
+    void releasePasswordButton();
 
     void openRegistrationWindow();
 	void uploadProfilePicture();
@@ -56,9 +59,12 @@ private:
     QNetworkSession *networkSession = nullptr;
 	void requestConnection();
 	void setFileList(QJsonObject&);
+	
 	Ui::LoginWindow *uiLog;
 	std::list<QString> avail_file;
 	QStatusBar *logStatusBar;
+	QToolButton *logPasswordButton;
+	QAction *hidePassword;
 	
 	QDialog *RegWin;
 	Ui::RegistrationWindow *uiReg;

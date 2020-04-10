@@ -21,6 +21,12 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	uiLog->RegistrationLink->setText("<a href=\"whatever\">Click here to register</a>");
 	uiLog->CancellationLink->setText("<a href=\"whatever\">Click here to cancel your account</a>");
 	
+	hidePassword = uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	logPasswordButton = qobject_cast<QToolButton *>(hidePassword->associatedWidgets().last());
+	logPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
+	connect(logPasswordButton, &QToolButton::pressed, this, &Client::pressPasswordButton);
+	connect(logPasswordButton, &QToolButton::released, this, &Client::releasePasswordButton);
+	
 	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 	
     in.setDevice(tcpSocket);
@@ -532,8 +538,21 @@ bool Client::eventFilter(QObject *object, QEvent *event) {
 		}
 	}
 }
+
 void Client::setFileList(QJsonObject& data){
     for(auto s: data["File list"].toArray()){
         avail_file.push_back(s.toString());
     }
+}
+
+void Client::pressPasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_on.png"));
+	uiLog->PasswordEdit->setEchoMode(QLineEdit::Normal);
+}
+
+void Client::releasePasswordButton() {
+	QToolButton *button = qobject_cast<QToolButton *>(sender());
+	button->setIcon(QIcon("../Icons/eye_off.png"));
+	uiLog->PasswordEdit->setEchoMode(QLineEdit::Password);
 }
