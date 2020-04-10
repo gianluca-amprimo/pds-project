@@ -10,7 +10,6 @@
 #include "db_operations.h"
 
 
-
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
@@ -92,7 +91,8 @@ void Server::sessionOpened() {
 #else
     ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
 #endif
-    printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" + QString::number(tcpServer->serverPort()).toStdString() + "</u>");
+    printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" +
+                 QString::number(tcpServer->serverPort()).toStdString() + "</u>");
 }
 
 Server::~Server() {
@@ -100,7 +100,7 @@ Server::~Server() {
 }
 
 void Server::processUserRequest() {
-    QTcpSocket* active_socket=(QTcpSocket*)sender();
+    QTcpSocket *active_socket = (QTcpSocket *) sender();
     in.setDevice(active_socket);
     in.setVersion(QDataStream::Qt_4_0);
 
@@ -117,37 +117,36 @@ void Server::processUserRequest() {
     const QJsonDocument jsonDoc = QJsonDocument::fromJson(jSmessage, &parseError);
     if (parseError.error == QJsonParseError::NoError) {
         // if the data was indeed valid JSON
-        if (jsonDoc.isObject()){
-             jSobject=jsonDoc.object();
-             header=jSobject["header"].toString().toStdString();
-        }
-        else{
+        if (jsonDoc.isObject()) {
+            jSobject = jsonDoc.object();
+            header = jSobject["header"].toString().toStdString();
+        } else {
             //TODO: error with the json do something (implement function for generic error message to client)
         }
 
-    }
-    else {
+    } else {
         //TODO: error with the json do something (implement function for generic error message to client)
     }
 
     if (!in.commitTransaction())
         return;
-    printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" + QString::number(active_socket->peerPort()).toStdString() + "] " + header);
+    printConsole("[" + active_socket->peerAddress().toString().toStdString() + ":" +
+                 QString::number(active_socket->peerPort()).toStdString() + "] " + header);
 
     bool opResult;
-    if (header=="log")
-        opResult=Server::checkUser(jSobject, active_socket);
-    if (header=="reg")
-        opResult=Server::registerUser(jSobject, active_socket);
-    if (header=="canc")
-        opResult=Server::cancelUser(jSobject, active_socket);
-    qDebug()<<opResult;
+    if (header == "log")
+        opResult = Server::checkUser(jSobject, active_socket);
+    if (header == "reg")
+        opResult = Server::registerUser(jSobject, active_socket);
+    if (header == "canc")
+        opResult = Server::cancelUser(jSobject, active_socket);
+    qDebug() << opResult;
 
 }
 
-void Server::getConnectedSocket(){
+void Server::getConnectedSocket() {
     //accetta la connessione al socket e prendi il socket connesso
-    auto active_socket=tcpServer->nextPendingConnection();
+    auto active_socket = tcpServer->nextPendingConnection();
     int id = active_socket->socketDescriptor();
     //inserisci il socket nella hashmap dei socket attivi usando id del socket
     active_sockets.insert({id, active_socket});
@@ -165,51 +164,51 @@ void Server::printConsole(std::string &&msg, bool err) {
     std::strftime(mbstr, sizeof(mbstr), "%T", std::localtime(&t));
 
     // Print information on the graphical console
-    if(err)
+    if (err)
         this->ui->console->insertHtml(QString::fromStdString(
                 "<p style=\"color:red;\"><b>" + std::string(mbstr) + "</b> " + msg + "<br></p>"
-                ));
+        ));
     else
         this->ui->console->insertHtml(QString::fromStdString(
                 "<p><b>" + std::string(mbstr) + "</b> " + msg + "<br></p>"
-                ));
+        ));
 }
 
-bool Server::checkUser(QJsonObject &data, QTcpSocket* active_socket){
+bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // divide the string username_password in two separate string
-    std::string username=data["username"].toString().toStdString();
-    std::string password=data["password"].toString().toStdString();
-    printConsole("Checking "+username+" "+password);
+    std::string username = data["username"].toString().toStdString();
+    std::string password = data["password"].toString().toStdString();
+    printConsole("Checking " + username + " " + password);
     // check the credentials
     QString loginResult;
-    int queryResult=checkCredentials(username, password);
-    if(queryResult==1){
+    int queryResult = checkCredentials(username, password);
+    if (queryResult == 1) {
         loginResult = "ok";
-        QString un=QString::fromStdString(username);
+        QString un = QString::fromStdString(username);
         User u(un);
-        auto it=activeUsers.begin();
-        bool found=false;
-        while(it!=activeUsers.end()){ //a user could open again the client and log again so first check if it's already there
-            User user=it->first;
-            if(user==u) {
+        auto it = activeUsers.begin();
+        bool found = false;
+        while (it !=
+               activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
+            User user = it->first;
+            if (user == u) {
                 found = true;
                 activeUsers[user].push_back(active_socket);
                 break;
             }
             it++;
         }
-        if (found!=true){ //inserisci l'utente nella lista di quelli attualmente connessi
-            std::list<QTcpSocket*> temp;
+        if (found != true) { //inserisci l'utente nella lista di quelli attualmente connessi
+            std::list<QTcpSocket *> temp;
             temp.push_back(active_socket);
-            activeUsers[u]=temp;
+            activeUsers[u] = temp;
         }
 
-    }
-    else if (queryResult==0)
+    } else if (queryResult == 0)
         loginResult = "unreg";
     else
-        loginResult="fail";
+        loginResult = "fail";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -225,10 +224,11 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket* active_socket){
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
-       // message["header"] = "log";
+        // message["header"] = "log";
         //message["body"] = loginResult;
-        message=prepareJsonWithFileList("log", loginResult);
-        printConsole("Sending back "+message["header"].toString().toStdString()+" "+message["body"].toString().toStdString());
+        message = prepareJsonWithFileList("log", loginResult);
+        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                     message["body"].toString().toStdString());
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
         if (!active_socket->write(block)) {
@@ -238,30 +238,31 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket* active_socket){
     }
     return true;
 }
-bool Server::registerUser(QJsonObject &data, QTcpSocket* active_socket) {
+
+bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // divide the string username_password_name_surname in  separate string
-    std::string username=data["username"].toString().toStdString();
-    std::string password=data["password"].toString().toStdString();
-    std::string name=data["name"].toString().toStdString();
-    std::string surname=data["surname"].toString().toStdString();
+    std::string username = data["username"].toString().toStdString();
+    std::string password = data["password"].toString().toStdString();
+    std::string name = data["name"].toString().toStdString();
+    std::string surname = data["surname"].toString().toStdString();
 
     // load data in the DB and create the associated user if insertion works
     QString registrationResult;
     int queryResult = addUser(username, password, name, surname);
     if (queryResult == 1) {
         registrationResult = "ok";
-        QString un=QString::fromStdString(username);
+        QString un = QString::fromStdString(username);
         User u(un);
         //inserisci l'utente nella lista di quelli attualmente connessi
         std::list<QTcpSocket *> temp;
         temp.push_back(active_socket);
         activeUsers[u] = temp;
     }
-    if(queryResult==-1)
+    if (queryResult == -1)
         registrationResult = "fail";
-    if(queryResult==0)
-        registrationResult="alreadyreg";
+    if (queryResult == 0)
+        registrationResult = "alreadyreg";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -279,8 +280,9 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket* active_socket) {
         QJsonObject message;
         //message["header"] = "reg";
         //message["body"] = registrationResult;
-        message=prepareJsonWithFileList("reg", registrationResult);
-        printConsole("Sending back "+message["header"].toString().toStdString()+" "+message["body"].toString().toStdString());
+        message = prepareJsonWithFileList("reg", registrationResult);
+        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                     message["body"].toString().toStdString());
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
         if (!active_socket->write(block)) {
@@ -291,24 +293,26 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket* active_socket) {
     return true;
 }
 
-bool Server::cancelUser(QJsonObject &data, QTcpSocket* active_socket ){
+bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // divide the string username_password_name_surname in  separate string
-    std::string username=data["username"].toString().toStdString();
-    std::string password=data["password"].toString().toStdString();
-    printConsole("Trying to delete "+username+" "+password);
+    std::string username = data["username"].toString().toStdString();
+    std::string password = data["password"].toString().toStdString();
+    printConsole("Trying to delete " + username + " " + password);
 
     // call function to delete user in db
     QString cancResult;
-    //TODO: controlla che lo user non sia cosi balengo da cercare di cancellare il suo account mentre è connesso su un altro client aperto
+    //TODO: controlla che lo user non sia cosi balengo da cercare di
+    // cancellare il suo account mentre è connesso su un altro client aperto
+    //std::cout << username << " " << password << std::endl;
     int queryResult = deleteUser(username, password);
     if (queryResult == 1) {
         cancResult = "ok";
     }
-    if(queryResult==-1)
+    if (queryResult == -1)
         cancResult = "fail";
-    if(queryResult==0)
-        cancResult="notpres";
+    if (queryResult == 0)
+        cancResult = "notpres";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -326,7 +330,8 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket* active_socket ){
         QJsonObject message;
         message["header"] = "canc";
         message["body"] = cancResult;
-        printConsole("Sending back "+message["header"].toString().toStdString()+" "+message["body"].toString().toStdString());
+        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                     message["body"].toString().toStdString());
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
         if (!active_socket->write(block)) {
@@ -337,15 +342,15 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket* active_socket ){
     return true;
 }
 
-QJsonObject Server::prepareJsonWithFileList(QString header, QString result){
-    int ret=readFiles();
+QJsonObject Server::prepareJsonWithFileList(QString header, QString result) {
+    int ret = readFiles();
     //TODO: if is not possible to read files do something
     QJsonObject message;
-    message["header"]=header;
-    message["body"]=result;
+    message["header"] = header;
+    message["body"] = result;
     QJsonArray fileList;
-    auto it=file_list.begin();
-    for(auto t: file_list){
+    auto it = file_list.begin();
+    for (auto t: file_list) {
         fileList.push_back(QString::fromStdString(std::get<0>(t)));
     }
     message.insert("File list", fileList);
@@ -354,7 +359,7 @@ QJsonObject Server::prepareJsonWithFileList(QString header, QString result){
 
 
 void Server::handleDisconnect() {
-    QTcpSocket* disconnected_socket=(QTcpSocket*)sender();
+    QTcpSocket *disconnected_socket = (QTcpSocket *) sender();
     //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
     // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
 }
