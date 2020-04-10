@@ -39,6 +39,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	connect(uiLog->CancellationLink, &QLabel::linkActivated, this, &Client::openCancellationWindow);
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
+    
     Client::requestConnection();
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
@@ -59,10 +60,11 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	    connect(networkSession, &QNetworkSession::opened, this, &Client::sessionOpened);
 	
 	    uiLog->LoginButton->setEnabled(false);
-	    logStatusBar->showMessage(tr("Opening network session..."));
+	    logStatusBar->showMessage(tr("Opening network session..."), 3000);
 	    qDebug() << "Opening network session...";
 	    networkSession->open();
     }
+	uiLog->UsernameEdit->setFocus();            // questo deve stare ultimo
 }
 
 void Client::requestConnection()
@@ -81,11 +83,11 @@ void Client::requestConnection()
 
 void Client::readResponse()
 {
-	logStatusBar->showMessage(tr("Reading the response..."));
+	logStatusBar->showMessage(tr("Reading the response..."), 3000);
 	qDebug() << "Reading the response...";
     in.startTransaction();
 
-//read the Json message received from client, from header understand what to do
+	// read the Json message received from client, from header understand what to do
     in.startTransaction();
 
     QByteArray jSmessage;
@@ -103,7 +105,7 @@ void Client::readResponse()
             jSobject=jsonDoc.object();
             header=jSobject["header"].toString().toStdString();
             result=jSobject["body"].toString().toStdString();
-            qDebug()<<jSobject["header"].toString()<<" "<<jSobject["body"].toString();
+//            qDebug()<<jSobject["header"].toString()<<" "<<jSobject["body"].toString();
         }
         else{
             //TODO: error with the json do something (implement function for generic error message to client)
@@ -119,19 +121,19 @@ void Client::readResponse()
     	return;
     }
     
-	logStatusBar->showMessage(QString::fromStdString(header+':'+result));
-
-
+//	logStatusBar->showMessage(QString::fromStdString(header+':'+result));
+    qDebug().noquote() << QString::fromStdString(header + ": " + result);
+    
     if(header=="log") {
         if (result == "ok") {
-	        qDebug() << "Successful login.";
 	        setFileList(jSobject);
 	        QString un(uiLog->UsernameEdit->text());
             openFileChoiceWindow(un);
             this->close();
         }
-        if(result=="unreg"){
-            QMessageBox::information(this, tr("PdS Server"), tr("Utente non trovato! Ricontrolla user e password"));
+        if (result=="unreg") {
+            QMessageBox::information(this, tr("PdS Server"), tr("User not found.\nCheck again username and password."));
+            logStatusBar->showMessage(tr("User not found."), 3000);
             uiLog->LoginButton->setEnabled(true);
 	        uiLog->UsernameEdit->setReadOnly(false);
 	        uiLog->PasswordEdit->setReadOnly(false);
@@ -140,8 +142,9 @@ void Client::readResponse()
             uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
             uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
         }
-        if(result=="fail"){
-            QMessageBox::information(this, tr("PdS Server"), tr("Errore nel server, riprovare più tardi"));
+        if (result=="fail") {
+            QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
+	        logStatusBar->showMessage(tr("Server error."), 3000);
             uiLog->LoginButton->setEnabled(true);
             uiLog->UsernameEdit->setReadOnly(false);
             uiLog->PasswordEdit->setReadOnly(false);
@@ -151,9 +154,8 @@ void Client::readResponse()
             uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
         }
     }
-    if(header=="reg") {
+    if (header=="reg") {
         if (result=="ok") {
-            qDebug() << "Successful registration.";
 	        QString un(uiReg->UsernameEdit->text());
 	        QFile file(pathPictures + un + ".png");
 	        file.open(QIODevice::WriteOnly);
@@ -162,48 +164,45 @@ void Client::readResponse()
             openFileChoiceWindow(un);
             RegWin->close();
         }
-        if (result=="sfail"){
-            QMessageBox::information(this, tr("PdS Server"), tr("Registrazione fallita per problemi al server, ritentare"));
+        if (result=="sfail") {
+	        QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
+	        regStatusBar->showMessage(tr("Server error."), 3000);
             uiReg->NameEdit->setReadOnly(false);
             uiReg->SurnameEdit->setReadOnly(false);
             uiReg->UsernameEdit->setReadOnly(false);
             uiReg->PasswordEdit->setReadOnly(false);
 	        uiReg->RepeatPasswordEdit->setReadOnly(false);
-            regStatusBar->showMessage(tr("Registration failed"));
-            qDebug() << "Registration failed";
         }
-        if(result=="alreadyreg"){
-            QMessageBox::information(this, tr("PdS Server"), tr("Nome utente già registrato! Inserisci un altro user o esegui il login"));
+        if (result=="alreadyreg") {
+	        QMessageBox::information(this, tr("PdS Server"), tr("This username is already taken.\nTry another one."));
+	        regStatusBar->showMessage(tr("Username already taken."), 3000);
             uiReg->NameEdit->setReadOnly(false);
             uiReg->SurnameEdit->setReadOnly(false);
             uiReg->UsernameEdit->setReadOnly(false);
             uiReg->PasswordEdit->setReadOnly(false);
 	        uiReg->RepeatPasswordEdit->setReadOnly(false);
-            regStatusBar->showMessage(tr("Registration failed"));
-            qDebug() << "Registration failed";
         }
-
     }
-    if(header=="canc"){
+    if (header=="canc") {
         if (result=="ok") {
             logStatusBar->showMessage(tr("Successful cancellation."), 3000);
             CancWin->close();
 	        // TODO: cancellare foto profilo dal server
             reactivateLoginWindow();
         }
-        if( result=="notpres"){
+        if (result=="notpres") {
+	        QMessageBox::information(this, tr("PdS Server"), tr("User not found.\nCheck again the username and the password."));
+	        cancStatusBar->showMessage(tr("User not found or wrong password."), 3000);
 	        uiCanc->UsernameEdit->setReadOnly(false);
 	        uiCanc->PasswordEdit->setReadOnly(false);
 	        uiCanc->DeleteButton->setEnabled(true);
-            cancStatusBar->showMessage(tr("Attenzione! L’utente da cancellare non esiste, riprovare"));
-            qDebug() << "User doesnt exist";
         }
-        if( result=="fail"){
+        if (result=="fail") {
+	        QMessageBox::information(this, tr("PdS Server"), tr("Cancellation failed.\nCheck again username and password."));
+	        logStatusBar->showMessage(tr("Cancellation failed."), 3000);
 	        uiCanc->UsernameEdit->setReadOnly(false);
 	        uiCanc->PasswordEdit->setReadOnly(false);
 	        uiCanc->DeleteButton->setEnabled(true);
-            cancStatusBar->showMessage(tr("Cancellation failed"));
-            qDebug() << "Cancellation failed";
         }
     }
     if(header=="flist");
@@ -226,10 +225,10 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
         case QAbstractSocket::RemoteHostClosedError:
             break;
         case QAbstractSocket::HostNotFoundError:
-            QMessageBox::information(this, tr("PdS Client"),tr("The host was not found. Please check the host name and port settings."));
+            QMessageBox::information(this, tr("PdS Client"),tr("The host was not found.\nPlease check the host name and port settings."));
             break;
         case QAbstractSocket::ConnectionRefusedError:
-            QMessageBox::information(this, tr("Pds Client"),tr("The connection was refused by the peer. Make sure the PdS server is running and check that the host name and port settings are correct."));
+            QMessageBox::information(this, tr("Pds Client"),tr("The connection was refused by the peer.\nMake sure the PdS server is running and check that the host name and port settings are correct."));
             break;
         default:
             QMessageBox::information(this, tr("PdS Client"),tr("The following error occurred: %1.").arg(tcpSocket->errorString()));
@@ -260,7 +259,7 @@ void Client::sessionOpened()
 
 }
 
-void Client::sendCredentials(){
+void Client::sendCredentials() {
 
      uiLog->LoginButton->setEnabled(false);
      uiLog->UsernameEdit->setReadOnly(true);
@@ -270,7 +269,7 @@ void Client::sendCredentials(){
      uiLog->CancellationLink->setTextInteractionFlags(Qt::NoTextInteraction);
      uiLog->RegistrationLink->setCursor(QCursor(Qt::ArrowCursor));
      uiLog->CancellationLink->setCursor(QCursor(Qt::ArrowCursor));
-     logStatusBar->showMessage(tr("Connected to the server."));
+     logStatusBar->showMessage(tr("Connected to the server."), 3000);
      qDebug() << "Connected to the server.";
 
     if (tcpSocket != nullptr) {
@@ -294,12 +293,13 @@ void Client::sendCredentials(){
         out << QJsonDocument(message).toJson();
         
         if (!tcpSocket->write(block)) {
-            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));
+            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+            logStatusBar->showMessage(tr("Could not send message."), 3000);
         }
         tcpSocket->flush();
     }
 	
-    logStatusBar->showMessage(tr("Credential sent, waiting for reply..."));
+    logStatusBar->showMessage(tr("Credential sent, waiting for reply..."), 3000);
     qDebug() << "Credential sent, waiting for reply...";
 }
 
@@ -370,7 +370,7 @@ void Client::requestRegistration() {
 	uiReg->PasswordEdit->setReadOnly(true);
 	uiReg->RepeatPasswordEdit->setReadOnly(true);
 	
-	regStatusBar->showMessage(tr("Checking database..."));
+	regStatusBar->showMessage(tr("Checking database..."), 3000);
 	qDebug() << "Checking database...";
 
     if (tcpSocket != nullptr) {
@@ -398,7 +398,8 @@ void Client::requestRegistration() {
     out << QJsonDocument(message).toJson();
 
     if (!tcpSocket->write(block)) {
-        QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));
+	    QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+	    regStatusBar->showMessage(tr("Could not send message."), 3000);
     }
     tcpSocket->flush();
 
@@ -437,7 +438,7 @@ void Client::enableDelButton() {
 }
 
 void Client::requestDeletion() {
-	cancStatusBar->showMessage(tr("Deleting account..."));
+	cancStatusBar->showMessage(tr("Deleting account..."), 3000);
 	qDebug() << "Deleting account...";
 	
 	uiCanc->UsernameEdit->setReadOnly(true);
@@ -465,12 +466,13 @@ void Client::requestDeletion() {
         out << QJsonDocument(message).toJson();
 
         if (!tcpSocket->write(block)) {
-            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message."));
+	        QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+	        cancStatusBar->showMessage(tr("Could not send message."), 3000);
         }
         tcpSocket->flush();
     }
 
-    logStatusBar->showMessage(tr("Credential sent, waiting for reply..."));
+    logStatusBar->showMessage(tr("Credential sent, waiting for reply..."), 3000);
     qDebug() << "Credential sent, waiting for reply...";
 
 }
@@ -494,6 +496,7 @@ void Client::openFileChoiceWindow(QString username) {
 	}
 	
 	// TODO: mettere nome invece che username
+	// TODO: scrivere "Welcome" se è appena registrato, "Welcome back" se ha fatto il login
 	uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(username));
 	
 	QStringList fileList;
@@ -523,7 +526,7 @@ void Client::openNewFile() {
 void Client::openExistingFile() {
 	// TODO: aprire file selezionato
 	if (uiChoice->OpenMenu->findText(uiChoice->OpenMenu->currentText()) == -1) {
-		auto mes = QMessageBox::information(ChoiceWin, tr("Error"), tr("The file does not exist."), QMessageBox::Ok);
+		QMessageBox::information(ChoiceWin, tr("PdS Server"), tr("The file does not exist."), QMessageBox::Ok);
 		qDebug() << "The file does not exist.";
 		return;
 	}

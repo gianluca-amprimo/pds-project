@@ -15,10 +15,9 @@
     <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/loginwindow.ui" beforeDir="false" afterPath="$PROJECT_DIR$/loginwindow.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
