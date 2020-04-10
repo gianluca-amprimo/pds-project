@@ -32,7 +32,7 @@ private slots:
     void getConnectedSocket();
 private:
     void printConsole(std::string &&msg, bool err = false);
-    QJsonObject prepareJsonWithFileList(QString, QString);
+    QJsonObject prepareJsonWithFileList(QString, QString, std::string);
     Ui::Server *ui;
     QTcpServer *tcpServer = nullptr;
     std::map<int, QTcpSocket*>  active_sockets; //stores all the connected sockets with different clients
@@ -40,7 +40,8 @@ private:
     QNetworkSession *networkSession = nullptr;
     std::map<User, std::list<QTcpSocket*>> activeUsers; //map che contiene key-pair: utente-socket a lui associati (se runna due volte il cliente sono più di uno)
     std::map<QString,std::list<User>> openFiles; //lista di file aperti e chi ci sta lavorando
-
+    QJsonValue jsonValFromPixmap(const QPixmap &p);
+    QPixmap pixmapFrom(const QJsonValue &val);
 };
 
 #endif

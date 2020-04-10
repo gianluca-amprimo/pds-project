@@ -26,7 +26,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	logPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(logPasswordButton, &QToolButton::pressed, this, &Client::pressPasswordButton);
 	connect(logPasswordButton, &QToolButton::released, this, &Client::releasePasswordButton);
-	
+
 	setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
 	
     in.setDevice(tcpSocket);
@@ -39,7 +39,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	connect(uiLog->CancellationLink, &QLabel::linkActivated, this, &Client::openCancellationWindow);
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
-    
+
     Client::requestConnection();
     QNetworkConfigurationManager manager;
     if (manager.capabilities() & QNetworkConfigurationManager::NetworkSessionRequired) {
@@ -83,18 +83,18 @@ void Client::requestConnection()
 
 void Client::readResponse()
 {
-	logStatusBar->showMessage(tr("Reading the response..."), 3000);
+	logStatusBar->showMessage(tr("Reading the response..."));
 	qDebug() << "Reading the response...";
     in.startTransaction();
 
-	// read the Json message received from client, from header understand what to do
+//read the Json message received from client, from header understand what to do
     in.startTransaction();
 
     QByteArray jSmessage;
     std::string header;
     std::string result;
     QJsonObject jSobject;
-
+    QPixmap propic;
     in >> jSmessage;
     QJsonParseError parseError;
     // we try to create a json document with the data we received
@@ -123,11 +123,16 @@ void Client::readResponse()
     
 //	logStatusBar->showMessage(QString::fromStdString(header+':'+result));
     qDebug().noquote() << QString::fromStdString(header + ": " + result);
-    
+
     if(header=="log") {
         if (result == "ok") {
+	        qDebug() << "Successful login.";
 	        setFileList(jSobject);
 	        QString un(uiLog->UsernameEdit->text());
+	        //create the associated user
+
+	        User u(uiLog->UsernameEdit->text(),pixmapFrom(jSobject["propic"]));
+	        loggedUser=std::make_shared<User>(u);
             openFileChoiceWindow(un);
             this->close();
         }
@@ -156,10 +161,13 @@ void Client::readResponse()
     }
     if (header=="reg") {
         if (result=="ok") {
+            qDebug() << "Successful registration.";
 	        QString un(uiReg->UsernameEdit->text());
-	        QFile file(pathPictures + un + ".png");
+	        /*QFile file(pathPictures + un + ".png");
 	        file.open(QIODevice::WriteOnly);
-	        uiReg->ProfilePicture->pixmap()->save(&file, "png", 100);
+	        uiReg->ProfilePicture->pixmap()->save(&file, "png", 100);*/
+            User u(uiReg->UsernameEdit->text(),pixmapFrom(jSobject["propic"]));
+            loggedUser=std::make_shared<User>(u);
             setFileList(jSobject);
             openFileChoiceWindow(un);
             RegWin->close();
@@ -172,6 +180,8 @@ void Client::readResponse()
             uiReg->UsernameEdit->setReadOnly(false);
             uiReg->PasswordEdit->setReadOnly(false);
 	        uiReg->RepeatPasswordEdit->setReadOnly(false);
+            regStatusBar->showMessage(tr("Registration failed"));
+            qDebug() << "Registration failed";
         }
         if (result=="alreadyreg") {
 	        QMessageBox::information(this, tr("PdS Server"), tr("This username is already taken.\nTry another one."));
@@ -181,7 +191,10 @@ void Client::readResponse()
             uiReg->UsernameEdit->setReadOnly(false);
             uiReg->PasswordEdit->setReadOnly(false);
 	        uiReg->RepeatPasswordEdit->setReadOnly(false);
+            regStatusBar->showMessage(tr("Registration failed"));
+            qDebug() << "Registration failed";
         }
+
     }
     if (header=="canc") {
         if (result=="ok") {
@@ -196,6 +209,8 @@ void Client::readResponse()
 	        uiCanc->UsernameEdit->setReadOnly(false);
 	        uiCanc->PasswordEdit->setReadOnly(false);
 	        uiCanc->DeleteButton->setEnabled(true);
+            cancStatusBar->showMessage(tr("Attenzione! L’utente da cancellare non esiste, riprovare"));
+            qDebug() << "User doesnt exist";
         }
         if (result=="fail") {
 	        QMessageBox::information(this, tr("PdS Server"), tr("Cancellation failed.\nCheck again username and password."));
@@ -203,6 +218,8 @@ void Client::readResponse()
 	        uiCanc->UsernameEdit->setReadOnly(false);
 	        uiCanc->PasswordEdit->setReadOnly(false);
 	        uiCanc->DeleteButton->setEnabled(true);
+            cancStatusBar->showMessage(tr("Cancellation failed"));
+            qDebug() << "Cancellation failed";
         }
     }
     if(header=="flist");
@@ -269,7 +286,7 @@ void Client::sendCredentials() {
      uiLog->CancellationLink->setTextInteractionFlags(Qt::NoTextInteraction);
      uiLog->RegistrationLink->setCursor(QCursor(Qt::ArrowCursor));
      uiLog->CancellationLink->setCursor(QCursor(Qt::ArrowCursor));
-     logStatusBar->showMessage(tr("Connected to the server."), 3000);
+     logStatusBar->showMessage(tr("Connected to the server."));
      qDebug() << "Connected to the server.";
 
     if (tcpSocket != nullptr) {
@@ -393,6 +410,7 @@ void Client::requestRegistration() {
     message["password"] = uiReg->PasswordEdit->text();
     message["name"] = uiReg->NameEdit->text();
     message["surname"] = uiReg->SurnameEdit->text();
+    message["propic"]= jsonValFromPixmap(*uiReg->ProfilePicture->pixmap());
 
     // send the JSON using QDataStream
     out << QJsonDocument(message).toJson();
@@ -487,16 +505,17 @@ void Client::openFileChoiceWindow(QString username) {
 	auto cbModel = new QStringListModel;
 	uiChoice->OpenMenu->setModel(cbModel);
 	
-	QString pathpng(pathPictures + username + ".png");
+	/*QString pathpng(pathPictures + username + ".png");
 	struct stat buffer;
 	if (stat (pathpng.toStdString().c_str(), &buffer) == 0) {
 		uiChoice->ProfilePicture->setPixmap(QPixmap(pathpng).scaled(150, 150, Qt::KeepAspectRatio));
 	} else {
 		uiChoice->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(150, 150, Qt::KeepAspectRatio));
-	}
-	
-	// TODO: mettere nome invece che username
-	// TODO: scrivere "Welcome" se è appena registrato, "Welcome back" se ha fatto il login
+	}*/
+    uiChoice->ProfilePicture->setPixmap(loggedUser->getPropic());
+
+
+    // TODO: mettere nome invece che username
 	uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(username));
 	
 	QStringList fileList;
@@ -547,6 +566,12 @@ void Client::setFileList(QJsonObject& data){
         avail_file.push_back(s.toString());
     }
 }
+QPixmap Client::pixmapFrom(const QJsonValue &val) {
+    auto const encoded = val.toString().toLatin1();
+    QPixmap p;
+    p.loadFromData(QByteArray::fromBase64(encoded), "PNG");
+    return p;
+}
 
 void Client::pressPasswordButton() {
 	QToolButton *button = qobject_cast<QToolButton *>(sender());
@@ -558,4 +583,11 @@ void Client::releasePasswordButton() {
 	QToolButton *button = qobject_cast<QToolButton *>(sender());
 	button->setIcon(QIcon("../Icons/eye_off.png"));
 	uiLog->PasswordEdit->setEchoMode(QLineEdit::Password);
+}
+QJsonValue Client::jsonValFromPixmap(const QPixmap &p) {
+    QBuffer buffer;
+    buffer.open(QIODevice::WriteOnly);
+    p.save(&buffer, "PNG");
+    auto const encoded = buffer.data().toBase64();
+    return {QLatin1String(encoded)};
 }

@@ -226,7 +226,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
         QJsonObject message;
         // message["header"] = "log";
         //message["body"] = loginResult;
-        message = prepareJsonWithFileList("log", loginResult);
+        message = prepareJsonWithFileList("log", loginResult, username);
         printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                      message["body"].toString().toStdString());
         // send the JSON using QDataStream
@@ -246,6 +246,7 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
     std::string password = data["password"].toString().toStdString();
     std::string name = data["name"].toString().toStdString();
     std::string surname = data["surname"].toString().toStdString();
+    QPixmap propic=pixmapFrom(data["propic"]);
 
     // load data in the DB and create the associated user if insertion works
     QString registrationResult;
@@ -258,6 +259,10 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
         std::list<QTcpSocket *> temp;
         temp.push_back(active_socket);
         activeUsers[u] = temp;
+        //save the propic chosen by the user using its username as username.png
+        QFile file("../Pictures/" + QString::fromStdString(username) + ".png");
+        file.open(QIODevice::WriteOnly);
+        propic.save(&file, "png", 100);
     }
     if (queryResult == -1)
         registrationResult = "fail";
@@ -280,7 +285,7 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
         QJsonObject message;
         //message["header"] = "reg";
         //message["body"] = registrationResult;
-        message = prepareJsonWithFileList("reg", registrationResult);
+        message = prepareJsonWithFileList("reg", registrationResult, username);
         printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                      message["body"].toString().toStdString());
         // send the JSON using QDataStream
@@ -304,6 +309,7 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     QString cancResult;
     //TODO: controlla che lo user non sia cosi balengo da cercare di
     // cancellare il suo account mentre è connesso su un altro client aperto
+    //TODO:rimuovi la sua foto profilo dal file system
     //std::cout << username << " " << password << std::endl;
     int queryResult = deleteUser(username, password);
     if (queryResult == 1) {
@@ -342,12 +348,15 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     return true;
 }
 
-QJsonObject Server::prepareJsonWithFileList(QString header, QString result) {
+QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std::string username) {
     int ret = readFiles();
     //TODO: if is not possible to read files do something
     QJsonObject message;
     message["header"] = header;
     message["body"] = result;
+    std::string url("../Pictures/"+username+".png");
+    QPixmap img(QString::fromStdString(url));
+    message["propic"]=jsonValFromPixmap(img);
     QJsonArray fileList;
     auto it = file_list.begin();
     for (auto t: file_list) {
@@ -362,4 +371,19 @@ void Server::handleDisconnect() {
     QTcpSocket *disconnected_socket = (QTcpSocket *) sender();
     //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
     // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
+}
+
+QJsonValue Server::jsonValFromPixmap(const QPixmap &p) {
+    QBuffer buffer;
+    buffer.open(QIODevice::WriteOnly);
+    p.save(&buffer, "PNG");
+    auto const encoded = buffer.data().toBase64();
+    return {QLatin1String(encoded)};
+}
+
+QPixmap Server::pixmapFrom(const QJsonValue &val) {
+    auto const encoded = val.toString().toLatin1();
+    QPixmap p;
+    p.loadFromData(QByteArray::fromBase64(encoded), "PNG");
+    return p;
 }

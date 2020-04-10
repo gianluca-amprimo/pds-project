@@ -7,6 +7,8 @@
 #include <QDialog>
 #include <QTcpSocket>
 #include <QStatusBar>
+#include <memory>
+#include "User.h"
 #include <QToolButton>
 
 QT_BEGIN_NAMESPACE
@@ -58,14 +60,17 @@ private:
     QString loginReply;
     QNetworkSession *networkSession = nullptr;
 	void requestConnection();
+    QPixmap pixmapFrom(const QJsonValue &val);
+    QJsonValue jsonValFromPixmap(const QPixmap &p);
 	void setFileList(QJsonObject&);
-	
+
 	Ui::LoginWindow *uiLog;
 	std::list<QString> avail_file;
 	QStatusBar *logStatusBar;
 	QToolButton *logPasswordButton;
 	QAction *hidePassword;
-	
+
+	std::shared_ptr<User> loggedUser;
 	QDialog *RegWin;
 	Ui::RegistrationWindow *uiReg;
 	QStatusBar *regStatusBar;
