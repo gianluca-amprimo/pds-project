@@ -157,10 +157,10 @@ void Server::getConnectedSocket() {
 
 void Server::printConsole(std::string &&msg, bool err) {
     // Get the current time
-    std::time_t t = std::time(nullptr);
+    time_t t = time(nullptr);
     std::string timeStr;
     char mbstr[100];
-    std::strftime(mbstr, sizeof(mbstr), "%T", std::localtime(&t));
+    strftime(mbstr, sizeof(mbstr), "%T", localtime(&t));
 
     // Print information on the graphical console
     if (err)
@@ -188,8 +188,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
         User u(un);
         auto it = activeUsers.begin();
         bool found = false;
-        while (it !=
-               activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
+        while (it != activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
             User user = it->first;
             if (user == u) {
                 found = true;

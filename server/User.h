@@ -27,18 +27,12 @@ public:
     bool operator<=(const User &rhs) const;
 
     bool operator>=(const User &rhs) const;
-
-private:
-    QString username;
-public:
+    
     const QString &getUsername() const;
 
 private:
-    //lo username è un identificativo univoco (username== non sono possibili)
-    QString propic; //path all’immagine del profilo
-
-
-
+	QString username;           //lo username è un identificativo univoco (username== non sono possibili)
+    QString propic;             //path all’immagine del profilo
 };
 
 

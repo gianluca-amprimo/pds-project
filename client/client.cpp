@@ -371,6 +371,12 @@ void Client::deleteProfilePicture() {
 }
 
 void Client::enableRegButton() {
+	if (uiReg->UsernameEdit->text() == QString("___default_img")) {
+		regStatusBar->showMessage(tr("This username is not valid."));
+		uiReg->RegisterButton->setEnabled(false);
+		return;
+	}
+	
 	if (!uiReg->NameEdit->text().isEmpty() & !uiReg->SurnameEdit->text().isEmpty() & !uiReg->UsernameEdit->text().isEmpty() & !uiReg->PasswordEdit->text().isEmpty() & !uiReg->RepeatPasswordEdit->text().isEmpty()) {
 		if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text()) {
 			if (uiReg->RegisterButton->isEnabled()) {
@@ -386,7 +392,6 @@ void Client::enableRegButton() {
 	if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text()) {
 		if (regStatusBar->currentMessage() != QString(tr("The two passwords do not coincide!"))) {
 			regStatusBar->showMessage(tr("The two passwords do not coincide!"));
-			qDebug() << "The two passwords do not coincide!";
 		}
 	} else {
 		regStatusBar->showMessage(tr(""));

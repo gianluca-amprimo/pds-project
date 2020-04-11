@@ -13,19 +13,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Icons/___default_img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/Pictures/mj.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/moc_predefs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/moc_predefs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/User.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -142,7 +137,8 @@
       <workItem from="1586274052822" duration="10346000" />
       <workItem from="1586339890554" duration="10615000" />
       <workItem from="1586432410981" duration="8799000" />
-      <workItem from="1586553670858" duration="6154000" />
+      <workItem from="1586553670858" duration="6338000" />
+      <workItem from="1586598351955" duration="2009000" />
     </task>
     <servers />
   </component>
