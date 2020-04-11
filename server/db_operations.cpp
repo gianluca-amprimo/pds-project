@@ -7,6 +7,7 @@ static int db_counter = 0;
 
 std::set<std::tuple<std::string, std::string>> file_list;
 std::hash<std::string> cypher;
+std::string info_name, info_surname;
 
 /*
  * Callback function for checkCredentials
@@ -69,6 +70,7 @@ static int files(void *NotUsed, int argc, char **argv, char **azColName) {
 
     // argc is 3 because the number of columns is 3
     // ID, NAME, PATH
+    db_counter++;
 
     // create a tuple with name and path of the file
     std::tuple<std::string, std::string> file = std::make_tuple(argv[1], argv[2]);
@@ -100,6 +102,7 @@ int readFiles() {
 
     // prepare sql operation
     sql = "SELECT * FROM FILES;";
+    db_counter = 0;
 
     // execute sql statement
     rc = sqlite3_exec(db, sql.c_str(), files, nullptr, &errMsg);
@@ -111,7 +114,7 @@ int readFiles() {
     }
     sqlite3_close(db);
 
-    if (db_counter == 1)
+    if (db_counter >= 1)
         return 1;
     return 0;
 }
@@ -329,6 +332,137 @@ int deleteFile(std::string name, std::string path) {
         file_list.erase(file);
     } else {
         // file does not exist or name and path are wrong
+        return 0;
+    }
+
+    sqlite3_close(db);
+    return 1;
+}
+
+
+/*
+ * Callback function for getPersonalInfo
+ */
+static int personalInfo(void *NotUsed, int argc, char **argv, char **azColName) {
+    // check if argc is correct
+    if (argc != 4) {
+        std::cerr << "Error in the number of columns" << std::endl;
+        return -1;
+    }
+
+    db_counter++;
+
+    // argc is 4 because the number of columns is 4
+    // USERNAME, PASSWORD, NAME and SURNAME
+
+    // retrieve name and surname of the user
+    info_name = argv[2];
+    info_surname = argv[3];
+    return 0;
+}
+
+
+/*
+ * function to read the personal info of user
+ * returns a tuple with name and surname if the user exists
+ * else a tuple with db_error and the specific error
+ */
+std::tuple<std::string, std::string> getPersonalInfo(std::string username){
+    std::tuple<std::string, std::string> result;
+    int rc;
+    sqlite3 *db;
+    std::string sql;
+    char *errMsg = nullptr;
+
+    // open database connection
+    rc = sqlite3_open(db_path.c_str(), &db);
+
+    // check the connection has been established
+    if (rc != SQLITE_OK) {
+        std::cerr << "Can't open the database: " << sqlite3_errmsg(db) << std::endl;
+        result = std::make_tuple("db_error", "Can't open the database");
+        return result;
+    }
+
+    // prepare sql operation to check if user exists
+    sql = "SELECT * FROM USERS WHERE USERNAME = '" + username + "';";
+    db_counter = 0;
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), personalInfo, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cout << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+
+        result = std::make_tuple("db_error", errMsg);
+        return result;
+    }
+    sqlite3_close(db);
+
+    if (db_counter == 1) {
+        // user exists
+        result = std::make_tuple(info_name, info_surname);
+        return result;
+    } else {
+        // user doesn't exists or credentials are wrong
+        result = std::make_tuple("db_error", "User does not exist");
+        return result;
+    }
+}
+
+
+/*
+ * function to change a user password
+ */
+int changePassword(std::string username, std::string oldPassword, std::string newPassword){
+    int rc;
+    sqlite3 *db;
+    std::string sql;
+    char *errMsg = nullptr;
+
+    // open database connection
+    rc = sqlite3_open(db_path.c_str(), &db);
+
+    // check the connection has been established
+    if (rc != SQLITE_OK) {
+        std::cerr << "Can't open the database: " << sqlite3_errmsg(db) << std::endl;
+        return -1;
+    }
+
+    // prepare sql operation to check if user exists
+    sql = "SELECT * FROM USERS WHERE USERNAME = '" + username
+          + "' AND PASSWORD = '" + std::to_string(cypher(oldPassword))
+          + "';";
+    db_counter = 0;
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cout << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+        return -1;
+    }
+
+    if (db_counter == 1) {
+        // user exists
+        // prepare sql operation to update the password
+        sql = "UPDATE USERS "
+              "SET PASSWORD = '" + std::to_string(cypher(newPassword))
+              + "' WHERE USERNAME = '" + username
+              + "';";
+
+        // execute sql statement
+        rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
+        if (rc != SQLITE_OK) {
+            std::cout << "SQL error: " << errMsg << std::endl;
+            sqlite3_free(errMsg);
+            sqlite3_close(db);
+            return -1;
+        }
+    } else {
+        // user doesn't exists or credentials are wrong
         return 0;
     }
 

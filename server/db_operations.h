@@ -34,4 +34,12 @@ int deleteUser(std::string username, std::string password);
 // returns 1 for file deleted -1 for db error and 0 if file does not exist
 int deleteFile(std::string name, std::string path);
 
+// function to retrieve the user name and surname
+// returns a tuple with the info or error if the user does not exist
+std::tuple<std::string, std::string> getPersonalInfo(std::string username);
+
+// function to change the password of a user
+// returns 1 for success -1 for failure and 0 if the user does not exist
+int changePassword(std::string username, std::string oldPassword, std::string newPassword);
+
 #endif //SERVER_DB_OPERATIONS_H
