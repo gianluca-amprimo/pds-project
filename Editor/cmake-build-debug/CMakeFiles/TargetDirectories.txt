@@ -1,4 +1,0 @@
-/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor.dir
-/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug/CMakeFiles/Editor_autogen.dir

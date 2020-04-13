@@ -1,4 +1,0 @@
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build/CMakeFiles/rebuild_cache.dir
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build/CMakeFiles/Editor.dir
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build/CMakeFiles/edit_cache.dir
-/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build/CMakeFiles/Editor_autogen.dir
