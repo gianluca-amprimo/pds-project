@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.14)
-project(provaQT)
+project(editor)
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_AUTOMOC ON)
@@ -21,7 +21,7 @@ list(APPEND LIBRARIES
 list(REMOVE_DUPLICATES LIBRARIES)
 
 
-add_executable(provaQT
-        provaQT.cpp FileSaver.cpp FileSaver.h)
+add_executable(editor
+        main.cpp SaveAsDialog.cpp SaveAsDialog.h MainEditor.cpp MainEditor.h)
 
-target_link_libraries(provaQT ${LIBRARIES})
+target_link_libraries(editor ${LIBRARIES})

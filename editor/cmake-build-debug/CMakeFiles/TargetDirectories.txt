@@ -1,0 +1,4 @@
+/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir
+/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/CMakeFiles/editor_autogen.dir
