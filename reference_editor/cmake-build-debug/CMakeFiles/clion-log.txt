@@ -1,0 +1,4 @@
+/snap/bin/cmake -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - Unix Makefiles" /home/gianluca/Desktop/pdsproject/Editor
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/gianluca/Desktop/pdsproject/Editor/cmake-build-debug

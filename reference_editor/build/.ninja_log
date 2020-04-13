@@ -1,0 +1,10 @@
+# ninja log v5
+0	636	0	CMakeFiles/Editor_autogen	c6991190789be14b
+0	636	0	Editor_autogen/mocs_compilation.cpp	c6991190789be14b
+658	9514	1586018123	CMakeFiles/Editor.dir/TextEdit.cpp.o	542e17e4cfc5ea48
+659	9930	1586018123	CMakeFiles/Editor.dir/Server.cpp.o	3a4337a051c1c178
+639	10191	1586018123	CMakeFiles/Editor.dir/main.cpp.o	ae5995aa377d5e7d
+659	10340	1586018123	CMakeFiles/Editor.dir/RegistrationWindow.cpp.o	bd1ff5a6fe1e109
+639	10425	1586018123	CMakeFiles/Editor.dir/LoginWindow.cpp.o	8177b220d13810a
+636	10580	1586018124	CMakeFiles/Editor.dir/Editor_autogen/mocs_compilation.cpp.o	5cf8a646031030bf
+10580	11111	1586018124	Editor	c6c5951906125e15

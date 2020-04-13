@@ -1,0 +1,9 @@
+# ninja log v5
+0	190	0	CMakeFiles/provaQT_autogen	86ad282c135ee022
+0	190	0	provaQT_autogen/mocs_compilation.cpp	86ad282c135ee022
+190	2423	1586018261	CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o	3d69aaf5f3af0002
+190	2438	1586018261	CMakeFiles/provaQT.dir/FileSaver.cpp.o	fb7b20819b292801
+190	2561	1586018261	CMakeFiles/provaQT.dir/provaQT.cpp.o	cc707098f130c4b
+2561	2935	1586018261	provaQT	68ab0fb77a66db7
+1	11	0	CMakeFiles/provaQT_autogen	86ad282c135ee022
+1	11	0	provaQT_autogen/mocs_compilation.cpp	86ad282c135ee022

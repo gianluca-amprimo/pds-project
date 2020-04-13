@@ -1,0 +1,37 @@
+[
+{
+  "directory": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build",
+  "command": "/usr/bin/g++-7  -DQT_CORE_LIB -DQT_GUI_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -IEditor_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtPrintSupport  -g   -fPIC -std=gnu++1z -o CMakeFiles/Editor.dir/Editor_autogen/mocs_compilation.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build/Editor_autogen/mocs_compilation.cpp",
+  "file": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build/Editor_autogen/mocs_compilation.cpp"
+},
+
+{
+  "directory": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build",
+  "command": "/usr/bin/g++-7  -DQT_CORE_LIB -DQT_GUI_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -IEditor_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtPrintSupport  -g   -fPIC -std=gnu++1z -o CMakeFiles/Editor.dir/main.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/main.cpp",
+  "file": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/main.cpp"
+},
+
+{
+  "directory": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build",
+  "command": "/usr/bin/g++-7  -DQT_CORE_LIB -DQT_GUI_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -IEditor_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtPrintSupport  -g   -fPIC -std=gnu++1z -o CMakeFiles/Editor.dir/LoginWindow.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/LoginWindow.cpp",
+  "file": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/LoginWindow.cpp"
+},
+
+{
+  "directory": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build",
+  "command": "/usr/bin/g++-7  -DQT_CORE_LIB -DQT_GUI_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -IEditor_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtPrintSupport  -g   -fPIC -std=gnu++1z -o CMakeFiles/Editor.dir/TextEdit.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/TextEdit.cpp",
+  "file": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/TextEdit.cpp"
+},
+
+{
+  "directory": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build",
+  "command": "/usr/bin/g++-7  -DQT_CORE_LIB -DQT_GUI_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -IEditor_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtPrintSupport  -g   -fPIC -std=gnu++1z -o CMakeFiles/Editor.dir/RegistrationWindow.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/RegistrationWindow.cpp",
+  "file": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/RegistrationWindow.cpp"
+},
+
+{
+  "directory": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/build",
+  "command": "/usr/bin/g++-7  -DQT_CORE_LIB -DQT_GUI_LIB -DQT_PRINTSUPPORT_LIB -DQT_WIDGETS_LIB -IEditor_autogen/include -isystem /opt/Qt/5.12.3/gcc_64/include -isystem /opt/Qt/5.12.3/gcc_64/include/QtWidgets -isystem /opt/Qt/5.12.3/gcc_64/include/QtGui -isystem /opt/Qt/5.12.3/gcc_64/include/QtCore -isystem /opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++ -isystem /opt/Qt/5.12.3/gcc_64/include/QtPrintSupport  -g   -fPIC -std=gnu++1z -o CMakeFiles/Editor.dir/Server.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/Server.cpp",
+  "file": "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/Editor/Server.cpp"
+}
+]
