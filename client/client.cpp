@@ -227,12 +227,18 @@ void Client::readResponse()
 			settStatusBar->showMessage(tr("Server error."), 3000);
 			uiSett->CurrentPasswordEdit->setReadOnly(false);
 			uiSett->NewPasswordEdit->setReadOnly(false);
+			uiSett->DeletePictureButton->setEnabled(true);
+			uiSett->ProfilePictureButton->setEnabled(true);
+			uiSett->UndoButton->setEnabled(true);
 		}
 		if (result == "wrongpass") {
 			QMessageBox::information(this, tr("PdS Server"), tr("The password is wrong.\nTry again."));
 			settStatusBar->showMessage(tr("Wrong password."), 3000);
 			uiSett->CurrentPasswordEdit->setReadOnly(false);
 			uiSett->NewPasswordEdit->setReadOnly(false);
+			uiSett->DeletePictureButton->setEnabled(true);
+			uiSett->ProfilePictureButton->setEnabled(true);
+			uiSett->UndoButton->setEnabled(true);
 		}
 	}
 }
@@ -659,11 +665,21 @@ void Client::openSettingsWindow() {
 		}
 	});
 	
-	connect(uiSett->ProfilePictureButton, &QPushButton::released, this, [this](){ uploadProfilePicture(uiSett->ProfilePicture, uiSett->DeletePictureButton); });
-	connect(uiSett->DeletePictureButton, &QPushButton::released, this, [this](){ deleteProfilePicture(uiSett->ProfilePicture, uiSett->DeletePictureButton); });
-	
+	connect(uiSett->UndoButton, &QPushButton::released, this, [this](){
+		uiSett->ProfilePicture->setPixmap(loggedUser->getPropic());
+		uiSett->UndoButton->setEnabled(false);
+		uiSett->DeletePictureButton->setEnabled(true);
+		SettWin->setFocus();
+	});
+	connect(uiSett->ProfilePictureButton, &QPushButton::released, this, [this](){
+		uploadProfilePicture(uiSett->ProfilePicture, uiSett->DeletePictureButton);
+		uiSett->UndoButton->setEnabled(true);
+	});
+	connect(uiSett->DeletePictureButton, &QPushButton::released, this, [this](){
+		deleteProfilePicture(uiSett->ProfilePicture, uiSett->DeletePictureButton);
+		uiSett->UndoButton->setEnabled(true);
+	});
 	connect(uiSett->UpdateButton, &QPushButton::released, this, &Client::requestUserUpdate);
-	
 	connect(SettWin, &QDialog::finished, this, [this](){ ChoiceWin->setVisible(true); });
 	
 	SettWin->show();
@@ -672,6 +688,9 @@ void Client::openSettingsWindow() {
 void Client::requestUserUpdate() {
 	uiSett->CurrentPasswordEdit->setReadOnly(true);
 	uiSett->NewPasswordEdit->setReadOnly(true);
+	uiSett->DeletePictureButton->setEnabled(false);
+	uiSett->ProfilePictureButton->setEnabled(false);
+	uiSett->UndoButton->setEnabled(false);
 	
 	settStatusBar->showMessage(tr("Checking password..."), 3000);
 	qDebug() << "Checking password...";
