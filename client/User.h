@@ -13,7 +13,7 @@
 
 class User {
 public:
-    User(QString username, QPixmap propic);
+    User(QString username, QPixmap propic, QString name, QString surname);
     virtual ~User();
 
     bool operator==(const User &rhs) const;
@@ -28,18 +28,28 @@ public:
 
     bool operator>=(const User &rhs) const;
 
-private:
-    QString username;
-public:
+    const QPixmap &getPropic() const;
+
     const QString &getUsername() const;
 
 private:
     //lo username è un identificativo univoco (username== non sono possibili)
     QPixmap propic;
+    QString username;
 public:
-    const QPixmap &getPropic() const;
-    //immagine del profilo
+    void setPropic(const QPixmap &propic);
 
+private:
+    QString name;
+    QString surname;
+public:
+    const QString &getName() const;
+
+    void setName(const QString &name);
+
+    const QString &getSurname() const;
+
+    void setSurname(const QString &surname);
 
 
 };

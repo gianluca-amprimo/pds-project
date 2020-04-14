@@ -129,7 +129,8 @@ void Client::readResponse()
 	        qDebug() << "Successful login.";
 	        setFileList(jSobject);
 	        //create the associated user
-	        User u(uiLog->UsernameEdit->text(),pixmapFrom(jSobject["propic"]));
+	        User u(uiLog->UsernameEdit->text(),pixmapFrom(jSobject["propic"]), jSobject["name"].toString(), jSobject["surname"].toString());
+	        qDebug()<<u.getName()<<" "<<u.getSurname();
 	        loggedUser=std::make_shared<User>(u);
             openFileChoiceWindow(false);
             this->close();
@@ -163,7 +164,8 @@ void Client::readResponse()
 	        /*QFile file(pathPictures + un + ".png");
 	        file.open(QIODevice::WriteOnly);
 	        uiReg->ProfilePicture->pixmap()->save(&file, "png", 100);*/
-            User u(uiReg->UsernameEdit->text(),pixmapFrom(jSobject["propic"]));
+            User u(uiReg->UsernameEdit->text(),pixmapFrom(jSobject["propic"]), jSobject["name"].toString(), jSobject["surname"].toString());
+
             loggedUser=std::make_shared<User>(u);
             setFileList(jSobject);
             openFileChoiceWindow(true);

@@ -14,16 +14,14 @@
   <component name="ChangeListManager">
     <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/User.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/User.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/User.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/db_operations.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/db_operations.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -48,6 +46,11 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="gianluca-amprimo &lt;54496761+gianluca-amprimo@users.noreply.github.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
     <option name="UPDATE_TYPE" value="MERGE" />
   </component>
@@ -65,7 +68,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -75,18 +78,6 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="CMake Application.client">
     <configuration name="client" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="client" TARGET_NAME="client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="client" RUN_TARGET_NAME="client">
@@ -137,9 +128,17 @@
       <workItem from="1586274052822" duration="10346000" />
       <workItem from="1586339890554" duration="10615000" />
       <workItem from="1586432410981" duration="8799000" />
-      <workItem from="1586553670858" duration="6338000" />
-      <workItem from="1586598351955" duration="2009000" />
+      <workItem from="1586600680219" duration="599000" />
+      <workItem from="1586855805273" duration="1484000" />
     </task>
+    <task id="LOCAL-00001" summary="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic.">
+      <created>1586537560396</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1586537560396</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -158,39 +157,55 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic." />
+    <option name="LAST_COMMIT_MESSAGE" value="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic." />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="721" y="203" width="468" height="721" key="#com.intellij.ide.util.MemberChooser" timestamp="1586515373856">
+    <state x="721" y="203" width="468" height="721" key="#com.intellij.ide.util.MemberChooser" timestamp="1586856117485">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="721" y="203" width="468" height="721" key="#com.intellij.ide.util.MemberChooser/0.31.1920.1049@0.31.1920.1049" timestamp="1586515373856" />
-    <state width="917" height="141" key="GridCell.Tab.0.bottom" timestamp="1586537404360">
+    <state x="721" y="203" width="468" height="721" key="#com.intellij.ide.util.MemberChooser/0.31.1920.1049@0.31.1920.1049" timestamp="1586856117485" />
+    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2" timestamp="1586537560095">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1586537404360" />
-    <state width="917" height="141" key="GridCell.Tab.0.center" timestamp="1586537404360">
+    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2/0.31.1920.1049@0.31.1920.1049" timestamp="1586537560095" />
+    <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl" timestamp="1586856303952">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1586537404360" />
-    <state width="917" height="141" key="GridCell.Tab.0.left" timestamp="1586537404359">
+    <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1586856303952" />
+    <state width="917" height="141" key="GridCell.Tab.0.bottom" timestamp="1586857459638">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1586537404359" />
-    <state width="917" height="141" key="GridCell.Tab.0.right" timestamp="1586537404360">
+    <state width="917" height="141" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
+    <state width="917" height="141" key="GridCell.Tab.0.center" timestamp="1586857459638">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1586537404360" />
+    <state width="917" height="141" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
+    <state width="917" height="141" key="GridCell.Tab.0.left" timestamp="1586857459638">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state width="917" height="141" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
+    <state width="917" height="141" key="GridCell.Tab.0.right" timestamp="1586857459638">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state width="917" height="141" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
     <state x="679" y="31" width="551" height="1049" key="RollbackChangesDialog" timestamp="1586270377494">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="679" y="31" width="551" height="1049" key="RollbackChangesDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1586270377494" />
-    <state x="512" y="335" key="com.intellij.ide.util.TipDialog" timestamp="1586253029594">
+    <state x="455" y="222" width="1000" height="682" key="Vcs.Push.Dialog.v2" timestamp="1586537564664">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="512" y="335" key="com.intellij.ide.util.TipDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1586253029594" />
-    <state x="653" y="440" width="604" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586253033381">
+    <state x="455" y="222" width="1000" height="682" key="Vcs.Push.Dialog.v2/0.31.1920.1049@0.31.1920.1049" timestamp="1586537564664" />
+    <state x="512" y="335" key="com.intellij.ide.util.TipDialog" timestamp="1586855817154">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="653" y="440" width="604" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1920.1049@0.31.1920.1049" timestamp="1586253033381" />
+    <state x="512" y="335" key="com.intellij.ide.util.TipDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1586855817154" />
+    <state x="653" y="440" width="604" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586855845394">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="653" y="440" width="604" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1920.1049@0.31.1920.1049" timestamp="1586855845394" />
     <state x="539" y="30" key="search.everywhere.popup" timestamp="1586270473947">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>

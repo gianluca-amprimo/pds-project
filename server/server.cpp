@@ -350,8 +350,14 @@ QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std:
     int ret = readFiles();
     //TODO: if is not possible to read files do something
     QJsonObject message;
+    std::tuple<std::string, std::string> personalInfo=getPersonalInfo(username);
+    if(std::get<0>(personalInfo)=="db_error"){
+        //TODO: problem in reading the credential send an error message to client and exit from function
+    }
     message["header"] = header;
     message["body"] = result;
+    message["name"]=QString::fromStdString((std::get<0>(personalInfo)));
+    message["surname"]=QString::fromStdString((std::get<1>(personalInfo)));
     std::string url("../Pictures/"+username+".png");
     QPixmap img(QString::fromStdString(url));
     message["propic"]=jsonValFromPixmap(img);

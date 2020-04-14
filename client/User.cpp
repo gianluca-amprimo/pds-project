@@ -4,7 +4,7 @@
 
 #include "User.h"
 
-User::User(QString username, QPixmap propic): username(username), propic(propic) {} //TODO: Insert info about user propic coming from db
+User::User(QString username, QPixmap propic, QString name, QString surname): username(username), propic(propic), name(name), surname(surname){} //TODO: Insert info about user propic coming from db
 
 User::~User() {
 
@@ -39,4 +39,24 @@ const QString &User::getUsername() const {
 
 const QPixmap &User::getPropic() const {
     return propic;
+}
+
+const QString &User::getName() const {
+    return name;
+}
+
+void User::setName(const QString &name) {
+    User::name = name;
+}
+
+const QString &User::getSurname() const {
+    return surname;
+}
+
+void User::setSurname(const QString &surname) {
+    User::surname = surname;
+}
+
+void User::setPropic(const QPixmap &propic) {
+    User::propic = propic;
 }
