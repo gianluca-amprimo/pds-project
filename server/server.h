@@ -29,6 +29,7 @@ private slots:
     bool checkUser(QJsonObject&, QTcpSocket*);
     bool registerUser(QJsonObject&, QTcpSocket*);
     bool cancelUser(QJsonObject&, QTcpSocket*);
+    bool updateUser(QJsonObject&, QTcpSocket*);
     void getConnectedSocket();
 private:
     void printConsole(std::string &&msg, bool err = false);

@@ -9,6 +9,7 @@
 #include "ui_server.h"
 #include "db_operations.h"
 
+static QString picturePath("../Pictures/");
 
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
@@ -140,6 +141,8 @@ void Server::processUserRequest() {
         opResult = Server::registerUser(jSobject, active_socket);
     if (header == "canc")
         opResult = Server::cancelUser(jSobject, active_socket);
+    if (header == "upd")
+    	opResult = Server::updateUser(jSobject, active_socket);
     qDebug() << opResult;
 
 }
@@ -258,7 +261,7 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
         temp.push_back(active_socket);
         activeUsers[u] = temp;
         //save the propic chosen by the user using its username as username.png
-        QFile file("../Pictures/" + QString::fromStdString(username) + ".png");
+        QFile file(picturePath + QString::fromStdString(username) + ".png");
         file.open(QIODevice::WriteOnly);
         propic.save(&file, "png", 100);
     }
@@ -307,11 +310,11 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     QString cancResult;
     //TODO: controlla che lo user non sia cosi balengo da cercare di
     // cancellare il suo account mentre è connesso su un altro client aperto
-    //TODO:rimuovi la sua foto profilo dal file system
-    //std::cout << username << " " << password << std::endl;
     int queryResult = deleteUser(username, password);
     if (queryResult == 1) {
         cancResult = "ok";
+        QFile file(picturePath + QString::fromStdString(username) + ".png");
+        file.remove();
     }
     if (queryResult == -1)
         cancResult = "fail";
@@ -358,7 +361,7 @@ QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std:
     message["body"] = result;
     message["name"]=QString::fromStdString((std::get<0>(personalInfo)));
     message["surname"]=QString::fromStdString((std::get<1>(personalInfo)));
-    std::string url("../Pictures/"+username+".png");
+    std::string url(picturePath.toStdString() + username + ".png");
     QPixmap img(QString::fromStdString(url));
     message["propic"]=jsonValFromPixmap(img);
     QJsonArray fileList;
@@ -389,4 +392,70 @@ QPixmap Server::pixmapFrom(const QJsonValue &val) {
     QPixmap p;
     p.loadFromData(QByteArray::fromBase64(encoded), "PNG");
     return p;
+}
+
+bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
+	// divide the string username_password_name_surname in  separate string
+	std::string username = data["username"].toString().toStdString();
+	std::string password = data["password"].toString().toStdString();
+	std::string newpassword = data["newpassword"].toString().toStdString();
+	QPixmap propic=pixmapFrom(data["propic"]);
+	
+	QString updateResult;
+	if (newpassword != "") {
+		// update the password
+		int queryResult = changePassword(username, password, newpassword);
+		if (queryResult == 1) {
+			updateResult = "ok";
+			
+			// save the propic chosen by the user using its username as username.png
+			QFile file(picturePath + QString::fromStdString(username) + ".png");
+			file.open(QIODevice::WriteOnly);
+			propic.save(&file, "png", 100);
+		}
+		if (queryResult == -1)
+			updateResult = "fail";
+		if (queryResult == 0)
+			updateResult = "wrongpass";
+	} else {
+		int queryResult = checkCredentials(username, password);
+		if (queryResult == 1) {
+			updateResult = "ok";
+			
+			// save the propic chosen by the user using its username as username.png
+			QFile file(picturePath + QString::fromStdString(username) + ".png");
+			file.open(QIODevice::WriteOnly);
+			propic.save(&file, "png", 100);
+		}
+		if (queryResult == -1)
+			updateResult = "fail";
+		if (queryResult == 0)
+			updateResult = "wrongpass";
+	}
+	
+	if (active_socket != nullptr) {
+		if (!active_socket->isValid()) {
+			printConsole("Socket TCP non valida", true);
+			return false;
+		}
+		if (!active_socket->isOpen()) {
+			printConsole("Socket TCP non aperta", true);
+			return false;
+		}
+		
+		QByteArray block;
+		QDataStream out(&block, QIODevice::WriteOnly);
+		out.setVersion(QDataStream::Qt_4_0);
+		QJsonObject message;
+		message = prepareJsonWithFileList("upd", updateResult, username);
+		printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+		             message["body"].toString().toStdString());
+		// send the JSON using QDataStream
+		out << QJsonDocument(message).toJson();
+		if (!active_socket->write(block)) {
+			printConsole("Impossibile rispondere al client", true);
+		}
+		active_socket->flush();
+	}
+	return true;
 }

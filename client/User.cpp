@@ -4,7 +4,7 @@
 
 #include "User.h"
 
-User::User(QString username, QPixmap propic, QString name, QString surname): username(username), propic(propic), name(name), surname(surname){} //TODO: Insert info about user propic coming from db
+User::User(QString username, QPixmap propic, QString name, QString surname): username(username), propic(propic), name(name), surname(surname) {}
 
 User::~User() {
 

@@ -10,6 +10,8 @@
 #include <memory>
 #include "User.h"
 #include <QToolButton>
+#include <QLabel>
+#include <QLineEdit>
 
 QT_BEGIN_NAMESPACE
 class QTcpSocket;
@@ -19,6 +21,7 @@ namespace Ui {
 	class RegistrationWindow;
 	class CancellationWindow;
 	class FileChoiceWindow;
+	class SettingsWindow;
 }
 QT_END_NAMESPACE
 
@@ -35,18 +38,10 @@ private slots:
     void enableLogButton();
     void sessionOpened();
     void sendCredentials();
-    void pressLogPasswordButton();
-    void releaseLogPasswordButton();
-	void pressRegPasswordButton();
-	void releaseRegPasswordButton();
-	void pressRegRepeatPasswordButton();
-	void releaseRegRepeatPasswordButton();
-	void pressCancPasswordButton();
-	void releaseCancPasswordButton();
-
+	
     void openRegistrationWindow();
-	void uploadProfilePicture();
-	void deleteProfilePicture();
+	void uploadProfilePicture(QLabel *label, QPushButton *deleteButton);
+	void deleteProfilePicture(QLabel* label, QPushButton *deleteButton);
     void enableRegButton();
     void requestRegistration();
     void reactivateLoginWindow();
@@ -59,6 +54,12 @@ private slots:
     void openNewFile();
     void openExistingFile();
     bool eventFilter(QObject *object, QEvent *event);
+    
+    void openSettingsWindow();
+    void requestUserUpdate();
+    
+    void pressPasswordButton(QLineEdit *lineEdit);
+	void releasePasswordButton(QLineEdit *lineEdit);
 
 private:
     QTcpSocket *tcpSocket = nullptr;
@@ -93,6 +94,14 @@ private:
 	
 	QDialog *ChoiceWin;
 	Ui::FileChoiceWindow *uiChoice;
+	
+	QDialog *SettWin;
+	Ui::SettingsWindow *uiSett;
+	QStatusBar *settStatusBar;
+	QToolButton *settCurrentPasswordButton;
+	QAction *settHideCurrentPassword;
+	QToolButton *settNewPasswordButton;
+	QAction *settHideNewPassword;
 };
 
 #endif
