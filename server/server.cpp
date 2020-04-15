@@ -150,12 +150,12 @@ void Server::processUserRequest() {
 void Server::getConnectedSocket() {
     //accetta la connessione al socket e prendi il socket connesso
     auto active_socket = tcpServer->nextPendingConnection();
-    int id = active_socket->socketDescriptor();
-    //inserisci il socket nella hashmap dei socket attivi usando id del socket
-    active_sockets.insert({id, active_socket});
+    //inserisci il socket nella lista dei socket attivi
+    //active_sockets.push_back(active_socket);
     connect(active_socket, &QIODevice::readyRead, this, &Server::processUserRequest);
-    connect(active_socket, &QAbstractSocket::disconnected, active_socket, &QObject::deleteLater);
     connect(active_socket, &QAbstractSocket::disconnected, this, &Server::handleDisconnect);
+
+
 }
 
 void Server::printConsole(std::string &&msg, bool err) {
@@ -205,6 +205,18 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
             temp.push_back(active_socket);
             activeUsers[u] = temp;
         }
+        std::string user_list;
+        for (std::pair<User, std::list<QTcpSocket*>> element : activeUsers) {
+            // Accessing KEY from element
+            User u = element.first;
+            // Accessing VALUE from element.
+            std::string socket_list;
+            for(auto s: element.second){
+                socket_list+=std::to_string(s->socketDescriptor())+" ";
+            }
+            user_list+=u.getUsername().toStdString()+": "+socket_list+" ";
+        }
+        printConsole("List of active users and their socket: "+user_list);
 
     } else if (queryResult == 0)
         loginResult = "unreg";
@@ -375,6 +387,28 @@ QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std:
 
 void Server::handleDisconnect() {
     QTcpSocket *disconnected_socket = (QTcpSocket *) sender();
+    std::string currently_active;
+    std::string user_list;
+    for (std::pair<User, std::list<QTcpSocket*>> element : activeUsers) {
+        // Accessing KEY from element
+        User u = element.first;
+        // Accessing VALUE from element.
+        std::string socket_list;
+        for(auto s: element.second){
+            socket_list+=std::to_string(s->socketDescriptor())+" ";
+            if(s==disconnected_socket){
+                activeUsers[u].remove(s);
+                if (activeUsers[u].empty()){
+                    activeUsers.erase(u);
+                }
+            }
+        }
+
+        user_list+=u.getUsername().toStdString()+": "+socket_list+" ";
+    }
+    printConsole("List of active users and their socket: "+user_list);
+    disconnected_socket->deleteLater();
+
     //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
     // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
 }

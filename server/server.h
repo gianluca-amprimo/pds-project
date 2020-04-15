@@ -36,7 +36,7 @@ private:
     QJsonObject prepareJsonWithFileList(QString, QString, std::string);
     Ui::Server *ui;
     QTcpServer *tcpServer = nullptr;
-    std::map<int, QTcpSocket*>  active_sockets; //stores all the connected sockets with different clients
+    //std::list<QTcpSocket*>  active_sockets; //stores all the connected sockets with different clients, mi serve? Va aggiustata in caso
     QDataStream in;
     QNetworkSession *networkSession = nullptr;
     std::map<User, std::list<QTcpSocket*>> activeUsers; //map che contiene key-pair: utente-socket a lui associati (se runna due volte il cliente sono più di uno)

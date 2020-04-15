@@ -13,20 +13,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/settingswindow.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/User.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/moc_predefs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/include/ui_server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/include/ui_server.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/moc_predefs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.h" afterDir="false" />
@@ -77,7 +66,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../client2" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -87,18 +76,6 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="CMake Application.client">
     <configuration name="client" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="client" TARGET_NAME="client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="client" RUN_TARGET_NAME="client">
@@ -150,7 +127,8 @@
       <workItem from="1586339890554" duration="10615000" />
       <workItem from="1586432410981" duration="8799000" />
       <workItem from="1586600680219" duration="599000" />
-      <workItem from="1586855805273" duration="1484000" />
+      <workItem from="1586855805273" duration="1877000" />
+      <workItem from="1586942477440" duration="5514000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic.">
       <created>1586537560396</created>
@@ -159,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586537560396</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added c/s interaction for logged user personal information retrieval. Updated class User client side to hold also this information.">
+      <created>1586857681048</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1586857681048</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -180,45 +165,46 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic." />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic." />
+    <MESSAGE value="Added c/s interaction for logged user personal information retrieval. Updated class User client side to hold also this information." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added c/s interaction for logged user personal information retrieval. Updated class User client side to hold also this information." />
   </component>
   <component name="WindowStateProjectService">
     <state x="721" y="203" width="468" height="721" key="#com.intellij.ide.util.MemberChooser" timestamp="1586856117485">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="721" y="203" width="468" height="721" key="#com.intellij.ide.util.MemberChooser/0.31.1920.1049@0.31.1920.1049" timestamp="1586856117485" />
-    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2" timestamp="1586537560095">
+    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2" timestamp="1586857680811">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2/0.31.1920.1049@0.31.1920.1049" timestamp="1586537560095" />
-    <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl" timestamp="1586856303952">
+    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2/0.31.1920.1049@0.31.1920.1049" timestamp="1586857680811" />
+    <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl" timestamp="1586942973994">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1586856303952" />
-    <state width="917" height="141" key="GridCell.Tab.0.bottom" timestamp="1586857459638">
+    <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1586942973994" />
+    <state width="917" height="141" key="GridCell.Tab.0.bottom" timestamp="1586952503839">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
-    <state width="917" height="141" key="GridCell.Tab.0.center" timestamp="1586857459638">
+    <state width="917" height="141" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503839" />
+    <state width="917" height="141" key="GridCell.Tab.0.center" timestamp="1586952503838">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
-    <state width="917" height="141" key="GridCell.Tab.0.left" timestamp="1586857459638">
+    <state width="917" height="141" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503838" />
+    <state width="917" height="141" key="GridCell.Tab.0.left" timestamp="1586952503838">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
-    <state width="917" height="141" key="GridCell.Tab.0.right" timestamp="1586857459638">
+    <state width="917" height="141" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503838" />
+    <state width="917" height="141" key="GridCell.Tab.0.right" timestamp="1586952503839">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1586857459638" />
+    <state width="917" height="141" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503839" />
     <state x="679" y="31" width="551" height="1049" key="RollbackChangesDialog" timestamp="1586270377494">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="679" y="31" width="551" height="1049" key="RollbackChangesDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1586270377494" />
-    <state x="455" y="222" width="1000" height="682" key="Vcs.Push.Dialog.v2" timestamp="1586537564664">
+    <state x="455" y="222" width="1000" height="682" key="Vcs.Push.Dialog.v2" timestamp="1586857683266">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="455" y="222" width="1000" height="682" key="Vcs.Push.Dialog.v2/0.31.1920.1049@0.31.1920.1049" timestamp="1586537564664" />
+    <state x="455" y="222" width="1000" height="682" key="Vcs.Push.Dialog.v2/0.31.1920.1049@0.31.1920.1049" timestamp="1586857683266" />
     <state x="512" y="335" key="com.intellij.ide.util.TipDialog" timestamp="1586855817154">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
