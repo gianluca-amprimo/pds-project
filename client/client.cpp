@@ -348,6 +348,7 @@ void Client::openRegistrationWindow() {
 	regStatusBar = new QStatusBar(RegWin);
 	uiReg->verticalLayout->addWidget(regStatusBar);
 	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(100, 100, Qt::KeepAspectRatio));
+	uiReg->UsernameEdit->setText(uiLog->UsernameEdit->text());
 	
 	regHidePassword = uiReg->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
 	regPasswordButton = qobject_cast<QToolButton *>(regHidePassword->associatedWidgets().last());
@@ -472,6 +473,9 @@ void Client::reactivateLoginWindow() {
 	if (uiLog->CancellationLink->hasFocus()) {
 		uiLog->CancellationLink->clearFocus();
 	}
+	if (uiLog->UsernameEdit->hasFocus()) {
+		uiLog->UsernameEdit->clearFocus();
+	}
 	this->setVisible(true);
 }
 
@@ -582,6 +586,7 @@ void Client::openFileChoiceWindow(bool firstTime) {
 	connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
 	connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
 	connect(uiChoice->SettingsButton, &QPushButton::released, this, &Client::openSettingsWindow);
+	connect(uiChoice->LogoutButton, &QPushButton::released, this, &Client::requestLogout);
 	
 	ChoiceWin->show();
 }
@@ -601,6 +606,10 @@ void Client::openExistingFile() {
 	}
 	qDebug() << "Opening selected file...";
 	ChoiceWin->close();
+}
+
+void Client::requestLogout() {
+	qDebug() << "Requesting the logout...";
 }
 
 bool Client::eventFilter(QObject *object, QEvent *event) {

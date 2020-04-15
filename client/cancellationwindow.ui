@@ -71,10 +71,13 @@
         <bool>false</bool>
        </property>
        <property name="layoutDirection">
-        <enum>Qt::RightToLeft</enum>
+        <enum>Qt::LeftToRight</enum>
        </property>
        <property name="text">
         <string>Delete</string>
+       </property>
+       <property name="icon">
+        <iconset theme="dialog-ok"/>
        </property>
        <property name="default">
         <bool>true</bool>
