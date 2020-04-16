@@ -4,11 +4,12 @@
 
 #include "User.h"
 
-User::User(QString username): username(username) {} //TODO: Insert info about user propic coming from db
+User::User(QString username) : username(username) {} //TODO: Insert info about user propic coming from db
 
 User::~User() {
 
 }
+
 bool User::operator==(const User &rhs) const {
     return username == rhs.username;
 }

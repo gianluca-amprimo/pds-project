@@ -3,8 +3,6 @@
 #include <QtCore>
 
 #include <iostream>
-#include <time.h>
-#include <stdlib.h>
 
 #include "User.h"
 #include "server.h"
@@ -12,9 +10,12 @@
 #include "db_operations.h"
 
 static QString picturePath("../Pictures/");
-std::array<std::string, 10> colors {"white", "red", "green", "blue",
-                                    "cyan", "magenta", "yellow", "gray"};
+std::array<std::string, 10> colors{"white", "red", "green", "blue",
+                                   "cyan", "magenta", "yellow", "gray"};
 
+/*
+ * Constructor of the server
+ */
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
@@ -54,6 +55,7 @@ Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
 
     setWindowTitle(QGuiApplication::applicationDisplayName());
 }
+
 
 void Server::sessionOpened() {
     int port = 4848;
@@ -100,10 +102,15 @@ void Server::sessionOpened() {
                  QString::number(tcpServer->serverPort()).toStdString() + "</u>");
 }
 
+
 Server::~Server() {
     delete ui;
 }
 
+
+/*
+ * Function to process a user request
+ */
 void Server::processUserRequest() {
     QTcpSocket *active_socket = (QTcpSocket *) sender();
     in.setDevice(active_socket);
@@ -146,14 +153,16 @@ void Server::processUserRequest() {
     if (header == "canc")
         opResult = Server::cancelUser(jSobject, active_socket);
     if (header == "upd")
-    	opResult = Server::updateUser(jSobject, active_socket);
+        opResult = Server::updateUser(jSobject, active_socket);
     qDebug() << opResult;
 
 }
 
+
 void Server::getConnectedSocket() {
     //accetta la connessione al socket e prendi il socket connesso
     auto active_socket = tcpServer->nextPendingConnection();
+
     //inserisci il socket nella lista dei socket attivi
     //active_sockets.push_back(active_socket);
     connect(active_socket, &QIODevice::readyRead, this, &Server::processUserRequest);
@@ -161,6 +170,7 @@ void Server::getConnectedSocket() {
 
 
 }
+
 
 void Server::printConsole(std::string &&msg, bool err) {
     // Get the current time
@@ -180,6 +190,10 @@ void Server::printConsole(std::string &&msg, bool err) {
         ));
 }
 
+
+/*
+ * Function to check the user credentials and if they are log the user
+ */
 bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
     // divide the string username_password in two separate string
     std::string username = data["username"].toString().toStdString();
@@ -195,7 +209,8 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
         User u(un);
         auto it = activeUsers.begin();
         bool found = false;
-        while (it != activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
+        while (it !=
+               activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
             User user = it->first;
             if (user == u) {
                 found = true;
@@ -210,25 +225,23 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
             activeUsers[u] = temp;
 
             // assegna colore random allo user
-            srand(time(nullptr));
-            int randomColor = rand() % 7;
-            std::string userColor = colors[randomColor];
+            std::random_device rd;
+            std::string userColor = colors[rd() % 7];
             std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
             userColorMap.insert(userColorPair);
         }
 
         std::string user_list;
-        for (std::pair<User, std::list<QTcpSocket*>> element : activeUsers) {
-            // Accessing KEY from element
-            User u = element.first;
-            // Accessing VALUE from element.
-            std::string socket_list;
-            for(auto s: element.second){
-                socket_list+=std::to_string(s->socketDescriptor())+" ";
+        for (std::pair<User, std::list<QTcpSocket *>> element : activeUsers) {
+            User u = element.first;     // Accessing KEY from element
+            std::string socket_list;    // Accessing VALUE from element
+
+            for (auto s: element.second) {
+                socket_list += std::to_string(s->socketDescriptor()) + " ";
             }
-            user_list+=u.getUsername().toStdString()+": "+socket_list+" ";
+            user_list += u.getUsername().toStdString() + ": " + socket_list + " ";
         }
-        printConsole("List of active users and their socket: "+user_list);
+        printConsole("List of active users and their socket: " + user_list);
 
     } else if (queryResult == 0)
         loginResult = "unreg";
@@ -254,6 +267,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
         message = prepareJsonWithFileList("log", loginResult, username);
         printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                      message["body"].toString().toStdString());
+
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
         if (!active_socket->write(block)) {
@@ -264,13 +278,21 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
     return true;
 }
 
+
+/*
+ * Function to register a new user
+ *
+ * Returns
+ *      true if the user was added correctly
+ *      false if something went wrong
+ */
 bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
     // divide the string username_password_name_surname in  separate string
     std::string username = data["username"].toString().toStdString();
     std::string password = data["password"].toString().toStdString();
     std::string name = data["name"].toString().toStdString();
     std::string surname = data["surname"].toString().toStdString();
-    QPixmap propic=pixmapFrom(data["propic"]);
+    QPixmap propic = pixmapFrom(data["propic"]);
 
     // load data in the DB and create the associated user if insertion works
     QString registrationResult;
@@ -279,18 +301,20 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
         registrationResult = "ok";
         QString un = QString::fromStdString(username);
         User u(un);
-        //inserisci l'utente nella lista di quelli attualmente connessi
+
+        // inserisci l'utente nella lista di quelli attualmente connessi
         std::list<QTcpSocket *> temp;
         temp.push_back(active_socket);
         activeUsers[u] = temp;
-        //save the propic chosen by the user using its username as username.png
+
+        // save the propic chosen by the user using its username as username.png
         QFile file(picturePath + QString::fromStdString(username) + ".png");
         file.open(QIODevice::WriteOnly);
         propic.save(&file, "png", 100);
+
         // assegna colore random allo user
-        srand(time(nullptr));
-        int randomColor = rand() % 7;
-        std::string userColor = colors[randomColor];
+        std::random_device rd;
+        std::string userColor = colors[rd() % 7];
         std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
         userColorMap.insert(userColorPair);
     }
@@ -313,11 +337,12 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
-        //message["header"] = "reg";
-        //message["body"] = registrationResult;
+        // message["header"] = "reg";
+        // message["body"] = registrationResult;
         message = prepareJsonWithFileList("reg", registrationResult, username);
         printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                      message["body"].toString().toStdString());
+
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
         if (!active_socket->write(block)) {
@@ -328,6 +353,14 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
     return true;
 }
 
+
+/*
+ * Function to delete an existing user
+ *
+ * Returns:
+ *      true if the user was cancelled correctly
+ *      false if something went wrong
+ */
 bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // divide the string username_password_name_surname in  separate string
@@ -368,6 +401,7 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
         message["body"] = cancResult;
         printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                      message["body"].toString().toStdString());
+
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
         if (!active_socket->write(block)) {
@@ -378,21 +412,28 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     return true;
 }
 
+
+/*
+ * Function to prepare the json to send to the user
+ */
 QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std::string username) {
     int ret = readFiles();
     // TODO: if is not possible to read files do something
     QJsonObject message;
-    std::tuple<std::string, std::string> personalInfo=getPersonalInfo(username);
-    if(std::get<0>(personalInfo)=="db_error"){
+    std::tuple<std::string, std::string> personalInfo = getPersonalInfo(username);
+    if (std::get<0>(personalInfo) == "db_error") {
         // TODO: problem in reading the credential send an error message to client and exit from function
     }
+
     message["header"] = header;
     message["body"] = result;
-    message["name"]=QString::fromStdString((std::get<0>(personalInfo)));
-    message["surname"]=QString::fromStdString((std::get<1>(personalInfo)));
+    message["name"] = QString::fromStdString((std::get<0>(personalInfo)));
+    message["surname"] = QString::fromStdString((std::get<1>(personalInfo)));
+
     std::string url(picturePath.toStdString() + username + ".png");
     QPixmap img(QString::fromStdString(url));
-    message["propic"]=jsonValFromPixmap(img);
+    message["propic"] = jsonValFromPixmap(img);
+
     QJsonArray fileList;
     auto it = file_list.begin();
     for (auto t: file_list) {
@@ -402,20 +443,23 @@ QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std:
     return message;
 }
 
+
+/*
+ * Function to disconnect the user
+ */
 void Server::handleDisconnect() {
     QTcpSocket *disconnected_socket = (QTcpSocket *) sender();
     std::string currently_active;
     std::string user_list;
-    for (std::pair<User, std::list<QTcpSocket*>> element : activeUsers) {
-        // Accessing KEY from element
-        User u = element.first;
-        // Accessing VALUE from element.
-        std::string socket_list;
-        for(auto s: element.second){
-            socket_list+=std::to_string(s->socketDescriptor())+" ";
-            if(s==disconnected_socket){
+    for (std::pair<User, std::list<QTcpSocket *>> element : activeUsers) {
+        User u = element.first;     // Accessing KEY from element
+        std::string socket_list;    // Accessing VALUE from element
+
+        for (auto s: element.second) {
+            socket_list += std::to_string(s->socketDescriptor()) + " ";
+            if (s == disconnected_socket) {
                 activeUsers[u].remove(s);
-                if (activeUsers[u].empty()){
+                if (activeUsers[u].empty()) {
                     // rimuovi user da mappa user colore
                     userColorMap.erase(u);
                     activeUsers.erase(u);
@@ -423,14 +467,15 @@ void Server::handleDisconnect() {
             }
         }
 
-        user_list+=u.getUsername().toStdString()+": "+socket_list+" ";
+        user_list += u.getUsername().toStdString() + ": " + socket_list + " ";
     }
-    printConsole("List of active users and their socket: "+user_list);
+    printConsole("List of active users and their socket: " + user_list);
     disconnected_socket->deleteLater();
 
     //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
     // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
 }
+
 
 QJsonValue Server::jsonValFromPixmap(const QPixmap &p) {
     QBuffer buffer;
@@ -440,6 +485,7 @@ QJsonValue Server::jsonValFromPixmap(const QPixmap &p) {
     return {QLatin1String(encoded)};
 }
 
+
 QPixmap Server::pixmapFrom(const QJsonValue &val) {
     auto const encoded = val.toString().toLatin1();
     QPixmap p;
@@ -447,68 +493,73 @@ QPixmap Server::pixmapFrom(const QJsonValue &val) {
     return p;
 }
 
+
+/*
+ * Function to update the password of the user
+ */
 bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
-	// divide the string username_password_name_surname in  separate string
-	std::string username = data["username"].toString().toStdString();
-	std::string password = data["password"].toString().toStdString();
-	std::string newpassword = data["newpassword"].toString().toStdString();
-	QPixmap propic=pixmapFrom(data["propic"]);
-	
-	QString updateResult;
-	if (newpassword != "") {
-		// update the password
-		int queryResult = changePassword(username, password, newpassword);
-		if (queryResult == 1) {
-			updateResult = "ok";
-			
-			// save the propic chosen by the user using its username as username.png
-			QFile file(picturePath + QString::fromStdString(username) + ".png");
-			file.open(QIODevice::WriteOnly);
-			propic.save(&file, "png", 100);
-		}
-		if (queryResult == -1)
-			updateResult = "fail";
-		if (queryResult == 0)
-			updateResult = "wrongpass";
-	} else {
-		int queryResult = checkCredentials(username, password);
-		if (queryResult == 1) {
-			updateResult = "ok";
-			
-			// save the propic chosen by the user using its username as username.png
-			QFile file(picturePath + QString::fromStdString(username) + ".png");
-			file.open(QIODevice::WriteOnly);
-			propic.save(&file, "png", 100);
-		}
-		if (queryResult == -1)
-			updateResult = "fail";
-		if (queryResult == 0)
-			updateResult = "wrongpass";
-	}
-	
-	if (active_socket != nullptr) {
-		if (!active_socket->isValid()) {
-			printConsole("Socket TCP non valida", true);
-			return false;
-		}
-		if (!active_socket->isOpen()) {
-			printConsole("Socket TCP non aperta", true);
-			return false;
-		}
-		
-		QByteArray block;
-		QDataStream out(&block, QIODevice::WriteOnly);
-		out.setVersion(QDataStream::Qt_4_0);
-		QJsonObject message;
-		message = prepareJsonWithFileList("upd", updateResult, username);
-		printConsole("Sending back " + message["header"].toString().toStdString() + " " +
-		             message["body"].toString().toStdString());
-		// send the JSON using QDataStream
-		out << QJsonDocument(message).toJson();
-		if (!active_socket->write(block)) {
-			printConsole("Impossibile rispondere al client", true);
-		}
-		active_socket->flush();
-	}
-	return true;
+    // divide the string username_password_name_surname in  separate string
+    std::string username = data["username"].toString().toStdString();
+    std::string password = data["password"].toString().toStdString();
+    std::string newpassword = data["newpassword"].toString().toStdString();
+    QPixmap propic = pixmapFrom(data["propic"]);
+
+    QString updateResult;
+    if (newpassword != "") {
+        // update the password
+        int queryResult = changePassword(username, password, newpassword);
+        if (queryResult == 1) {
+            updateResult = "ok";
+
+            // save the propic chosen by the user using its username as username.png
+            QFile file(picturePath + QString::fromStdString(username) + ".png");
+            file.open(QIODevice::WriteOnly);
+            propic.save(&file, "png", 100);
+        }
+        if (queryResult == -1)
+            updateResult = "fail";
+        if (queryResult == 0)
+            updateResult = "wrongpass";
+    } else {
+        int queryResult = checkCredentials(username, password);
+        if (queryResult == 1) {
+            updateResult = "ok";
+
+            // save the propic chosen by the user using its username as username.png
+            QFile file(picturePath + QString::fromStdString(username) + ".png");
+            file.open(QIODevice::WriteOnly);
+            propic.save(&file, "png", 100);
+        }
+        if (queryResult == -1)
+            updateResult = "fail";
+        if (queryResult == 0)
+            updateResult = "wrongpass";
+    }
+
+    if (active_socket != nullptr) {
+        if (!active_socket->isValid()) {
+            printConsole("Socket TCP non valida", true);
+            return false;
+        }
+        if (!active_socket->isOpen()) {
+            printConsole("Socket TCP non aperta", true);
+            return false;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        QJsonObject message;
+        message = prepareJsonWithFileList("upd", updateResult, username);
+        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                     message["body"].toString().toStdString());
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+        if (!active_socket->write(block)) {
+            printConsole("Impossibile rispondere al client", true);
+        }
+        active_socket->flush();
+    }
+    return true;
 }
