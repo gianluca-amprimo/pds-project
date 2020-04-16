@@ -4,7 +4,7 @@
 
 #include "User.h"
 
-User::User(QString username) : username(username) {} //TODO: Insert info about user propic coming from db
+User::User(QString username) : username(username) {}
 
 User::~User() {
 

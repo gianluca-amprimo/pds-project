@@ -14,16 +14,17 @@
 //static QString pathPictures("../../server/Pictures/");
 static QString defaultPicture("../Icons/___default_img.png");
 
-Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)), uiLog(new Ui::LoginWindow)
+Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this))//, uiLog(new Ui::LoginWindow)
 {
+	uiLog = std::make_shared<Ui::LoginWindow> ();
     uiLog->setupUi(this);
-    logStatusBar = new QStatusBar(this);
-    uiLog->verticalLayout->addWidget(logStatusBar);
+    logStatusBar = std::make_shared<QStatusBar> (this);
+    uiLog->verticalLayout->addWidget(logStatusBar.get());
 	uiLog->RegistrationLink->setText("<a href=\"whatever\">Click here to register</a>");
 	uiLog->CancellationLink->setText("<a href=\"whatever\">Click here to cancel your account</a>");
 	
-	logHidePassword = uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
-	logPasswordButton = qobject_cast<QToolButton *>(logHidePassword->associatedWidgets().last());
+	logHidePassword =uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	logPasswordButton =qobject_cast<QToolButton *>(logHidePassword->associatedWidgets().last());
 	logPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(logPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiLog->PasswordEdit); });
 	connect(logPasswordButton, &QToolButton::released, this, [this](){ releasePasswordButton(uiLog->PasswordEdit); });
@@ -146,6 +147,8 @@ void Client::readResponse()
             uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
             uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
             uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
+	        QWidget::setTabOrder(uiLog->UsernameEdit, uiLog->PasswordEdit);
+	        QWidget::setTabOrder(uiLog->PasswordEdit, uiLog->LoginButton);
         }
         if (result=="fail") {
             QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
@@ -157,6 +160,8 @@ void Client::readResponse()
             uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
             uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
             uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
+	        QWidget::setTabOrder(uiLog->UsernameEdit, uiLog->PasswordEdit);
+	        QWidget::setTabOrder(uiLog->PasswordEdit, uiLog->LoginButton);
         }
     }
     
@@ -253,7 +258,7 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
 	uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
 	uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
 	uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
-	logStatusBar->showMessage("");
+	logStatusBar->clearMessage();
 	
     switch (socketError) {
         case QAbstractSocket::RemoteHostClosedError:
@@ -343,11 +348,11 @@ void Client::sendCredentials() {
 void Client::openRegistrationWindow() {
 	this->setVisible(false);
 	
-	uiReg = new Ui::RegistrationWindow;
-	RegWin = new QDialog;
-	uiReg->setupUi(RegWin);
-	regStatusBar = new QStatusBar(RegWin);
-	uiReg->verticalLayout->addWidget(regStatusBar);
+	uiReg = std::make_shared<Ui::RegistrationWindow> ();
+	RegWin = std::make_shared<QDialog> ();
+	uiReg->setupUi(RegWin.get());
+	regStatusBar = std::make_shared<QStatusBar> (RegWin.get());
+	uiReg->verticalLayout->addWidget(regStatusBar.get());
 	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(100, 100, Qt::KeepAspectRatio));
 	uiReg->UsernameEdit->setText(uiLog->UsernameEdit->text());
 	
@@ -371,7 +376,7 @@ void Client::openRegistrationWindow() {
 	connect(uiReg->RegisterButton, &QPushButton::released, this, &Client::requestRegistration);
 	connect(uiReg->ProfilePictureButton, &QPushButton::released, this, [this](){ uploadProfilePicture(uiReg->ProfilePicture, uiReg->DeletePictureButton); });
 	connect(uiReg->DeletePictureButton, &QPushButton::released, this, [this](){ deleteProfilePicture(uiReg->ProfilePicture, uiReg->DeletePictureButton); });
-	connect(RegWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
+	connect(RegWin.get(), &QDialog::finished, this, &Client::reactivateLoginWindow);
 	
     RegWin->show();
 }
@@ -420,7 +425,7 @@ void Client::enableRegButton() {
 			regStatusBar->showMessage(tr("The two passwords do not coincide!"));
 		}
 	} else {
-		regStatusBar->showMessage(tr(""));
+		regStatusBar->clearMessage();
 	}
 }
 
@@ -468,26 +473,22 @@ void Client::requestRegistration() {
 
 void Client::reactivateLoginWindow() {
 	uiLog->LoginButton->setEnabled(!(uiLog->UsernameEdit->text().isEmpty() | uiLog->PasswordEdit->text().isEmpty()));
-	if (uiLog->RegistrationLink->hasFocus()) {
-		uiLog->RegistrationLink->clearFocus();
-	}
-	if (uiLog->CancellationLink->hasFocus()) {
-		uiLog->CancellationLink->clearFocus();
-	}
-	if (uiLog->UsernameEdit->hasFocus()) {
-		uiLog->UsernameEdit->clearFocus();
-	}
+	uiLog->RegistrationLink->clearFocus();
+	uiLog->CancellationLink->clearFocus();
+	QWidget::setTabOrder(uiLog->UsernameEdit, uiLog->PasswordEdit);
+	QWidget::setTabOrder(uiLog->PasswordEdit, uiLog->LoginButton);
+	uiLog->UsernameEdit->setFocus();
 	this->setVisible(true);
 }
 
 void Client::openCancellationWindow() {
 	this->setVisible(false);
 	
-	uiCanc = new Ui::CancellationWindow;
-	CancWin = new QDialog;
-	uiCanc->setupUi(CancWin);
-	cancStatusBar = new QStatusBar(CancWin);
-	uiCanc->verticalLayout->addWidget(cancStatusBar);
+	uiCanc = std::make_shared<Ui::CancellationWindow> ();
+	CancWin = std::make_shared<QDialog> ();
+	uiCanc->setupUi(CancWin.get());
+	cancStatusBar = std::make_shared<QStatusBar> (CancWin.get());
+	uiCanc->verticalLayout->addWidget(cancStatusBar.get());
 	
 	cancHidePassword = uiCanc->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
 	cancPasswordButton = qobject_cast<QToolButton *>(cancHidePassword->associatedWidgets().last());
@@ -498,7 +499,7 @@ void Client::openCancellationWindow() {
 	connect(uiCanc->UsernameEdit, &QLineEdit::textChanged, this, &Client::enableDelButton);
 	connect(uiCanc->PasswordEdit, &QLineEdit::textChanged, this, &Client::enableDelButton);
 	connect(uiCanc->DeleteButton, &QPushButton::released, this, &Client::requestDeletion);
-	connect(CancWin, &QDialog::finished, this, &Client::reactivateLoginWindow);
+	connect(CancWin.get(), &QDialog::finished, this, &Client::reactivateLoginWindow);
 	
 	CancWin->show();
 }
@@ -548,9 +549,9 @@ void Client::requestDeletion() {
 }
 
 void Client::openFileChoiceWindow(bool firstTime) {
-	uiChoice = new Ui::FileChoiceWindow;
-	ChoiceWin = new QDialog;
-	uiChoice->setupUi(ChoiceWin);
+	uiChoice = std::make_shared<Ui::FileChoiceWindow> ();
+	ChoiceWin = std::make_shared<QDialog> ();
+	uiChoice->setupUi(ChoiceWin.get());
 	uiChoice->OpenMenu->completer()->setCompletionMode(QCompleter::PopupCompletion);
 	uiChoice->OpenMenu->completer()->setFilterMode(Qt::MatchContains);
 	uiChoice->OpenMenu->installEventFilter(this);
@@ -601,7 +602,7 @@ void Client::openNewFile() {
 void Client::openExistingFile() {
 	// TODO: aprire file selezionato
 	if (uiChoice->OpenMenu->findText(uiChoice->OpenMenu->currentText()) == -1) {
-		QMessageBox::information(ChoiceWin, tr("PdS Server"), tr("The file does not exist."), QMessageBox::Ok);
+		QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("The file does not exist."), QMessageBox::Ok);
 		qDebug() << "The file does not exist.";
 		return;
 	}
@@ -616,8 +617,17 @@ void Client::requestLogout() {
 
     //reopen the connection to allow another user to login
 	ChoiceWin->close();
+	logStatusBar->clearMessage();
+	uiLog->UsernameEdit->clear();
+	uiLog->PasswordEdit->clear();
+	uiLog->UsernameEdit->setReadOnly(false);
+	uiLog->PasswordEdit->setReadOnly(false);
+	uiLog->PasswordEdit->clearFocus();
+	uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+	uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+	uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
+	uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
 	reactivateLoginWindow();
-
 }
 
 bool Client::eventFilter(QObject *object, QEvent *event) {
@@ -652,11 +662,11 @@ QJsonValue Client::jsonValFromPixmap(const QPixmap &p) {
 void Client::openSettingsWindow() {
 	ChoiceWin->setVisible(false);
 	
-	uiSett = new Ui::SettingsWindow;
-	SettWin = new QDialog;
-	uiSett->setupUi(SettWin);
-	settStatusBar = new QStatusBar(SettWin);
-	uiSett->verticalLayout->addWidget(settStatusBar);
+	uiSett = std::make_shared<Ui::SettingsWindow> ();
+	SettWin = std::make_shared<QDialog> ();
+	uiSett->setupUi(SettWin.get());
+	settStatusBar = std::make_shared<QStatusBar> (SettWin.get());
+	uiSett->verticalLayout->addWidget(settStatusBar.get());
 	uiSett->ProfilePicture->setPixmap(loggedUser->getPropic().scaled(100, 100, Qt::KeepAspectRatio));
 	uiSett->NameEdit->setText(loggedUser->getName());
 	uiSett->SurnameEdit->setText(loggedUser->getSurname());
@@ -697,7 +707,7 @@ void Client::openSettingsWindow() {
 		uiSett->UndoButton->setEnabled(true);
 	});
 	connect(uiSett->UpdateButton, &QPushButton::released, this, &Client::requestUserUpdate);
-	connect(SettWin, &QDialog::finished, this, [this](){ ChoiceWin->setVisible(true); });
+	connect(SettWin.get(), &QDialog::finished, this, [this](){ ChoiceWin->setVisible(true); });
 	
 	SettWin->show();
 }

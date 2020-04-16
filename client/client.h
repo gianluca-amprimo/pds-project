@@ -72,33 +72,34 @@ private:
     QJsonValue jsonValFromPixmap(const QPixmap &p);
 	void setFileList(QJsonObject&);
 
-	Ui::LoginWindow *uiLog;
+	std::shared_ptr<Ui::LoginWindow> uiLog;
 	std::list<QString> avail_file;
-	QStatusBar *logStatusBar;
+	std::shared_ptr<QStatusBar> logStatusBar;
 	QToolButton *logPasswordButton;
 	QAction *logHidePassword;
 
 	std::shared_ptr<User> loggedUser;
-	QDialog *RegWin;
-	Ui::RegistrationWindow *uiReg;
-	QStatusBar *regStatusBar;
+	
+	std::shared_ptr<QDialog> RegWin;
+	std::shared_ptr<Ui::RegistrationWindow> uiReg;
+	std::shared_ptr<QStatusBar> regStatusBar;
 	QToolButton *regPasswordButton;
 	QAction *regHidePassword;
 	QToolButton *regRepeatPasswordButton;
 	QAction *regHideRepeatPassword;
 	
-	QDialog *CancWin;
-	Ui::CancellationWindow *uiCanc;
-	QStatusBar *cancStatusBar;
+	std::shared_ptr<QDialog> CancWin;
+	std::shared_ptr<Ui::CancellationWindow> uiCanc;
+	std::shared_ptr<QStatusBar> cancStatusBar;
 	QToolButton *cancPasswordButton;
 	QAction *cancHidePassword;
 	
-	QDialog *ChoiceWin;
-	Ui::FileChoiceWindow *uiChoice;
+	std::shared_ptr<QDialog> ChoiceWin;
+	std::shared_ptr<Ui::FileChoiceWindow> uiChoice;
 	
-	QDialog *SettWin;
-	Ui::SettingsWindow *uiSett;
-	QStatusBar *settStatusBar;
+	std::shared_ptr<QDialog> SettWin;
+	std::shared_ptr<Ui::SettingsWindow> uiSett;
+	std::shared_ptr<QStatusBar> settStatusBar;
 	QToolButton *settCurrentPasswordButton;
 	QAction *settHideCurrentPassword;
 	QToolButton *settNewPasswordButton;

@@ -8,7 +8,6 @@
 #include <sqlite3.h>
 
 // data structure for the files available on the server
-// TODO: mutual exclusion ?
 extern std::set<std::tuple<std::string, std::string>> file_list;
 
 // function to check credentials of the user
