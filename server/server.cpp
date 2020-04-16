@@ -1,8 +1,10 @@
 #include <QtWidgets>
 #include <QtNetwork>
 #include <QtCore>
+
 #include <iostream>
-#include <sstream>
+#include <time.h>
+#include <stdlib.h>
 
 #include "User.h"
 #include "server.h"
@@ -10,6 +12,8 @@
 #include "db_operations.h"
 
 static QString picturePath("../Pictures/");
+std::array<std::string, 10> colors {"white", "red", "green", "blue",
+                                    "cyan", "magenta", "yellow", "gray"};
 
 Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     ui->setupUi(this);
@@ -177,11 +181,11 @@ void Server::printConsole(std::string &&msg, bool err) {
 }
 
 bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
-
     // divide the string username_password in two separate string
     std::string username = data["username"].toString().toStdString();
     std::string password = data["password"].toString().toStdString();
     printConsole("Checking " + username + " " + password);
+
     // check the credentials
     QString loginResult;
     int queryResult = checkCredentials(username, password);
@@ -204,7 +208,15 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
             std::list<QTcpSocket *> temp;
             temp.push_back(active_socket);
             activeUsers[u] = temp;
+
+            // assegna colore random allo user
+            srand(time(nullptr));
+            int randomColor = rand() % 7;
+            std::string userColor = colors[randomColor];
+            std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
+            userColorMap.insert(userColorPair);
         }
+
         std::string user_list;
         for (std::pair<User, std::list<QTcpSocket*>> element : activeUsers) {
             // Accessing KEY from element
@@ -238,7 +250,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
         // message["header"] = "log";
-        //message["body"] = loginResult;
+        // message["body"] = loginResult;
         message = prepareJsonWithFileList("log", loginResult, username);
         printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                      message["body"].toString().toStdString());
@@ -253,7 +265,6 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
 }
 
 bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
-
     // divide the string username_password_name_surname in  separate string
     std::string username = data["username"].toString().toStdString();
     std::string password = data["password"].toString().toStdString();
@@ -276,6 +287,12 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
         QFile file(picturePath + QString::fromStdString(username) + ".png");
         file.open(QIODevice::WriteOnly);
         propic.save(&file, "png", 100);
+        // assegna colore random allo user
+        srand(time(nullptr));
+        int randomColor = rand() % 7;
+        std::string userColor = colors[randomColor];
+        std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
+        userColorMap.insert(userColorPair);
     }
     if (queryResult == -1)
         registrationResult = "fail";
@@ -363,11 +380,11 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
 
 QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std::string username) {
     int ret = readFiles();
-    //TODO: if is not possible to read files do something
+    // TODO: if is not possible to read files do something
     QJsonObject message;
     std::tuple<std::string, std::string> personalInfo=getPersonalInfo(username);
     if(std::get<0>(personalInfo)=="db_error"){
-        //TODO: problem in reading the credential send an error message to client and exit from function
+        // TODO: problem in reading the credential send an error message to client and exit from function
     }
     message["header"] = header;
     message["body"] = result;
@@ -399,6 +416,8 @@ void Server::handleDisconnect() {
             if(s==disconnected_socket){
                 activeUsers[u].remove(s);
                 if (activeUsers[u].empty()){
+                    // rimuovi user da mappa user colore
+                    userColorMap.erase(u);
                     activeUsers.erase(u);
                 }
             }

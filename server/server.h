@@ -6,8 +6,11 @@
 #include <QDialog>
 #include <QString>
 #include <QTcpSocket>
+#include <QColor>
+
 #include <map>
 #include <list>
+
 #include "User.h"
 
 QT_BEGIN_NAMESPACE
@@ -41,6 +44,7 @@ private:
     QNetworkSession *networkSession = nullptr;
     std::map<User, std::list<QTcpSocket*>> activeUsers; //map che contiene key-pair: utente-socket a lui associati (se runna due volte il cliente sono più di uno)
     std::map<QString,std::list<User>> openFiles; //lista di file aperti e chi ci sta lavorando
+    std::map<User, std::string> userColorMap; // map to associate a color to a user
     QJsonValue jsonValFromPixmap(const QPixmap &p);
     QPixmap pixmapFrom(const QJsonValue &val);
 };
