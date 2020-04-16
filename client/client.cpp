@@ -40,6 +40,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	connect(uiLog->CancellationLink, &QLabel::linkActivated, this, &Client::openCancellationWindow);
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
+    connect(tcpSocket, &QTcpSocket::disconnected, this, &Client::requestConnection); //TODO: se cade la connessione con il server perchè il server crasha, che facciamo?
 
     Client::requestConnection();
     QNetworkConfigurationManager manager;
@@ -86,7 +87,7 @@ void Client::readResponse()
 {
 	logStatusBar->showMessage(tr("Reading the response..."));
 	qDebug() << "Reading the response...";
-    in.startTransaction();
+
 
 //read the Json message received from client, from header understand what to do
     in.startTransaction();
@@ -610,6 +611,13 @@ void Client::openExistingFile() {
 
 void Client::requestLogout() {
 	qDebug() << "Requesting the logout...";
+	//close the socket. The server will automatically log off
+	tcpSocket->disconnectFromHost();
+
+    //reopen the connection to allow another user to login
+	ChoiceWin->close();
+	reactivateLoginWindow();
+
 }
 
 bool Client::eventFilter(QObject *object, QEvent *event) {

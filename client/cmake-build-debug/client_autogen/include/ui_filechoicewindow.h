@@ -34,6 +34,7 @@ public:
     QComboBox *OpenMenu;
     QPushButton *OpenButton;
     QPushButton *SettingsButton;
+    QPushButton *LogoutButton;
 
     void setupUi(QDialog *FileChoiceWindow)
     {
@@ -116,6 +117,19 @@ public:
 
         verticalLayout->addWidget(SettingsButton);
 
+        LogoutButton = new QPushButton(FileChoiceWindow);
+        LogoutButton->setObjectName(QStringLiteral("LogoutButton"));
+        QSizePolicy sizePolicy1(QSizePolicy::Fixed, QSizePolicy::Fixed);
+        sizePolicy1.setHorizontalStretch(0);
+        sizePolicy1.setVerticalStretch(0);
+        sizePolicy1.setHeightForWidth(LogoutButton->sizePolicy().hasHeightForWidth());
+        LogoutButton->setSizePolicy(sizePolicy1);
+        LogoutButton->setMaximumSize(QSize(100, 25));
+        QIcon icon3(QIcon::fromTheme(QStringLiteral("gnome-logout")));
+        LogoutButton->setIcon(icon3);
+
+        verticalLayout->addWidget(LogoutButton, 0, Qt::AlignRight);
+
 
         retranslateUi(FileChoiceWindow);
 
@@ -133,6 +147,7 @@ public:
         NewButton->setText(QApplication::translate("FileChoiceWindow", "New file", Q_NULLPTR));
         OpenButton->setText(QApplication::translate("FileChoiceWindow", "Open", Q_NULLPTR));
         SettingsButton->setText(QApplication::translate("FileChoiceWindow", "Settings", Q_NULLPTR));
+        LogoutButton->setText(QApplication::translate("FileChoiceWindow", "Logout", Q_NULLPTR));
     } // retranslateUi
 
 };

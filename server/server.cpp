@@ -3,6 +3,7 @@
 #include <QtCore>
 
 #include <iostream>
+#include <sstream>
 
 #include "User.h"
 #include "server.h"
@@ -162,7 +163,7 @@ void Server::processUserRequest() {
 void Server::getConnectedSocket() {
     //accetta la connessione al socket e prendi il socket connesso
     auto active_socket = tcpServer->nextPendingConnection();
-
+    printConsole("I am accepting a new connection from socket "+std::to_string(active_socket->socketDescriptor()));
     //inserisci il socket nella lista dei socket attivi
     //active_sockets.push_back(active_socket);
     connect(active_socket, &QIODevice::readyRead, this, &Server::processUserRequest);
@@ -195,6 +196,7 @@ void Server::printConsole(std::string &&msg, bool err) {
  * Function to check the user credentials and if they are log the user
  */
 bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
+
     // divide the string username_password in two separate string
     std::string username = data["username"].toString().toStdString();
     std::string password = data["password"].toString().toStdString();
@@ -287,6 +289,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
  *      false if something went wrong
  */
 bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
+
     // divide the string username_password_name_surname in  separate string
     std::string username = data["username"].toString().toStdString();
     std::string password = data["password"].toString().toStdString();

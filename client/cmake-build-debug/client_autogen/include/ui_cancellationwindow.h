@@ -81,7 +81,9 @@ public:
         DeleteButton->setEnabled(false);
         DeleteButton->setMaximumSize(QSize(100, 25));
         DeleteButton->setMouseTracking(false);
-        DeleteButton->setLayoutDirection(Qt::RightToLeft);
+        DeleteButton->setLayoutDirection(Qt::LeftToRight);
+        QIcon icon(QIcon::fromTheme(QStringLiteral("dialog-ok")));
+        DeleteButton->setIcon(icon);
 
         horizontalLayout->addWidget(DeleteButton);
 

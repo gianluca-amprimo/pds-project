@@ -30,10 +30,10 @@ class Ui_LoginWindow
 public:
     QVBoxLayout *verticalLayout;
     QGridLayout *gridLayout;
-    QLabel *UsernameLabel;
-    QLineEdit *UsernameEdit;
     QLabel *PasswordLabel;
     QLineEdit *PasswordEdit;
+    QLabel *UsernameLabel;
+    QLineEdit *UsernameEdit;
     QHBoxLayout *horizontalLayout;
     QPushButton *LoginButton;
     QLabel *RegistrationLink;
@@ -50,16 +50,6 @@ public:
         verticalLayout->setSizeConstraint(QLayout::SetFixedSize);
         gridLayout = new QGridLayout();
         gridLayout->setObjectName(QStringLiteral("gridLayout"));
-        UsernameLabel = new QLabel(LoginWindow);
-        UsernameLabel->setObjectName(QStringLiteral("UsernameLabel"));
-
-        gridLayout->addWidget(UsernameLabel, 0, 0, 1, 1);
-
-        UsernameEdit = new QLineEdit(LoginWindow);
-        UsernameEdit->setObjectName(QStringLiteral("UsernameEdit"));
-
-        gridLayout->addWidget(UsernameEdit, 0, 1, 1, 1);
-
         PasswordLabel = new QLabel(LoginWindow);
         PasswordLabel->setObjectName(QStringLiteral("PasswordLabel"));
 
@@ -70,6 +60,16 @@ public:
         PasswordEdit->setEchoMode(QLineEdit::Password);
 
         gridLayout->addWidget(PasswordEdit, 1, 1, 1, 1);
+
+        UsernameLabel = new QLabel(LoginWindow);
+        UsernameLabel->setObjectName(QStringLiteral("UsernameLabel"));
+
+        gridLayout->addWidget(UsernameLabel, 0, 0, 1, 1);
+
+        UsernameEdit = new QLineEdit(LoginWindow);
+        UsernameEdit->setObjectName(QStringLiteral("UsernameEdit"));
+
+        gridLayout->addWidget(UsernameEdit, 0, 1, 1, 1);
 
 
         verticalLayout->addLayout(gridLayout);
@@ -83,7 +83,10 @@ public:
         LoginButton->setEnabled(false);
         LoginButton->setMaximumSize(QSize(100, 25));
         LoginButton->setMouseTracking(false);
-        LoginButton->setLayoutDirection(Qt::RightToLeft);
+        LoginButton->setLayoutDirection(Qt::LeftToRight);
+        QIcon icon(QIcon::fromTheme(QStringLiteral("dialog-ok")));
+        LoginButton->setIcon(icon);
+        LoginButton->setFlat(false);
 
         horizontalLayout->addWidget(LoginButton);
 
@@ -122,9 +125,9 @@ public:
     void retranslateUi(QDialog *LoginWindow)
     {
         LoginWindow->setWindowTitle(QApplication::translate("LoginWindow", "Login", Q_NULLPTR));
-        UsernameLabel->setText(QApplication::translate("LoginWindow", "Username", Q_NULLPTR));
         PasswordLabel->setText(QApplication::translate("LoginWindow", "Password", Q_NULLPTR));
         PasswordEdit->setText(QString());
+        UsernameLabel->setText(QApplication::translate("LoginWindow", "Username", Q_NULLPTR));
         LoginButton->setText(QApplication::translate("LoginWindow", "Login", Q_NULLPTR));
         RegistrationLink->setText(QApplication::translate("LoginWindow", "<html><head/><body><p><span style=\" color:#000000;\">Are you not registered yet?</span></p></body></html>", Q_NULLPTR));
         CancellationLink->setText(QApplication::translate("LoginWindow", "Do you want to delete your account?", Q_NULLPTR));

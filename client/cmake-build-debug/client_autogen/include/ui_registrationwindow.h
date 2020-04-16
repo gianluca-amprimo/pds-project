@@ -125,12 +125,16 @@ public:
         verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
         ProfilePictureButton = new QPushButton(RegistrationWindow);
         ProfilePictureButton->setObjectName(QStringLiteral("ProfilePictureButton"));
+        QIcon icon(QIcon::fromTheme(QStringLiteral("camera-photo")));
+        ProfilePictureButton->setIcon(icon);
 
         verticalLayout_2->addWidget(ProfilePictureButton);
 
         DeletePictureButton = new QPushButton(RegistrationWindow);
         DeletePictureButton->setObjectName(QStringLiteral("DeletePictureButton"));
         DeletePictureButton->setEnabled(false);
+        QIcon icon1(QIcon::fromTheme(QStringLiteral("edit-delete")));
+        DeletePictureButton->setIcon(icon1);
 
         verticalLayout_2->addWidget(DeletePictureButton);
 
@@ -143,11 +147,13 @@ public:
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setSpacing(2);
         horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(230, -1, -1, -1);
+        horizontalLayout->setContentsMargins(210, -1, -1, -1);
         RegisterButton = new QPushButton(RegistrationWindow);
         RegisterButton->setObjectName(QStringLiteral("RegisterButton"));
         RegisterButton->setEnabled(false);
         RegisterButton->setMaximumSize(QSize(100, 25));
+        QIcon icon2(QIcon::fromTheme(QStringLiteral("dialog-ok")));
+        RegisterButton->setIcon(icon2);
 
         horizontalLayout->addWidget(RegisterButton);
 

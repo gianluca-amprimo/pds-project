@@ -14,11 +14,12 @@
   <component name="ChangeListManager">
     <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_cancellationwindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_filechoicewindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_loginwindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,7 +67,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="ToolWindowRun.ShowToolbar" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../client2" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -128,7 +129,8 @@
       <workItem from="1586432410981" duration="8799000" />
       <workItem from="1586600680219" duration="599000" />
       <workItem from="1586855805273" duration="1877000" />
-      <workItem from="1586942477440" duration="5514000" />
+      <workItem from="1586942477440" duration="5647000" />
+      <workItem from="1587029209906" duration="3464000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic.">
       <created>1586537560396</created>
@@ -181,22 +183,30 @@
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1586942973994" />
-    <state width="917" height="141" key="GridCell.Tab.0.bottom" timestamp="1586952503839">
+    <state width="917" height="140" key="GridCell.Tab.0.bottom" timestamp="1587033024634">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503839" />
-    <state width="917" height="141" key="GridCell.Tab.0.center" timestamp="1586952503838">
+    <state width="917" height="140" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1587033024634" />
+    <state width="917" height="140" key="GridCell.Tab.0.center" timestamp="1587033024633">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503838" />
-    <state width="917" height="141" key="GridCell.Tab.0.left" timestamp="1586952503838">
+    <state width="917" height="140" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1587033024633" />
+    <state width="917" height="140" key="GridCell.Tab.0.left" timestamp="1587033024633">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503838" />
-    <state width="917" height="141" key="GridCell.Tab.0.right" timestamp="1586952503839">
+    <state width="917" height="140" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1587033024633" />
+    <state width="917" height="140" key="GridCell.Tab.0.right" timestamp="1587033024634">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="141" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1586952503839" />
+    <state width="917" height="140" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1587033024634" />
+    <state x="182" y="129" width="1536" height="885" key="MergeDialog" timestamp="1587033284249">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="182" y="129" width="1536" height="885" key="MergeDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1587033284249" />
+    <state x="588" y="183" width="734" height="760" key="MultipleFileMergeDialog" timestamp="1587033284254">
+      <screen x="0" y="31" width="1920" height="1049" />
+    </state>
+    <state x="588" y="183" width="734" height="760" key="MultipleFileMergeDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1587033284254" />
     <state x="679" y="31" width="551" height="1049" key="RollbackChangesDialog" timestamp="1586270377494">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
@@ -209,10 +219,10 @@
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="512" y="335" key="com.intellij.ide.util.TipDialog/0.31.1920.1049@0.31.1920.1049" timestamp="1586855817154" />
-    <state x="653" y="440" width="604" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1586855845394">
+    <state x="653" y="440" width="614" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587033071684">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="653" y="440" width="604" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1920.1049@0.31.1920.1049" timestamp="1586855845394" />
+    <state x="653" y="440" width="614" height="247" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.31.1920.1049@0.31.1920.1049" timestamp="1587033071684" />
     <state x="539" y="30" key="search.everywhere.popup" timestamp="1586270473947">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
