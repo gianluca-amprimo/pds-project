@@ -4,6 +4,7 @@
 #include <sstream>
 #include <string>
 #include <sys/stat.h>
+#include <regex>
 #include "client.h"
 #include "ui_loginwindow.h"
 #include "ui_registrationwindow.h"
@@ -14,7 +15,7 @@
 //static QString pathPictures("../../server/Pictures/");
 static QString defaultPicture("../Icons/___default_img.png");
 
-Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this))//, uiLog(new Ui::LoginWindow)
+Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this))
 {
 	uiLog = std::make_shared<Ui::LoginWindow> ();
     uiLog->setupUi(this);
@@ -23,8 +24,8 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	uiLog->RegistrationLink->setText("<a href=\"whatever\">Click here to register</a>");
 	uiLog->CancellationLink->setText("<a href=\"whatever\">Click here to cancel your account</a>");
 	
-	logHidePassword =uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
-	logPasswordButton =qobject_cast<QToolButton *>(logHidePassword->associatedWidgets().last());
+	logHidePassword = uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	logPasswordButton = qobject_cast<QToolButton *>(logHidePassword->associatedWidgets().last());
 	logPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(logPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiLog->PasswordEdit); });
 	connect(logPasswordButton, &QToolButton::released, this, [this](){ releasePasswordButton(uiLog->PasswordEdit); });
@@ -348,6 +349,10 @@ void Client::sendCredentials() {
 void Client::openRegistrationWindow() {
 	this->setVisible(false);
 	
+	if (RegWin != nullptr) {
+		RegWin.reset();
+	}
+	
 	uiReg = std::make_shared<Ui::RegistrationWindow> ();
 	RegWin = std::make_shared<QDialog> ();
 	uiReg->setupUi(RegWin.get());
@@ -377,6 +382,14 @@ void Client::openRegistrationWindow() {
 	connect(uiReg->ProfilePictureButton, &QPushButton::released, this, [this](){ uploadProfilePicture(uiReg->ProfilePicture, uiReg->DeletePictureButton); });
 	connect(uiReg->DeletePictureButton, &QPushButton::released, this, [this](){ deleteProfilePicture(uiReg->ProfilePicture, uiReg->DeletePictureButton); });
 	connect(RegWin.get(), &QDialog::finished, this, &Client::reactivateLoginWindow);
+	
+	connect(uiReg->InfoUsername, &QPushButton::released, this, [this](){
+		QMessageBox::information(this, tr("Username information"), tr("The username should be at least 4 and at most 16 characters long.\nIt should not contain space characters."));
+	});
+	
+	connect(uiReg->InfoPassword, &QPushButton::released, this, [this](){
+		QMessageBox::information(this, tr("Password information"), tr("The password should be at least 8 and at most 16 characters long.\nIt should not contain space characters.\nIt should contain at least three among lowercase letters, uppercase letters, special characters (._!?@) and numbers."));
+	});
 	
     RegWin->show();
 }
@@ -409,15 +422,31 @@ void Client::enableRegButton() {
 	}
 	
 	if (!uiReg->NameEdit->text().isEmpty() & !uiReg->SurnameEdit->text().isEmpty() & !uiReg->UsernameEdit->text().isEmpty() & !uiReg->PasswordEdit->text().isEmpty() & !uiReg->RepeatPasswordEdit->text().isEmpty()) {
-		if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text()) {
-			if (uiReg->RegisterButton->isEnabled()) {
-				uiReg->RegisterButton->setEnabled(false);
-			}
-		} else if (uiReg->PasswordEdit->text() != QString(tr(""))) {
+		if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text() | !checkPasswordFormat(uiReg->PasswordEdit->text().toStdString()) | !checkUsernameFormat(uiReg->UsernameEdit->text().toStdString())) {
+			uiReg->RegisterButton->setEnabled(false);
+		} else {
 			uiReg->RegisterButton->setEnabled(true);
 		}
 	} else {
 		uiReg->RegisterButton->setEnabled(false);
+	}
+	
+	if (!checkUsernameFormat(uiReg->UsernameEdit->text().toStdString()) & !uiReg->UsernameEdit->text().isEmpty()) {
+		if (regStatusBar->currentMessage() != QString(tr("The username format is not valid."))) {
+			regStatusBar->showMessage(tr("The username format is not valid."));
+		}
+		return;
+	} else {
+		regStatusBar->clearMessage();
+	}
+	
+	if (!checkPasswordFormat(uiReg->PasswordEdit->text().toStdString()) & !uiReg->PasswordEdit->text().isEmpty()) {
+		if (regStatusBar->currentMessage() != QString(tr("The password format is not valid."))) {
+			regStatusBar->showMessage(tr("The password format is not valid."));
+		}
+		return;
+	} else {
+		regStatusBar->clearMessage();
 	}
 	
 	if (uiReg->PasswordEdit->text() != uiReg->RepeatPasswordEdit->text()) {
@@ -472,6 +501,11 @@ void Client::requestRegistration() {
 }
 
 void Client::reactivateLoginWindow() {
+	uiReg.reset();
+	regStatusBar.reset();
+	uiCanc.reset();
+	cancStatusBar.reset();
+	
 	uiLog->LoginButton->setEnabled(!(uiLog->UsernameEdit->text().isEmpty() | uiLog->PasswordEdit->text().isEmpty()));
 	uiLog->RegistrationLink->clearFocus();
 	uiLog->CancellationLink->clearFocus();
@@ -483,6 +517,10 @@ void Client::reactivateLoginWindow() {
 
 void Client::openCancellationWindow() {
 	this->setVisible(false);
+	
+	if (CancWin != nullptr) {
+		CancWin.reset();
+	}
 	
 	uiCanc = std::make_shared<Ui::CancellationWindow> ();
 	CancWin = std::make_shared<QDialog> ();
@@ -662,6 +700,10 @@ QJsonValue Client::jsonValFromPixmap(const QPixmap &p) {
 void Client::openSettingsWindow() {
 	ChoiceWin->setVisible(false);
 	
+	if (CancWin != nullptr) {
+		CancWin.reset();
+	}
+	
 	uiSett = std::make_shared<Ui::SettingsWindow> ();
 	SettWin = std::make_shared<QDialog> ();
 	uiSett->setupUi(SettWin.get());
@@ -685,10 +727,24 @@ void Client::openSettingsWindow() {
 	connect(settNewPasswordButton, &QToolButton::released, this, [this](){ releasePasswordButton(uiSett->NewPasswordEdit); });
 
 	connect(uiSett->CurrentPasswordEdit, &QLineEdit::textChanged, this, [this](){
-		if (!uiSett->CurrentPasswordEdit->text().isEmpty() & !uiSett->UpdateButton->isEnabled()) {
+		if (!uiSett->CurrentPasswordEdit->text().isEmpty() & (uiSett->NewPasswordEdit->text().isEmpty() | checkPasswordFormat(uiSett->NewPasswordEdit->text().toStdString()))) {
 			uiSett->UpdateButton->setEnabled(true);
-		} else if (uiSett->CurrentPasswordEdit->text().isEmpty() & uiSett->UpdateButton->isEnabled()) {
+		} else {
 			uiSett->UpdateButton->setEnabled(false);
+		}
+	});
+	
+	connect(uiSett->NewPasswordEdit, &QLineEdit::textChanged, this, [this](){
+		if (!uiSett->NewPasswordEdit->text().isEmpty() & !checkPasswordFormat(uiSett->NewPasswordEdit->text().toStdString())) {
+			uiSett->UpdateButton->setEnabled(false);
+			if (settStatusBar->currentMessage() != QString(tr("The password format is not valid."))) {
+				settStatusBar->showMessage(tr("The password format is not valid."));
+			}
+		} else {
+			if (!uiSett->CurrentPasswordEdit->text().isEmpty()) {
+				uiSett->UpdateButton->setEnabled(true);
+			}
+			settStatusBar->clearMessage();
 		}
 	});
 	
@@ -707,7 +763,15 @@ void Client::openSettingsWindow() {
 		uiSett->UndoButton->setEnabled(true);
 	});
 	connect(uiSett->UpdateButton, &QPushButton::released, this, &Client::requestUserUpdate);
-	connect(SettWin.get(), &QDialog::finished, this, [this](){ ChoiceWin->setVisible(true); });
+	connect(SettWin.get(), &QDialog::finished, this, [this](){
+		uiSett.reset();
+		settStatusBar.reset();
+		ChoiceWin->setVisible(true);
+	});
+	
+	connect(uiSett->InfoPassword, &QPushButton::released, this, [this](){
+		QMessageBox::information(this, tr("Password information"), tr("The password should be at least 8 and at most 16 characters long.\nIt should not contain space characters.\nIt should contain at least three among lowercase letters, uppercase letters, special characters (._!?@) and numbers."));
+	});
 	
 	SettWin->show();
 }
@@ -765,22 +829,12 @@ void Client::pressPasswordButton(QLineEdit *lineEdit) {
 	lineEdit->setEchoMode(QLineEdit::Normal);
 }
 
-
-/*
- * Function to check if the password is in the correct format
- *
- * Returns:
- *      true if the password is between 8 and 16 characters and
- *      if it contains three between number, special characters,
- *      uppercase letter and lowercase letter
- *
- *      false otherwise
- */
-bool checkPasswordFormat(std::string password){
+bool Client::checkPasswordFormat(std::string password) {
     bool uppercase;
     bool lowercase;
     bool special;
     bool number;
+    bool space;
 
     int correct = 0;
 
@@ -788,6 +842,7 @@ bool checkPasswordFormat(std::string password){
     std::regex lowercase_regex {"[a-z]+"};
     std::regex special_regex {"[._!?@]+"};
     std::regex number_regex {"[0-9]+"};
+    std::regex space_regex {"[ ]+"};
 
     if(password.length() < 8 || password.length() > 16) {
         return false;
@@ -796,7 +851,9 @@ bool checkPasswordFormat(std::string password){
         lowercase = std::regex_search(password, lowercase_regex);
         special = std::regex_search(password, special_regex);
         number = std::regex_search(password, number_regex);
-
+        space = std::regex_search(password, space_regex);
+	    
+        if (space) return false;
         if(uppercase) correct++;
         if(lowercase) correct++;
         if(special) correct++;
@@ -809,3 +866,14 @@ bool checkPasswordFormat(std::string password){
     }
 }
 
+bool Client::checkUsernameFormat(std::string username) {
+	bool space;
+	std::regex space_regex {"[ ]+"};
+	if(username.length() < 4 || username.length() > 16) {
+		return false;
+	} else {
+		space = std::regex_search(username, space_regex);
+		if (space) return false;
+	}
+	return true;
+}

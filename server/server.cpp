@@ -205,7 +205,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // check the credentials
     QString loginResult;
-    if (checkPasswordFormat(password)){
+//    if (checkPasswordFormat(password)){
         int queryResult = checkCredentials(username, password);
         if (queryResult == 1) {
             loginResult = "ok";
@@ -251,8 +251,8 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
             loginResult = "unreg";
         else
             loginResult = "fail";
-    } else
-        loginResult = "wrongPasswordFormat";
+//    } else
+//        loginResult = "wrongPasswordFormat";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -303,7 +303,7 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // load data in the DB and create the associated user if insertion works
     QString registrationResult;
-    if(checkPasswordFormat(password)){
+//    if(checkPasswordFormat(password)){
         int queryResult = addUser(username, password, name, surname);
         if (queryResult == 1) {
             registrationResult = "ok";
@@ -330,8 +330,8 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
             registrationResult = "fail";
         if (queryResult == 0)
             registrationResult = "alreadyreg";
-    } else
-        registrationResult = "wrongPasswordFormat";
+//    } else
+//        registrationResult = "wrongPasswordFormat";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -382,7 +382,7 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     QString cancResult;
     //TODO: controlla che lo user non sia cosi balengo da cercare di
     // cancellare il suo account mentre è connesso su un altro client aperto
-    if(checkPasswordFormat(password)){
+//    if(checkPasswordFormat(password)){
         int queryResult = deleteUser(username, password);
         if (queryResult == 1) {
             cancResult = "ok";
@@ -393,8 +393,8 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
             cancResult = "fail";
         if (queryResult == 0)
             cancResult = "notpres";
-    } else
-        cancResult = "wrongPasswordFormat";
+//    } else
+//        cancResult = "wrongPasswordFormat";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -518,8 +518,8 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
     QPixmap propic = pixmapFrom(data["propic"]);
 
     QString updateResult;
-    if (newpassword != "") {
-        if(checkPasswordFormat(password) && checkPasswordFormat(newpassword)){
+    if (!newpassword.empty()) {
+//        if(checkPasswordFormat(password) && checkPasswordFormat(newpassword)){
             // update the password
             int queryResult = changePassword(username, password, newpassword);
             if (queryResult == 1) {
@@ -534,10 +534,10 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
                 updateResult = "fail";
             if (queryResult == 0)
                 updateResult = "wrongpass";
-        } else
-            updateResult = "wrongNewPasswordFormat";
+//        } else
+//            updateResult = "wrongNewPasswordFormat";
     } else {
-        if(checkPasswordFormat(password)){
+//        if(checkPasswordFormat(password)){
             int queryResult = checkCredentials(username, password);
             if (queryResult == 1) {
                 updateResult = "ok";
@@ -551,8 +551,8 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
                 updateResult = "fail";
             if (queryResult == 0)
                 updateResult = "wrongpass";
-        } else
-            updateResult = "wrongPasswordFormat";
+//        } else
+//            updateResult = "wrongPasswordFormat";
     }
 
     if (active_socket != nullptr) {
@@ -595,34 +595,38 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
  *      false otherwise
  */
 bool Server::checkPasswordFormat(std::string password){
-    bool uppercase;
-    bool lowercase;
-    bool special;
-    bool number;
-
-    int correct = 0;
-
-    std::regex uppercase_regex {"[A-Z]+"};
-    std::regex lowercase_regex {"[a-z]+"};
-    std::regex special_regex {"[._!?@]+"};
-    std::regex number_regex {"[0-9]+"};
-
-    if(password.length() < 8 || password.length() > 16) {
-        return false;
-    } else {
-        uppercase = std::regex_search(password, uppercase_regex);
-        lowercase = std::regex_search(password, lowercase_regex);
-        special = std::regex_search(password, special_regex);
-        number = std::regex_search(password, number_regex);
-
-        if(uppercase) correct++;
-        if(lowercase) correct++;
-        if(special) correct++;
-        if(number) correct++;
-
-        if(correct >= 3)
-            return true;
-        else
-            return false;
-    }
+	bool uppercase;
+	bool lowercase;
+	bool special;
+	bool number;
+	bool space;
+	
+	int correct = 0;
+	
+	std::regex uppercase_regex {"[A-Z]+"};
+	std::regex lowercase_regex {"[a-z]+"};
+	std::regex special_regex {"[._!?@]+"};
+	std::regex number_regex {"[0-9]+"};
+	std::regex space_regex {"[ ]+"};
+	
+	if(password.length() < 8 || password.length() > 16) {
+		return false;
+	} else {
+		uppercase = std::regex_search(password, uppercase_regex);
+		lowercase = std::regex_search(password, lowercase_regex);
+		special = std::regex_search(password, special_regex);
+		number = std::regex_search(password, number_regex);
+		space = std::regex_search(password, space_regex);
+		
+		if (space) return false;
+		if(uppercase) correct++;
+		if(lowercase) correct++;
+		if(special) correct++;
+		if(number) correct++;
+		
+		if(correct >= 3)
+			return true;
+		else
+			return false;
+	}
 }

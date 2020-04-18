@@ -71,7 +71,9 @@ private:
     QPixmap pixmapFrom(const QJsonValue &val);
     QJsonValue jsonValFromPixmap(const QPixmap &p);
 	void setFileList(QJsonObject&);
-
+	bool checkPasswordFormat(std::string password);
+	bool checkUsernameFormat(std::string username);
+	
 	std::shared_ptr<Ui::LoginWindow> uiLog;
 	std::list<QString> avail_file;
 	std::shared_ptr<QStatusBar> logStatusBar;
