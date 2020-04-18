@@ -52,6 +52,7 @@ private:
     QJsonObject prepareJsonWithFileList(QString, QString, std::string);
     QJsonValue jsonValFromPixmap(const QPixmap &p);
     QPixmap pixmapFrom(const QJsonValue &val);
+    bool checkPasswordFormat(std::string password);
 };
 
 #endif

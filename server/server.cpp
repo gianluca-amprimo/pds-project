@@ -205,51 +205,54 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // check the credentials
     QString loginResult;
-    int queryResult = checkCredentials(username, password);
-    if (queryResult == 1) {
-        loginResult = "ok";
-        QString un = QString::fromStdString(username);
-        User u(un);
-        auto it = activeUsers.begin();
-        bool found = false;
-        while (it !=
-               activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
-            User user = it->first;
-            if (user == u) {
-                found = true;
-                activeUsers[user].push_back(active_socket);
-                break;
+    if (checkPasswordFormat(password)){
+        int queryResult = checkCredentials(username, password);
+        if (queryResult == 1) {
+            loginResult = "ok";
+            QString un = QString::fromStdString(username);
+            User u(un);
+            auto it = activeUsers.begin();
+            bool found = false;
+            while (it !=
+                   activeUsers.end()) { //a user could open again the client and log again so first check if it's already there
+                User user = it->first;
+                if (user == u) {
+                    found = true;
+                    activeUsers[user].push_back(active_socket);
+                    break;
+                }
+                it++;
             }
-            it++;
-        }
-        if (found != true) { //inserisci l'utente nella lista di quelli attualmente connessi
-            std::list<QTcpSocket *> temp;
-            temp.push_back(active_socket);
-            activeUsers[u] = temp;
+            if (found != true) { //inserisci l'utente nella lista di quelli attualmente connessi
+                std::list<QTcpSocket *> temp;
+                temp.push_back(active_socket);
+                activeUsers[u] = temp;
 
-            // assegna colore random allo user
-            std::random_device rd;
-            std::string userColor = colors[rd() % 7];
-            std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
-            userColorMap.insert(userColorPair);
-        }
-
-        std::string user_list;
-        for (std::pair<User, std::list<QTcpSocket *>> element : activeUsers) {
-            User u = element.first;     // Accessing KEY from element
-            std::string socket_list;    // Accessing VALUE from element
-
-            for (auto s: element.second) {
-                socket_list += std::to_string(s->socketDescriptor()) + " ";
+                // assegna colore random allo user
+                std::random_device rd;
+                std::string userColor = colors[rd() % 7];
+                std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
+                userColorMap.insert(userColorPair);
             }
-            user_list += u.getUsername().toStdString() + ": " + socket_list + " ";
-        }
-        printConsole("List of active users and their socket: " + user_list);
 
-    } else if (queryResult == 0)
-        loginResult = "unreg";
-    else
-        loginResult = "fail";
+            std::string user_list;
+            for (std::pair<User, std::list<QTcpSocket *>> element : activeUsers) {
+                User u = element.first;     // Accessing KEY from element
+                std::string socket_list;    // Accessing VALUE from element
+
+                for (auto s: element.second) {
+                    socket_list += std::to_string(s->socketDescriptor()) + " ";
+                }
+                user_list += u.getUsername().toStdString() + ": " + socket_list + " ";
+            }
+            printConsole("List of active users and their socket: " + user_list);
+
+        } else if (queryResult == 0)
+            loginResult = "unreg";
+        else
+            loginResult = "fail";
+    } else
+        loginResult = "wrongPasswordFormat";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -300,32 +303,35 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // load data in the DB and create the associated user if insertion works
     QString registrationResult;
-    int queryResult = addUser(username, password, name, surname);
-    if (queryResult == 1) {
-        registrationResult = "ok";
-        QString un = QString::fromStdString(username);
-        User u(un);
+    if(checkPasswordFormat(password)){
+        int queryResult = addUser(username, password, name, surname);
+        if (queryResult == 1) {
+            registrationResult = "ok";
+            QString un = QString::fromStdString(username);
+            User u(un);
 
-        // inserisci l'utente nella lista di quelli attualmente connessi
-        std::list<QTcpSocket *> temp;
-        temp.push_back(active_socket);
-        activeUsers[u] = temp;
+            // inserisci l'utente nella lista di quelli attualmente connessi
+            std::list<QTcpSocket *> temp;
+            temp.push_back(active_socket);
+            activeUsers[u] = temp;
 
-        // save the propic chosen by the user using its username as username.png
-        QFile file(picturePath + QString::fromStdString(username) + ".png");
-        file.open(QIODevice::WriteOnly);
-        propic.save(&file, "png", 100);
+            // save the propic chosen by the user using its username as username.png
+            QFile file(picturePath + QString::fromStdString(username) + ".png");
+            file.open(QIODevice::WriteOnly);
+            propic.save(&file, "png", 100);
 
-        // assegna colore random allo user
-        std::random_device rd;
-        std::string userColor = colors[rd() % 7];
-        std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
-        userColorMap.insert(userColorPair);
-    }
-    if (queryResult == -1)
-        registrationResult = "fail";
-    if (queryResult == 0)
-        registrationResult = "alreadyreg";
+            // assegna colore random allo user
+            std::random_device rd;
+            std::string userColor = colors[rd() % 7];
+            std::pair<User, std::string> userColorPair = std::make_pair(u, userColor);
+            userColorMap.insert(userColorPair);
+        }
+        if (queryResult == -1)
+            registrationResult = "fail";
+        if (queryResult == 0)
+            registrationResult = "alreadyreg";
+    } else
+        registrationResult = "wrongPasswordFormat";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -376,16 +382,19 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     QString cancResult;
     //TODO: controlla che lo user non sia cosi balengo da cercare di
     // cancellare il suo account mentre è connesso su un altro client aperto
-    int queryResult = deleteUser(username, password);
-    if (queryResult == 1) {
-        cancResult = "ok";
-        QFile file(picturePath + QString::fromStdString(username) + ".png");
-        file.remove();
-    }
-    if (queryResult == -1)
-        cancResult = "fail";
-    if (queryResult == 0)
-        cancResult = "notpres";
+    if(checkPasswordFormat(password)){
+        int queryResult = deleteUser(username, password);
+        if (queryResult == 1) {
+            cancResult = "ok";
+            QFile file(picturePath + QString::fromStdString(username) + ".png");
+            file.remove();
+        }
+        if (queryResult == -1)
+            cancResult = "fail";
+        if (queryResult == 0)
+            cancResult = "notpres";
+    } else
+        cancResult = "wrongPasswordFormat";
 
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -510,34 +519,40 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     QString updateResult;
     if (newpassword != "") {
-        // update the password
-        int queryResult = changePassword(username, password, newpassword);
-        if (queryResult == 1) {
-            updateResult = "ok";
+        if(checkPasswordFormat(password) && checkPasswordFormat(newpassword)){
+            // update the password
+            int queryResult = changePassword(username, password, newpassword);
+            if (queryResult == 1) {
+                updateResult = "ok";
 
-            // save the propic chosen by the user using its username as username.png
-            QFile file(picturePath + QString::fromStdString(username) + ".png");
-            file.open(QIODevice::WriteOnly);
-            propic.save(&file, "png", 100);
-        }
-        if (queryResult == -1)
-            updateResult = "fail";
-        if (queryResult == 0)
-            updateResult = "wrongpass";
+                // save the propic chosen by the user using its username as username.png
+                QFile file(picturePath + QString::fromStdString(username) + ".png");
+                file.open(QIODevice::WriteOnly);
+                propic.save(&file, "png", 100);
+            }
+            if (queryResult == -1)
+                updateResult = "fail";
+            if (queryResult == 0)
+                updateResult = "wrongpass";
+        } else
+            updateResult = "wrongNewPasswordFormat";
     } else {
-        int queryResult = checkCredentials(username, password);
-        if (queryResult == 1) {
-            updateResult = "ok";
+        if(checkPasswordFormat(password)){
+            int queryResult = checkCredentials(username, password);
+            if (queryResult == 1) {
+                updateResult = "ok";
 
-            // save the propic chosen by the user using its username as username.png
-            QFile file(picturePath + QString::fromStdString(username) + ".png");
-            file.open(QIODevice::WriteOnly);
-            propic.save(&file, "png", 100);
-        }
-        if (queryResult == -1)
-            updateResult = "fail";
-        if (queryResult == 0)
-            updateResult = "wrongpass";
+                // save the propic chosen by the user using its username as username.png
+                QFile file(picturePath + QString::fromStdString(username) + ".png");
+                file.open(QIODevice::WriteOnly);
+                propic.save(&file, "png", 100);
+            }
+            if (queryResult == -1)
+                updateResult = "fail";
+            if (queryResult == 0)
+                updateResult = "wrongpass";
+        } else
+            updateResult = "wrongPasswordFormat";
     }
 
     if (active_socket != nullptr) {
@@ -579,7 +594,7 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
  *
  *      false otherwise
  */
-bool checkPasswordFormat(std::string password){
+bool Server::checkPasswordFormat(std::string password){
     bool uppercase;
     bool lowercase;
     bool special;

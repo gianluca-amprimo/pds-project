@@ -764,3 +764,48 @@ void Client::pressPasswordButton(QLineEdit *lineEdit) {
 	button->setIcon(QIcon("../Icons/eye_on.png"));
 	lineEdit->setEchoMode(QLineEdit::Normal);
 }
+
+
+/*
+ * Function to check if the password is in the correct format
+ *
+ * Returns:
+ *      true if the password is between 8 and 16 characters and
+ *      if it contains three between number, special characters,
+ *      uppercase letter and lowercase letter
+ *
+ *      false otherwise
+ */
+bool checkPasswordFormat(std::string password){
+    bool uppercase;
+    bool lowercase;
+    bool special;
+    bool number;
+
+    int correct = 0;
+
+    std::regex uppercase_regex {"[A-Z]+"};
+    std::regex lowercase_regex {"[a-z]+"};
+    std::regex special_regex {"[._!?@]+"};
+    std::regex number_regex {"[0-9]+"};
+
+    if(password.length() < 8 || password.length() > 16) {
+        return false;
+    } else {
+        uppercase = std::regex_search(password, uppercase_regex);
+        lowercase = std::regex_search(password, lowercase_regex);
+        special = std::regex_search(password, special_regex);
+        number = std::regex_search(password, number_regex);
+
+        if(uppercase) correct++;
+        if(lowercase) correct++;
+        if(special) correct++;
+        if(number) correct++;
+
+        if(correct >= 3)
+            return true;
+        else
+            return false;
+    }
+}
+
