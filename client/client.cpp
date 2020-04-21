@@ -263,6 +263,8 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
 	
     switch (socketError) {
         case QAbstractSocket::RemoteHostClosedError:
+            QMessageBox::information(this, tr("PdS Client"),tr("Server closed connection. Relaunch the program in a few minutes"));
+            qDebug() << "The server has disconnected. Client will close, try to launch again in few seconds.";
             break;
         case QAbstractSocket::HostNotFoundError:
             QMessageBox::information(this, tr("PdS Client"),tr("The host was not found.\nPlease check the host name and port settings."));
@@ -650,8 +652,9 @@ void Client::openExistingFile() {
 
 void Client::requestLogout() {
 	qDebug() << "Requesting the logout...";
-	//close the socket. The server will automatically log off
+	//close the socket. The server will automatically log out the user
 	tcpSocket->disconnectFromHost();
+    loggedUser.reset();
 
     //reopen the connection to allow another user to login
 	ChoiceWin->close();
