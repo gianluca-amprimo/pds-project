@@ -35,6 +35,7 @@ private slots:
     bool cancelUser(QJsonObject &, QTcpSocket *);
     bool updateUser(QJsonObject &, QTcpSocket *);
     void getConnectedSocket();
+	bool refreshFileList(QJsonObject &, QTcpSocket *);
 
 private:
     Ui::Server *ui;

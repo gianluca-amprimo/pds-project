@@ -160,8 +160,10 @@ void Server::processUserRequest() {
         opResult = Server::cancelUser(jSobject, active_socket);
     if (header == "upd")
         opResult = Server::updateUser(jSobject, active_socket);
+    if (header == "refr")
+    	opResult = Server::refreshFileList(jSobject, active_socket);
+    
     qDebug() << opResult;
-
 }
 
 
@@ -611,4 +613,16 @@ void Server::sendMessage(QJsonObject message, QTcpSocket *active_socket){
     else{
         printConsole("Wrong! You are trying to write to a non existing socket!", true);
     }
+}
+
+bool Server::refreshFileList(QJsonObject &data, QTcpSocket *active_socket) {
+	std::string username = data["username"].toString().toStdString();
+	QString refreshResult("ok");
+	QJsonObject message;
+	message = prepareJsonReply("refr", refreshResult, username, false, true, false);
+	printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+	             message["body"].toString().toStdString());
+	sendMessage(message, active_socket);
+	
+	return true;
 }

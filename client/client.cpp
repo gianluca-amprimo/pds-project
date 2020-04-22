@@ -42,7 +42,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	connect(uiLog->CancellationLink, &QLabel::linkActivated, this, &Client::openCancellationWindow);
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
-    connect(tcpSocket, &QTcpSocket::disconnected, this, &Client::requestConnection);
+//    connect(tcpSocket, &QTcpSocket::disconnected, this, &Client::requestConnection);
 
     Client::requestConnection();
     QNetworkConfigurationManager manager;
@@ -109,16 +109,15 @@ void Client::readResponse()
             jSobject=jsonDoc.object();
             header=jSobject["header"].toString().toStdString();
             result=jSobject["body"].toString().toStdString();
-//            qDebug()<<jSobject["header"].toString()<<" "<<jSobject["body"].toString();
         }
         else{
-            QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error. Try again later"));
+            QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
             QApplication::quit();
         }
 
     }
     else {
-        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error. Try again later"));
+        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
         QApplication::quit();
     }
 
@@ -127,10 +126,9 @@ void Client::readResponse()
     	return;
     }
     
-//	logStatusBar->showMessage(QString::fromStdString(header+':'+result));
     qDebug().noquote() << QString::fromStdString(header + ": " + result);
     if(header=="error"){
-        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error. Try again later"));
+        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
         QApplication::quit();
     }
     if(header=="log") {
@@ -252,6 +250,21 @@ void Client::readResponse()
 			uiSett->DeletePictureButton->setEnabled(true);
 			uiSett->ProfilePictureButton->setEnabled(true);
 			uiSett->UndoButton->setEnabled(true);
+		}
+	}
+	
+	if(header=="refr") {
+		if (result == "ok") {
+			setFileList(jSobject);
+			uiChoice->OpenMenu->clear();
+			QStringList fileList;
+			for(auto s: avail_file){
+				fileList+=s;
+			}
+			for (auto &file: fileList) {
+				uiChoice->OpenMenu->addItem(file);
+			}
+			uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
 		}
 	}
 }
@@ -605,13 +618,6 @@ void Client::openFileChoiceWindow(bool firstTime) {
 	uiChoice->OpenMenu->setModel(cbModel);
 	uiChoice->OpenMenu->lineEdit()->setPlaceholderText(tr("Select file..."));
 	
-	/*QString pathpng(pathPictures + username + ".png");
-	struct stat buffer;
-	if (stat (pathpng.toStdString().c_str(), &buffer) == 0) {
-		uiChoice->ProfilePicture->setPixmap(QPixmap(pathpng).scaled(150, 150, Qt::KeepAspectRatio));
-	} else {
-		uiChoice->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(150, 150, Qt::KeepAspectRatio));
-	}*/
     uiChoice->ProfilePicture->setPixmap(loggedUser->getPropic());
     
     if (firstTime) {
@@ -635,6 +641,7 @@ void Client::openFileChoiceWindow(bool firstTime) {
 	connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
 	connect(uiChoice->SettingsButton, &QPushButton::released, this, &Client::openSettingsWindow);
 	connect(uiChoice->LogoutButton, &QPushButton::released, this, &Client::requestLogout);
+	connect(uiChoice->RefreshButton, &QPushButton::released, this, &Client::refreshFileList);
 	
 	ChoiceWin->show();
 }
@@ -654,6 +661,34 @@ void Client::openExistingFile() {
 	}
 	qDebug() << "Opening selected file...";
 	ChoiceWin->close();
+}
+
+void Client::refreshFileList() {
+	if (tcpSocket != nullptr) {
+		if (!tcpSocket->isValid()) {
+			qDebug() << "tcp socket invalid";
+			return;
+		}
+		if (!tcpSocket->isOpen()) {
+			qDebug() << "tcp socket not open";
+			return;
+		}
+	}
+	
+	QByteArray block;
+	QDataStream out(&block, QIODevice::WriteOnly);
+	out.setVersion(QDataStream::Qt_4_0);
+	QJsonObject message;
+	message["header"] = "refr";
+	
+	// send the JSON using QDataStream
+	out << QJsonDocument(message).toJson();
+	
+	if (!tcpSocket->write(block)) {
+		QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+		regStatusBar->showMessage(tr("Could not send message."), 3000);
+	}
+	tcpSocket->flush();
 }
 
 void Client::requestLogout() {
@@ -688,6 +723,7 @@ bool Client::eventFilter(QObject *object, QEvent *event) {
 }
 
 void Client::setFileList(QJsonObject& data){
+	avail_file.clear();
     for(auto s: data["File list"].toArray()){
         avail_file.push_back(s.toString());
     }
@@ -709,6 +745,7 @@ QJsonValue Client::jsonValFromPixmap(const QPixmap &p) {
 }
 
 void Client::openSettingsWindow() {
+	// TODO: aggiungere un tasto e separare aggiornamento password da aggiornamento immagine di profilo
 	ChoiceWin->setVisible(false);
 	
 	if (CancWin != nullptr) {
