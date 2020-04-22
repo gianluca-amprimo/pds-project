@@ -21,7 +21,7 @@ public:
     Ui::SaveAsDialog *ui;
 public slots:
     void save();
-    void setFileName(std::string &&filename);
+    void setFileName(std::string filename);
 private:
     QTextEdit *textArea;
     std::string fileName = "untitled";

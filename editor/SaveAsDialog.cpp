@@ -18,7 +18,7 @@ void SaveAsDialog::save() {
     }
 }
 
-void SaveAsDialog::setFileName(std::string &&filename) {
+void SaveAsDialog::setFileName(std::string filename) {
     this->fileName = filename;
 }
 

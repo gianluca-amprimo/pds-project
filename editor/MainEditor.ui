@@ -21,7 +21,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0">
+    <item row="2" column="0">
      <widget class="QTextEdit" name="textArea"/>
     </item>
    </layout>
@@ -40,6 +40,7 @@
      <string>File</string>
     </property>
     <addaction name="open"/>
+    <addaction name="save"/>
     <addaction name="saveAs"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
@@ -50,14 +51,34 @@
     <addaction name="copy"/>
     <addaction name="paste"/>
    </widget>
+   <widget class="QMenu" name="menuStyling">
+    <property name="title">
+     <string>Format</string>
+    </property>
+    <addaction name="bold"/>
+    <addaction name="italic"/>
+    <addaction name="underline"/>
+   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuEdit"/>
+   <addaction name="menuStyling"/>
   </widget>
-  <action name="actionboh">
-   <property name="text">
-    <string>boh</string>
+  <widget class="QStatusBar" name="statusBar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
    </property>
-  </action>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="bold"/>
+   <addaction name="italic"/>
+   <addaction name="underline"/>
+   <addaction name="separator"/>
+  </widget>
   <action name="saveAs">
    <property name="text">
     <string>Save As</string>
@@ -75,6 +96,10 @@
    </property>
   </action>
   <action name="cut">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../Scaricati/icons8-taglia-96.png</normaloff>../../../Scaricati/icons8-taglia-96.png</iconset>
+   </property>
    <property name="text">
     <string>Copy</string>
    </property>
@@ -83,6 +108,10 @@
    </property>
   </action>
   <action name="copy">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../Scaricati/icons8-copia-96.png</normaloff>../../../Scaricati/icons8-copia-96.png</iconset>
+   </property>
    <property name="text">
     <string>Cut</string>
    </property>
@@ -91,11 +120,55 @@
    </property>
   </action>
   <action name="paste">
+   <property name="icon">
+    <iconset>
+     <normaloff>../../../Scaricati/icons8-incolla-96.png</normaloff>../../../Scaricati/icons8-incolla-96.png</iconset>
+   </property>
    <property name="text">
     <string>Paste</string>
    </property>
    <property name="shortcut">
     <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="bold">
+   <property name="text">
+    <string>Bold</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="italic">
+   <property name="icon">
+    <iconset theme="Material">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>Italic</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="underline">
+   <property name="icon">
+    <iconset theme="Material">
+     <normaloff>.</normaloff>.</iconset>
+   </property>
+   <property name="text">
+    <string>Underline</string>
+   </property>
+   <property name="toolTip">
+    <string>Underline</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="save">
+   <property name="text">
+    <string>Save</string>
    </property>
   </action>
  </widget>

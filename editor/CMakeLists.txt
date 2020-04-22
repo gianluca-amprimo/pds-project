@@ -11,7 +11,6 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Charts REQUIRED)
 find_package(Qt5Network REQUIRED)
 
-
 list(APPEND LIBRARIES
         Qt5::Core
         Qt5::Gui

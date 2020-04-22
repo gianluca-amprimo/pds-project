@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/text_styling">
+        <file>themes/material/bold.png</file>
+        <file>themes/material/italic.png</file>
+        <file>themes/material/underline.png</file>
+    </qresource>
+    <qresource prefix="/text_edit">
+        <file>themes/material/copy.png</file>
+        <file>themes/material/cut.png</file>
+        <file>themes/material/paste.png</file>
+    </qresource>
+    <qresource prefix="/file">
+        <file>themes/material/new_doc.png</file>
+        <file>themes/material/save.png</file>
+        <file>themes/material/save_as.png</file>
+    </qresource>
+</RCC>
