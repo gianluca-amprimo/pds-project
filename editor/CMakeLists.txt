@@ -11,6 +11,8 @@ find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Charts REQUIRED)
 find_package(Qt5Network REQUIRED)
 
+qt5_add_resources(QRC icons.qrc)
+
 list(APPEND LIBRARIES
         Qt5::Core
         Qt5::Gui
@@ -21,6 +23,6 @@ list(REMOVE_DUPLICATES LIBRARIES)
 
 
 add_executable(editor
-        main.cpp SaveAsDialog.cpp SaveAsDialog.h MainEditor.cpp MainEditor.h)
+        main.cpp SaveAsDialog.cpp SaveAsDialog.h MainEditor.cpp MainEditor.h ${QRC})
 
 target_link_libraries(editor ${LIBRARIES})

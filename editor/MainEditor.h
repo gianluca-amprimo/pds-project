@@ -15,6 +15,7 @@ public:
     explicit MainEditor(QWidget *parent = nullptr);
     ~MainEditor() override;
 private:
+    void initIcons();
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
 };

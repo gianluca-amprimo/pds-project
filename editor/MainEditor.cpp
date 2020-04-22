@@ -5,16 +5,7 @@ MainEditor::MainEditor(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainEditor) {
     ui->setupUi(this);
-    ui->bold->setIcon( QIcon(":/text_styling/themes/material/bold.png") );
-    ui->italic->setIcon( QIcon(":/text_styling/themes/material/italic.png") );
-    ui->underline->setIcon( QIcon(":/text_styling/themes/material/underline.png") );
-    ui->copy->setIcon(QIcon(":/text_edit/themes/material/copy.png") );
-    ui->cut->setIcon(QIcon(":/text_edit/themes/material/cut.png") );
-    ui->paste->setIcon(QIcon(":/text_edit/themes/material/paste.png") );
-    ui->open->setIcon(QIcon(":/file/themes/material/new_doc.png"));
-    ui->saveAs->setIcon(QIcon(":/file/themes/material/save_as.png"));
-    ui->save->setIcon(QIcon(":/file/themes/material/save.png"));
-
+    initIcons();
     saveAsDialog = new SaveAsDialog(this, ui->textArea);
 
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
@@ -32,6 +23,18 @@ MainEditor::MainEditor(QWidget *parent) :
 
 MainEditor::~MainEditor() {
     delete ui;
+}
+
+void MainEditor::initIcons() {
+    ui->bold->setIcon( QIcon(":/text_styling/themes/material/bold.png") );
+    ui->italic->setIcon( QIcon(":/text_styling/themes/material/italic.png") );
+    ui->underline->setIcon( QIcon(":/text_styling/themes/material/underline.png") );
+    ui->copy->setIcon(QIcon(":/text_edit/themes/material/copy.png") );
+    ui->cut->setIcon(QIcon(":/text_edit/themes/material/cut.png") );
+    ui->paste->setIcon(QIcon(":/text_edit/themes/material/paste.png") );
+    ui->open->setIcon(QIcon(":/file/themes/material/new_doc.png"));
+    ui->saveAs->setIcon(QIcon(":/file/themes/material/save_as.png"));
+    ui->save->setIcon(QIcon(":/file/themes/material/save.png"));
 }
 
 

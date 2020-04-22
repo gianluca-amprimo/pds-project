@@ -380,8 +380,17 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // call function to delete user in db
     QString cancResult;
-    //TODO: controlla che lo user non sia cosi balengo da cercare di
-    // cancellare il suo account mentre è connesso su un altro client aperto
+    User u("username");
+    bool flag;
+    for(auto const& [key,val]: activeUsers){
+        if(key==u){
+            flag=true;
+        }
+    }
+    if(flag){
+        cancResult="fail";
+    }
+    else {
 //    if(checkPasswordFormat(password)){
         int queryResult = deleteUser(username, password);
         if (queryResult == 1) {
@@ -395,7 +404,7 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
             cancResult = "notpres";
 //    } else
 //        cancResult = "wrongPasswordFormat";
-
+    }
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
             printConsole("Socket TCP non valida", true);
