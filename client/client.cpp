@@ -42,7 +42,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	connect(uiLog->CancellationLink, &QLabel::linkActivated, this, &Client::openCancellationWindow);
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
-    connect(tcpSocket, &QTcpSocket::disconnected, this, &Client::requestConnection); //TODO: se cade la connessione con il server perchè il server crasha, che facciamo?
+    connect(tcpSocket, &QTcpSocket::disconnected, this, &Client::requestConnection);
 
     Client::requestConnection();
     QNetworkConfigurationManager manager;
@@ -82,7 +82,7 @@ void Client::requestConnection()
     int port = 4848;
     tcpSocket->abort();
     tcpSocket->connectToHost(host, port);
-    //TODO: do something if connection to server fails
+
 }
 
 void Client::readResponse()
@@ -112,12 +112,14 @@ void Client::readResponse()
 //            qDebug()<<jSobject["header"].toString()<<" "<<jSobject["body"].toString();
         }
         else{
-            //TODO: error with the json do something (implement function for generic error message to client)
+            QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error. Try again later"));
+            QApplication::quit();
         }
 
     }
     else {
-        //TODO: error with the json do something (implement function for generic error message to client)
+        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error. Try again later"));
+        QApplication::quit();
     }
 
 
@@ -127,7 +129,10 @@ void Client::readResponse()
     
 //	logStatusBar->showMessage(QString::fromStdString(header+':'+result));
     qDebug().noquote() << QString::fromStdString(header + ": " + result);
-
+    if(header=="error"){
+        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error. Try again later"));
+        QApplication::quit();
+    }
     if(header=="log") {
         if (result == "ok") {
 	        setFileList(jSobject);
@@ -224,6 +229,7 @@ void Client::readResponse()
 			       jSobject["surname"].toString());
 			
 			loggedUser = std::make_shared<User>(u);
+			avail_file.clear();
 			setFileList(jSobject);
 			SettWin->close();
 			uiChoice->ProfilePicture->setPixmap(loggedUser->getPropic());
@@ -655,6 +661,8 @@ void Client::requestLogout() {
 	//close the socket. The server will automatically log out the user
 	tcpSocket->disconnectFromHost();
     loggedUser.reset();
+    avail_file.clear();
+
 
     //reopen the connection to allow another user to login
 	ChoiceWin->close();

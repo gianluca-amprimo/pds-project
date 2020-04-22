@@ -52,7 +52,7 @@ Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
     } else {
         sessionOpened();
     }
-    // connect(tcpServer, &QTcpServer::newConnection, this, CALLBACK FOR NEW CONNECTION);
+
     connect(tcpServer, &QTcpServer::newConnection, this, &Server::getConnectedSocket);
 
     setWindowTitle(QGuiApplication::applicationDisplayName());
@@ -135,11 +135,15 @@ void Server::processUserRequest() {
             jSobject = jsonDoc.object();
             header = jSobject["header"].toString().toStdString();
         } else {
-            //TODO: error with the json do something (implement function for generic error message to client)
+            QJsonObject message=prepareJsonReply("error", "error", " ");
+            sendMessage(message, active_socket);
+            return;
         }
 
     } else {
-        //TODO: error with the json do something (implement function for generic error message to client)
+        QJsonObject message=prepareJsonReply("error", "error", " ");
+        sendMessage(message, active_socket);
+        return;
     }
 
     if (!in.commitTransaction())
@@ -254,33 +258,13 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
 //    } else
 //        loginResult = "wrongPasswordFormat";
 
-    if (active_socket != nullptr) {
-        if (!active_socket->isValid()) {
-            printConsole("Socket TCP non valida", true);
-            return false;
-        }
-        if (!active_socket->isOpen()) {
-            printConsole("Socket TCP non aperta", true);
-            return false;
-        }
 
-        QByteArray block;
-        QDataStream out(&block, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_4_0);
-        QJsonObject message;
-        // message["header"] = "log";
-        // message["body"] = loginResult;
-        message = prepareJsonWithFileList("log", loginResult, username);
-        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
-                     message["body"].toString().toStdString());
+    QJsonObject message;
+    message = prepareJsonReply("log", loginResult, username, true, true, true);
+    printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                 message["body"].toString().toStdString());
+    sendMessage(message, active_socket);
 
-        // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
-        if (!active_socket->write(block)) {
-            printConsole("Impossibile rispondere al client", true);
-        }
-        active_socket->flush();
-    }
     return true;
 }
 
@@ -333,33 +317,13 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
 //    } else
 //        registrationResult = "wrongPasswordFormat";
 
-    if (active_socket != nullptr) {
-        if (!active_socket->isValid()) {
-            printConsole("Socket TCP non valida", true);
-            return false;
-        }
-        if (!active_socket->isOpen()) {
-            printConsole("Socket TCP non aperta", true);
-            return false;
-        }
 
-        QByteArray block;
-        QDataStream out(&block, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_4_0);
-        QJsonObject message;
-        // message["header"] = "reg";
-        // message["body"] = registrationResult;
-        message = prepareJsonWithFileList("reg", registrationResult, username);
-        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
-                     message["body"].toString().toStdString());
+    QJsonObject message;
+    message = prepareJsonReply("reg", registrationResult, username, true, true, true);
+    printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                 message["body"].toString().toStdString());
+    sendMessage(message, active_socket);
 
-        // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
-        if (!active_socket->write(block)) {
-            printConsole("Impossibile rispondere al client", true);
-        }
-        active_socket->flush();
-    }
     return true;
 }
 
@@ -380,13 +344,17 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // call function to delete user in db
     QString cancResult;
-    User u("username");
-    bool flag;
+    User u(QString::fromStdString(username));
+    bool flag=false;
+    std::string activeu;
+
     for(auto const& [key,val]: activeUsers){
         if(key==u){
             flag=true;
         }
+        activeu+=u.getUsername().toStdString()+" ";
     }
+    printConsole("While you are trying to delete the following users are online..."+activeu);
     if(flag){
         cancResult="fail";
     }
@@ -405,32 +373,11 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
 //    } else
 //        cancResult = "wrongPasswordFormat";
     }
-    if (active_socket != nullptr) {
-        if (!active_socket->isValid()) {
-            printConsole("Socket TCP non valida", true);
-            return false;
-        }
-        if (!active_socket->isOpen()) {
-            printConsole("Socket TCP non aperta", true);
-            return false;
-        }
-
-        QByteArray block;
-        QDataStream out(&block, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_4_0);
-        QJsonObject message;
-        message["header"] = "canc";
-        message["body"] = cancResult;
-        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
-                     message["body"].toString().toStdString());
-
-        // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
-        if (!active_socket->write(block)) {
-            printConsole("Impossibile rispondere al client", true);
-        }
-        active_socket->flush();
-    }
+    QJsonObject message;
+    message = prepareJsonReply("canc", cancResult, username);
+    printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                 message["body"].toString().toStdString());
+    sendMessage(message, active_socket);
     return true;
 }
 
@@ -438,30 +385,47 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
 /*
  * Function to prepare the json to send to the user
  */
-QJsonObject Server::prepareJsonWithFileList(QString header, QString result, std::string username) {
-    int ret = readFiles();
-    // TODO: if is not possible to read files do something
+QJsonObject Server::prepareJsonReply(QString header, QString result, std::string username, bool propic, bool filelist, bool personal_info) {
+
     QJsonObject message;
-    std::tuple<std::string, std::string> personalInfo = getPersonalInfo(username);
-    if (std::get<0>(personalInfo) == "db_error") {
-        // TODO: problem in reading the credential send an error message to client and exit from function
+    if(header=="error"){
+        message["header"]="error";
+        return message;
     }
 
     message["header"] = header;
     message["body"] = result;
-    message["name"] = QString::fromStdString((std::get<0>(personalInfo)));
-    message["surname"] = QString::fromStdString((std::get<1>(personalInfo)));
 
-    std::string url(picturePath.toStdString() + username + ".png");
-    QPixmap img(QString::fromStdString(url));
-    message["propic"] = jsonValFromPixmap(img);
-
-    QJsonArray fileList;
-    auto it = file_list.begin();
-    for (auto t: file_list) {
-        fileList.push_back(QString::fromStdString(std::get<0>(t)));
+    if(filelist){
+        int ret = readFiles();
+        if (ret==-1) {
+            message["header"]="error";
+            return message;
+        }
+        QJsonArray fileList;
+        auto it = file_list.begin();
+        for (auto t: file_list) {
+            fileList.push_back(QString::fromStdString(std::get<0>(t)));
+        }
+        message.insert("File list", fileList);
     }
-    message.insert("File list", fileList);
+
+    if(personal_info){
+        std::tuple<std::string, std::string> personalInfo = getPersonalInfo(username);
+        if (std::get<0>(personalInfo) == "db_error" ) {
+            message["header"]="error";
+            return message;
+        }
+        message["name"] = QString::fromStdString((std::get<0>(personalInfo)));
+        message["surname"] = QString::fromStdString((std::get<1>(personalInfo)));
+    }
+
+    if (propic){
+        std::string url(picturePath.toStdString() + username + ".png");
+        QPixmap img(QString::fromStdString(url));
+        message["propic"] = jsonValFromPixmap(img);
+    }
+
     return message;
 }
 
@@ -564,31 +528,12 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
 //            updateResult = "wrongPasswordFormat";
     }
 
-    if (active_socket != nullptr) {
-        if (!active_socket->isValid()) {
-            printConsole("Socket TCP non valida", true);
-            return false;
-        }
-        if (!active_socket->isOpen()) {
-            printConsole("Socket TCP non aperta", true);
-            return false;
-        }
+    QJsonObject message;
+    message = prepareJsonReply("upd", updateResult, username, true, true, true);
+    printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                 message["body"].toString().toStdString());
+    sendMessage(message, active_socket);
 
-        QByteArray block;
-        QDataStream out(&block, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_4_0);
-        QJsonObject message;
-        message = prepareJsonWithFileList("upd", updateResult, username);
-        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
-                     message["body"].toString().toStdString());
-
-        // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
-        if (!active_socket->write(block)) {
-            printConsole("Impossibile rispondere al client", true);
-        }
-        active_socket->flush();
-    }
     return true;
 }
 
@@ -638,4 +583,32 @@ bool Server::checkPasswordFormat(std::string password){
 		else
 			return false;
 	}
+}
+void Server::sendMessage(QJsonObject message, QTcpSocket *active_socket){
+    if (active_socket != nullptr) {
+        if (!active_socket->isValid()) {
+            printConsole("Socket TCP non valida", true);
+            return;
+        }
+        if (!active_socket->isOpen()) {
+            printConsole("Socket TCP non aperta", true);
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        printConsole("Sending back " + message["header"].toString().toStdString() + " " +
+                     message["body"].toString().toStdString());
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+        if (!active_socket->write(block)) {
+            printConsole("Impossibile rispondere al client", true);
+        }
+        active_socket->flush();
+    }
+    else{
+        printConsole("Wrong! You are trying to write to a non existing socket!", true);
+    }
 }
