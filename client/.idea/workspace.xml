@@ -12,7 +12,14 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="" />
+    <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/client_autogen/include/ui_registrationwindow.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -122,7 +129,8 @@
       <workItem from="1586600680219" duration="599000" />
       <workItem from="1586855805273" duration="1877000" />
       <workItem from="1586942477440" duration="5647000" />
-      <workItem from="1587029209906" duration="3694000" />
+      <workItem from="1587029209906" duration="4390000" />
+      <workItem from="1587465723426" duration="3255000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic.">
       <created>1586537560396</created>
@@ -167,30 +175,30 @@
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="721" y="203" width="468" height="721" key="#com.intellij.ide.util.MemberChooser/0.31.1920.1049@0.31.1920.1049" timestamp="1586856117485" />
-    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2" timestamp="1586857680811">
+    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2" timestamp="1587480861859">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2/0.31.1920.1049@0.31.1920.1049" timestamp="1586857680811" />
+    <state x="388" y="31" width="1134" height="1049" key="CommitChangelistDialog2/0.31.1920.1049@0.31.1920.1049" timestamp="1587480861859" />
     <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl" timestamp="1586942973994">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1586942973994" />
-    <state width="917" height="140" key="GridCell.Tab.0.bottom" timestamp="1587035235499">
+    <state width="917" height="140" key="GridCell.Tab.0.bottom" timestamp="1587480454861">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="140" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1587035235499" />
-    <state width="917" height="140" key="GridCell.Tab.0.center" timestamp="1587035235498">
+    <state width="917" height="140" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1587480454861" />
+    <state width="917" height="140" key="GridCell.Tab.0.center" timestamp="1587480454860">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="140" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1587035235498" />
-    <state width="917" height="140" key="GridCell.Tab.0.left" timestamp="1587035235497">
+    <state width="917" height="140" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1587480454860" />
+    <state width="917" height="140" key="GridCell.Tab.0.left" timestamp="1587480454860">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="140" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1587035235497" />
-    <state width="917" height="140" key="GridCell.Tab.0.right" timestamp="1587035235498">
+    <state width="917" height="140" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1587480454860" />
+    <state width="917" height="140" key="GridCell.Tab.0.right" timestamp="1587480454860">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="140" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1587035235498" />
+    <state width="917" height="140" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1587480454860" />
     <state x="182" y="129" width="1536" height="885" key="MergeDialog" timestamp="1587033284249">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>

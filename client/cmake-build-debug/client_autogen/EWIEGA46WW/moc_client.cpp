@@ -21,8 +21,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Client_t {
-    QByteArrayData data[36];
-    char stringdata0[531];
+    QByteArrayData data[37];
+    char stringdata0[545];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -57,16 +57,17 @@ QT_MOC_LITERAL(22, 339, 20), // "openFileChoiceWindow"
 QT_MOC_LITERAL(23, 360, 9), // "firstTime"
 QT_MOC_LITERAL(24, 370, 11), // "openNewFile"
 QT_MOC_LITERAL(25, 382, 16), // "openExistingFile"
-QT_MOC_LITERAL(26, 399, 11), // "eventFilter"
-QT_MOC_LITERAL(27, 411, 6), // "object"
-QT_MOC_LITERAL(28, 418, 7), // "QEvent*"
-QT_MOC_LITERAL(29, 426, 5), // "event"
-QT_MOC_LITERAL(30, 432, 18), // "openSettingsWindow"
-QT_MOC_LITERAL(31, 451, 17), // "requestUserUpdate"
-QT_MOC_LITERAL(32, 469, 19), // "pressPasswordButton"
-QT_MOC_LITERAL(33, 489, 10), // "QLineEdit*"
-QT_MOC_LITERAL(34, 500, 8), // "lineEdit"
-QT_MOC_LITERAL(35, 509, 21) // "releasePasswordButton"
+QT_MOC_LITERAL(26, 399, 13), // "requestLogout"
+QT_MOC_LITERAL(27, 413, 11), // "eventFilter"
+QT_MOC_LITERAL(28, 425, 6), // "object"
+QT_MOC_LITERAL(29, 432, 7), // "QEvent*"
+QT_MOC_LITERAL(30, 440, 5), // "event"
+QT_MOC_LITERAL(31, 446, 18), // "openSettingsWindow"
+QT_MOC_LITERAL(32, 465, 17), // "requestUserUpdate"
+QT_MOC_LITERAL(33, 483, 19), // "pressPasswordButton"
+QT_MOC_LITERAL(34, 503, 10), // "QLineEdit*"
+QT_MOC_LITERAL(35, 514, 8), // "lineEdit"
+QT_MOC_LITERAL(36, 523, 21) // "releasePasswordButton"
 
     },
     "Client\0readResponse\0\0displayError\0"
@@ -80,10 +81,10 @@ QT_MOC_LITERAL(35, 509, 21) // "releasePasswordButton"
     "openCancellationWindow\0enableDelButton\0"
     "requestDeletion\0openFileChoiceWindow\0"
     "firstTime\0openNewFile\0openExistingFile\0"
-    "eventFilter\0object\0QEvent*\0event\0"
-    "openSettingsWindow\0requestUserUpdate\0"
-    "pressPasswordButton\0QLineEdit*\0lineEdit\0"
-    "releasePasswordButton"
+    "requestLogout\0eventFilter\0object\0"
+    "QEvent*\0event\0openSettingsWindow\0"
+    "requestUserUpdate\0pressPasswordButton\0"
+    "QLineEdit*\0lineEdit\0releasePasswordButton"
 };
 #undef QT_MOC_LITERAL
 
@@ -93,7 +94,7 @@ static const uint qt_meta_data_Client[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      22,   14, // methods
+      23,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -101,28 +102,29 @@ static const uint qt_meta_data_Client[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    0,  124,    2, 0x08 /* Private */,
-       3,    1,  125,    2, 0x08 /* Private */,
-       6,    0,  128,    2, 0x08 /* Private */,
-       7,    0,  129,    2, 0x08 /* Private */,
-       8,    0,  130,    2, 0x08 /* Private */,
-       9,    0,  131,    2, 0x08 /* Private */,
-      10,    2,  132,    2, 0x08 /* Private */,
-      15,    2,  137,    2, 0x08 /* Private */,
-      16,    0,  142,    2, 0x08 /* Private */,
-      17,    0,  143,    2, 0x08 /* Private */,
-      18,    0,  144,    2, 0x08 /* Private */,
-      19,    0,  145,    2, 0x08 /* Private */,
-      20,    0,  146,    2, 0x08 /* Private */,
-      21,    0,  147,    2, 0x08 /* Private */,
-      22,    1,  148,    2, 0x08 /* Private */,
-      24,    0,  151,    2, 0x08 /* Private */,
-      25,    0,  152,    2, 0x08 /* Private */,
-      26,    2,  153,    2, 0x08 /* Private */,
-      30,    0,  158,    2, 0x08 /* Private */,
-      31,    0,  159,    2, 0x08 /* Private */,
-      32,    1,  160,    2, 0x08 /* Private */,
-      35,    1,  163,    2, 0x08 /* Private */,
+       1,    0,  129,    2, 0x08 /* Private */,
+       3,    1,  130,    2, 0x08 /* Private */,
+       6,    0,  133,    2, 0x08 /* Private */,
+       7,    0,  134,    2, 0x08 /* Private */,
+       8,    0,  135,    2, 0x08 /* Private */,
+       9,    0,  136,    2, 0x08 /* Private */,
+      10,    2,  137,    2, 0x08 /* Private */,
+      15,    2,  142,    2, 0x08 /* Private */,
+      16,    0,  147,    2, 0x08 /* Private */,
+      17,    0,  148,    2, 0x08 /* Private */,
+      18,    0,  149,    2, 0x08 /* Private */,
+      19,    0,  150,    2, 0x08 /* Private */,
+      20,    0,  151,    2, 0x08 /* Private */,
+      21,    0,  152,    2, 0x08 /* Private */,
+      22,    1,  153,    2, 0x08 /* Private */,
+      24,    0,  156,    2, 0x08 /* Private */,
+      25,    0,  157,    2, 0x08 /* Private */,
+      26,    0,  158,    2, 0x08 /* Private */,
+      27,    2,  159,    2, 0x08 /* Private */,
+      31,    0,  164,    2, 0x08 /* Private */,
+      32,    0,  165,    2, 0x08 /* Private */,
+      33,    1,  166,    2, 0x08 /* Private */,
+      36,    1,  169,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
@@ -142,11 +144,12 @@ static const uint qt_meta_data_Client[] = {
     QMetaType::Void, QMetaType::Bool,   23,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 28,   27,   29,
+    QMetaType::Void,
+    QMetaType::Bool, QMetaType::QObjectStar, 0x80000000 | 29,   28,   30,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, 0x80000000 | 33,   34,
-    QMetaType::Void, 0x80000000 | 33,   34,
+    QMetaType::Void, 0x80000000 | 34,   35,
+    QMetaType::Void, 0x80000000 | 34,   35,
 
        0        // eod
 };
@@ -174,12 +177,13 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 14: _t->openFileChoiceWindow((*reinterpret_cast< bool(*)>(_a[1]))); break;
         case 15: _t->openNewFile(); break;
         case 16: _t->openExistingFile(); break;
-        case 17: { bool _r = _t->eventFilter((*reinterpret_cast< QObject*(*)>(_a[1])),(*reinterpret_cast< QEvent*(*)>(_a[2])));
+        case 17: _t->requestLogout(); break;
+        case 18: { bool _r = _t->eventFilter((*reinterpret_cast< QObject*(*)>(_a[1])),(*reinterpret_cast< QEvent*(*)>(_a[2])));
             if (_a[0]) *reinterpret_cast< bool*>(_a[0]) = std::move(_r); }  break;
-        case 18: _t->openSettingsWindow(); break;
-        case 19: _t->requestUserUpdate(); break;
-        case 20: _t->pressPasswordButton((*reinterpret_cast< QLineEdit*(*)>(_a[1]))); break;
-        case 21: _t->releasePasswordButton((*reinterpret_cast< QLineEdit*(*)>(_a[1]))); break;
+        case 19: _t->openSettingsWindow(); break;
+        case 20: _t->requestUserUpdate(); break;
+        case 21: _t->pressPasswordButton((*reinterpret_cast< QLineEdit*(*)>(_a[1]))); break;
+        case 22: _t->releasePasswordButton((*reinterpret_cast< QLineEdit*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -206,14 +210,14 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QLabel* >(); break;
             }
             break;
-        case 20:
+        case 21:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
                 *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QLineEdit* >(); break;
             }
             break;
-        case 21:
+        case 22:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -249,13 +253,13 @@ int Client::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 22)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 23;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 22)
+        if (_id < 23)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 22;
+        _id -= 23;
     }
     return _id;
 }
