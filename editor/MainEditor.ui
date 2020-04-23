@@ -21,7 +21,7 @@
     <enum>Qt::RightToLeft</enum>
    </property>
    <layout class="QGridLayout" name="gridLayout">
-    <item row="2" column="0">
+    <item row="1" column="0">
      <widget class="QTextEdit" name="textArea"/>
     </item>
    </layout>
@@ -69,17 +69,26 @@
    <property name="windowTitle">
     <string>toolBar</string>
    </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
    <attribute name="toolBarArea">
-    <enum>LeftToolBarArea</enum>
+    <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="activeUsers"/>
+   <addaction name="separator"/>
    <addaction name="bold"/>
    <addaction name="italic"/>
    <addaction name="underline"/>
    <addaction name="separator"/>
-   <addaction name="activeUsers"/>
+   <addaction name="alignLeft"/>
+   <addaction name="alignCenter"/>
+   <addaction name="alignRight"/>
+   <addaction name="alignJustified"/>
+   <addaction name="separator"/>
   </widget>
   <action name="saveAs">
    <property name="icon">
@@ -241,6 +250,54 @@
    </property>
    <property name="toolTip">
     <string>Show active users information</string>
+   </property>
+  </action>
+  <action name="alignLeft">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/align_left.png</normaloff>themes/material/align_left.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align Left</string>
+   </property>
+   <property name="toolTip">
+    <string>Align selected paragraphs to the left</string>
+   </property>
+  </action>
+  <action name="alignRight">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/align_right.png</normaloff>themes/material/align_right.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align Right</string>
+   </property>
+   <property name="toolTip">
+    <string>Align selected paragraphs to the right</string>
+   </property>
+  </action>
+  <action name="alignJustified">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/align_justified.png</normaloff>themes/material/align_justified.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align Justified</string>
+   </property>
+   <property name="toolTip">
+    <string>Justify selected paragraphs</string>
+   </property>
+  </action>
+  <action name="alignCenter">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/align_center.png</normaloff>themes/material/align_center.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align Center</string>
+   </property>
+   <property name="toolTip">
+    <string>Align selected paragraphs to the center</string>
    </property>
   </action>
  </widget>

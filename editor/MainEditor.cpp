@@ -33,6 +33,13 @@ void MainEditor::initIcons() {
     ui->save->setIcon(QIcon(":/file/themes/material/save.png"));
     ui->saveAs->setIcon(QIcon(":/file/themes/material/save_as.png"));
     ui->activeUsers->setIcon(QIcon(":/file/themes/material/user.png"));
+    ui->alignCenter->setIcon(QIcon(":/text_align/themes/material/align_center.png"));
+    ui->alignLeft->setIcon(QIcon(":/text_align/themes/material/align_left.png"));
+    ui->alignRight->setIcon(QIcon(":/text_align/themes/material/align_right.png"));
+    ui->alignJustified->setIcon(QIcon(":/text_align/themes/material/align_justified.png"));
+    auto separator = ui->toolBar->insertSeparator(ui->bold);
+    this->fontSelector = new QFontComboBox;
+    ui->toolBar->insertWidget(separator, fontSelector);
 }
 
 MainEditor::~MainEditor() {

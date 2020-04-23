@@ -2,6 +2,7 @@
 #define PIDIESSE_MAINEDITOR_H
 
 #include <QMainWindow>
+#include <QtWidgets/QFontComboBox>
 #include "ui_MainEditor.h"
 #include "SaveAsDialog.h"
 
@@ -16,6 +17,7 @@ public:
     ~MainEditor() override;
 private:
     void initIcons();
+    QFontComboBox *fontSelector;
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
 };
