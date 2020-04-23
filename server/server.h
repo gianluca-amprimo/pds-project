@@ -35,6 +35,7 @@ private slots:
     bool cancelUser(QJsonObject &, QTcpSocket *);
     bool updateUser(QJsonObject &, QTcpSocket *);
     void getConnectedSocket();
+	bool refreshFileList(QJsonObject &, QTcpSocket *);
 
 private:
     Ui::Server *ui;
@@ -49,10 +50,11 @@ private:
     std::map<User, std::string> userColorMap; // map to associate a color to a user
 
     void printConsole(std::string &&msg, bool err = false); // function to print on the console of the server
-    QJsonObject prepareJsonWithFileList(QString, QString, std::string);
+    QJsonObject prepareJsonReply(QString header, QString result, std::string username, bool propic=false, bool filelist=false, bool personal_info=false);
     QJsonValue jsonValFromPixmap(const QPixmap &p);
     QPixmap pixmapFrom(const QJsonValue &val);
     bool checkPasswordFormat(std::string password);
+    void sendMessage(QJsonObject message, QTcpSocket*);
 };
 
 #endif
