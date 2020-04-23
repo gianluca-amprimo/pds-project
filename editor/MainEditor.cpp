@@ -32,9 +32,10 @@ void MainEditor::initIcons() {
     ui->copy->setIcon(QIcon(":/text_edit/themes/material/copy.png") );
     ui->cut->setIcon(QIcon(":/text_edit/themes/material/cut.png") );
     ui->paste->setIcon(QIcon(":/text_edit/themes/material/paste.png") );
-    ui->open->setIcon(QIcon(":/file/themes/material/new_doc.png"));
-    ui->saveAs->setIcon(QIcon(":/file/themes/material/save_as.png"));
+    ui->newDoc->setIcon(QIcon(":/file/themes/material/new_doc.png"));
+    ui->openDoc->setIcon(QIcon(":/file/themes/material/open_doc.png"));
     ui->save->setIcon(QIcon(":/file/themes/material/save.png"));
+    ui->saveAs->setIcon(QIcon(":/file/themes/material/save_as.png"));
 }
 
 

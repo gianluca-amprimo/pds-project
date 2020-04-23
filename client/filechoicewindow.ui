@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>236</width>
+    <width>267</width>
     <height>269</height>
    </rect>
   </property>
@@ -78,10 +78,29 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="RefreshButton">
+       <property name="maximumSize">
+        <size>
+         <width>24</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="toolTip">
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Refresh file list&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset theme="view-refresh"/>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="OpenButton">
        <property name="maximumSize">
         <size>
-         <width>80</width>
+         <width>70</width>
          <height>16777215</height>
         </size>
        </property>
@@ -125,7 +144,8 @@
       <string>Logout</string>
      </property>
      <property name="icon">
-      <iconset theme="gnome-logout"/>
+      <iconset theme="gnome-logout">
+       <normaloff>.</normaloff>.</iconset>
      </property>
     </widget>
    </item>

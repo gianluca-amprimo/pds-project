@@ -39,7 +39,8 @@
     <property name="title">
      <string>File</string>
     </property>
-    <addaction name="open"/>
+    <addaction name="newDoc"/>
+    <addaction name="openDoc"/>
     <addaction name="save"/>
     <addaction name="saveAs"/>
    </widget>
@@ -80,6 +81,10 @@
    <addaction name="separator"/>
   </widget>
   <action name="saveAs">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/save_as.png</normaloff>themes/material/save_as.png</iconset>
+   </property>
    <property name="text">
     <string>Save As</string>
    </property>
@@ -87,7 +92,11 @@
     <string>Ctrl+Shift+S</string>
    </property>
   </action>
-  <action name="open">
+  <action name="openDoc">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/open_doc.png</normaloff>themes/material/open_doc.png</iconset>
+   </property>
    <property name="text">
     <string>Open</string>
    </property>
@@ -98,7 +107,7 @@
   <action name="cut">
    <property name="icon">
     <iconset>
-     <normaloff>../../../Scaricati/icons8-taglia-96.png</normaloff>../../../Scaricati/icons8-taglia-96.png</iconset>
+     <normaloff>themes/material/cut.png</normaloff>themes/material/cut.png</iconset>
    </property>
    <property name="text">
     <string>Copy</string>
@@ -110,7 +119,7 @@
   <action name="copy">
    <property name="icon">
     <iconset>
-     <normaloff>../../../Scaricati/icons8-copia-96.png</normaloff>../../../Scaricati/icons8-copia-96.png</iconset>
+     <normaloff>themes/material/copy.png</normaloff>themes/material/copy.png</iconset>
    </property>
    <property name="text">
     <string>Cut</string>
@@ -122,7 +131,7 @@
   <action name="paste">
    <property name="icon">
     <iconset>
-     <normaloff>../../../Scaricati/icons8-incolla-96.png</normaloff>../../../Scaricati/icons8-incolla-96.png</iconset>
+     <normaloff>themes/material/paste.png</normaloff>themes/material/paste.png</iconset>
    </property>
    <property name="text">
     <string>Paste</string>
@@ -132,6 +141,10 @@
    </property>
   </action>
   <action name="bold">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/bold.png</normaloff>themes/material/bold.png</iconset>
+   </property>
    <property name="text">
     <string>Bold</string>
    </property>
@@ -142,7 +155,7 @@
   <action name="italic">
    <property name="icon">
     <iconset theme="Material">
-     <normaloff>.</normaloff>.</iconset>
+     <normaloff>themes/material/italic.png</normaloff>themes/material/italic.png</iconset>
    </property>
    <property name="text">
     <string>Italic</string>
@@ -154,7 +167,7 @@
   <action name="underline">
    <property name="icon">
     <iconset theme="Material">
-     <normaloff>.</normaloff>.</iconset>
+     <normaloff>themes/material/underline.png</normaloff>themes/material/underline.png</iconset>
    </property>
    <property name="text">
     <string>Underline</string>
@@ -167,8 +180,27 @@
    </property>
   </action>
   <action name="save">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/save.png</normaloff>themes/material/save.png</iconset>
+   </property>
    <property name="text">
     <string>Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="newDoc">
+   <property name="icon">
+    <iconset>
+     <normaloff>themes/material/new_doc.png</normaloff>themes/material/new_doc.png</iconset>
+   </property>
+   <property name="text">
+    <string>New</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
    </property>
   </action>
  </widget>

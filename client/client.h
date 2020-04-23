@@ -53,6 +53,7 @@ private slots:
     void openFileChoiceWindow(bool firstTime);
     void openNewFile();
     void openExistingFile();
+    void refreshFileList();
     void requestLogout();
     bool eventFilter(QObject *object, QEvent *event);
     

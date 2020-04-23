@@ -13,5 +13,6 @@
         <file>themes/material/new_doc.png</file>
         <file>themes/material/save.png</file>
         <file>themes/material/save_as.png</file>
+        <file>themes/material/open_doc.png</file>
     </qresource>
 </RCC>
