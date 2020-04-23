@@ -21,10 +21,6 @@ MainEditor::MainEditor(QWidget *parent) :
     cursor3.setPosition(0);
 }
 
-MainEditor::~MainEditor() {
-    delete ui;
-}
-
 void MainEditor::initIcons() {
     ui->bold->setIcon( QIcon(":/text_styling/themes/material/bold.png") );
     ui->italic->setIcon( QIcon(":/text_styling/themes/material/italic.png") );
@@ -36,6 +32,9 @@ void MainEditor::initIcons() {
     ui->openDoc->setIcon(QIcon(":/file/themes/material/open_doc.png"));
     ui->save->setIcon(QIcon(":/file/themes/material/save.png"));
     ui->saveAs->setIcon(QIcon(":/file/themes/material/save_as.png"));
+    ui->activeUsers->setIcon(QIcon(":/file/themes/material/user.png"));
 }
 
-
+MainEditor::~MainEditor() {
+    delete ui;
+}

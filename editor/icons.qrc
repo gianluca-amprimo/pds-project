@@ -14,5 +14,6 @@
         <file>themes/material/save.png</file>
         <file>themes/material/save_as.png</file>
         <file>themes/material/open_doc.png</file>
+        <file>themes/material/user.png</file>
     </qresource>
 </RCC>
