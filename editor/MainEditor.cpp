@@ -56,6 +56,8 @@ void MainEditor::notifyChange() {
     if(this->oldPosition > this->currentPosition){
 
         std::cout << "Character deleted" << std::endl;
+        this->_symbols.erase(this->_symbols.begin()+this->currentPosition);
+
     }else{
         // Prendo le informazioni necessarie per costruire il simbolo
         this->charCounter++;
