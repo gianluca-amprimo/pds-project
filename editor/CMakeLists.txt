@@ -18,11 +18,12 @@ list(APPEND LIBRARIES
         Qt5::Gui
         Qt5::Widgets
         Qt5::Network
+        Qt5::Charts
         )
 list(REMOVE_DUPLICATES LIBRARIES)
 
 
 add_executable(editor
-        main.cpp SaveAsDialog.cpp SaveAsDialog.h MainEditor.cpp MainEditor.h ${QRC})
+        main.cpp SaveAsDialog.cpp SaveAsDialog.h MainEditor.cpp MainEditor.h ${QRC} Symbol.cpp Symbol.h)
 
 target_link_libraries(editor ${LIBRARIES})

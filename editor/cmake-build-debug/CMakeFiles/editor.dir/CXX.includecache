@@ -6,98 +6,130 @@
 
 #IncludeRegexTransform: 
 
-/home/pioniere/CLionProjects/pds-project/editor/MainEditor.cpp
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.cpp
 MainEditor.h
-/home/pioniere/CLionProjects/pds-project/editor/MainEditor.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.h
 QtWidgets/QDialogButtonBox
 -
+iostream
+-
+iomanip
+-
 
-/home/pioniere/CLionProjects/pds-project/editor/MainEditor.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.h
 QMainWindow
 -
+QtWidgets/QFontComboBox
+-
 ui_MainEditor.h
-/home/pioniere/CLionProjects/pds-project/editor/ui_MainEditor.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/ui_MainEditor.h
 SaveAsDialog.h
-/home/pioniere/CLionProjects/pds-project/editor/SaveAsDialog.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.h
+Symbol.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/Symbol.h
 
-/home/pioniere/CLionProjects/pds-project/editor/SaveAsDialog.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.h
 QDialog
 -
 ui_SaveAsDialog.h
-/home/pioniere/CLionProjects/pds-project/editor/ui_SaveAsDialog.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/ui_SaveAsDialog.h
 QtWidgets/QTextEdit
 -
 
-/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_MainEditor.cpp
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/Symbol.h
+iostream
+-
+vector
+-
+
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_MainEditor.cpp
 ../../../MainEditor.h
-/home/pioniere/CLionProjects/pds-project/editor/MainEditor.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_SaveAsDialog.cpp
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_SaveAsDialog.cpp
 ../../../SaveAsDialog.h
-/home/pioniere/CLionProjects/pds-project/editor/SaveAsDialog.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.h
 QtCore/qbytearray.h
 -
 QtCore/qmetatype.h
 -
 
-/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp
 EWIEGA46WW/moc_MainEditor.cpp
-/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_MainEditor.cpp
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_MainEditor.cpp
 EWIEGA46WW/moc_SaveAsDialog.cpp
-/home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_SaveAsDialog.cpp
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_SaveAsDialog.cpp
 
-/home/pioniere/CLionProjects/pds-project/editor/main.cpp
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/main.cpp
 QApplication
 -
+QtCore/QResource
+-
 MainEditor.h
-/home/pioniere/CLionProjects/pds-project/editor/MainEditor.h
+/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.h
+iostream
+-
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/QLocale
+/opt/Qt/5.12.3/gcc_64/include/QtCore/QLocale
 qlocale.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qlocale.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/QVariant
+/opt/Qt/5.12.3/gcc_64/include/QtCore/QResource
+qresource.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qresource.h
+
+/opt/Qt/5.12.3/gcc_64/include/QtCore/QVariant
 qvariant.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qvariant.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qalgorithms.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qabstractitemmodel.h
+QtCore/qvariant.h
+-
+QtCore/qobject.h
+-
+QtCore/qhash.h
+-
+QtCore/qvector.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qalgorithms.h
 QtCore/qglobal.h
 -
 intrin.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qarraydata.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qarraydata.h
 QtCore/qrefcount.h
 -
 string.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qatomic.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qatomic.h
 QtCore/qglobal.h
 -
 QtCore/qbasicatomic.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qatomic_bootstrap.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qatomic_bootstrap.h
 QtCore/qgenericatomic.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qatomic_cxx11.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qatomic_cxx11.h
 QtCore/qgenericatomic.h
 -
 atomic
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qatomic_msvc.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qatomic_msvc.h
 QtCore/qgenericatomic.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qbasicatomic.h
-QtCore/qglobal.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qbasicatomic.h
+QtCore/qatomic.h
 -
 QtCore/qatomic_bootstrap.h
 -
@@ -106,7 +138,7 @@ QtCore/qatomic_cxx11.h
 QtCore/qatomic_msvc.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qbytearray.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qbytearray.h
 QtCore/qrefcount.h
 -
 QtCore/qnamespace.h
@@ -124,31 +156,31 @@ string
 iterator
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qbytearraylist.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qbytearraylist.h
 QtCore/qlist.h
 -
 QtCore/qbytearray.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qchar.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qchar.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qcompilerdetection.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qcompilerdetection.h
 QtCore/qglobal.h
 -
 utility
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qconfig-bootstrapped.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qconfig-bootstrapped.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qconfig.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qconfig.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qcontainerfwd.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qcontainerfwd.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qcontiguouscache.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qcontiguouscache.h
 QtCore/qatomic.h
 -
 limits.h
@@ -156,7 +188,7 @@ limits.h
 new
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qcoreapplication.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qcoreapplication.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
@@ -170,7 +202,7 @@ QtCore/qeventloop.h
 QtCore/qscopedpointer.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qcoreevent.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qcoreevent.h
 QtCore/qnamespace.h
 -
 QtCore/qbytearray.h
@@ -178,7 +210,7 @@ QtCore/qbytearray.h
 QtCore/qobjectdefs.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qdatastream.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qdatastream.h
 QtCore/qscopedpointer.h
 -
 QtCore/qiodevice.h
@@ -186,7 +218,7 @@ QtCore/qiodevice.h
 QtCore/qpair.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qdebug.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qdebug.h
 QtCore/qalgorithms.h
 -
 QtCore/qhash.h
@@ -218,11 +250,11 @@ map
 utility
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qeventloop.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qeventloop.h
 QtCore/qobject.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qfile.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qfile.h
 QtCore/qfiledevice.h
 -
 QtCore/qstring.h
@@ -230,25 +262,25 @@ QtCore/qstring.h
 stdio.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qfiledevice.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qfiledevice.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qflags.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qflags.h
 QtCore/qglobal.h
 -
 initializer_list
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qgenericatomic.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qgenericatomic.h
 QtCore/qglobal.h
 -
 QtCore/qtypeinfo.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qglobal.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qglobal.h
 type_traits
 -
 cstddef
@@ -290,7 +322,7 @@ QtCore/qnumeric.h
 QtCore/qversiontagging.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qglobalstatic.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qglobalstatic.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -298,7 +330,7 @@ QtCore/qatomic.h
 QtCore/qmutex.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qhash.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qhash.h
 QtCore/qchar.h
 -
 QtCore/qiterator.h
@@ -314,7 +346,7 @@ initializer_list
 algorithm
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qhashfunctions.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qhashfunctions.h
 QtCore/qstring.h
 -
 QtCore/qpair.h
@@ -322,7 +354,7 @@ QtCore/qpair.h
 numeric
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qiodevice.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qiodevice.h
 QtCore/qglobal.h
 -
 QtCore/qobject.h
@@ -334,15 +366,15 @@ QtCore/qscopedpointer.h
 QtCore/qstring.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qiterator.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qiterator.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qline.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qline.h
 QtCore/qpoint.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qlist.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qlist.h
 QtCore/qalgorithms.h
 -
 QtCore/qiterator.h
@@ -374,7 +406,7 @@ QtCore/qbytearraylist.h
 QtCore/qstringlist.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qlocale.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qlocale.h
 QtCore/qvariant.h
 -
 QtCore/qstring.h
@@ -384,11 +416,11 @@ QtCore/qobjectdefs.h
 QtCore/qshareddata.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qlogging.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qlogging.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qmap.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qmap.h
 QtCore/qiterator.h
 -
 QtCore/qlist.h
@@ -408,11 +440,11 @@ functional
 initializer_list
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qmargins.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qmargins.h
 QtCore/qnamespace.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qmetatype.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qmetatype.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -432,7 +464,7 @@ list
 map
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qmutex.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qmutex.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -444,15 +476,15 @@ chrono
 limits
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qnamespace.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qnamespace.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qnumeric.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qnumeric.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qobject.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qobject.h
 QtCore/qobjectdefs.h
 -
 QtCore/qstring.h
@@ -472,31 +504,31 @@ QtCore/qobject_impl.h
 chrono
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qobject_impl.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qobject_impl.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qobjectdefs.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs.h
 QtCore/qnamespace.h
 -
 QtCore/qobjectdefs_impl.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qobjectdefs_impl.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qobjectdefs_impl.h
 QtCore/qnamespace.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qpair.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qpair.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qpoint.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qpoint.h
 QtCore/qnamespace.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qprocessordetection.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qprocessordetection.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qrect.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qrect.h
 QtCore/qmargins.h
 -
 QtCore/qsize.h
@@ -504,23 +536,47 @@ QtCore/qsize.h
 QtCore/qpoint.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qrefcount.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qrefcount.h
 QtCore/qatomic.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qregexp.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qregexp.h
 QtCore/qglobal.h
 -
 QtCore/qstring.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qscopedpointer.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qregularexpression.h
+QtCore/qglobal.h
+-
+QtCore/qstring.h
+-
+QtCore/qstringlist.h
+-
+QtCore/qshareddata.h
+-
+QtCore/qvariant.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qresource.h
+QtCore/qstring.h
+-
+QtCore/qlocale.h
+-
+QtCore/qstringlist.h
+-
+QtCore/qlist.h
+-
+QtCore/qscopedpointer.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qscopedpointer.h
 QtCore/qglobal.h
 -
 stdlib.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qset.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qset.h
 QtCore/qhash.h
 -
 initializer_list
@@ -528,7 +584,7 @@ initializer_list
 iterator
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qshareddata.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qshareddata.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -538,7 +594,7 @@ QtCore/qhash.h
 QtCore/qhashfunctions.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qsharedpointer.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer.h
 QtCore/qglobal.h
 -
 QtCore/qatomic.h
@@ -548,7 +604,7 @@ QtCore/qshareddata.h
 QtCore/qsharedpointer_impl.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qsharedpointer_impl.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qsharedpointer_impl.h
 new
 -
 QtCore/qatomic.h
@@ -560,11 +616,11 @@ QtCore/qhash.h
 QtCore/qhashfunctions.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qsize.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qsize.h
 QtCore/qnamespace.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qstring.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qstring.h
 QtCore/qchar.h
 -
 QtCore/qbytearray.h
@@ -588,11 +644,11 @@ stdarg.h
 QtCore/qstringbuilder.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qstringalgorithms.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qstringalgorithms.h
 QtCore/qnamespace.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qstringbuilder.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qstringbuilder.h
 QtCore/qstring.h
 -
 QtCore/qbytearray.h
@@ -600,7 +656,7 @@ QtCore/qbytearray.h
 string.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qstringlist.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qstringlist.h
 QtCore/qlist.h
 -
 QtCore/qalgorithms.h
@@ -612,15 +668,15 @@ QtCore/qstring.h
 QtCore/qstringmatcher.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qstringliteral.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qstringliteral.h
 QtCore/qarraydata.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qstringmatcher.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qstringmatcher.h
 QtCore/qstring.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qstringview.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qstringview.h
 QtCore/qchar.h
 -
 QtCore/qbytearray.h
@@ -632,11 +688,11 @@ QtCore/qstringalgorithms.h
 string
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qsysinfo.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qsysinfo.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qsystemdetection.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qsystemdetection.h
 QtCore/qglobal.h
 -
 TargetConditionals.h
@@ -646,9 +702,9 @@ Availability.h
 AvailabilityMacros.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qtcore-config.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qtcore-config.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qtextstream.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qtextstream.h
 QtCore/qiodevice.h
 -
 QtCore/qstring.h
@@ -662,11 +718,11 @@ QtCore/qscopedpointer.h
 stdio.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qtypeinfo.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qtypeinfo.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qurl.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qurl.h
 QtCore/qbytearray.h
 -
 QtCore/qobjectdefs.h
@@ -682,7 +738,7 @@ QtCore/qglobal.h
 QtCore/qurlquery.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qurlquery.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qurlquery.h
 QtCore/qpair.h
 -
 QtCore/qshareddata.h
@@ -692,7 +748,7 @@ QtCore/qurl.h
 QtCore/qstringlist.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qvariant.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qvariant.h
 QtCore/qatomic.h
 -
 QtCore/qbytearray.h
@@ -716,7 +772,7 @@ QtCore/qbytearraylist.h
 variant
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qvarlengtharray.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qvarlengtharray.h
 QtCore/qcontainerfwd.h
 -
 QtCore/qglobal.h
@@ -736,7 +792,7 @@ initializer_list
 iterator
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qvector.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qvector.h
 QtCore/qalgorithms.h
 -
 QtCore/qiterator.h
@@ -764,11 +820,11 @@ algorithm
 QtCore/qpoint.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtCore/qversiontagging.h
+/opt/Qt/5.12.3/gcc_64/include/QtCore/qversiontagging.h
 QtCore/qglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qbrush.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qbrush.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpair.h
@@ -790,7 +846,7 @@ QtGui/qimage.h
 QtGui/qpixmap.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qcolor.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qcolor.h
 QtGui/qtguiglobal.h
 -
 QtGui/qrgb.h
@@ -802,7 +858,7 @@ QtCore/qstringlist.h
 QtGui/qrgba64.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qcursor.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qcursor.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -810,7 +866,7 @@ QtCore/qpoint.h
 QtGui/qwindowdefs.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qevent.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qevent.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -842,7 +898,7 @@ QtGui/qvector2d.h
 QtGui/qtouchdevice.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qfont.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qfont.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -852,7 +908,17 @@ QtCore/qstring.h
 QtCore/qsharedpointer.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qfontinfo.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qfontdatabase.h
+QtGui/qtguiglobal.h
+-
+QtGui/qwindowdefs.h
+-
+QtCore/qstring.h
+-
+QtGui/qfont.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qfontinfo.h
 QtGui/qtguiglobal.h
 -
 QtGui/qfont.h
@@ -860,7 +926,7 @@ QtGui/qfont.h
 QtCore/qsharedpointer.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qfontmetrics.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qfontmetrics.h
 QtGui/qtguiglobal.h
 -
 QtGui/qfont.h
@@ -870,7 +936,7 @@ QtCore/qsharedpointer.h
 QtCore/qrect.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qguiapplication.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qguiapplication.h
 QtGui/qtguiglobal.h
 -
 QtCore/qcoreapplication.h
@@ -886,7 +952,7 @@ QtCore/qpoint.h
 QtCore/qsize.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qicon.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qicon.h
 QtGui/qtguiglobal.h
 -
 QtCore/qsize.h
@@ -896,7 +962,7 @@ QtCore/qlist.h
 QtGui/qpixmap.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qimage.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qimage.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -918,13 +984,13 @@ QtCore/qstring.h
 QtCore/qstringlist.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qinputmethod.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qinputmethod.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qkeysequence.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qkeysequence.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -932,7 +998,7 @@ QtCore/qstring.h
 QtCore/qobjectdefs.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qmatrix.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qmatrix.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpolygon.h
@@ -948,7 +1014,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qpaintdevice.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qpaintdevice.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -956,7 +1022,7 @@ QtGui/qwindowdefs.h
 QtCore/qrect.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qpainterpath.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qpainterpath.h
 QtGui/qtguiglobal.h
 -
 QtGui/qmatrix.h
@@ -972,7 +1038,7 @@ QtCore/qvector.h
 QtCore/qscopedpointer.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qpalette.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qpalette.h
 QtGui/qtguiglobal.h
 -
 QtGui/qwindowdefs.h
@@ -982,7 +1048,7 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qpen.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qpen.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -990,11 +1056,11 @@ QtGui/qcolor.h
 QtGui/qbrush.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qpixelformat.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qpixelformat.h
 QtGui/qtguiglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qpixmap.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qpixmap.h
 QtGui/qtguiglobal.h
 -
 QtGui/qpaintdevice.h
@@ -1012,7 +1078,7 @@ QtGui/qimage.h
 QtGui/qtransform.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qpolygon.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qpolygon.h
 QtGui/qtguiglobal.h
 -
 QtCore/qvector.h
@@ -1022,7 +1088,7 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qregion.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qregion.h
 QtGui/qtguiglobal.h
 -
 QtCore/qatomic.h
@@ -1034,19 +1100,19 @@ QtGui/qwindowdefs.h
 QtCore/qdatastream.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qrgb.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qrgb.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qrgba64.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qrgba64.h
 QtGui/qtguiglobal.h
 -
 QtCore/qprocessordetection.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtextcursor.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtextcursor.h
 QtGui/qtguiglobal.h
 -
 QtCore/qstring.h
@@ -1056,7 +1122,7 @@ QtCore/qshareddata.h
 QtGui/qtextformat.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtextdocument.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtextdocument.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
@@ -1072,7 +1138,7 @@ QtGui/qfont.h
 QtCore/qurl.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtextformat.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtextformat.h
 QtGui/qtguiglobal.h
 -
 QtGui/qcolor.h
@@ -1092,7 +1158,7 @@ QtGui/qbrush.h
 QtGui/qtextoption.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtextoption.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtextoption.h
 QtGui/qtguiglobal.h
 -
 QtCore/qnamespace.h
@@ -1102,21 +1168,21 @@ QtCore/qchar.h
 QtCore/qmetatype.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtgui-config.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtgui-config.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtguiglobal.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtguiglobal.h
 QtCore/qglobal.h
 -
 QtGui/qtgui-config.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtouchdevice.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtouchdevice.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobject.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qtransform.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qtransform.h
 QtGui/qtguiglobal.h
 -
 QtGui/qmatrix.h
@@ -1136,7 +1202,21 @@ QtCore/qpoint.h
 QtCore/qrect.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qvector2d.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qvalidator.h
+QtGui/qtguiglobal.h
+-
+QtCore/qobject.h
+-
+QtCore/qstring.h
+-
+QtCore/qregexp.h
+-
+QtCore/qregularexpression.h
+-
+QtCore/qlocale.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qvector2d.h
 QtGui/qtguiglobal.h
 -
 QtCore/qpoint.h
@@ -1144,7 +1224,7 @@ QtCore/qpoint.h
 QtCore/qmetatype.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qwindowdefs.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs.h
 QtGui/qtguiglobal.h
 -
 QtCore/qobjectdefs.h
@@ -1154,73 +1234,107 @@ QtCore/qnamespace.h
 QtGui/qwindowdefs_win.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtGui/qwindowdefs_win.h
+/opt/Qt/5.12.3/gcc_64/include/QtGui/qwindowdefs_win.h
 QtGui/qtguiglobal.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QAction
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QAction
 qaction.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qaction.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QApplication
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QApplication
 qapplication.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qapplication.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QDialog
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QDialog
 qdialog.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qdialog.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QDialogButtonBox
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QDialogButtonBox
 qdialogbuttonbox.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qdialogbuttonbox.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdialogbuttonbox.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QGridLayout
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QFontComboBox
+qfontcombobox.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qfontcombobox.h
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QGridLayout
 qgridlayout.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qgridlayout.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QHBoxLayout
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QHBoxLayout
 qboxlayout.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qboxlayout.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QLabel
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QLabel
 qlabel.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qlabel.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QLineEdit
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QLineEdit
 qlineedit.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qlineedit.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QMainWindow
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QMainWindow
 qmainwindow.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qmainwindow.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QMenu
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QMenu
 qmenu.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qmenu.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QMenuBar
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QMenuBar
 qmenubar.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qmenubar.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QTextEdit
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QStatusBar
+qstatusbar.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QTextEdit
 qtextedit.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qtextedit.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QVBoxLayout
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QToolBar
+qtoolbar.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbar.h
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QVBoxLayout
 qboxlayout.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qboxlayout.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/QWidget
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/QWidget
 qwidget.h
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qwidget.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qabstractscrollarea.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractitemdelegate.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtCore/qobject.h
+-
+QtWidgets/qstyleoption.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractscrollarea.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qaction.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractslider.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qabstractspinbox.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+QtGui/qvalidator.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qaction.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qkeysequence.h
@@ -1236,13 +1350,13 @@ QtGui/qicon.h
 QtWidgets/qactiongroup.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qactiongroup.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qactiongroup.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qaction.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qapplication.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qapplication.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qcoreapplication.h
@@ -1260,7 +1374,7 @@ QtWidgets/qdesktopwidget.h
 QtGui/qguiapplication.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qboxlayout.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qboxlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
@@ -1270,31 +1384,53 @@ QtWidgets/qwidget.h
 limits.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qdesktopwidget.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qcombobox.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+QtWidgets/qabstractitemdelegate.h
+-
+QtCore/qabstractitemmodel.h
+-
+QtCore/qvariant.h
+-
+QtGui/qvalidator.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdesktopwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qdialog.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdialog.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qdialogbuttonbox.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qdialogbuttonbox.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qframe.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qfontcombobox.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qcombobox.h
+-
+QtGui/qfontdatabase.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qframe.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qgridlayout.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qgridlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qlayout.h
@@ -1304,13 +1440,13 @@ QtWidgets/qwidget.h
 limits.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qlabel.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlabel.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qlayout.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlayout.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -1330,7 +1466,7 @@ QtWidgets/qboxlayout.h
 QtWidgets/qgridlayout.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qlayoutitem.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlayoutitem.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qsizepolicy.h
@@ -1340,7 +1476,7 @@ QtCore/qrect.h
 limits.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qlineedit.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qlineedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qframe.h
@@ -1352,7 +1488,7 @@ QtCore/qstring.h
 QtCore/qmargins.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qmainwindow.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmainwindow.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -1360,7 +1496,7 @@ QtWidgets/qwidget.h
 QtWidgets/qtabwidget.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qmenu.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmenu.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -1372,13 +1508,19 @@ QtGui/qicon.h
 QtWidgets/qaction.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qmenubar.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qmenubar.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qmenu.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qsizepolicy.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qrubberband.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qsizepolicy.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtCore/qobject.h
@@ -1386,7 +1528,71 @@ QtCore/qobject.h
 QtCore/qalgorithms.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qtabwidget.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qslider.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qabstractslider.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qstatusbar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qstyle.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtCore/qobject.h
+-
+QtCore/qrect.h
+-
+QtCore/qsize.h
+-
+QtGui/qicon.h
+-
+QtGui/qpixmap.h
+-
+QtGui/qpalette.h
+-
+QtWidgets/qsizepolicy.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qstyleoption.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtCore/qlocale.h
+-
+QtCore/qvariant.h
+-
+QtWidgets/qabstractspinbox.h
+-
+QtGui/qicon.h
+-
+QtGui/qmatrix.h
+-
+QtWidgets/qslider.h
+-
+QtWidgets/qstyle.h
+-
+QtWidgets/qtabbar.h
+-
+QtWidgets/qtabwidget.h
+-
+QtWidgets/qrubberband.h
+-
+QtWidgets/qframe.h
+-
+QtCore/qabstractitemmodel.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtabbar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qwidget.h
+-
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtabwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qwidget.h
@@ -1394,7 +1600,7 @@ QtWidgets/qwidget.h
 QtGui/qicon.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qtextedit.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtextedit.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtWidgets/qabstractscrollarea.h
@@ -1408,15 +1614,23 @@ QtGui/qtextcursor.h
 QtGui/qtextformat.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qtwidgets-config.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtoolbar.h
+QtWidgets/qtwidgetsglobal.h
+-
+QtWidgets/qaction.h
+-
+QtWidgets/qwidget.h
+-
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qtwidgetsglobal.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgets-config.h
+
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qtwidgetsglobal.h
 QtGui/qtguiglobal.h
 -
 QtWidgets/qtwidgets-config.h
 -
 
-/home/pioniere/Qt/5.12.7/gcc_64/include/QtWidgets/qwidget.h
+/opt/Qt/5.12.3/gcc_64/include/QtWidgets/qwidget.h
 QtWidgets/qtwidgetsglobal.h
 -
 QtGui/qwindowdefs.h
@@ -1463,7 +1677,11 @@ QtWidgets/QMenu
 -
 QtWidgets/QMenuBar
 -
+QtWidgets/QStatusBar
+-
 QtWidgets/QTextEdit
+-
+QtWidgets/QToolBar
 -
 QtWidgets/QWidget
 -

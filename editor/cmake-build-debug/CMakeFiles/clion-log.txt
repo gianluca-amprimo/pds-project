@@ -1,4 +1,4 @@
-/opt/clion-2019.3.3/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/home/pioniere/Qt/5.12.7/gcc_64/ -G "CodeBlocks - Unix Makefiles" /home/pioniere/CLionProjects/pds-project/editor
+/snap/clion/111/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/opt/Qt/5.12.3/gcc_64/lib/cmake -G "CodeBlocks - Unix Makefiles" /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/pioniere/CLionProjects/pds-project/editor/cmake-build-debug
+-- Build files have been written to: /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug
