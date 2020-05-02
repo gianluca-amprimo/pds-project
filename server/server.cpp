@@ -262,7 +262,10 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
 
 
     QJsonObject message;
-    message = prepareJsonReply("log", loginResult, username, true, true, true);
+    if(loginResult=="unreg" || loginResult=="fail")
+        message = prepareJsonReply("log", loginResult, username, false, false, false);
+    else
+        message = prepareJsonReply("log", loginResult, username, true, true, true);
     printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                  message["body"].toString().toStdString());
     sendMessage(message, active_socket);
@@ -321,6 +324,11 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
 
 
     QJsonObject message;
+
+    if(registrationResult=="alreadyreg" || registrationResult=="fail")
+        message = prepareJsonReply("reg", registrationResult, username, false, false, false);
+    else
+        message = prepareJsonReply("reg", registrationResult, username, true, true, true);
     message = prepareJsonReply("reg", registrationResult, username, true, true, true);
     printConsole("Sending back " + message["header"].toString().toStdString() + " " +
                  message["body"].toString().toStdString());

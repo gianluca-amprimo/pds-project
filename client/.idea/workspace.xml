@@ -14,10 +14,6 @@
   <component name="ChangeListManager">
     <list default="true" id="7339e6b0-27d0-4952-81a0-6248a32e1bf6" name="Default Changelist" comment="Added c/s interaction for logged user personal information retrieval. Updated class User client side to hold also this information.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,12 +73,12 @@
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunManager" selected="CMake Application.client">
-    <configuration name="client" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="client" TARGET_NAME="client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="client" RUN_TARGET_NAME="client">
+    <configuration name="client" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="client" TARGET_NAME="client" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="client" RUN_TARGET_NAME="client">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="client_autogen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="client" TARGET_NAME="client_autogen" CONFIG_NAME="Debug">
+    <configuration name="client_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="client" TARGET_NAME="client_autogen" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -130,7 +126,7 @@
       <workItem from="1586942477440" duration="5647000" />
       <workItem from="1587029209906" duration="4390000" />
       <workItem from="1587465723426" duration="3542000" />
-      <workItem from="1587556166658" duration="940000" />
+      <workItem from="1587556166658" duration="1603000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic.">
       <created>1586537560396</created>
@@ -157,13 +153,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Implemented class User in client to store currently logged user. Implemented c/s exchange for profile pic." />
@@ -183,22 +178,22 @@
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
     <state x="690" y="252" width="530" height="622" key="FileChooserDialogImpl/0.31.1920.1049@0.31.1920.1049" timestamp="1586942973994" />
-    <state width="917" height="139" key="GridCell.Tab.0.bottom" timestamp="1587557157275">
+    <state width="917" height="139" key="GridCell.Tab.0.bottom" timestamp="1587558257403">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="139" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1587557157275" />
-    <state width="917" height="139" key="GridCell.Tab.0.center" timestamp="1587557157275">
+    <state width="917" height="139" key="GridCell.Tab.0.bottom/0.31.1920.1049@0.31.1920.1049" timestamp="1587558257403" />
+    <state width="917" height="139" key="GridCell.Tab.0.center" timestamp="1587558257402">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="139" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1587557157275" />
-    <state width="917" height="139" key="GridCell.Tab.0.left" timestamp="1587557157275">
+    <state width="917" height="139" key="GridCell.Tab.0.center/0.31.1920.1049@0.31.1920.1049" timestamp="1587558257402" />
+    <state width="917" height="139" key="GridCell.Tab.0.left" timestamp="1587558257401">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="139" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1587557157275" />
-    <state width="917" height="139" key="GridCell.Tab.0.right" timestamp="1587557157275">
+    <state width="917" height="139" key="GridCell.Tab.0.left/0.31.1920.1049@0.31.1920.1049" timestamp="1587558257401" />
+    <state width="917" height="139" key="GridCell.Tab.0.right" timestamp="1587558257403">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>
-    <state width="917" height="139" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1587557157275" />
+    <state width="917" height="139" key="GridCell.Tab.0.right/0.31.1920.1049@0.31.1920.1049" timestamp="1587558257403" />
     <state x="182" y="129" width="1536" height="885" key="MergeDialog" timestamp="1587033284249">
       <screen x="0" y="31" width="1920" height="1049" />
     </state>

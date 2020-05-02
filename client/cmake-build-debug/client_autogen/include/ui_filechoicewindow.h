@@ -32,6 +32,7 @@ public:
     QPushButton *NewButton;
     QHBoxLayout *horizontalLayout;
     QComboBox *OpenMenu;
+    QPushButton *RefreshButton;
     QPushButton *OpenButton;
     QPushButton *SettingsButton;
     QPushButton *LogoutButton;
@@ -40,7 +41,7 @@ public:
     {
         if (FileChoiceWindow->objectName().isEmpty())
             FileChoiceWindow->setObjectName(QStringLiteral("FileChoiceWindow"));
-        FileChoiceWindow->resize(236, 269);
+        FileChoiceWindow->resize(267, 269);
         verticalLayout = new QVBoxLayout(FileChoiceWindow);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         verticalLayout->setSizeConstraint(QLayout::SetFixedSize);
@@ -87,17 +88,25 @@ public:
 
         horizontalLayout->addWidget(OpenMenu);
 
+        RefreshButton = new QPushButton(FileChoiceWindow);
+        RefreshButton->setObjectName(QStringLiteral("RefreshButton"));
+        RefreshButton->setMaximumSize(QSize(24, 16777215));
+        QIcon icon1(QIcon::fromTheme(QStringLiteral("view-refresh")));
+        RefreshButton->setIcon(icon1);
+
+        horizontalLayout->addWidget(RefreshButton);
+
         OpenButton = new QPushButton(FileChoiceWindow);
         OpenButton->setObjectName(QStringLiteral("OpenButton"));
-        OpenButton->setMaximumSize(QSize(80, 16777215));
-        QIcon icon1;
+        OpenButton->setMaximumSize(QSize(70, 16777215));
+        QIcon icon2;
         iconThemeName = QStringLiteral("document-open");
         if (QIcon::hasThemeIcon(iconThemeName)) {
-            icon1 = QIcon::fromTheme(iconThemeName);
+            icon2 = QIcon::fromTheme(iconThemeName);
         } else {
-            icon1.addFile(QStringLiteral("."), QSize(), QIcon::Normal, QIcon::Off);
+            icon2.addFile(QStringLiteral("."), QSize(), QIcon::Normal, QIcon::Off);
         }
-        OpenButton->setIcon(icon1);
+        OpenButton->setIcon(icon2);
 
         horizontalLayout->addWidget(OpenButton);
 
@@ -106,14 +115,14 @@ public:
 
         SettingsButton = new QPushButton(FileChoiceWindow);
         SettingsButton->setObjectName(QStringLiteral("SettingsButton"));
-        QIcon icon2;
+        QIcon icon3;
         iconThemeName = QStringLiteral("emblem-system");
         if (QIcon::hasThemeIcon(iconThemeName)) {
-            icon2 = QIcon::fromTheme(iconThemeName);
+            icon3 = QIcon::fromTheme(iconThemeName);
         } else {
-            icon2.addFile(QStringLiteral("."), QSize(), QIcon::Normal, QIcon::Off);
+            icon3.addFile(QStringLiteral("."), QSize(), QIcon::Normal, QIcon::Off);
         }
-        SettingsButton->setIcon(icon2);
+        SettingsButton->setIcon(icon3);
 
         verticalLayout->addWidget(SettingsButton);
 
@@ -125,8 +134,14 @@ public:
         sizePolicy1.setHeightForWidth(LogoutButton->sizePolicy().hasHeightForWidth());
         LogoutButton->setSizePolicy(sizePolicy1);
         LogoutButton->setMaximumSize(QSize(100, 25));
-        QIcon icon3(QIcon::fromTheme(QStringLiteral("gnome-logout")));
-        LogoutButton->setIcon(icon3);
+        QIcon icon4;
+        iconThemeName = QStringLiteral("gnome-logout");
+        if (QIcon::hasThemeIcon(iconThemeName)) {
+            icon4 = QIcon::fromTheme(iconThemeName);
+        } else {
+            icon4.addFile(QStringLiteral("."), QSize(), QIcon::Normal, QIcon::Off);
+        }
+        LogoutButton->setIcon(icon4);
 
         verticalLayout->addWidget(LogoutButton, 0, Qt::AlignRight);
 
@@ -145,6 +160,10 @@ public:
         ProfilePicture->setText(QString());
         WelcomeLabel->setText(QApplication::translate("FileChoiceWindow", "Welcome back!", Q_NULLPTR));
         NewButton->setText(QApplication::translate("FileChoiceWindow", "New file", Q_NULLPTR));
+#ifndef QT_NO_TOOLTIP
+        RefreshButton->setToolTip(QApplication::translate("FileChoiceWindow", "<html><head/><body><p>Refresh file list</p></body></html>", Q_NULLPTR));
+#endif // QT_NO_TOOLTIP
+        RefreshButton->setText(QString());
         OpenButton->setText(QApplication::translate("FileChoiceWindow", "Open", Q_NULLPTR));
         SettingsButton->setText(QApplication::translate("FileChoiceWindow", "Settings", Q_NULLPTR));
         LogoutButton->setText(QApplication::translate("FileChoiceWindow", "Logout", Q_NULLPTR));
