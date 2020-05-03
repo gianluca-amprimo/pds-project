@@ -9,6 +9,7 @@
 #include <QStatusBar>
 #include <memory>
 #include "User.h"
+#include "MainEditor.h"
 #include <QToolButton>
 #include <QLabel>
 #include <QLineEdit>
@@ -81,6 +82,7 @@ private:
 	QToolButton *logPasswordButton;
 	QAction *logHidePassword;
 
+
 	std::shared_ptr<User> loggedUser;
 	
 	std::shared_ptr<QDialog> RegWin;
@@ -107,6 +109,8 @@ private:
 	QAction *settHideCurrentPassword;
 	QToolButton *settNewPasswordButton;
 	QAction *settHideNewPassword;
+
+	std::shared_ptr<MainEditor> MainEditorWin;
 };
 
 #endif

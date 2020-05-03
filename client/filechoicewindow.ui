@@ -37,7 +37,7 @@
     <widget class="QLabel" name="WelcomeLabel">
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="text">
@@ -92,7 +92,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset theme="view-refresh"/>
+        <iconset theme="view-refresh">
+         <normaloff>.</normaloff>.</iconset>
        </property>
       </widget>
      </item>
