@@ -1,8 +1,10 @@
+#include <memory>
+#include <QtCore/QJsonObject>
 #include "db_operations.h"
 
 
 static std::string db_path = "../pds_db";
-
+const std::string fs_root = "../pds_db";
 static int db_counter = 0;
 
 std::set<std::tuple<std::string, std::string>> file_list;
@@ -177,7 +179,7 @@ int addUser(std::string user, std::string password, std::string name, std::strin
 /*
  * function to add one file to the db
  */
-int addFile(std::string name, std::string path) {
+int addFile(std::string name, std::string path, std::string username) {
     int rc;
     sqlite3 *db;
     std::string sql;
@@ -211,8 +213,13 @@ int addFile(std::string name, std::string path) {
         sqlite3_close(db);
         return 0;
     } else {
+        auto fp = std::fopen((fs_root + path).c_str(), "w");
+        if(fp == nullptr)
+            return 0;
+        fclose(fp);
+
         // prepare sql operation
-        sql = "INSERT INTO FILES ('NAME', 'PATH') VALUES ('" + name + "', '" + path + "')";
+        sql = "INSERT INTO FILES ('NAME', 'PATH', 'CREATED_BY') VALUES ('" + name + "', '" + fs_root + path + "', '" + username + "')";
 
         // execute sql statement
         rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
@@ -468,4 +475,38 @@ int changePassword(std::string username, std::string oldPassword, std::string ne
 
     sqlite3_close(db);
     return 1;
+}
+
+int checkIfFileExists(std::string name, std::string path) {
+    int rc;
+    sqlite3 *db;
+    std::string sql;
+    char *errMsg = nullptr;
+
+    // open database connection
+    rc = sqlite3_open(db_path.c_str(), &db);
+
+    // check the connection has been established
+    if (rc != SQLITE_OK) {
+        std::cerr << "Can't open the database: " << sqlite3_errmsg(db) << std::endl;
+        return -1;
+    }
+
+    // prepare sql operation
+    sql = "SELECT * FROM FILES WHERE NAME = '" + name +"' AND PATH = '" + path + "';";
+    db_counter = 0;
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), files, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cerr << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+        return -1;
+    }
+    sqlite3_close(db);
+
+    if (db_counter >= 1)
+        return 1;
+    return 0;
 }

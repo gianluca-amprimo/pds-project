@@ -4,8 +4,9 @@
 #include <iostream>
 #include <set>
 #include <tuple>
-
 #include <sqlite3.h>
+
+extern const std::string fs_root;
 
 // data structure for the files available on the server
 extern std::set<std::tuple<std::string, std::string>> file_list;
@@ -17,13 +18,15 @@ int checkCredentials(std::string usr, std::string password);
 // updates the file_list
 int readFiles();
 
+int checkIfFileExists(std::string name, std::string path);
+
 // function to add a user
 // returns 1 for success and -1 for failure
 int addUser(std::string user, std::string password, std::string name, std::string surname);
 
 // function to add a file to the db
 // returns 1 for success -1 for failure and 0 if file already exists
-int addFile(std::string name, std::string path);
+int addFile(std::string name, std::string path, std::string username);
 
 // function to delete an existing user
 // returns 1 for user deleted -1 for db error and 0 if user does not exist

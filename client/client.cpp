@@ -12,7 +12,6 @@
 #include "ui_SignupWin.h"
 #include "ui_ProfileSettingsWin.h"
 
-//static QString pathPictures("../../server/Pictures/");
 static QString defaultPicture(":/misc/themes/material/user.png");
 
 Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this))

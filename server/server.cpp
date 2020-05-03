@@ -5,7 +5,7 @@
 #include <iostream>
 #include <sstream>
 #include <regex>
-
+#include <fstream>
 #include "User.h"
 #include "server.h"
 #include "ui_server.h"
@@ -14,7 +14,7 @@
 static QString picturePath("../Pictures/");
 std::array<std::string, 10> colors{"white", "red", "green", "blue",
                                    "cyan", "magenta", "yellow", "gray"};
-
+typedef char Symbol;
 /*
  * Constructor of the server
  */
@@ -162,6 +162,8 @@ void Server::processUserRequest() {
         opResult = Server::updateUser(jSobject, active_socket);
     if (header == "refr")
     	opResult = Server::refreshFileList(jSobject, active_socket);
+    if (header == "newfile")
+        opResult = Server::createFile(jSobject, active_socket);
     
     qDebug() << opResult;
 }
@@ -468,7 +470,7 @@ void Server::handleDisconnect() {
     printConsole("List of active users and their socket: " + user_list);
     disconnected_socket->deleteLater();
 
-    //TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
+    // TODO: rimuovere socket dalla lista dei socket attivi, rimuovere lo user dalla mappa degli user attivi
     // se è il suo unico socket aperto, eventualmente chiudere il file se lo user era l’unico utente online (e non l'avesse chiuso)
 }
 
@@ -633,4 +635,82 @@ bool Server::refreshFileList(QJsonObject &data, QTcpSocket *active_socket) {
 	sendMessage(message, active_socket);
 	
 	return true;
+}
+
+bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
+    std::string filename = data["filename"].toString().toStdString();
+    std::string path = data["path"].toString().toStdString();
+    std::string username = data["username"].toString().toStdString();
+    QJsonObject message;
+
+    int result = addFile(filename, path, username);
+    if (result == -1) {
+        message["header"] = "error";
+        message["body"] = "Internal server error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while '" + username + "' was creating file '" + filename + "' at '" + path + "'");
+        return false;
+    }
+    if (result == 0) {
+        message["header"] = "error";
+        message["body"] = "The file already exists";
+        sendMessage(message, active_socket);
+        printConsole(username + "' has tried to create file '" + filename + "' at '" + path + "', but it already exists");
+        return false;
+    }
+    openFile(data, active_socket);
+    return true;
+}
+
+bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
+    std::string filename = data["filename"].toString().toStdString();
+    std::string path = data["path"].toString().toStdString();
+    std::string username = data["username"].toString().toStdString();
+    QJsonObject message;
+
+    int result = checkIfFileExists(filename, path);
+    if (result == -1) {
+        message["header"] = "error";
+        message["body"] = "Internal server error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while '" + username + "' was reading file '" + filename + "' at '" + path + "'");
+        return false;
+    }
+    if (result == 0) {
+        message["header"] = "error";
+        message["body"] = "The file doesn't exist";
+        sendMessage(message, active_socket);
+        printConsole(username + "' has tried to open file '" + filename + "' at '" + path + "', but it doesn't exist");
+        return false;
+    }
+
+    std::ifstream fp((fs_root + path + filename).c_str(), std::ios::out | std::ios::binary);
+    if(!fp) {
+        message["header"] = "error";
+        message["body"] = "Internal server error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while '" + username + "' was reading file '" + filename + "' at '" + path + "'");
+        return false;
+    }
+
+    QJsonArray arrOfSymbols;
+    Symbol tmp;
+    while( !fp.eof() ) {
+        fp.read((Symbol *) &tmp, sizeof(Symbol));
+        arrOfSymbols.push_back(tmp);
+    }
+    fp.close();
+    if(!fp.good()) {
+        message["header"] = "error";
+        message["body"] = "Internal server error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while '" + username + "' was reading file '" + filename + "' at '" + path + "'");
+        return false;
+    }
+
+    message["header"] = "refr_file";
+    message["body"] = arrOfSymbols;
+    sendMessage(message, active_socket);
+    printConsole("Sending file '" + filename + "' at '" + path + "' for user '" + username + "'");
+    return true;
 }
