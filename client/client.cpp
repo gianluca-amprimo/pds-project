@@ -42,7 +42,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	connect(uiLog->CancellationLink, &QLabel::linkActivated, this, &Client::openCancellationWindow);
     connect(tcpSocket, &QIODevice::readyRead, this, &Client::readResponse);
     connect(tcpSocket, QOverload<QAbstractSocket::SocketError>::of(&QAbstractSocket::error), this, &Client::displayError);
-//    connect(tcpSocket, &QTcpSocket::disconnected, this, &Client::requestConnection);
+    connect(tcpSocket, &QTcpSocket::disconnected, this, &Client::requestConnection);
 
     Client::requestConnection();
     QNetworkConfigurationManager manager;
