@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>SettingsWindow</class>
- <widget class="QDialog" name="SettingsWindow">
+ <class>ProfileSettingsWin</class>
+ <widget class="QDialog" name="ProfileSettingsWin">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -76,11 +76,11 @@
        <item>
         <widget class="QPushButton" name="ProfilePictureButton">
          <property name="text">
-          <string>Profile picture...</string>
+          <string>Change picture</string>
          </property>
          <property name="icon">
-          <iconset theme="camera-photo">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset resource="icons.qrc">
+           <normaloff>:/misc/themes/material/camera.png</normaloff>:/misc/themes/material/camera.png</iconset>
          </property>
         </widget>
        </item>
@@ -101,8 +101,8 @@
             <string>Delete picture</string>
            </property>
            <property name="icon">
-            <iconset theme="edit-delete">
-             <normaloff>.</normaloff>.</iconset>
+            <iconset resource="icons.qrc">
+             <normaloff>:/misc/themes/material/delete.png</normaloff>:/misc/themes/material/delete.png</iconset>
            </property>
           </widget>
          </item>
@@ -121,8 +121,8 @@
             <string/>
            </property>
            <property name="icon">
-            <iconset theme="edit-undo">
-             <normaloff>.</normaloff>.</iconset>
+            <iconset resource="icons.qrc">
+             <normaloff>:/misc/themes/material/undo.png</normaloff>:/misc/themes/material/undo.png</iconset>
            </property>
           </widget>
          </item>
@@ -198,7 +198,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset theme="dialog-question"/>
+        <iconset resource="icons.qrc">
+         <normaloff>:/misc/themes/material/question_mark.png</normaloff>:/misc/themes/material/question_mark.png</iconset>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -251,6 +252,8 @@
   <tabstop>ProfilePictureButton</tabstop>
   <tabstop>UpdateButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

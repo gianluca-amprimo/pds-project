@@ -1,0 +1,35 @@
+<RCC>
+    <qresource prefix="/text_styling">
+        <file>themes/material/bold.png</file>
+        <file>themes/material/italic.png</file>
+        <file>themes/material/underline.png</file>
+    </qresource>
+    <qresource prefix="/text_edit">
+        <file>themes/material/copy.png</file>
+        <file>themes/material/cut.png</file>
+        <file>themes/material/paste.png</file>
+    </qresource>
+    <qresource prefix="/file">
+        <file>themes/material/new_doc.png</file>
+        <file>themes/material/save.png</file>
+        <file>themes/material/save_as.png</file>
+        <file>themes/material/open_doc.png</file>
+    </qresource>
+    <qresource prefix="/text_align">
+        <file>themes/material/align_center.png</file>
+        <file>themes/material/align_justified.png</file>
+        <file>themes/material/align_left.png</file>
+        <file>themes/material/align_right.png</file>
+    </qresource>
+    <qresource prefix="/misc">
+        <file>themes/material/question_mark.png</file>
+        <file>themes/material/delete.png</file>
+        <file>themes/material/camera.png</file>
+        <file>themes/material/not_see.png</file>
+        <file>themes/material/see.png</file>
+        <file>themes/material/user.png</file>
+        <file>themes/material/settings.png</file>
+        <file>themes/material/update.png</file>
+        <file>themes/material/undo.png</file>
+    </qresource>
+</RCC>

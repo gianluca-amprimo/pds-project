@@ -6,25 +6,24 @@
 #include <sys/stat.h>
 #include <regex>
 #include "client.h"
-#include "ui_loginwindow.h"
-#include "ui_registrationwindow.h"
-#include "ui_cancellationwindow.h"
-#include "ui_filechoicewindow.h"
-#include "ui_settingswindow.h"
+#include "ui_LoginWin.h"
+#include "ui_DeleteAccountWin.h"
+#include "ui_WelcomeWin.h"
+#include "ui_SignupWin.h"
+#include "ui_ProfileSettingsWin.h"
 
 //static QString pathPictures("../../server/Pictures/");
-static QString defaultPicture("../Icons/___default_img.png");
+static QString defaultPicture(":/misc/themes/material/user.png");
 
 Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this))
 {
-	uiLog = std::make_shared<Ui::LoginWindow> ();
+	uiLog = std::make_shared<Ui::LoginWin>();
     uiLog->setupUi(this);
     logStatusBar = std::make_shared<QStatusBar> (this);
     uiLog->verticalLayout->addWidget(logStatusBar.get());
-	uiLog->RegistrationLink->setText("<a href=\"whatever\">Click here to register</a>");
-	uiLog->CancellationLink->setText("<a href=\"whatever\">Click here to cancel your account</a>");
-	
-	logHidePassword = uiLog->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+
+
+	logHidePassword = uiLog->PasswordEdit->addAction(QIcon(":/misc/themes/material/not_see.png"), QLineEdit::TrailingPosition);
 	logPasswordButton = qobject_cast<QToolButton *>(logHidePassword->associatedWidgets().last());
 	logPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(logPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiLog->PasswordEdit); });
@@ -75,6 +74,7 @@ void Client::requestConnection()
 {
     qDebug()<< "requesting connection";
 #ifndef LOCALHOST
+    // define whatever IP address the server is running on
 	auto host = "128.0.0.1";
 #else
 	auto host = QHostAddress(QHostAddress::LocalHost).toString();
@@ -138,7 +138,7 @@ void Client::readResponse()
 	        User u(uiLog->UsernameEdit->text(),pixmapFrom(jSobject["propic"]), jSobject["name"].toString(), jSobject["surname"].toString());
 	        qDebug()<<u.getName()<<" "<<u.getSurname();
 	        loggedUser=std::make_shared<User>(u);
-            openFileChoiceWindow(false);
+            openWelcomeWin(false);
             this->close();
         }
         if (result=="unreg") {
@@ -175,7 +175,7 @@ void Client::readResponse()
 
             loggedUser=std::make_shared<User>(u);
             setFileList(jSobject);
-            openFileChoiceWindow(true);
+            openWelcomeWin(true);
             RegWin->close();
             this->close();
         }
@@ -374,21 +374,21 @@ void Client::openRegistrationWindow() {
 		RegWin.reset();
 	}
 	
-	uiReg = std::make_shared<Ui::RegistrationWindow> ();
+	uiReg = std::make_shared<Ui::SignupWin> ();
 	RegWin = std::make_shared<QDialog> ();
 	uiReg->setupUi(RegWin.get());
 	regStatusBar = std::make_shared<QStatusBar> (RegWin.get());
 	uiReg->verticalLayout->addWidget(regStatusBar.get());
-	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(100, 100, Qt::KeepAspectRatio));
+	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(96, 96, Qt::KeepAspectRatio));
 	uiReg->UsernameEdit->setText(uiLog->UsernameEdit->text());
 	
-	regHidePassword = uiReg->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	regHidePassword = uiReg->PasswordEdit->addAction(QIcon(":/misc/themes/material/not_see.png"), QLineEdit::TrailingPosition);
 	regPasswordButton = qobject_cast<QToolButton *>(regHidePassword->associatedWidgets().last());
 	regPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(regPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiReg->PasswordEdit); });
 	connect(regPasswordButton, &QToolButton::released, this, [this](){ releasePasswordButton(uiReg->PasswordEdit); });
 	
-	regHideRepeatPassword = uiReg->RepeatPasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	regHideRepeatPassword = uiReg->RepeatPasswordEdit->addAction(QIcon(":/misc/themes/material/not_see.png"), QLineEdit::TrailingPosition);
 	regRepeatPasswordButton = qobject_cast<QToolButton *>(regHideRepeatPassword->associatedWidgets().last());
 	regRepeatPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(regRepeatPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiReg->RepeatPasswordEdit); });
@@ -422,7 +422,7 @@ void Client::uploadProfilePicture(QLabel* label, QPushButton *deleteButton) {
 		QImage image;
 		bool valid = image.load(filename);
 		if (valid) {
-			label->setPixmap(QPixmap::fromImage(image).scaled(100, 100, Qt::KeepAspectRatio));
+			label->setPixmap(QPixmap::fromImage(image).scaled(96, 96, Qt::KeepAspectRatio));
 			deleteButton->setEnabled(true);
 		}
 	}
@@ -430,7 +430,7 @@ void Client::uploadProfilePicture(QLabel* label, QPushButton *deleteButton) {
 
 void Client::deleteProfilePicture(QLabel* label, QPushButton *deleteButton) {
 	qDebug() << "Deleting profile picture";
-	label->setPixmap(QPixmap(defaultPicture).scaled(100, 100, Qt::KeepAspectRatio));
+	label->setPixmap(QPixmap(defaultPicture).scaled(96, 96, Qt::KeepAspectRatio));
 	deleteButton->setEnabled(false);
 	deleteButton->parentWidget()->setFocus();
 }
@@ -543,13 +543,13 @@ void Client::openCancellationWindow() {
 		CancWin.reset();
 	}
 	
-	uiCanc = std::make_shared<Ui::CancellationWindow> ();
+	uiCanc = std::make_shared<Ui::DeleteAccountWin> ();
 	CancWin = std::make_shared<QDialog> ();
 	uiCanc->setupUi(CancWin.get());
 	cancStatusBar = std::make_shared<QStatusBar> (CancWin.get());
 	uiCanc->verticalLayout->addWidget(cancStatusBar.get());
 	
-	cancHidePassword = uiCanc->PasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	cancHidePassword = uiCanc->PasswordEdit->addAction(QIcon(":/misc/themes/material/not_see.png"), QLineEdit::TrailingPosition);
 	cancPasswordButton = qobject_cast<QToolButton *>(cancHidePassword->associatedWidgets().last());
 	cancPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(cancPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiCanc->PasswordEdit); });
@@ -607,8 +607,8 @@ void Client::requestDeletion() {
 
 }
 
-void Client::openFileChoiceWindow(bool firstTime) {
-	uiChoice = std::make_shared<Ui::FileChoiceWindow> ();
+void Client::openWelcomeWin(bool firstTime) {
+	uiChoice = std::make_shared<Ui::WelcomeWin> ();
 	ChoiceWin = std::make_shared<QDialog> ();
 	uiChoice->setupUi(ChoiceWin.get());
 	uiChoice->OpenMenu->completer()->setCompletionMode(QCompleter::PopupCompletion);
@@ -752,23 +752,23 @@ void Client::openSettingsWindow() {
 		CancWin.reset();
 	}
 	
-	uiSett = std::make_shared<Ui::SettingsWindow> ();
+	uiSett = std::make_shared<Ui::ProfileSettingsWin> ();
 	SettWin = std::make_shared<QDialog> ();
 	uiSett->setupUi(SettWin.get());
 	settStatusBar = std::make_shared<QStatusBar> (SettWin.get());
 	uiSett->verticalLayout->addWidget(settStatusBar.get());
-	uiSett->ProfilePicture->setPixmap(loggedUser->getPropic().scaled(100, 100, Qt::KeepAspectRatio));
+	uiSett->ProfilePicture->setPixmap(loggedUser->getPropic().scaled(96, 96, Qt::KeepAspectRatio));
 	uiSett->NameEdit->setText(loggedUser->getName());
 	uiSett->SurnameEdit->setText(loggedUser->getSurname());
 	uiSett->UsernameEdit->setText(loggedUser->getUsername());
 	
-	settHideCurrentPassword = uiSett->CurrentPasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	settHideCurrentPassword = uiSett->CurrentPasswordEdit->addAction(QIcon(":/misc/themes/material/not_see.png"), QLineEdit::TrailingPosition);
 	settCurrentPasswordButton = qobject_cast<QToolButton *>(settHideCurrentPassword->associatedWidgets().last());
 	settCurrentPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(settCurrentPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiSett->CurrentPasswordEdit); });
 	connect(settCurrentPasswordButton, &QToolButton::released, this, [this](){ releasePasswordButton(uiSett->CurrentPasswordEdit); });
 	
-	settHideNewPassword = uiSett->NewPasswordEdit->addAction(QIcon("../Icons/eye_off.png"), QLineEdit::TrailingPosition);
+	settHideNewPassword = uiSett->NewPasswordEdit->addAction(QIcon(":/misc/themes/material/not_see.png"), QLineEdit::TrailingPosition);
 	settNewPasswordButton = qobject_cast<QToolButton *>(settHideNewPassword->associatedWidgets().last());
 	settNewPasswordButton->setCursor(QCursor(Qt::PointingHandCursor));
 	connect(settNewPasswordButton, &QToolButton::pressed, this, [this](){ pressPasswordButton(uiSett->NewPasswordEdit); });
@@ -867,13 +867,13 @@ void Client::requestUserUpdate() {
 
 void Client::releasePasswordButton(QLineEdit *lineEdit) {
 	QToolButton *button = qobject_cast<QToolButton *>(sender());
-	button->setIcon(QIcon("../Icons/eye_off.png"));
+	button->setIcon(QIcon(":/misc/themes/material/not_see.png"));
 	lineEdit->setEchoMode(QLineEdit::Password);
 }
 
 void Client::pressPasswordButton(QLineEdit *lineEdit) {
 	QToolButton *button = qobject_cast<QToolButton *>(sender());
-	button->setIcon(QIcon("../Icons/eye_on.png"));
+	button->setIcon(QIcon(":/misc/themes/material/see.png"));
 	lineEdit->setEchoMode(QLineEdit::Normal);
 }
 

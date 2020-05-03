@@ -21,11 +21,20 @@ list(APPEND LIBRARIES
         )
 list(REMOVE_DUPLICATES LIBRARIES)
 
+qt5_add_resources(QRC icons.qrc)
+
 add_executable(client
                main.cpp
                client.cpp
                client.h
                User.cpp
-               User.h)
+               User.h
+               MainEditor.cpp
+               MainEditor.h
+               SaveAsDialog.cpp
+               SaveAsDialog.h
+               Symbol.cpp
+               Symbol.h
+               ${QRC})
 target_link_libraries(client ${LIBRARIES})
 

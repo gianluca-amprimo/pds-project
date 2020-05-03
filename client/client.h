@@ -9,6 +9,7 @@
 #include <QStatusBar>
 #include <memory>
 #include "User.h"
+#include "MainEditor.h"
 #include <QToolButton>
 #include <QLabel>
 #include <QLineEdit>
@@ -17,11 +18,11 @@ QT_BEGIN_NAMESPACE
 class QTcpSocket;
 class QNetworkSession;
 namespace Ui {
-	class LoginWindow;
-	class RegistrationWindow;
-	class CancellationWindow;
-	class FileChoiceWindow;
-	class SettingsWindow;
+	class LoginWin;
+	class SignupWin;
+	class DeleteAccountWin;
+	class WelcomeWin;
+	class ProfileSettingsWin;
 }
 QT_END_NAMESPACE
 
@@ -50,7 +51,7 @@ private slots:
     void enableDelButton();
     void requestDeletion();
     
-    void openFileChoiceWindow(bool firstTime);
+    void openWelcomeWin(bool firstTime);
     void openNewFile();
     void openExistingFile();
     void refreshFileList();
@@ -75,16 +76,17 @@ private:
 	bool checkPasswordFormat(std::string password);
 	bool checkUsernameFormat(std::string username);
 	
-	std::shared_ptr<Ui::LoginWindow> uiLog;
+	std::shared_ptr<Ui::LoginWin> uiLog;
 	std::list<QString> avail_file;
 	std::shared_ptr<QStatusBar> logStatusBar;
 	QToolButton *logPasswordButton;
 	QAction *logHidePassword;
 
+
 	std::shared_ptr<User> loggedUser;
 	
 	std::shared_ptr<QDialog> RegWin;
-	std::shared_ptr<Ui::RegistrationWindow> uiReg;
+	std::shared_ptr<Ui::SignupWin> uiReg;
 	std::shared_ptr<QStatusBar> regStatusBar;
 	QToolButton *regPasswordButton;
 	QAction *regHidePassword;
@@ -92,21 +94,23 @@ private:
 	QAction *regHideRepeatPassword;
 	
 	std::shared_ptr<QDialog> CancWin;
-	std::shared_ptr<Ui::CancellationWindow> uiCanc;
+	std::shared_ptr<Ui::DeleteAccountWin> uiCanc;
 	std::shared_ptr<QStatusBar> cancStatusBar;
 	QToolButton *cancPasswordButton;
 	QAction *cancHidePassword;
 	
 	std::shared_ptr<QDialog> ChoiceWin;
-	std::shared_ptr<Ui::FileChoiceWindow> uiChoice;
+	std::shared_ptr<Ui::WelcomeWin> uiChoice;
 	
 	std::shared_ptr<QDialog> SettWin;
-	std::shared_ptr<Ui::SettingsWindow> uiSett;
+	std::shared_ptr<Ui::ProfileSettingsWin> uiSett;
 	std::shared_ptr<QStatusBar> settStatusBar;
 	QToolButton *settCurrentPasswordButton;
 	QAction *settHideCurrentPassword;
 	QToolButton *settNewPasswordButton;
 	QAction *settHideNewPassword;
+
+	std::shared_ptr<MainEditor> MainEditorWin;
 };
 
 #endif

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>RegistrationWindow</class>
- <widget class="QDialog" name="RegistrationWindow">
+ <class>SignupWin</class>
+ <widget class="QDialog" name="SignupWin">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -34,11 +34,11 @@
        <item>
         <widget class="QPushButton" name="ProfilePictureButton">
          <property name="text">
-          <string>Profile picture...</string>
+          <string> Choose a picture</string>
          </property>
          <property name="icon">
-          <iconset theme="camera-photo">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset resource="icons.qrc">
+           <normaloff>:/misc/themes/material/camera.png</normaloff>:/misc/themes/material/camera.png</iconset>
          </property>
         </widget>
        </item>
@@ -48,11 +48,11 @@
           <bool>false</bool>
          </property>
          <property name="text">
-          <string>Delete picture</string>
+          <string>Delete the picture</string>
          </property>
          <property name="icon">
-          <iconset theme="edit-delete">
-           <normaloff>.</normaloff>.</iconset>
+          <iconset resource="icons.qrc">
+           <normaloff>:/misc/themes/material/delete.png</normaloff>:/misc/themes/material/delete.png</iconset>
          </property>
         </widget>
        </item>
@@ -137,7 +137,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset theme="dialog-question"/>
+        <iconset resource="icons.qrc">
+         <normaloff>:/misc/themes/material/question_mark.png</normaloff>:/misc/themes/material/question_mark.png</iconset>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -159,7 +160,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset theme="dialog-question"/>
+        <iconset resource="icons.qrc">
+         <normaloff>:/misc/themes/material/question_mark.png</normaloff>:/misc/themes/material/question_mark.png</iconset>
        </property>
        <property name="flat">
         <bool>true</bool>
@@ -218,6 +220,8 @@
   <tabstop>RepeatPasswordEdit</tabstop>
   <tabstop>RegisterButton</tabstop>
  </tabstops>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

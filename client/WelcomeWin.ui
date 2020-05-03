@@ -1,14 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>FileChoiceWindow</class>
- <widget class="QDialog" name="FileChoiceWindow">
+ <class>WelcomeWin</class>
+ <widget class="QDialog" name="WelcomeWin">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>267</width>
-    <height>269</height>
+    <width>384</width>
+    <height>294</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="windowTitle">
    <string>File choice</string>
@@ -37,7 +43,7 @@
     <widget class="QLabel" name="WelcomeLabel">
      <property name="font">
       <font>
-       <pointsize>24</pointsize>
+       <pointsize>16</pointsize>
       </font>
      </property>
      <property name="text">
@@ -54,8 +60,8 @@
       <string>New file</string>
      </property>
      <property name="icon">
-      <iconset theme="document-new">
-       <normaloff>.</normaloff>.</iconset>
+      <iconset resource="icons.qrc">
+       <normaloff>:/file/themes/material/new_doc.png</normaloff>:/file/themes/material/new_doc.png</iconset>
      </property>
      <property name="default">
       <bool>true</bool>
@@ -92,7 +98,8 @@
         <string/>
        </property>
        <property name="icon">
-        <iconset theme="view-refresh"/>
+        <iconset resource="icons.qrc">
+         <normaloff>:/misc/themes/material/update.png</normaloff>:/misc/themes/material/update.png</iconset>
        </property>
       </widget>
      </item>
@@ -108,8 +115,8 @@
         <string>Open</string>
        </property>
        <property name="icon">
-        <iconset theme="document-open">
-         <normaloff>.</normaloff>.</iconset>
+        <iconset resource="icons.qrc">
+         <normaloff>:/file/themes/material/open_doc.png</normaloff>:/file/themes/material/open_doc.png</iconset>
        </property>
       </widget>
      </item>
@@ -121,8 +128,8 @@
       <string>Settings</string>
      </property>
      <property name="icon">
-      <iconset theme="emblem-system">
-       <normaloff>.</normaloff>.</iconset>
+      <iconset resource="icons.qrc">
+       <normaloff>:/misc/themes/material/settings.png</normaloff>:/misc/themes/material/settings.png</iconset>
      </property>
     </widget>
    </item>
@@ -151,6 +158,8 @@
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>
