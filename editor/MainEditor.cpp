@@ -8,7 +8,7 @@ MainEditor::MainEditor(QWidget *parent, std::string editorIdentifier) :
     QMainWindow(parent),
     ui(new Ui::MainEditor) {
     ui->setupUi(this);
-    initIcons();
+    initUI();
     saveAsDialog = new SaveAsDialog(this, ui->textArea);
 
     this->thisEditorIdentifier = editorIdentifier;
@@ -23,22 +23,7 @@ MainEditor::MainEditor(QWidget *parent, std::string editorIdentifier) :
 
 }
 
-void MainEditor::initIcons() {
-    ui->bold->setIcon( QIcon(":/text_styling/themes/material/bold.png") );
-    ui->italic->setIcon( QIcon(":/text_styling/themes/material/italic.png") );
-    ui->underline->setIcon( QIcon(":/text_styling/themes/material/underline.png") );
-    ui->copy->setIcon(QIcon(":/text_edit/themes/material/copy.png") );
-    ui->cut->setIcon(QIcon(":/text_edit/themes/material/cut.png") );
-    ui->paste->setIcon(QIcon(":/text_edit/themes/material/paste.png") );
-    ui->newDoc->setIcon(QIcon(":/file/themes/material/new_doc.png"));
-    ui->openDoc->setIcon(QIcon(":/file/themes/material/open_doc.png"));
-    ui->save->setIcon(QIcon(":/file/themes/material/save.png"));
-    ui->saveAs->setIcon(QIcon(":/file/themes/material/save_as.png"));
-    ui->activeUsers->setIcon(QIcon(":/file/themes/material/user.png"));
-    ui->alignCenter->setIcon(QIcon(":/text_align/themes/material/align_center.png"));
-    ui->alignLeft->setIcon(QIcon(":/text_align/themes/material/align_left.png"));
-    ui->alignRight->setIcon(QIcon(":/text_align/themes/material/align_right.png"));
-    ui->alignJustified->setIcon(QIcon(":/text_align/themes/material/align_justified.png"));
+void MainEditor::initUI() {
     auto separator = ui->toolBar->insertSeparator(ui->bold);
     this->fontSelector = new QFontComboBox;
     ui->toolBar->insertWidget(separator, fontSelector);

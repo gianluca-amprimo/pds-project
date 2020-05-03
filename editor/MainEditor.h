@@ -34,8 +34,9 @@ private:
     SaveAsDialog *saveAsDialog;
     int currentPosition;
     int oldPosition;
-    void initIcons();
+
     QFontComboBox *fontSelector;
+    void initUI();
 };
 
 
