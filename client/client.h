@@ -52,7 +52,7 @@ private slots:
     void requestDeletion();
     
     void openWelcomeWin(bool firstTime);
-    void openNewFile();
+    void createNewFile();
     void openExistingFile();
     void refreshFileList();
     void requestLogout();
@@ -71,6 +71,7 @@ private:
     QNetworkSession *networkSession = nullptr;
 	void requestConnection();
     QPixmap pixmapFrom(const QJsonValue &val);
+    QPixmap circularPixmap(QPixmap &&source, int size = 96, const QColor& color = Qt::GlobalColor::transparent);
     QJsonValue jsonValFromPixmap(const QPixmap &p);
 	void setFileList(QJsonObject&);
 	bool checkPasswordFormat(std::string password);

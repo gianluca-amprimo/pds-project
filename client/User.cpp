@@ -60,3 +60,7 @@ void User::setSurname(const QString &surname) {
 void User::setPropic(const QPixmap &propic) {
     User::propic = propic;
 }
+
+QColor User::getColor() {
+    return Qt::GlobalColor::darkGreen;
+}

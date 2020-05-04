@@ -229,7 +229,7 @@ void Client::readResponse()
 			avail_file.clear();
 			setFileList(jSobject);
 			SettWin->close();
-			uiChoice->ProfilePicture->setPixmap(loggedUser->getPropic());
+			uiChoice->ProfilePicture->setPixmap(circularPixmap(const_cast<QPixmap &&>(loggedUser->getPropic())));
 			ChoiceWin->setVisible(true);
 		}
 		if (result == "fail") {
@@ -378,7 +378,7 @@ void Client::openRegistrationWindow() {
 	uiReg->setupUi(RegWin.get());
 	regStatusBar = std::make_shared<QStatusBar> (RegWin.get());
 	uiReg->verticalLayout->addWidget(regStatusBar.get());
-	uiReg->ProfilePicture->setPixmap(QPixmap(defaultPicture).scaled(96, 96, Qt::KeepAspectRatio));
+	uiReg->ProfilePicture->setPixmap(circularPixmap(QPixmap(defaultPicture)));
 	uiReg->UsernameEdit->setText(uiLog->UsernameEdit->text());
 	
 	regHidePassword = uiReg->PasswordEdit->addAction(QIcon(":/misc/themes/material/not_see.png"), QLineEdit::TrailingPosition);
@@ -421,7 +421,7 @@ void Client::uploadProfilePicture(QLabel* label, QPushButton *deleteButton) {
 		QImage image;
 		bool valid = image.load(filename);
 		if (valid) {
-			label->setPixmap(QPixmap::fromImage(image).scaled(96, 96, Qt::KeepAspectRatio));
+			label->setPixmap(circularPixmap(QPixmap::fromImage(image)));
 			deleteButton->setEnabled(true);
 		}
 	}
@@ -429,7 +429,7 @@ void Client::uploadProfilePicture(QLabel* label, QPushButton *deleteButton) {
 
 void Client::deleteProfilePicture(QLabel* label, QPushButton *deleteButton) {
 	qDebug() << "Deleting profile picture";
-	label->setPixmap(QPixmap(defaultPicture).scaled(96, 96, Qt::KeepAspectRatio));
+	label->setPixmap(circularPixmap(QPixmap(defaultPicture)));
 	deleteButton->setEnabled(false);
 	deleteButton->parentWidget()->setFocus();
 }
@@ -616,8 +616,7 @@ void Client::openWelcomeWin(bool firstTime) {
 	auto cbModel = new QStringListModel;
 	uiChoice->OpenMenu->setModel(cbModel);
 	uiChoice->OpenMenu->lineEdit()->setPlaceholderText(tr("Select file..."));
-	
-    uiChoice->ProfilePicture->setPixmap(loggedUser->getPropic());
+    uiChoice->ProfilePicture->setPixmap(circularPixmap(const_cast<QPixmap &&>(loggedUser->getPropic()), 100, loggedUser->getColor()));
     
     if (firstTime) {
 	    uiChoice->WelcomeLabel->setText(tr("Welcome,\n%1!").arg(loggedUser->getName()));
@@ -635,7 +634,7 @@ void Client::openWelcomeWin(bool firstTime) {
 	}
 	uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
 	
-	connect(uiChoice->NewButton, &QPushButton::released, this, &Client::openNewFile);
+	connect(uiChoice->NewButton, &QPushButton::released, this, &Client::createNewFile);
 	connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
 	connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
 	connect(uiChoice->SettingsButton, &QPushButton::released, this, &Client::openSettingsWindow);
@@ -645,7 +644,7 @@ void Client::openWelcomeWin(bool firstTime) {
 	ChoiceWin->show();
 }
 
-void Client::openNewFile() {
+void Client::createNewFile() {
 	// TODO: aprire nuovo file
 	qDebug() << "Opening new file";
 	ChoiceWin->close();
@@ -756,7 +755,7 @@ void Client::openSettingsWindow() {
 	uiSett->setupUi(SettWin.get());
 	settStatusBar = std::make_shared<QStatusBar> (SettWin.get());
 	uiSett->verticalLayout->addWidget(settStatusBar.get());
-	uiSett->ProfilePicture->setPixmap(loggedUser->getPropic().scaled(96, 96, Qt::KeepAspectRatio));
+	uiSett->ProfilePicture->setPixmap(circularPixmap(const_cast<QPixmap &&>(loggedUser->getPropic())));
 	uiSett->NameEdit->setText(loggedUser->getName());
 	uiSett->SurnameEdit->setText(loggedUser->getSurname());
 	uiSett->UsernameEdit->setText(loggedUser->getUsername());
@@ -796,7 +795,7 @@ void Client::openSettingsWindow() {
 	});
 	
 	connect(uiSett->UndoButton, &QPushButton::released, this, [this](){
-		uiSett->ProfilePicture->setPixmap(loggedUser->getPropic());
+		uiSett->ProfilePicture->setPixmap(circularPixmap(const_cast<QPixmap &&>(loggedUser->getPropic())));
 		uiSett->UndoButton->setEnabled(false);
 		uiSett->DeletePictureButton->setEnabled(true);
 		SettWin->setFocus();
@@ -923,4 +922,29 @@ bool Client::checkUsernameFormat(std::string username) {
 		if (space) return false;
 	}
 	return true;
+}
+
+QPixmap Client::circularPixmap(QPixmap &&source, int size, const QColor& color) {
+    QPixmap scaled = source.scaled(size, size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+    QRect croppedSquare((scaled.size().width() - size)/2, (scaled.size().height() - size)/2, size, size);
+    scaled = scaled.copy(croppedSquare);
+    float boarderPix = float(size)/100 * 5;
+
+    QImage img = scaled.toImage();
+    img = img.convertToFormat(QImage::Format_ARGB32);
+    QImage imageOut(img.size(),QImage::Format_ARGB32);
+    QPainter painter(&imageOut);
+    painter.setRenderHint(QPainter::Antialiasing);
+
+    QBrush brush(img);
+    painter.setBrush(brush);
+    painter.drawRoundedRect(1, 1, int(float(size) - boarderPix/2), int(float(size) - boarderPix/2), size, size);
+
+    QPen pen(color);
+    pen.setWidth(int(boarderPix));
+    pen.setStyle(Qt::SolidLine);
+    painter.setPen(pen);
+    painter.drawRoundedRect(int(boarderPix/2), int(boarderPix/2), int(float(size) - boarderPix), int(float(size) - boarderPix), size, size);
+
+    return QPixmap::fromImage(imageOut);
 }

@@ -51,6 +51,7 @@ public:
 
     void setSurname(const QString &surname);
 
+    QColor getColor();
 
 };
 
