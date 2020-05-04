@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/MainEditor.cpp.o"
+  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MyTextEditor.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/MyTextEditor.cpp.o"
   "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/SaveAsDialog.cpp.o"
   "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/Symbol.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/Symbol.cpp.o"
   "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o"

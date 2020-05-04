@@ -3,6 +3,7 @@ file(REMOVE_RECURSE
   "CMakeFiles/editor_autogen.dir/ParseCache.txt"
   "editor_autogen"
   "CMakeFiles/editor.dir/MainEditor.cpp.o"
+  "CMakeFiles/editor.dir/MyTextEditor.cpp.o"
   "CMakeFiles/editor.dir/SaveAsDialog.cpp.o"
   "CMakeFiles/editor.dir/Symbol.cpp.o"
   "CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o"

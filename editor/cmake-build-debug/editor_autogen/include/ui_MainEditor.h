@@ -9,6 +9,7 @@
 #ifndef UI_MAINEDITOR_H
 #define UI_MAINEDITOR_H
 
+#include "../../../MyTextEditor.h"
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -43,7 +44,7 @@ public:
     QAction *alignCenter;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    QTextEdit *textArea;
+    MyTextEditor *textArea;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -60,32 +61,32 @@ public:
         saveAs = new QAction(MainEditor);
         saveAs->setObjectName(QString::fromUtf8("saveAs"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8("themes/material/save_as.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/file/themes/material/save_as.png"), QSize(), QIcon::Normal, QIcon::Off);
         saveAs->setIcon(icon);
         openDoc = new QAction(MainEditor);
         openDoc->setObjectName(QString::fromUtf8("openDoc"));
         QIcon icon1;
-        icon1.addFile(QString::fromUtf8("themes/material/open_doc.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QString::fromUtf8(":/file/themes/material/open_doc.png"), QSize(), QIcon::Normal, QIcon::Off);
         openDoc->setIcon(icon1);
         cut = new QAction(MainEditor);
         cut->setObjectName(QString::fromUtf8("cut"));
         QIcon icon2;
-        icon2.addFile(QString::fromUtf8("themes/material/cut.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon2.addFile(QString::fromUtf8(":/text_edit/themes/material/cut.png"), QSize(), QIcon::Normal, QIcon::Off);
         cut->setIcon(icon2);
         copy = new QAction(MainEditor);
         copy->setObjectName(QString::fromUtf8("copy"));
         QIcon icon3;
-        icon3.addFile(QString::fromUtf8("themes/material/copy.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QString::fromUtf8(":/text_edit/themes/material/copy.png"), QSize(), QIcon::Normal, QIcon::Off);
         copy->setIcon(icon3);
         paste = new QAction(MainEditor);
         paste->setObjectName(QString::fromUtf8("paste"));
         QIcon icon4;
-        icon4.addFile(QString::fromUtf8("themes/material/paste.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QString::fromUtf8(":/text_edit/themes/material/paste.png"), QSize(), QIcon::Normal, QIcon::Off);
         paste->setIcon(icon4);
         bold = new QAction(MainEditor);
         bold->setObjectName(QString::fromUtf8("bold"));
         QIcon icon5;
-        icon5.addFile(QString::fromUtf8("themes/material/bold.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon5.addFile(QString::fromUtf8(":/text_styling/themes/material/bold.png"), QSize(), QIcon::Normal, QIcon::Off);
         bold->setIcon(icon5);
         italic = new QAction(MainEditor);
         italic->setObjectName(QString::fromUtf8("italic"));
@@ -94,7 +95,7 @@ public:
         if (QIcon::hasThemeIcon(iconThemeName)) {
             icon6 = QIcon::fromTheme(iconThemeName);
         } else {
-            icon6.addFile(QString::fromUtf8("themes/material/italic.png"), QSize(), QIcon::Normal, QIcon::Off);
+            icon6.addFile(QString::fromUtf8(":/text_styling/themes/material/italic.png"), QSize(), QIcon::Normal, QIcon::Off);
         }
         italic->setIcon(icon6);
         underline = new QAction(MainEditor);
@@ -104,50 +105,50 @@ public:
         if (QIcon::hasThemeIcon(iconThemeName)) {
             icon7 = QIcon::fromTheme(iconThemeName);
         } else {
-            icon7.addFile(QString::fromUtf8("themes/material/underline.png"), QSize(), QIcon::Normal, QIcon::Off);
+            icon7.addFile(QString::fromUtf8(":/text_styling/themes/material/underline.png"), QSize(), QIcon::Normal, QIcon::Off);
         }
         underline->setIcon(icon7);
         save = new QAction(MainEditor);
         save->setObjectName(QString::fromUtf8("save"));
         QIcon icon8;
-        icon8.addFile(QString::fromUtf8("themes/material/save.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon8.addFile(QString::fromUtf8(":/file/themes/material/save.png"), QSize(), QIcon::Normal, QIcon::Off);
         save->setIcon(icon8);
         newDoc = new QAction(MainEditor);
         newDoc->setObjectName(QString::fromUtf8("newDoc"));
         QIcon icon9;
-        icon9.addFile(QString::fromUtf8("themes/material/new_doc.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon9.addFile(QString::fromUtf8(":/file/themes/material/new_doc.png"), QSize(), QIcon::Normal, QIcon::Off);
         newDoc->setIcon(icon9);
         activeUsers = new QAction(MainEditor);
         activeUsers->setObjectName(QString::fromUtf8("activeUsers"));
         QIcon icon10;
-        icon10.addFile(QString::fromUtf8("themes/material/user.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon10.addFile(QString::fromUtf8(":/file/themes/material/user.png"), QSize(), QIcon::Normal, QIcon::Off);
         activeUsers->setIcon(icon10);
         alignLeft = new QAction(MainEditor);
         alignLeft->setObjectName(QString::fromUtf8("alignLeft"));
         QIcon icon11;
-        icon11.addFile(QString::fromUtf8("themes/material/align_left.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon11.addFile(QString::fromUtf8(":/text_align/themes/material/align_left.png"), QSize(), QIcon::Normal, QIcon::Off);
         alignLeft->setIcon(icon11);
         alignRight = new QAction(MainEditor);
         alignRight->setObjectName(QString::fromUtf8("alignRight"));
         QIcon icon12;
-        icon12.addFile(QString::fromUtf8("themes/material/align_right.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon12.addFile(QString::fromUtf8(":/text_align/themes/material/align_right.png"), QSize(), QIcon::Normal, QIcon::Off);
         alignRight->setIcon(icon12);
         alignJustified = new QAction(MainEditor);
         alignJustified->setObjectName(QString::fromUtf8("alignJustified"));
         QIcon icon13;
-        icon13.addFile(QString::fromUtf8("themes/material/align_justified.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon13.addFile(QString::fromUtf8(":/text_align/themes/material/align_justified.png"), QSize(), QIcon::Normal, QIcon::Off);
         alignJustified->setIcon(icon13);
         alignCenter = new QAction(MainEditor);
         alignCenter->setObjectName(QString::fromUtf8("alignCenter"));
         QIcon icon14;
-        icon14.addFile(QString::fromUtf8("themes/material/align_center.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon14.addFile(QString::fromUtf8(":/text_align/themes/material/align_center.png"), QSize(), QIcon::Normal, QIcon::Off);
         alignCenter->setIcon(icon14);
         centralwidget = new QWidget(MainEditor);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         centralwidget->setLayoutDirection(Qt::RightToLeft);
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        textArea = new QTextEdit(centralwidget);
+        textArea = new MyTextEditor(centralwidget);
         textArea->setObjectName(QString::fromUtf8("textArea"));
 
         gridLayout->addWidget(textArea, 1, 0, 1, 1);
