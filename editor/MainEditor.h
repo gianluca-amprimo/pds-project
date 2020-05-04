@@ -21,19 +21,10 @@ public:
     explicit MainEditor(QWidget *parent = nullptr, std::string editorIdentifier = "AAAA");
     ~MainEditor() override;
 
-public slots:
-    void notifyChange();
-    void notifyMove();
-
 private:
     std::string thisEditorIdentifier = "AAAA";
-    int charCounter;
-    std::vector<Symbol> _symbols;
     Ui::MainEditor *ui;
-private:
     SaveAsDialog *saveAsDialog;
-    int currentPosition;
-    int oldPosition;
 
     QFontComboBox *fontSelector;
     void initUI();

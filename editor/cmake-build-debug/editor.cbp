@@ -126,6 +126,12 @@
 		<Unit filename="/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.h">
 			<Option target="editor"/>
 		</Unit>
+		<Unit filename="/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MyTextEditor.cpp">
+			<Option target="editor"/>
+		</Unit>
+		<Unit filename="/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MyTextEditor.h">
+			<Option target="editor"/>
+		</Unit>
 		<Unit filename="/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.cpp">
 			<Option target="editor"/>
 		</Unit>

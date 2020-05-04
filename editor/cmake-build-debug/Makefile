@@ -39,10 +39,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/111/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /snap/clion/112/bin/cmake/linux/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/111/bin/cmake/linux/bin/cmake -E remove -f
+RM = /snap/clion/112/bin/cmake/linux/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
-	/snap/clion/111/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/snap/clion/112/bin/cmake/linux/bin/cmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -70,7 +70,7 @@ rebuild_cache/fast: rebuild_cache
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "No interactive CMake dialog available..."
-	/snap/clion/111/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
+	/snap/clion/112/bin/cmake/linux/bin/cmake -E echo No\ interactive\ CMake\ dialog\ available.
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -162,6 +162,33 @@ MainEditor.s: MainEditor.cpp.s
 MainEditor.cpp.s:
 	$(MAKE) -f CMakeFiles/editor.dir/build.make CMakeFiles/editor.dir/MainEditor.cpp.s
 .PHONY : MainEditor.cpp.s
+
+MyTextEditor.o: MyTextEditor.cpp.o
+
+.PHONY : MyTextEditor.o
+
+# target to build an object file
+MyTextEditor.cpp.o:
+	$(MAKE) -f CMakeFiles/editor.dir/build.make CMakeFiles/editor.dir/MyTextEditor.cpp.o
+.PHONY : MyTextEditor.cpp.o
+
+MyTextEditor.i: MyTextEditor.cpp.i
+
+.PHONY : MyTextEditor.i
+
+# target to preprocess a source file
+MyTextEditor.cpp.i:
+	$(MAKE) -f CMakeFiles/editor.dir/build.make CMakeFiles/editor.dir/MyTextEditor.cpp.i
+.PHONY : MyTextEditor.cpp.i
+
+MyTextEditor.s: MyTextEditor.cpp.s
+
+.PHONY : MyTextEditor.s
+
+# target to generate assembly for a file
+MyTextEditor.cpp.s:
+	$(MAKE) -f CMakeFiles/editor.dir/build.make CMakeFiles/editor.dir/MyTextEditor.cpp.s
+.PHONY : MyTextEditor.cpp.s
 
 SaveAsDialog.o: SaveAsDialog.cpp.o
 
@@ -311,6 +338,9 @@ help:
 	@echo "... MainEditor.o"
 	@echo "... MainEditor.i"
 	@echo "... MainEditor.s"
+	@echo "... MyTextEditor.o"
+	@echo "... MyTextEditor.i"
+	@echo "... MyTextEditor.s"
 	@echo "... SaveAsDialog.o"
 	@echo "... SaveAsDialog.i"
 	@echo "... SaveAsDialog.s"
