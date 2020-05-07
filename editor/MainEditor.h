@@ -30,8 +30,8 @@ private:
     QComboBox *sizeSelector;
     int position;
     void initUI();
+    void setupActions();
 
-//    -------
 private slots:
     void Bold();
     void Italic();
@@ -43,7 +43,6 @@ private slots:
     void alignRight();
     void alignJustify();
     void updateCharFormat();
-//    void correctFont(const QFont &font);
 };
 
 
