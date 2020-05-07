@@ -1,4 +1,18 @@
-/snap/clion/112/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/opt/Qt/5.12.3/gcc_64/lib/cmake -G "CodeBlocks - Unix Makefiles" /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor
+/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/cmake -G "CodeBlocks - Unix Makefiles" /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor
+-- The C compiler identification is AppleClang 9.1.0.9020039
+-- The CXX compiler identification is AppleClang 9.1.0.9020039
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc
+-- Check for working C compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++
+-- Check for working CXX compiler: /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
 -- Configuring done
 -- Generating done
--- Build files have been written to: /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug
+-- Build files have been written to: /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug

@@ -27,7 +27,23 @@ private:
     SaveAsDialog *saveAsDialog;
 
     QFontComboBox *fontSelector;
+    QComboBox *sizeSelector;
+    int position;
     void initUI();
+
+//    -------
+private slots:
+    void Bold();
+    void Italic();
+    void Underline();
+    void selectFont(const QString &font);
+    void selectSize(const QString &size);
+    void alignCenter();
+    void alignLeft();
+    void alignRight();
+    void alignJustify();
+    void updateCharFormat();
+//    void correctFont(const QFont &font);
 };
 
 

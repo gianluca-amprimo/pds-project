@@ -2,116 +2,53 @@
 <project version="4">
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="editor" targetName="editor_autogen" />
       <config projectName="editor" targetName="editor" />
+      <config projectName="editor" targetName="editor_autogen" />
       <config projectName="editor" targetName="provaQT_autogen" />
     </generated>
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=/home/pioniere/Qt/5.12.7/gcc_64/" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/cmake" />
     </configurations>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="Sistemato tutto e risolto la guerra e la fame nel mondo">
-      <change afterPath="$PROJECT_DIR$/MainEditor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainEditor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MainEditor.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SaveAsDialog.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/SaveAsDialog.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_C.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeDetermineCompilerABI_CXX.bin" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/a.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/a.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/CXX.includecache" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/MainEditor.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/SaveAsDialog.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/flags.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/link.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/main.cpp.o" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/AutogenInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/AutogenOldSettings.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/DependInfo.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/ParseCache.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/build.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/cmake_clean.cmake" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/depend.internal" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/depend.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/progress.make" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/progress.marks" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/editor" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/editor.cbp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_MainEditor.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_SaveAsDialog.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/include/ui_MainEditor.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/include/ui_SaveAsDialog.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/mocs_compilation.cpp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.vscode/settings.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileSaver.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileSaver.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/query/client-vscode/query.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/cache-v2-101b0329ed7b38caeb6b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/codemodel-v2-1ad2a4c978de570f4b2e.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/index-2020-04-04T16-36-21-0318.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/target-provaQT-Debug-67f4da1040ca5490f148.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.cmake/api/v1/reply/target-provaQT_autogen-Debug-c47ced1cd9a26419e10c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.ninja_deps" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/.ninja_log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CMakeCCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CMakeCXXCompiler.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeCXXCompiler.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CMakeDetermineCompilerABI_CXX.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CMakeSystem.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CMakeSystem.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdC/CMakeCCompilerId.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CompilerIdC/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CompilerIdCXX/CMakeCXXCompilerId.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.15.3/CompilerIdCXX/CMakeCXXCompilerId.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/3.15.2/CompilerIdCXX/a.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/CMakeOutput.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/clean_additional.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/cmake.check_cache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/provaQT.dir/FileSaver.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/provaQT.dir/provaQT.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/provaQT.dir/provaQT_autogen/mocs_compilation.cpp.o" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/provaQT_autogen.dir/AutogenInfo.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/provaQT_autogen.dir/AutogenOldSettings.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/CMakeFiles/provaQT_autogen.dir/ParseCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/build.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/compile_commands.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/provaQT" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/provaQT_autogen/EWIEGA46WW/moc_FileSaver.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/provaQT_autogen/include/ui_provaText.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/provaQT_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/moc_predefs.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/provaQT_autogen/mocs_compilation.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/rules.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/provaQT_autogen/mocs_compilation.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mainProva.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/provaQT.cpp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/provaText.ui" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/saveDialog.ui" beforeDir="false" afterPath="$PROJECT_DIR$/SaveAsDialog.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeRuleHashes.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/DependInfo.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/DependInfo.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/MainEditor.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/MainEditor.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/SaveAsDialog.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/SaveAsDialog.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/depend.internal" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/depend.internal" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/depend.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/depend.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/flags.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/flags.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/link.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/link.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/ParseCache.txt" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/ParseCache.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/build.make" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/editor_autogen.dir/build.make" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/editor" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/editor.cbp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor.cbp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_MainEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_MainEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_SaveAsDialog.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/EWIEGA46WW/moc_SaveAsDialog.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/include/ui_MainEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/include/ui_MainEditor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/include/ui_SaveAsDialog.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/include/ui_SaveAsDialog.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/editor_autogen/moc_predefs.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -134,7 +71,6 @@
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
@@ -142,36 +78,37 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.first.check.clang-format" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="ObjectiveC" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunManager" selected="CMake Application.editor">
-    <configuration name="editor" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="editor">
+    <configuration name="editor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="editor">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="editor_autogen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor_autogen" CONFIG_NAME="Debug">
+    <configuration name="editor_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor_autogen" CONFIG_NAME="Debug">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="provaQT-vera" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="provaQT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="provaQT">
+    <configuration name="provaQT-vera" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="provaQT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="provaQT">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
-    <configuration name="provaQT_autogen" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="provaQT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="provaQT">
+    <configuration name="provaQT_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="provaQT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="provaQT">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.provaQT-vera" />
-      <item itemvalue="CMake Application.provaQT_autogen" />
       <item itemvalue="CMake Application.editor" />
       <item itemvalue="CMake Application.editor_autogen" />
+      <item itemvalue="CMake Application.provaQT-vera" />
+      <item itemvalue="CMake Application.provaQT_autogen" />
     </list>
   </component>
   <component name="SvnConfiguration">
@@ -194,6 +131,10 @@
       <workItem from="1586465457967" duration="615000" />
       <workItem from="1586769691550" duration="6421000" />
       <workItem from="1586776862820" duration="3050000" />
+      <workItem from="1588695868672" duration="38635000" />
+      <workItem from="1588891741605" duration="25000" />
+      <workItem from="1588891769512" duration="2000" />
+      <workItem from="1588891816652" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Inserita azione salva come nel menu">
       <created>1586083395586</created>
@@ -213,20 +154,19 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -255,41 +195,71 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="682" y="320" width="515" height="478" key="EnvironmentVariablesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1586771724065" />
-    <state width="1878" height="277" key="GridCell.Tab.0.bottom" timestamp="1586804540250">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.0.bottom" timestamp="1588891342450">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1588891342450" />
+    <state width="1398" height="2" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1588869658137" />
+    <state width="1398" height="139" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1588730903486" />
     <state width="1878" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1586804540250" />
-    <state width="1878" height="277" key="GridCell.Tab.0.center" timestamp="1586804540249">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.0.center" timestamp="1588891342449">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1588891342449" />
+    <state width="1398" height="2" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1588869658132" />
+    <state width="1398" height="139" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1588730903485" />
     <state width="1878" height="277" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1586804540249" />
-    <state width="1878" height="277" key="GridCell.Tab.0.left" timestamp="1586804540249">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.0.left" timestamp="1588891342449">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1588891342449" />
+    <state width="1398" height="2" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1588869658128" />
+    <state width="1398" height="139" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1588730903484" />
     <state width="1878" height="277" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1586804540249" />
-    <state width="1878" height="277" key="GridCell.Tab.0.right" timestamp="1586804540249">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.0.right" timestamp="1588891342450">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1588891342450" />
+    <state width="1398" height="2" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1588869658135" />
+    <state width="1398" height="139" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1588730903485" />
     <state width="1878" height="277" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1586804540249" />
-    <state width="1874" height="344" key="GridCell.Tab.1.bottom" timestamp="1585335510617">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.1.bottom" timestamp="1588891342453">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.1.bottom/0.23.1440.827@0.23.1440.827" timestamp="1588891342453" />
+    <state width="1398" height="196" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1588810725513" />
+    <state width="1398" height="121" key="GridCell.Tab.1.bottom/0.23.1440.829@0.23.1440.829" timestamp="1588788813000" />
+    <state width="1398" height="121" key="GridCell.Tab.1.bottom/0.23.1440.830@0.23.1440.830" timestamp="1588714574272" />
     <state width="1874" height="344" key="GridCell.Tab.1.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1585335510617" />
-    <state width="1874" height="344" key="GridCell.Tab.1.center" timestamp="1585335510617">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.1.center" timestamp="1588891342452">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.1.center/0.23.1440.827@0.23.1440.827" timestamp="1588891342452" />
+    <state width="1398" height="196" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1588810725513" />
+    <state width="1398" height="121" key="GridCell.Tab.1.center/0.23.1440.829@0.23.1440.829" timestamp="1588788812999" />
+    <state width="1398" height="121" key="GridCell.Tab.1.center/0.23.1440.830@0.23.1440.830" timestamp="1588714574271" />
     <state width="1874" height="344" key="GridCell.Tab.1.center/0.27.1920.1053@0.27.1920.1053" timestamp="1585335510617" />
-    <state width="1874" height="344" key="GridCell.Tab.1.left" timestamp="1585335510617">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.1.left" timestamp="1588891342452">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.1.left/0.23.1440.827@0.23.1440.827" timestamp="1588891342452" />
+    <state width="1398" height="196" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1588810725512" />
+    <state width="1398" height="121" key="GridCell.Tab.1.left/0.23.1440.829@0.23.1440.829" timestamp="1588788812999" />
+    <state width="1398" height="121" key="GridCell.Tab.1.left/0.23.1440.830@0.23.1440.830" timestamp="1588714574271" />
     <state width="1874" height="344" key="GridCell.Tab.1.left/0.27.1920.1053@0.27.1920.1053" timestamp="1585335510617" />
-    <state width="1874" height="344" key="GridCell.Tab.1.right" timestamp="1585335510617">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state width="1398" height="110" key="GridCell.Tab.1.right" timestamp="1588891342453">
+      <screen x="0" y="23" width="1440" height="827" />
     </state>
+    <state width="1398" height="110" key="GridCell.Tab.1.right/0.23.1440.827@0.23.1440.827" timestamp="1588891342453" />
+    <state width="1398" height="196" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1588810725513" />
+    <state width="1398" height="121" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1588788813000" />
+    <state width="1398" height="121" key="GridCell.Tab.1.right/0.23.1440.830@0.23.1440.830" timestamp="1588714574272" />
     <state width="1874" height="344" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1585335510617" />
-    <state x="449" y="187" width="992" height="737" key="SettingsEditor" timestamp="1586771889844">
-      <screen x="0" y="27" width="1920" height="1053" />
+    <state x="337" y="129" width="900" height="722" key="SettingsEditor" timestamp="1588695908870">
+      <screen x="0" y="23" width="1440" height="829" />
     </state>
+    <state x="337" y="129" width="900" height="722" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1588695883009" />
+    <state x="337" y="129" key="SettingsEditor/0.23.1440.829@0.23.1440.829" timestamp="1588695908870" />
     <state x="449" y="187" width="992" height="737" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1586771889844" />
     <state x="616" y="380" key="com.intellij.ide.util.TipDialog" timestamp="1586451183481">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -307,5 +277,21 @@
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
     <state x="623" y="257" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1586776316019" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/MyTextEditor.cpp</url>
+          <line>46</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/MainEditor.cpp</url>
+          <line>185</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

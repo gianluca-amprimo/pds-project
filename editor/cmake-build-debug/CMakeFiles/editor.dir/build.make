@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/112/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/112/bin/cmake/linux/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor
+CMAKE_SOURCE_DIR = /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug
 
 # Include any dependencies generated for this target.
 include CMakeFiles/editor.dir/depend.make
@@ -74,99 +74,99 @@ qrc_icons.cpp: ../themes/material/align_left.png
 qrc_icons.cpp: ../themes/material/align_right.png
 qrc_icons.cpp: icons.qrc.depends
 qrc_icons.cpp: ../icons.qrc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating qrc_icons.cpp"
-	/opt/Qt/5.12.3/gcc_64/bin/rcc --name icons --output /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/qrc_icons.cpp /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/icons.qrc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating qrc_icons.cpp"
+	/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/bin/rcc --name icons --output /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/qrc_icons.cpp /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/icons.qrc
 
 CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o: CMakeFiles/editor.dir/flags.make
 CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o: editor_autogen/mocs_compilation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o -c /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp
 
 CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp > CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp > CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.i
 
 CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp -o CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp -o CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.s
 
 CMakeFiles/editor.dir/main.cpp.o: CMakeFiles/editor.dir/flags.make
 CMakeFiles/editor.dir/main.cpp.o: ../main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/editor.dir/main.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/main.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/editor.dir/main.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/main.cpp.o -c /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/main.cpp
 
 CMakeFiles/editor.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editor.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/main.cpp > CMakeFiles/editor.dir/main.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/main.cpp > CMakeFiles/editor.dir/main.cpp.i
 
 CMakeFiles/editor.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editor.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/main.cpp -o CMakeFiles/editor.dir/main.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/main.cpp -o CMakeFiles/editor.dir/main.cpp.s
 
 CMakeFiles/editor.dir/SaveAsDialog.cpp.o: CMakeFiles/editor.dir/flags.make
 CMakeFiles/editor.dir/SaveAsDialog.cpp.o: ../SaveAsDialog.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/editor.dir/SaveAsDialog.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/SaveAsDialog.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/editor.dir/SaveAsDialog.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/SaveAsDialog.cpp.o -c /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/SaveAsDialog.cpp
 
 CMakeFiles/editor.dir/SaveAsDialog.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editor.dir/SaveAsDialog.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.cpp > CMakeFiles/editor.dir/SaveAsDialog.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/SaveAsDialog.cpp > CMakeFiles/editor.dir/SaveAsDialog.cpp.i
 
 CMakeFiles/editor.dir/SaveAsDialog.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editor.dir/SaveAsDialog.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.cpp -o CMakeFiles/editor.dir/SaveAsDialog.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/SaveAsDialog.cpp -o CMakeFiles/editor.dir/SaveAsDialog.cpp.s
 
 CMakeFiles/editor.dir/MainEditor.cpp.o: CMakeFiles/editor.dir/flags.make
 CMakeFiles/editor.dir/MainEditor.cpp.o: ../MainEditor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/editor.dir/MainEditor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/MainEditor.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/editor.dir/MainEditor.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/MainEditor.cpp.o -c /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MainEditor.cpp
 
 CMakeFiles/editor.dir/MainEditor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editor.dir/MainEditor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.cpp > CMakeFiles/editor.dir/MainEditor.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MainEditor.cpp > CMakeFiles/editor.dir/MainEditor.cpp.i
 
 CMakeFiles/editor.dir/MainEditor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editor.dir/MainEditor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.cpp -o CMakeFiles/editor.dir/MainEditor.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MainEditor.cpp -o CMakeFiles/editor.dir/MainEditor.cpp.s
 
 CMakeFiles/editor.dir/qrc_icons.cpp.o: CMakeFiles/editor.dir/flags.make
 CMakeFiles/editor.dir/qrc_icons.cpp.o: qrc_icons.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/editor.dir/qrc_icons.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/qrc_icons.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/qrc_icons.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/editor.dir/qrc_icons.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/qrc_icons.cpp.o -c /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/qrc_icons.cpp
 
 CMakeFiles/editor.dir/qrc_icons.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editor.dir/qrc_icons.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/qrc_icons.cpp > CMakeFiles/editor.dir/qrc_icons.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/qrc_icons.cpp > CMakeFiles/editor.dir/qrc_icons.cpp.i
 
 CMakeFiles/editor.dir/qrc_icons.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editor.dir/qrc_icons.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/qrc_icons.cpp -o CMakeFiles/editor.dir/qrc_icons.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/qrc_icons.cpp -o CMakeFiles/editor.dir/qrc_icons.cpp.s
 
 CMakeFiles/editor.dir/Symbol.cpp.o: CMakeFiles/editor.dir/flags.make
 CMakeFiles/editor.dir/Symbol.cpp.o: ../Symbol.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/editor.dir/Symbol.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/Symbol.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/Symbol.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/editor.dir/Symbol.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/Symbol.cpp.o -c /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/Symbol.cpp
 
 CMakeFiles/editor.dir/Symbol.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editor.dir/Symbol.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/Symbol.cpp > CMakeFiles/editor.dir/Symbol.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/Symbol.cpp > CMakeFiles/editor.dir/Symbol.cpp.i
 
 CMakeFiles/editor.dir/Symbol.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editor.dir/Symbol.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/Symbol.cpp -o CMakeFiles/editor.dir/Symbol.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/Symbol.cpp -o CMakeFiles/editor.dir/Symbol.cpp.s
 
 CMakeFiles/editor.dir/MyTextEditor.cpp.o: CMakeFiles/editor.dir/flags.make
 CMakeFiles/editor.dir/MyTextEditor.cpp.o: ../MyTextEditor.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/editor.dir/MyTextEditor.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/MyTextEditor.cpp.o -c /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MyTextEditor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/editor.dir/MyTextEditor.cpp.o"
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/editor.dir/MyTextEditor.cpp.o -c /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MyTextEditor.cpp
 
 CMakeFiles/editor.dir/MyTextEditor.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/editor.dir/MyTextEditor.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MyTextEditor.cpp > CMakeFiles/editor.dir/MyTextEditor.cpp.i
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MyTextEditor.cpp > CMakeFiles/editor.dir/MyTextEditor.cpp.i
 
 CMakeFiles/editor.dir/MyTextEditor.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/editor.dir/MyTextEditor.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MyTextEditor.cpp -o CMakeFiles/editor.dir/MyTextEditor.cpp.s
+	/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MyTextEditor.cpp -o CMakeFiles/editor.dir/MyTextEditor.cpp.s
 
 # Object files for target editor
 editor_OBJECTS = \
@@ -189,13 +189,13 @@ editor: CMakeFiles/editor.dir/qrc_icons.cpp.o
 editor: CMakeFiles/editor.dir/Symbol.cpp.o
 editor: CMakeFiles/editor.dir/MyTextEditor.cpp.o
 editor: CMakeFiles/editor.dir/build.make
-editor: /opt/Qt/5.12.3/gcc_64/lib/libQt5Network.so.5.12.3
-editor: /opt/Qt/5.12.3/gcc_64/lib/libQt5Charts.so.5.12.3
-editor: /opt/Qt/5.12.3/gcc_64/lib/libQt5Widgets.so.5.12.3
-editor: /opt/Qt/5.12.3/gcc_64/lib/libQt5Gui.so.5.12.3
-editor: /opt/Qt/5.12.3/gcc_64/lib/libQt5Core.so.5.12.3
+editor: /Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtNetwork.framework/QtNetwork
+editor: /Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtCharts.framework/QtCharts
+editor: /Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtWidgets.framework/QtWidgets
+editor: /Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtGui.framework/QtGui
+editor: /Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtCore.framework/QtCore
 editor: CMakeFiles/editor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable editor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable editor"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/editor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -208,6 +208,6 @@ CMakeFiles/editor.dir/clean:
 .PHONY : CMakeFiles/editor.dir/clean
 
 CMakeFiles/editor.dir/depend: qrc_icons.cpp
-	cd /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/editor.dir/depend
 

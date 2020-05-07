@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'MainEditor.ui'
 **
-** Created by: Qt User Interface Compiler version 5.12.3
+** Created by: Qt User Interface Compiler version 5.14.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -9,7 +9,6 @@
 #ifndef UI_MAINEDITOR_H
 #define UI_MAINEDITOR_H
 
-#include "../../../MyTextEditor.h"
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -44,7 +43,7 @@ public:
     QAction *alignCenter;
     QWidget *centralwidget;
     QGridLayout *gridLayout;
-    MyTextEditor *textArea;
+    QTextEdit *textArea;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
@@ -148,7 +147,7 @@ public:
         centralwidget->setLayoutDirection(Qt::RightToLeft);
         gridLayout = new QGridLayout(centralwidget);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
-        textArea = new MyTextEditor(centralwidget);
+        textArea = new QTextEdit(centralwidget);
         textArea->setObjectName(QString::fromUtf8("textArea"));
 
         gridLayout->addWidget(textArea, 1, 0, 1, 1);
@@ -204,101 +203,101 @@ public:
 
     void retranslateUi(QMainWindow *MainEditor)
     {
-        MainEditor->setWindowTitle(QApplication::translate("MainEditor", "PiDiEsse", nullptr));
-        saveAs->setText(QApplication::translate("MainEditor", "Save As", nullptr));
-#ifndef QT_NO_TOOLTIP
-        saveAs->setToolTip(QApplication::translate("MainEditor", "Save as a new file", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        saveAs->setShortcut(QApplication::translate("MainEditor", "Ctrl+Shift+S", nullptr));
-#endif // QT_NO_SHORTCUT
-        openDoc->setText(QApplication::translate("MainEditor", "Open", nullptr));
-#ifndef QT_NO_TOOLTIP
-        openDoc->setToolTip(QApplication::translate("MainEditor", "Open a document", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        openDoc->setShortcut(QApplication::translate("MainEditor", "Ctrl+O", nullptr));
-#endif // QT_NO_SHORTCUT
-        cut->setText(QApplication::translate("MainEditor", "Cut", nullptr));
-#ifndef QT_NO_TOOLTIP
-        cut->setToolTip(QApplication::translate("MainEditor", "Cut highlighted content", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        cut->setShortcut(QApplication::translate("MainEditor", "Ctrl+X", nullptr));
-#endif // QT_NO_SHORTCUT
-        copy->setText(QApplication::translate("MainEditor", "Copy", nullptr));
-#ifndef QT_NO_TOOLTIP
-        copy->setToolTip(QApplication::translate("MainEditor", "Copy to clipboard", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        copy->setShortcut(QApplication::translate("MainEditor", "Ctrl+C", nullptr));
-#endif // QT_NO_SHORTCUT
-        paste->setText(QApplication::translate("MainEditor", "Paste", nullptr));
-#ifndef QT_NO_TOOLTIP
-        paste->setToolTip(QApplication::translate("MainEditor", "Paste from clipboard", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        paste->setShortcut(QApplication::translate("MainEditor", "Ctrl+V", nullptr));
-#endif // QT_NO_SHORTCUT
-        bold->setText(QApplication::translate("MainEditor", "Bold", nullptr));
-#ifndef QT_NO_TOOLTIP
-        bold->setToolTip(QApplication::translate("MainEditor", "<html><head/><body><p><span style=\" font-weight:600;\">Bold</span></p></body></html>", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        bold->setShortcut(QApplication::translate("MainEditor", "Ctrl+B", nullptr));
-#endif // QT_NO_SHORTCUT
-        italic->setText(QApplication::translate("MainEditor", "Italic", nullptr));
-#ifndef QT_NO_TOOLTIP
-        italic->setToolTip(QApplication::translate("MainEditor", "<html><head/><body><p><span style=\" font-style:italic;\">Italic</span></p></body></html>", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        italic->setShortcut(QApplication::translate("MainEditor", "Ctrl+I", nullptr));
-#endif // QT_NO_SHORTCUT
-        underline->setText(QApplication::translate("MainEditor", "Underline", nullptr));
-#ifndef QT_NO_TOOLTIP
-        underline->setToolTip(QApplication::translate("MainEditor", "<html><head/><body><p><span style=\" text-decoration: underline;\">Underline</span></p></body></html>", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        underline->setShortcut(QApplication::translate("MainEditor", "Ctrl+U", nullptr));
-#endif // QT_NO_SHORTCUT
-        save->setText(QApplication::translate("MainEditor", "Save", nullptr));
-#ifndef QT_NO_TOOLTIP
-        save->setToolTip(QApplication::translate("MainEditor", "Save the current file", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        save->setShortcut(QApplication::translate("MainEditor", "Ctrl+S", nullptr));
-#endif // QT_NO_SHORTCUT
-        newDoc->setText(QApplication::translate("MainEditor", "New", nullptr));
-#ifndef QT_NO_TOOLTIP
-        newDoc->setToolTip(QApplication::translate("MainEditor", "Create a new document", nullptr));
-#endif // QT_NO_TOOLTIP
-#ifndef QT_NO_SHORTCUT
-        newDoc->setShortcut(QApplication::translate("MainEditor", "Ctrl+N", nullptr));
-#endif // QT_NO_SHORTCUT
-        activeUsers->setText(QApplication::translate("MainEditor", "Active Users", nullptr));
-#ifndef QT_NO_TOOLTIP
-        activeUsers->setToolTip(QApplication::translate("MainEditor", "Show active users information", nullptr));
-#endif // QT_NO_TOOLTIP
-        alignLeft->setText(QApplication::translate("MainEditor", "Align Left", nullptr));
-#ifndef QT_NO_TOOLTIP
-        alignLeft->setToolTip(QApplication::translate("MainEditor", "Align selected paragraphs to the left", nullptr));
-#endif // QT_NO_TOOLTIP
-        alignRight->setText(QApplication::translate("MainEditor", "Align Right", nullptr));
-#ifndef QT_NO_TOOLTIP
-        alignRight->setToolTip(QApplication::translate("MainEditor", "Align selected paragraphs to the right", nullptr));
-#endif // QT_NO_TOOLTIP
-        alignJustified->setText(QApplication::translate("MainEditor", "Align Justified", nullptr));
-#ifndef QT_NO_TOOLTIP
-        alignJustified->setToolTip(QApplication::translate("MainEditor", "Justify selected paragraphs", nullptr));
-#endif // QT_NO_TOOLTIP
-        alignCenter->setText(QApplication::translate("MainEditor", "Align Center", nullptr));
-#ifndef QT_NO_TOOLTIP
-        alignCenter->setToolTip(QApplication::translate("MainEditor", "Align selected paragraphs to the center", nullptr));
-#endif // QT_NO_TOOLTIP
-        menuFile->setTitle(QApplication::translate("MainEditor", "File", nullptr));
-        menuEdit->setTitle(QApplication::translate("MainEditor", "Edit", nullptr));
-        menuStyling->setTitle(QApplication::translate("MainEditor", "Format", nullptr));
-        toolBar->setWindowTitle(QApplication::translate("MainEditor", "toolBar", nullptr));
+        MainEditor->setWindowTitle(QCoreApplication::translate("MainEditor", "PiDiEsse", nullptr));
+        saveAs->setText(QCoreApplication::translate("MainEditor", "Save As", nullptr));
+#if QT_CONFIG(tooltip)
+        saveAs->setToolTip(QCoreApplication::translate("MainEditor", "Save as a new file", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        saveAs->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+Shift+S", nullptr));
+#endif // QT_CONFIG(shortcut)
+        openDoc->setText(QCoreApplication::translate("MainEditor", "Open", nullptr));
+#if QT_CONFIG(tooltip)
+        openDoc->setToolTip(QCoreApplication::translate("MainEditor", "Open a document", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        openDoc->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+O", nullptr));
+#endif // QT_CONFIG(shortcut)
+        cut->setText(QCoreApplication::translate("MainEditor", "Cut", nullptr));
+#if QT_CONFIG(tooltip)
+        cut->setToolTip(QCoreApplication::translate("MainEditor", "Cut highlighted content", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        cut->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+X", nullptr));
+#endif // QT_CONFIG(shortcut)
+        copy->setText(QCoreApplication::translate("MainEditor", "Copy", nullptr));
+#if QT_CONFIG(tooltip)
+        copy->setToolTip(QCoreApplication::translate("MainEditor", "Copy to clipboard", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        copy->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+C", nullptr));
+#endif // QT_CONFIG(shortcut)
+        paste->setText(QCoreApplication::translate("MainEditor", "Paste", nullptr));
+#if QT_CONFIG(tooltip)
+        paste->setToolTip(QCoreApplication::translate("MainEditor", "Paste from clipboard", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        paste->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+V", nullptr));
+#endif // QT_CONFIG(shortcut)
+        bold->setText(QCoreApplication::translate("MainEditor", "Bold", nullptr));
+#if QT_CONFIG(tooltip)
+        bold->setToolTip(QCoreApplication::translate("MainEditor", "<html><head/><body><p><span style=\" font-weight:600;\">Bold</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        bold->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+B", nullptr));
+#endif // QT_CONFIG(shortcut)
+        italic->setText(QCoreApplication::translate("MainEditor", "Italic", nullptr));
+#if QT_CONFIG(tooltip)
+        italic->setToolTip(QCoreApplication::translate("MainEditor", "<html><head/><body><p><span style=\" font-style:italic;\">Italic</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        italic->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+I", nullptr));
+#endif // QT_CONFIG(shortcut)
+        underline->setText(QCoreApplication::translate("MainEditor", "Underline", nullptr));
+#if QT_CONFIG(tooltip)
+        underline->setToolTip(QCoreApplication::translate("MainEditor", "<html><head/><body><p><span style=\" text-decoration: underline;\">Underline</span></p></body></html>", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        underline->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+U", nullptr));
+#endif // QT_CONFIG(shortcut)
+        save->setText(QCoreApplication::translate("MainEditor", "Save", nullptr));
+#if QT_CONFIG(tooltip)
+        save->setToolTip(QCoreApplication::translate("MainEditor", "Save the current file", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        save->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+S", nullptr));
+#endif // QT_CONFIG(shortcut)
+        newDoc->setText(QCoreApplication::translate("MainEditor", "New", nullptr));
+#if QT_CONFIG(tooltip)
+        newDoc->setToolTip(QCoreApplication::translate("MainEditor", "Create a new document", nullptr));
+#endif // QT_CONFIG(tooltip)
+#if QT_CONFIG(shortcut)
+        newDoc->setShortcut(QCoreApplication::translate("MainEditor", "Ctrl+N", nullptr));
+#endif // QT_CONFIG(shortcut)
+        activeUsers->setText(QCoreApplication::translate("MainEditor", "Active Users", nullptr));
+#if QT_CONFIG(tooltip)
+        activeUsers->setToolTip(QCoreApplication::translate("MainEditor", "Show active users information", nullptr));
+#endif // QT_CONFIG(tooltip)
+        alignLeft->setText(QCoreApplication::translate("MainEditor", "Align Left", nullptr));
+#if QT_CONFIG(tooltip)
+        alignLeft->setToolTip(QCoreApplication::translate("MainEditor", "Align selected paragraphs to the left", nullptr));
+#endif // QT_CONFIG(tooltip)
+        alignRight->setText(QCoreApplication::translate("MainEditor", "Align Right", nullptr));
+#if QT_CONFIG(tooltip)
+        alignRight->setToolTip(QCoreApplication::translate("MainEditor", "Align selected paragraphs to the right", nullptr));
+#endif // QT_CONFIG(tooltip)
+        alignJustified->setText(QCoreApplication::translate("MainEditor", "Align Justified", nullptr));
+#if QT_CONFIG(tooltip)
+        alignJustified->setToolTip(QCoreApplication::translate("MainEditor", "Justify selected paragraphs", nullptr));
+#endif // QT_CONFIG(tooltip)
+        alignCenter->setText(QCoreApplication::translate("MainEditor", "Align Center", nullptr));
+#if QT_CONFIG(tooltip)
+        alignCenter->setToolTip(QCoreApplication::translate("MainEditor", "Align selected paragraphs to the center", nullptr));
+#endif // QT_CONFIG(tooltip)
+        menuFile->setTitle(QCoreApplication::translate("MainEditor", "File", nullptr));
+        menuEdit->setTitle(QCoreApplication::translate("MainEditor", "Edit", nullptr));
+        menuStyling->setTitle(QCoreApplication::translate("MainEditor", "Format", nullptr));
+        toolBar->setWindowTitle(QCoreApplication::translate("MainEditor", "toolBar", nullptr));
     } // retranslateUi
 
 };

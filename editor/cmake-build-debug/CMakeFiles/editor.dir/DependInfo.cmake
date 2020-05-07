@@ -4,15 +4,15 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MainEditor.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/MainEditor.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/MyTextEditor.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/MyTextEditor.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/SaveAsDialog.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/SaveAsDialog.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/Symbol.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/Symbol.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/main.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/main.cpp.o"
-  "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/qrc_icons.cpp" "/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/qrc_icons.cpp.o"
+  "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MainEditor.cpp" "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/MainEditor.cpp.o"
+  "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/MyTextEditor.cpp" "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/MyTextEditor.cpp.o"
+  "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/SaveAsDialog.cpp" "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/SaveAsDialog.cpp.o"
+  "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/Symbol.cpp" "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/Symbol.cpp.o"
+  "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/editor_autogen/mocs_compilation.cpp" "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/editor_autogen/mocs_compilation.cpp.o"
+  "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/main.cpp" "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/main.cpp.o"
+  "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/qrc_icons.cpp" "/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor.dir/qrc_icons.cpp.o"
   )
-set(CMAKE_CXX_COMPILER_ID "GNU")
+set(CMAKE_CXX_COMPILER_ID "AppleClang")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
@@ -26,13 +26,18 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "editor_autogen/include"
-  "/opt/Qt/5.12.3/gcc_64/include"
-  "/opt/Qt/5.12.3/gcc_64/include/QtCore"
-  "/opt/Qt/5.12.3/gcc_64/./mkspecs/linux-g++"
-  "/opt/Qt/5.12.3/gcc_64/include/QtGui"
-  "/opt/Qt/5.12.3/gcc_64/include/QtWidgets"
-  "/opt/Qt/5.12.3/gcc_64/include/QtNetwork"
-  "/opt/Qt/5.12.3/gcc_64/include/QtCharts"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtCore.framework"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtCore.framework/Headers"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/./mkspecs/macx-clang"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtGui.framework"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtGui.framework/Headers"
+  "/System/Library/Frameworks/OpenGL.framework/Headers"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtWidgets.framework"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtWidgets.framework/Headers"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtNetwork.framework"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtNetwork.framework/Headers"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtCharts.framework"
+  "/Users/AndreaBen/Qt-5.14/5.14.2/clang_64/lib/QtCharts.framework/Headers"
   )
 
 # Targets to which this target links.

@@ -34,19 +34,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/112/bin/cmake/linux/bin/cmake
+CMAKE_COMMAND = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/112/bin/cmake/linux/bin/cmake -E remove -f
+RM = /Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor
+CMAKE_SOURCE_DIR = /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug
+CMAKE_BINARY_DIR = /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug
 
 # Utility rule file for editor_autogen.
 
@@ -54,8 +54,8 @@ CMAKE_BINARY_DIR = /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-
 include CMakeFiles/editor_autogen.dir/progress.make
 
 CMakeFiles/editor_autogen:
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target editor"
-	/snap/clion/112/bin/cmake/linux/bin/cmake -E cmake_autogen /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor_autogen.dir/AutogenInfo.json Debug
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Automatic MOC and UIC for target editor"
+	/Applications/CLion.app/Contents/bin/cmake/mac/bin/cmake -E cmake_autogen /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor_autogen.dir/AutogenInfo.json Debug
 
 editor_autogen: CMakeFiles/editor_autogen
 editor_autogen: CMakeFiles/editor_autogen.dir/build.make
@@ -72,6 +72,6 @@ CMakeFiles/editor_autogen.dir/clean:
 .PHONY : CMakeFiles/editor_autogen.dir/clean
 
 CMakeFiles/editor_autogen.dir/depend:
-	cd /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug /home/antonio/Documents/ProgrammazioneDiSistema/progetto/pds-project/editor/cmake-build-debug/CMakeFiles/editor_autogen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug /Users/AndreaBen/Documents/POLITO/Progetto-PDS/pds-project/editor/cmake-build-debug/CMakeFiles/editor_autogen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/editor_autogen.dir/depend
 
