@@ -10,8 +10,8 @@ MainEditor::MainEditor(QWidget *parent, std::string editorIdentifier) :
     QMainWindow(parent),
     ui(new Ui::MainEditor) {
     ui->setupUi(this);
-    setupActions();
     initUI();
+    setupActions();
     saveAsDialog = new SaveAsDialog(this, ui->textArea);
 
     this->thisEditorIdentifier = editorIdentifier;
@@ -92,8 +92,9 @@ void MainEditor::Underline() {
 }
 
 void MainEditor::selectFont(const QString &font) {
-    QFont Font(font);
-    ui->textArea->setCurrentFont(Font);
+    QTextCharFormat format;
+    format.setFontFamily(font);
+    ui->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::selectSize(const QString &size) {
