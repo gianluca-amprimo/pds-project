@@ -10,15 +10,15 @@
 
 class Symbol {
 private:
-    char character;
+    wchar_t character;
     std::vector<int> position;
-    std::string identifier;
+    std::wstring identifier;
 public:
-    Symbol(char character, std::string identifier, std::vector<int> position);
+    Symbol(wchar_t character, std::wstring identifier, std::vector<int> position);
 
-    char getCharacter() const;
+    wchar_t getCharacter() const;
 
-    void setCharacter(char character);
+    void setCharacter(wchar_t character);
 
     const std::vector<int> &getPosition() const;
 

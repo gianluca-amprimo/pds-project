@@ -8,7 +8,7 @@ int main(int argc, char *argv[]){
     QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
     QResource::registerResource("./icons.qrc");
     QApplication::setApplicationDisplayName(MainEditor::tr("PiDiEsse"));
-    const std::string editorIdentifer = "AAAA";
+    const std::wstring editorIdentifer = L"AAAA";
     MainEditor mainEditor(nullptr, editorIdentifer);
     mainEditor.show();
     return app.exec();

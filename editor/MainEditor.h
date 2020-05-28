@@ -18,11 +18,11 @@ QT_END_NAMESPACE
 class MainEditor : public QMainWindow {
     Q_OBJECT
 public:
-    explicit MainEditor(QWidget *parent = nullptr, std::string editorIdentifier = "AAAA");
+    explicit MainEditor(QWidget *parent = nullptr, std::wstring editorIdentifier = L"AAAA");
     ~MainEditor() override;
 
 private:
-    std::string thisEditorIdentifier = "AAAA";
+    std::wstring thisEditorIdentifier = L"AAAA";
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
 

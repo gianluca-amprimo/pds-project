@@ -6,15 +6,15 @@
 
 #include <utility>
 
-Symbol::Symbol(char character, std::string identifier, std::vector<int> position) : character(character),
+Symbol::Symbol(wchar_t character, std::wstring identifier, std::vector<int> position) : character(character),
                                                                                    identifier(std::move(identifier)),
                                                                                    position(std::move(position)) {}
 
-char Symbol::getCharacter() const {
+wchar_t Symbol::getCharacter() const {
     return character;
 }
 
-void Symbol::setCharacter(char character) {
+void Symbol::setCharacter(wchar_t character) {
     Symbol::character = character;
 }
 
