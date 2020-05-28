@@ -6,7 +6,7 @@
 #include <QToolButton>
 
 
-MainEditor::MainEditor(QWidget *parent, std::string editorIdentifier) :
+MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier) :
     QMainWindow(parent),
     ui(new Ui::MainEditor) {
     ui->setupUi(this);
@@ -33,8 +33,8 @@ void MainEditor::setupActions() {
     ui->underline->setCheckable(true);
     QObject::connect(ui->underline, SIGNAL(triggered()), this, SLOT(Underline()));
 
-    QObject::connect(fontSelector, &QComboBox::textActivated, this, &MainEditor::selectFont);
-    QObject::connect(sizeSelector, &QComboBox::textActivated, this, &MainEditor::selectSize);
+    //QObject::connect(fontSelector, SIGNAL(textActivated()), this, SLOT(selectFont()));
+    //QObject::connect(sizeSelector, SIGNAL(textActivated()), this, SLOT( selectSize()));
 
     ui->alignCenter->setCheckable(true);
     QObject::connect(ui->alignCenter, SIGNAL(triggered()), this, SLOT(alignCenter()));
@@ -139,12 +139,7 @@ void MainEditor::alignJustify() {
 
 void MainEditor::updateCharFormat() {
     if (position > ui->textArea->textCursor().position()) {
-        if (ui->textArea->currentCharFormat().fontWeight() == QFont::Bold) {
-            ui->bold->setChecked(true);
-        }
-        else {
-            ui->bold->setChecked(false);
-        }
+        ui->bold->setChecked(ui->textArea->currentCharFormat().fontWeight() == QFont::Bold);
         ui->italic->setChecked(ui->textArea->currentCharFormat().fontItalic());
         ui->underline->setChecked(ui->textArea->currentCharFormat().fontUnderline());
 

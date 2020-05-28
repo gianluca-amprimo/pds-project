@@ -2,8 +2,10 @@
 #define PIDIESSE_MAINEDITOR_H
 
 #include <QMainWindow>
+#include <QComboBox>
 #include <QtWidgets/QFontComboBox>
 #include "ui_MainEditor.h"
+#include "ui_SaveAsDialog.h"
 #include "SaveAsDialog.h"
 #include "Symbol.h"
 

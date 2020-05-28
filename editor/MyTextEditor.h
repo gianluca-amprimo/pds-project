@@ -8,6 +8,7 @@
 #include <QtWidgets/QTextEdit>
 #include <QKeyEvent>
 #include "Symbol.h"
+#include <QtWidgets>
 
 #define HEAD    0
 #define BACK    1
@@ -20,14 +21,15 @@ class MyTextEditor : public QTextEdit{
 public:
 
     explicit MyTextEditor(QWidget *parent);
-    const std::string &getThisEditorIdentifier() const;
+    const std::wstring &getThisEditorIdentifier() const;
     void deleteSymbol();
-    void insertSymbol();
-    void setThisEditorIdentifier(const std::string &thisEditorIdentifier);
+    void insertSymbol(wchar_t character);
+    void setThisEditorIdentifier(const std::wstring &thisEditorIdentifier);
     void keyPressEvent(QKeyEvent *e) override;
+    virtual void inputMethodEvent(QInputMethodEvent *event);
 
 private:
-    std::string thisEditorIdentifier = "AAAA";
+    std::wstring thisEditorIdentifier = L"AAAA";
     int charCounter;
     std::vector<Symbol> _symbols;
     int currentPosition;
