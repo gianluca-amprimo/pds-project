@@ -52,7 +52,7 @@ void MyTextEditor::keyPressEvent(QKeyEvent *e) {
         }
         wchar_t changed;
         changed = toPlainText().toStdWString()[this->currentPosition-1];
-        insertSymbol(changed);
+        insertSymbol(changed, this->currentPosition);
     }else{
         this->anchor = this->textCursor().anchor();
     }
@@ -79,7 +79,7 @@ void MyTextEditor::deleteSelection() {
     }
 }
 
-void MyTextEditor::insertSymbol(wchar_t changed) {
+void MyTextEditor::insertSymbol(wchar_t changed, int insertPosition) {
 
     this->charCounter++;
     int insertType;
@@ -97,7 +97,7 @@ void MyTextEditor::insertSymbol(wchar_t changed) {
     // se invece è in mezzo bisogna trovare l'intero
 
     // last
-    if(this->currentPosition > lastPosition){ // +1 because wchar_t is already inserted
+    if(insertPosition > lastPosition){ // +1 because wchar_t is already inserted
         lastPosition = this->currentPosition;
         insertType = BACK;
         std::wcout << "Inserting at the back" << std::endl;
@@ -117,7 +117,7 @@ void MyTextEditor::insertSymbol(wchar_t changed) {
             fracPosition.push_back(last);
         }
         position = fracPosition;
-    }else if(this->currentPosition == 1){
+    }else if(insertPosition == 1){
         insertType = HEAD;
         // retrieve prior first element
         std::wcout << "Inserting at the head" << std::endl;
@@ -128,11 +128,11 @@ void MyTextEditor::insertSymbol(wchar_t changed) {
 
         position.push_back(5);
 
-    }else if(this->currentPosition > 1 && this->currentPosition < this->_symbols.size()+1) {
+    }else if(insertPosition > 1 && insertPosition < this->_symbols.size()+1) {
         insertType = MIDDLE;
         std::wcout << L"Inserting in the middle" << std::endl;
-        std::vector<int> prevPos = this->_symbols.at(this->currentPosition - 2).getPosition();
-        std::vector<int> nextPos = this->_symbols.at(this->currentPosition-1).getPosition();
+        std::vector<int> prevPos = this->_symbols.at(insertPosition - 2).getPosition();
+        std::vector<int> nextPos = this->_symbols.at(insertPosition-1).getPosition();
 
         // this should be enough to consider both the comprehending symbols
 
@@ -190,7 +190,25 @@ void MyTextEditor::inputMethodEvent(QInputMethodEvent *event) {
 
     wchar_t character = event->commitString()[0].unicode();
 
-    insertSymbol(character);
+    insertSymbol(character, this->currentPosition);
 }
+
+void MyTextEditor::insertFromMimeData(const QMimeData *source) {
+    QTextEdit::insertFromMimeData(source);
+
+    this->oldPosition = this->currentPosition;
+    this->currentPosition = this->textCursor().position();
+    int pasteLength = this->currentPosition-this->oldPosition;
+    std::cout << "Pastelength is: " << pasteLength << std::endl;
+
+    for(int i = 0; i < pasteLength; i++){
+        wchar_t character = this->toPlainText().toStdWString()[this->oldPosition+i];
+        std::cout << "Inserting pasted symbol" << std::endl;
+        insertSymbol(character, this->oldPosition+i+1);
+    }
+
+}
+
+
 
 

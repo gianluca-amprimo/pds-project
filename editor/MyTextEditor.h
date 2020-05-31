@@ -24,7 +24,7 @@ public:
     const std::wstring &getThisEditorIdentifier() const;
     void deleteSymbol();
     void deleteSelection();
-    void insertSymbol(wchar_t character);
+    void insertSymbol(wchar_t character, int position);
     void setThisEditorIdentifier(const std::wstring &thisEditorIdentifier);
 
     /*TODO
@@ -33,10 +33,12 @@ public:
      * - sostituire una porzione di testo selezionata
      * - incollare un testo selezionato
      */
-
-
     void keyPressEvent(QKeyEvent *e) override;
     virtual void inputMethodEvent(QInputMethodEvent *event);
+
+public slots:
+    virtual void insertFromMimeData(const QMimeData *source);
+
 
 private:
     std::wstring thisEditorIdentifier = L"AAAA";
@@ -46,7 +48,6 @@ private:
     int oldPosition;
     bool selectionMode = false;
     int anchor;
-
 };
 
 
