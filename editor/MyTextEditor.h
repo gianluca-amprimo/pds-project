@@ -23,8 +23,18 @@ public:
     explicit MyTextEditor(QWidget *parent);
     const std::wstring &getThisEditorIdentifier() const;
     void deleteSymbol();
+    void deleteSelection();
     void insertSymbol(wchar_t character);
     void setThisEditorIdentifier(const std::wstring &thisEditorIdentifier);
+
+    /*TODO
+     * implementare selezione:
+     * - cancellare una porzione di testo selezionata
+     * - sostituire una porzione di testo selezionata
+     * - incollare un testo selezionato
+     */
+
+
     void keyPressEvent(QKeyEvent *e) override;
     virtual void inputMethodEvent(QInputMethodEvent *event);
 
@@ -34,6 +44,8 @@ private:
     std::vector<Symbol> _symbols;
     int currentPosition;
     int oldPosition;
+    bool selectionMode = false;
+    int anchor;
 
 };
 

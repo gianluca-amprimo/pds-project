@@ -22,19 +22,39 @@ void MyTextEditor::setThisEditorIdentifier(const std::wstring &thisEditorIdentif
     MyTextEditor::thisEditorIdentifier = thisEditorIdentifier;
 }
 
-
 void MyTextEditor::keyPressEvent(QKeyEvent *e) {
     QTextEdit::keyPressEvent(e);
     int position = this->textCursor().position();
     this->oldPosition = this->currentPosition;
     this->currentPosition = position;
-    wchar_t changed;
-    changed = toPlainText().toStdWString()[this->currentPosition-1];
+
+    // we have to manage selection
+    std::cout << "Anchor: " << this->textCursor().anchor() << std::endl;
+    std::cout << "Position: " << this->textCursor().position() << std::endl;
+    if(this->textCursor().position() != this->textCursor().anchor()){
+        std::cout << "selection mode" << std::endl;
+        this->selectionMode = true;
+
+    }
 
     if(e->key() == Qt::Key_Backspace){
-        deleteSymbol();
+        if(selectionMode) deleteSelection();
+        else deleteSymbol();
+        selectionMode = false;
+        this->anchor = this->textCursor().anchor();
     }else if(e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis){
+        if(selectionMode){
+            deleteSelection();
+            std::cout << "substituting selection" << std::endl;
+            deleteSelection();
+            selectionMode = false;
+            this->anchor = this->textCursor().anchor();
+        }
+        wchar_t changed;
+        changed = toPlainText().toStdWString()[this->currentPosition-1];
         insertSymbol(changed);
+    }else{
+        this->anchor = this->textCursor().anchor();
     }
 }
 
@@ -42,6 +62,20 @@ void MyTextEditor::deleteSymbol() {
     for(int i = 1; i <= this->oldPosition-this->currentPosition; i++){
         std::wcout << "Character deleted" << std::endl;
         this->_symbols.erase(this->_symbols.begin()+this->oldPosition-i);
+    }
+}
+
+void MyTextEditor::deleteSelection() {
+    if(this->anchor > this->currentPosition){
+        for(int i = 1; i <= this->anchor-this->currentPosition; i++){
+            std::wcout << "Character deleted" << std::endl;
+            this->_symbols.erase(this->_symbols.begin()+this->anchor-i);
+        }
+    }else{
+        for(int i = 1; i <= this->currentPosition-this->anchor; i++){
+            std::wcout << "Character deleted" << std::endl;
+            this->_symbols.erase(this->_symbols.begin()+this->currentPosition-i);
+        }
     }
 }
 
@@ -158,4 +192,5 @@ void MyTextEditor::inputMethodEvent(QInputMethodEvent *event) {
 
     insertSymbol(character);
 }
+
 

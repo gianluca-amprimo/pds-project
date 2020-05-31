@@ -23,6 +23,6 @@ list(APPEND LIBRARIES
 list(REMOVE_DUPLICATES LIBRARIES)
 
 add_executable(editor
-        main.cpp SaveAsDialog.cpp SaveAsDialog.h MainEditor.cpp MainEditor.h ${QRC} Symbol.cpp Symbol.h MyTextEditor.cpp MyTextEditor.h )
+        main.cpp SaveAsDialog.cpp SaveAsDialog.h MainEditor.cpp MainEditor.h ${QRC} Symbol.cpp Symbol.h MyTextEditor.cpp MyTextEditor.h FracPosition.cpp FracPosition.h)
 
 target_link_libraries(editor ${LIBRARIES})
