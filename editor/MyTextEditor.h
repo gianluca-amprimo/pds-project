@@ -46,6 +46,7 @@ private:
     std::vector<Symbol> _symbols;
     int currentPosition;
     int oldPosition;
+    int lastPosition = 0;
     bool selectionMode = false;
     int anchor;
 };

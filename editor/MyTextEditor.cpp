@@ -37,13 +37,17 @@ void MyTextEditor::keyPressEvent(QKeyEvent *e) {
 
     }
 
-    if(e->key() == Qt::Key_Backspace){
+    if(e->key() == Qt::Key_Backspace || (e->modifiers() & Qt::ControlModifier && e->key() == Qt::Key_X)){
         if(selectionMode) deleteSelection();
         else deleteSymbol();
         selectionMode = false;
         this->anchor = this->textCursor().anchor();
-    }else if(e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis){
-        if(selectionMode){
+    }else if(e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis &&
+            !((e->key() == Qt::Key_V ||
+               e->key() == Qt::Key_C || // taking care of keyboard shortcuts
+               e->key() == Qt::Key_X ||
+               e->key() == Qt::Key_A ) && e->modifiers() & Qt::ControlModifier )) {
+        if (selectionMode) {
             deleteSelection();
             std::cout << "substituting selection" << std::endl;
             deleteSelection();
@@ -51,9 +55,10 @@ void MyTextEditor::keyPressEvent(QKeyEvent *e) {
             this->anchor = this->textCursor().anchor();
         }
         wchar_t changed;
-        changed = toPlainText().toStdWString()[this->currentPosition-1];
+        changed = toPlainText().toStdWString()[this->currentPosition - 1];
         insertSymbol(changed, this->currentPosition);
     }else{
+        std::cout << "Sto selezionando" << std::endl;
         this->anchor = this->textCursor().anchor();
     }
 }
@@ -66,15 +71,18 @@ void MyTextEditor::deleteSymbol() {
 }
 
 void MyTextEditor::deleteSelection() {
-    if(this->anchor > this->currentPosition){
-        for(int i = 1; i <= this->anchor-this->currentPosition; i++){
+    std::cout << "selection anchor " << this->anchor << std::endl;
+    std::cout << "selection position " << this->oldPosition << std::endl;
+    if(this->anchor > this->oldPosition){
+        for(int i = 1; i <= this->anchor-this->oldPosition; i++){
             std::wcout << "Character deleted" << std::endl;
             this->_symbols.erase(this->_symbols.begin()+this->anchor-i);
         }
     }else{
-        for(int i = 1; i <= this->currentPosition-this->anchor; i++){
+        for(int i = 1; i <= this->oldPosition-this->anchor; i++){
             std::wcout << "Character deleted" << std::endl;
-            this->_symbols.erase(this->_symbols.begin()+this->currentPosition-i);
+            this->_symbols.erase(this->_symbols.begin()+this->oldPosition-i);
+
         }
     }
 }
@@ -83,6 +91,7 @@ void MyTextEditor::insertSymbol(wchar_t changed, int insertPosition) {
 
     this->charCounter++;
     int insertType;
+    std::cout << "Insert position is: " << insertPosition << std::endl;
 
     // calcolo l'id rispetto al mio editor
     int localCharIdLen = std::to_wstring(this->charCounter).length();
@@ -90,7 +99,6 @@ void MyTextEditor::insertSymbol(wchar_t changed, int insertPosition) {
     std::wstring localCharId  = std::wstring(6-localCharIdLen, '0') + std::to_wstring(charCounter);
     std::wstring charId = this->thisEditorIdentifier + localCharId;
     std::wcout << "char has id " << charId << std::endl;
-    int lastPosition = 0;
 
     // calcolo la posizione frazionaria
     // se il carattere è inserito in fondo basta solo vedere il primo intero della posizione frazionaria
@@ -98,7 +106,7 @@ void MyTextEditor::insertSymbol(wchar_t changed, int insertPosition) {
 
     // last
     if(insertPosition > lastPosition){ // +1 because wchar_t is already inserted
-        lastPosition = this->currentPosition;
+        lastPosition = insertPosition;
         insertType = BACK;
         std::wcout << "Inserting at the back" << std::endl;
         // take just the first number of the last element and add 1
