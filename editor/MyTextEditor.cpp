@@ -56,9 +56,14 @@ void MyTextEditor::keyPressEvent(QKeyEvent *e) {
         }
         wchar_t changed;
         changed = toPlainText().toStdWString()[this->currentPosition - 1];
-        insertSymbol(changed, this->currentPosition);
+        if(e->key() == Qt::Key_P && e->modifiers() & Qt::ControlModifier){
+            for(Symbol symbol : _symbols){
+                std::wcout << symbol.getCharacter();
+            }
+            std::wcout << std::endl;
+        }
+        else insertSymbol(changed, this->currentPosition);
     }else{
-        std::cout << "Sto selezionando" << std::endl;
         this->anchor = this->textCursor().anchor();
     }
 }
@@ -105,7 +110,7 @@ void MyTextEditor::insertSymbol(wchar_t changed, int insertPosition) {
     // se invece è in mezzo bisogna trovare l'intero
 
     // last
-    if(insertPosition > lastPosition){ // +1 because wchar_t is already inserted
+    if(insertPosition == this->_symbols.size()+1){ // +1 because wchar_t is already inserted
         lastPosition = insertPosition;
         insertType = BACK;
         std::wcout << "Inserting at the back" << std::endl;

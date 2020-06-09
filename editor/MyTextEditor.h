@@ -44,8 +44,8 @@ private:
     std::wstring thisEditorIdentifier = L"AAAA";
     int charCounter;
     std::vector<Symbol> _symbols;
-    int currentPosition;
-    int oldPosition;
+    int currentPosition = 0;
+    int oldPosition = 0;
     int lastPosition = 0;
     bool selectionMode = false;
     int anchor;
