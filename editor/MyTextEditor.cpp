@@ -42,7 +42,7 @@ void MyTextEditor::keyPressEvent(QKeyEvent *e) {
         else deleteSymbol();
         selectionMode = false;
         this->anchor = this->textCursor().anchor();
-    }else if(e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis &&
+    }else if(e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis || e->key() == Qt::Key_Return &&
             !((e->key() == Qt::Key_V ||
                e->key() == Qt::Key_C || // taking care of keyboard shortcuts
                e->key() == Qt::Key_X ||
