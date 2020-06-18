@@ -37,12 +37,12 @@ void MyTextEditor::keyPressEvent(QKeyEvent *e) {
 
     }
 
-    if(e->key() == Qt::Key_Backspace || (e->modifiers() & Qt::ControlModifier && e->key() == Qt::Key_X)){
-        if(selectionMode) deleteSelection();
+    if(e->key() == Qt::Key_Backspace || (e->modifiers() & Qt::ControlModifier && e->key() == Qt::Key_X)) {
+        if (selectionMode) deleteSelection();
         else deleteSymbol();
         selectionMode = false;
         this->anchor = this->textCursor().anchor();
-    }else if(e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis || e->key() == Qt::Key_Return &&
+    }else if((e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis || e->key() == Qt::Key_Return) &&
             !((e->key() == Qt::Key_V ||
                e->key() == Qt::Key_C || // taking care of keyboard shortcuts
                e->key() == Qt::Key_X ||
@@ -144,8 +144,15 @@ void MyTextEditor::insertSymbol(wchar_t changed, int insertPosition) {
     }else if(insertPosition > 1 && insertPosition < this->_symbols.size()+1) {
         insertType = MIDDLE;
         std::wcout << L"Inserting in the middle" << std::endl;
-        std::vector<int> prevPos = this->_symbols.at(insertPosition - 2).getPosition();
-        std::vector<int> nextPos = this->_symbols.at(insertPosition-1).getPosition();
+        std::vector<int> prevPos;
+        std::vector<int> nextPos;
+        //if(pasting){
+        //    prevPos = this->_symbols.at(insertPosition - 2).getPosition();
+        //    nextPos = this->_symbols.at(this->currentPosition-1).getPosition();
+        //}else{
+            prevPos = this->_symbols.at(insertPosition - 2).getPosition();
+            nextPos = this->_symbols.at(insertPosition-1).getPosition();
+        //}
 
         // this should be enough to consider both the comprehending symbols
 
@@ -186,13 +193,14 @@ void MyTextEditor::insertSymbol(wchar_t changed, int insertPosition) {
             this->_symbols.insert(this->_symbols.begin(), symbol);
             break;
         case MIDDLE:
-            this->_symbols.insert(this->_symbols.begin()+this->currentPosition-1, symbol);
+            this->_symbols.insert(this->_symbols.begin()+insertPosition-1, symbol);
             break;
         default:
             break;
 
     }
     std::wcout << changed << L" Character inserted" << std::endl;
+    std::wcout << std::endl;
 }
 
 void MyTextEditor::inputMethodEvent(QInputMethodEvent *event) {
@@ -208,18 +216,36 @@ void MyTextEditor::inputMethodEvent(QInputMethodEvent *event) {
 
 void MyTextEditor::insertFromMimeData(const QMimeData *source) {
     QTextEdit::insertFromMimeData(source);
+    this->repaint();
 
     this->oldPosition = this->currentPosition;
     this->currentPosition = this->textCursor().position();
     int pasteLength = this->currentPosition-this->oldPosition;
     std::cout << "Pastelength is: " << pasteLength << std::endl;
 
+    this->pasting = true;
     for(int i = 0; i < pasteLength; i++){
         wchar_t character = this->toPlainText().toStdWString()[this->oldPosition+i];
         std::cout << "Inserting pasted symbol" << std::endl;
         insertSymbol(character, this->oldPosition+i+1);
     }
+    this->pasting = false;
 
+}
+
+void MyTextEditor::mouseReleaseEvent(QMouseEvent *e) {
+    QTextEdit::mouseReleaseEvent(e);
+
+    int position = this->textCursor().position();
+    this->oldPosition = this->currentPosition;
+    this->currentPosition = position;
+    this->anchor = this->textCursor().anchor();
+
+    if(position != this->anchor){
+        std::cout << "selection mode" << std::endl;
+        this->selectionMode = true;
+
+    }
 }
 
 

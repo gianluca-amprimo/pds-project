@@ -35,6 +35,7 @@ public:
      */
     void keyPressEvent(QKeyEvent *e) override;
     virtual void inputMethodEvent(QInputMethodEvent *event);
+    virtual void mouseReleaseEvent(QMouseEvent *e);
 
 public slots:
     virtual void insertFromMimeData(const QMimeData *source);
@@ -48,7 +49,9 @@ private:
     int oldPosition = 0;
     int lastPosition = 0;
     bool selectionMode = false;
+    bool pasting = false;
     int anchor;
+
 };
 
 
