@@ -10,6 +10,7 @@
 #include "server.h"
 #include "ui_server.h"
 #include "db_operations.h"
+#include "SymbolPrototype.cpp"
 
 static QString picturePath("../Pictures/");
 std::array<std::string, 10> colors{"white", "red", "green", "blue",
@@ -164,6 +165,8 @@ void Server::processUserRequest() {
     	opResult = Server::refreshFileList(jSobject, active_socket);
     if (header == "newfile")
         opResult = Server::createFile(jSobject, active_socket);
+    if (header == "opfile")
+        opResult = Server::openFile_serial(jSobject, active_socket);
     
     qDebug() << opResult;
 }
@@ -211,7 +214,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
     std::string password = data["password"].toString().toStdString();
     printConsole("Checking " + username + " " + password);
 
-    // check the credentials
+    // check the credentialsche stati
     QString loginResult;
 //    if (checkPasswordFormat(password)){
         int queryResult = checkCredentials(username, password);
@@ -712,5 +715,42 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     message["body"] = arrOfSymbols;
     sendMessage(message, active_socket);
     printConsole("Sending file '" + filename + "' at '" + path + "' for user '" + username + "'");
+    return true;
+}
+
+bool Server::openFile_serial(QJsonObject &data, QTcpSocket *active_socket){
+    //Provo a serializzare un file e mandarlo
+    FilePrototype fProto;
+    fProto.addSymbol(1, 'a');
+    fProto.addSymbol(0.5, 's');
+    fProto.addSymbol(0.2, 'c');
+    fProto.addSymbol(0.3, 'a');
+    std::cout << fProto << std::endl;
+
+    fProto.addSymbol(0.2, 'p');
+    fProto.addSymbol(0.7, 's');
+    fProto.addSymbol(2, 'l');
+    fProto.addSymbol(3, 'a');
+    std::cout << fProto << std::endl;
+
+    QByteArray byteArrayBuffer;
+    QDataStream stream(&byteArrayBuffer, QIODevice::ReadWrite);
+    stream << fProto;
+
+    QByteArray block;
+    QDataStream out(&block, QIODevice::WriteOnly);
+    out.setVersion(QDataStream::Qt_4_0);
+    QJsonObject message;
+    message["header"] = "opfile";
+    message["body"]="ok";
+    message["file_name"] = data["file_name"];
+    message["file"] = QLatin1String(byteArrayBuffer.toBase64());
+    // send the JSON using QDataStream
+    out << QJsonDocument(message).toJson();
+
+    if (!active_socket->write(block)) {
+        QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+    }
+    active_socket->flush();
     return true;
 }

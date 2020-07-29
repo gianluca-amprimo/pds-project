@@ -65,12 +65,12 @@ int checkCredentials(std::string usr, std::string password) {
  */
 static int files(void *NotUsed, int argc, char **argv, char **azColName) {
     // check if argc is correct
-    if (argc != 3) {
+    if (argc != 4) {
         std::cerr << "Error in the number of columns" << std::endl;
         return -1;
     }
 
-    // argc is 3 because the number of columns is 3
+    // argc is 4 because the number of columns is 3
     // ID, NAME, PATH
     db_counter++;
 

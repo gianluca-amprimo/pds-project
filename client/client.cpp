@@ -11,6 +11,7 @@
 #include "ui_WelcomeWin.h"
 #include "ui_SignupWin.h"
 #include "ui_ProfileSettingsWin.h"
+#include "SymbolPrototype.cpp"
 
 static QString defaultPicture(":/misc/themes/material/user.png");
 
@@ -266,6 +267,37 @@ void Client::readResponse()
 			uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
 		}
 	}
+    if(header=="opfile") {
+        if (result == "ok") {
+            //salva file mandato dal client per prova
+            auto file= QByteArray::fromBase64(jSobject["file"].toString().toLatin1());
+            auto file_name=jSobject["file_name"].toString();
+            qDebug()<<file_name;
+            QFile fo(file_name);
+            fo.open(QIODevice::WriteOnly);
+            if(fo.isOpen())
+                fo.write(file);
+            else
+                qDebug()<<"Cannot save file";
+            fo.close();
+
+            QFile fi(file_name);
+            fi.open(QIODevice::ReadOnly);
+            if(fi.isOpen()){
+                QByteArray inByteArrayBuffer = fi.readAll();
+                QDataStream inStream(inByteArrayBuffer);
+                FilePrototype fileRead;
+                std::cout << fileRead << std::endl;
+                inStream >> fileRead;
+                fi.close();
+                std::cout << fileRead << std::endl;
+            }
+            //
+            else{
+                //TODO:handle problems with opening the file
+            }
+        }
+        }
 }
 
 void Client::displayError(QAbstractSocket::SocketError socketError)
@@ -344,6 +376,7 @@ void Client::sendCredentials() {
             qDebug() << "tcp socket not open";
             return;
         }
+
 
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);
@@ -658,6 +691,32 @@ void Client::openExistingFile() {
 		return;
 	}
 	qDebug() << "Opening selected file...";
+    if (tcpSocket != nullptr) {
+        if (!tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        QJsonObject message;
+        message["header"] = "opfile";
+        message["file_name"] = "prova.txt"; //TODO: sostituire con contenuto menu a tendina
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!tcpSocket->write(block)) {
+            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+            cancStatusBar->showMessage(tr("Could not send message."), 3000);
+        }
+        tcpSocket->flush();
+    }
+    qDebug()<<"Requesting file "<<"prova.txt";
 	ChoiceWin->close();
 }
 

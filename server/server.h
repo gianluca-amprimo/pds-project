@@ -38,6 +38,7 @@ private slots:
 	bool refreshFileList(QJsonObject &, QTcpSocket *);
 	bool createFile(QJsonObject &data, QTcpSocket *active_socket);
 	bool openFile(QJsonObject &data, QTcpSocket *active_socket);
+    bool openFile_serial(QJsonObject &data, QTcpSocket *active_socket);
 
 private:
     Ui::Server *ui;

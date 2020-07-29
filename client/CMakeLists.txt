@@ -34,6 +34,7 @@ add_executable(client
                SaveAsDialog.cpp
                SaveAsDialog.h
                Symbol.cpp
+               SymbolPrototype.cpp
                Symbol.h
                ${QRC} )
 target_link_libraries(client ${LIBRARIES})

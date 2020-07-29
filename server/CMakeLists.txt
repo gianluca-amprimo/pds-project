@@ -34,5 +34,7 @@ add_executable(server
         db_operations.cpp
         db_operations.h
         User.cpp
-        User.h)
+        User.h
+        SymbolPrototype.cpp
+        )
 target_link_libraries(server ${LIBRARIES})

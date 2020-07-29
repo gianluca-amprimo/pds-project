@@ -22,7 +22,7 @@ QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_Client_t {
     QByteArrayData data[38];
-    char stringdata0[561];
+    char stringdata0[557];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -53,22 +53,22 @@ QT_MOC_LITERAL(18, 262, 21), // "reactivateLoginWindow"
 QT_MOC_LITERAL(19, 284, 22), // "openCancellationWindow"
 QT_MOC_LITERAL(20, 307, 15), // "enableDelButton"
 QT_MOC_LITERAL(21, 323, 15), // "requestDeletion"
-QT_MOC_LITERAL(22, 339, 20), // "openFileChoiceWindow"
-QT_MOC_LITERAL(23, 360, 9), // "firstTime"
-QT_MOC_LITERAL(24, 370, 11), // "openNewFile"
-QT_MOC_LITERAL(25, 382, 16), // "openExistingFile"
-QT_MOC_LITERAL(26, 399, 15), // "refreshFileList"
-QT_MOC_LITERAL(27, 415, 13), // "requestLogout"
-QT_MOC_LITERAL(28, 429, 11), // "eventFilter"
-QT_MOC_LITERAL(29, 441, 6), // "object"
-QT_MOC_LITERAL(30, 448, 7), // "QEvent*"
-QT_MOC_LITERAL(31, 456, 5), // "event"
-QT_MOC_LITERAL(32, 462, 18), // "openSettingsWindow"
-QT_MOC_LITERAL(33, 481, 17), // "requestUserUpdate"
-QT_MOC_LITERAL(34, 499, 19), // "pressPasswordButton"
-QT_MOC_LITERAL(35, 519, 10), // "QLineEdit*"
-QT_MOC_LITERAL(36, 530, 8), // "lineEdit"
-QT_MOC_LITERAL(37, 539, 21) // "releasePasswordButton"
+QT_MOC_LITERAL(22, 339, 14), // "openWelcomeWin"
+QT_MOC_LITERAL(23, 354, 9), // "firstTime"
+QT_MOC_LITERAL(24, 364, 13), // "createNewFile"
+QT_MOC_LITERAL(25, 378, 16), // "openExistingFile"
+QT_MOC_LITERAL(26, 395, 15), // "refreshFileList"
+QT_MOC_LITERAL(27, 411, 13), // "requestLogout"
+QT_MOC_LITERAL(28, 425, 11), // "eventFilter"
+QT_MOC_LITERAL(29, 437, 6), // "object"
+QT_MOC_LITERAL(30, 444, 7), // "QEvent*"
+QT_MOC_LITERAL(31, 452, 5), // "event"
+QT_MOC_LITERAL(32, 458, 18), // "openSettingsWindow"
+QT_MOC_LITERAL(33, 477, 17), // "requestUserUpdate"
+QT_MOC_LITERAL(34, 495, 19), // "pressPasswordButton"
+QT_MOC_LITERAL(35, 515, 10), // "QLineEdit*"
+QT_MOC_LITERAL(36, 526, 8), // "lineEdit"
+QT_MOC_LITERAL(37, 535, 21) // "releasePasswordButton"
 
     },
     "Client\0readResponse\0\0displayError\0"
@@ -80,8 +80,8 @@ QT_MOC_LITERAL(37, 539, 21) // "releasePasswordButton"
     "deleteProfilePicture\0enableRegButton\0"
     "requestRegistration\0reactivateLoginWindow\0"
     "openCancellationWindow\0enableDelButton\0"
-    "requestDeletion\0openFileChoiceWindow\0"
-    "firstTime\0openNewFile\0openExistingFile\0"
+    "requestDeletion\0openWelcomeWin\0firstTime\0"
+    "createNewFile\0openExistingFile\0"
     "refreshFileList\0requestLogout\0eventFilter\0"
     "object\0QEvent*\0event\0openSettingsWindow\0"
     "requestUserUpdate\0pressPasswordButton\0"
@@ -177,8 +177,8 @@ void Client::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, void
         case 11: _t->openCancellationWindow(); break;
         case 12: _t->enableDelButton(); break;
         case 13: _t->requestDeletion(); break;
-        case 14: _t->openFileChoiceWindow((*reinterpret_cast< bool(*)>(_a[1]))); break;
-        case 15: _t->openNewFile(); break;
+        case 14: _t->openWelcomeWin((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 15: _t->createNewFile(); break;
         case 16: _t->openExistingFile(); break;
         case 17: _t->refreshFileList(); break;
         case 18: _t->requestLogout(); break;
