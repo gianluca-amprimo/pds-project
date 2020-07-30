@@ -743,8 +743,9 @@ bool Server::openFile_serial(QJsonObject &data, QTcpSocket *active_socket){
     QJsonObject message;
     message["header"] = "opfile";
     message["body"]="ok";
-    message["file_name"] = data["file_name"];
+    message["file_name"] = data["file_name"].toString();
     message["file"] = QLatin1String(byteArrayBuffer.toBase64());
+    qDebug()<<"sending back file "<< data["file_name"];
     // send the JSON using QDataStream
     out << QJsonDocument(message).toJson();
 
