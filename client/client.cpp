@@ -11,7 +11,8 @@
 #include "ui_WelcomeWin.h"
 #include "ui_SignupWin.h"
 #include "ui_ProfileSettingsWin.h"
-#include "SymbolPrototype.cpp"
+#include "ui_NewFile.h"
+#include "FileHandler.h"
 
 static QString defaultPicture(":/misc/themes/material/user.png");
 
@@ -267,37 +268,22 @@ void Client::readResponse()
 			uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
 		}
 	}
-    if(header=="opfile") {
+    if(header=="openfile") {
         if (result == "ok") {
             //salva file mandato dal client per prova
-            auto file= QByteArray::fromBase64(jSobject["file"].toString().toLatin1());
-            auto file_name=jSobject["file_name"].toString();
-            qDebug()<<file_name;
-            QFile fo(file_name);
-            fo.open(QIODevice::WriteOnly);
-            if(fo.isOpen())
-                fo.write(file);
-            else
-                qDebug()<<"Cannot save file";
-            fo.close();
+            auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
+            auto filename = jSobject["filename"].toString();
+            qDebug() << filename;
 
-            QFile fi(file_name);
-            fi.open(QIODevice::ReadOnly);
-            if(fi.isOpen()){
-                QByteArray inByteArrayBuffer = fi.readAll();
-                QDataStream inStream(inByteArrayBuffer);
-                FilePrototype fileRead;
-                std::cout << fileRead << std::endl;
-                inStream >> fileRead;
-                fi.close();
-                std::cout << fileRead << std::endl;
-            }
-            //
-            else{
-                //TODO:handle problems with opening the file
-            }
+            QDataStream inStream(content);
+            FileHandler fileRead;
+
+            inStream >> fileRead;
+            std::cout << fileRead << std::endl;
+        } else {
+            QMessageBox::information(this, tr("PdS Server"), tr("Opening failed.\nPlease try again, or refresh the list of files."));
         }
-        }
+    }
 }
 
 void Client::displayError(QAbstractSocket::SocketError socketError)
@@ -667,7 +653,7 @@ void Client::openWelcomeWin(bool firstTime) {
 	}
 	uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
 	
-	connect(uiChoice->NewButton, &QPushButton::released, this, &Client::createNewFile);
+	connect(uiChoice->NewButton, &QPushButton::released, this, &Client::openNewFileWin);
 	connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
 	connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
 	connect(uiChoice->SettingsButton, &QPushButton::released, this, &Client::openSettingsWindow);
@@ -677,10 +663,47 @@ void Client::openWelcomeWin(bool firstTime) {
 	ChoiceWin->show();
 }
 
-void Client::createNewFile() {
-	// TODO: aprire nuovo file
-	qDebug() << "Opening new file";
-	ChoiceWin->close();
+void Client::openNewFileWin() {
+	ChoiceWin->setVisible(false);
+
+    uiNewFile = std::make_shared<Ui::NewFile> ();
+    NewFileWin = std::make_shared<QDialog> ();
+    uiNewFile->setupUi(NewFileWin.get());
+
+    connect(NewFileWin.get(), &QDialog::accepted, this, [this](){
+        if (tcpSocket != nullptr) {
+            if (!tcpSocket->isValid()) {
+                qDebug() << "tcp socket invalid";
+                return;
+            }
+            if (!tcpSocket->isOpen()) {
+                qDebug() << "tcp socket not open";
+                return;
+            }
+
+            QByteArray block;
+            QDataStream out(&block, QIODevice::WriteOnly);
+            out.setVersion(QDataStream::Qt_4_0);
+            QJsonObject message;
+            message["header"] = "newfile";
+            message["filename"] = uiNewFile->filenameInput->text();
+            message["username"] = loggedUser->getUsername();
+            // send the JSON using QDataStream
+            out << QJsonDocument(message).toJson();
+
+            if (!tcpSocket->write(block)) {
+                QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+                cancStatusBar->showMessage(tr("Could not send message."), 3000);
+            }
+            tcpSocket->flush();
+        }
+        ChoiceWin->setVisible(true);
+    });
+    connect(NewFileWin.get(), &QDialog::finished, this, [this](){
+        uiNewFile.reset();
+        ChoiceWin->setVisible(true);
+    });
+    NewFileWin->show();
 }
 
 void Client::openExistingFile() {
@@ -705,8 +728,8 @@ void Client::openExistingFile() {
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
-        message["header"] = "opfile";
-        message["file_name"] = "prova.txt"; //TODO: sostituire con contenuto menu a tendina
+        message["header"] = "openfile";
+        message["filename"] = uiChoice->OpenMenu->currentText();
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
 
@@ -716,8 +739,8 @@ void Client::openExistingFile() {
         }
         tcpSocket->flush();
     }
-    qDebug()<<"Requesting file "<<"prova.txt";
-	ChoiceWin->close();
+
+    //ChoiceWin->close();
 }
 
 void Client::refreshFileList() {

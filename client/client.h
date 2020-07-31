@@ -9,7 +9,6 @@
 #include <QStatusBar>
 #include <memory>
 #include "User.h"
-#include "MainEditor.h"
 #include <QToolButton>
 #include <QLabel>
 #include <QLineEdit>
@@ -23,6 +22,7 @@ namespace Ui {
 	class DeleteAccountWin;
 	class WelcomeWin;
 	class ProfileSettingsWin;
+	class NewFile;
 }
 QT_END_NAMESPACE
 
@@ -52,7 +52,7 @@ private slots:
     void requestDeletion();
     
     void openWelcomeWin(bool firstTime);
-    void createNewFile();
+    void openNewFileWin();
     void openExistingFile();
     void refreshFileList();
     void requestLogout();
@@ -102,6 +102,9 @@ private:
 	
 	std::shared_ptr<QDialog> ChoiceWin;
 	std::shared_ptr<Ui::WelcomeWin> uiChoice;
+
+	std::shared_ptr<Ui::NewFile> uiNewFile;
+    std::shared_ptr<QDialog> NewFileWin;
 	
 	std::shared_ptr<QDialog> SettWin;
 	std::shared_ptr<Ui::ProfileSettingsWin> uiSett;
@@ -110,8 +113,6 @@ private:
 	QAction *settHideCurrentPassword;
 	QToolButton *settNewPasswordButton;
 	QAction *settHideNewPassword;
-
-	std::shared_ptr<MainEditor> MainEditorWin;
 };
 
 #endif

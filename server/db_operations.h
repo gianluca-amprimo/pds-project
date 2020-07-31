@@ -18,7 +18,7 @@ int checkCredentials(std::string usr, std::string password);
 // updates the file_list
 int readFiles();
 
-int checkIfFileExists(std::string name, std::string path);
+int checkIfFileExists(std::string name);
 
 // function to add a user
 // returns 1 for success and -1 for failure
@@ -26,7 +26,7 @@ int addUser(std::string user, std::string password, std::string name, std::strin
 
 // function to add a file to the db
 // returns 1 for success -1 for failure and 0 if file already exists
-int addFile(std::string name, std::string path, std::string username);
+int addFile(std::string name, std::string username);
 
 // function to delete an existing user
 // returns 1 for user deleted -1 for db error and 0 if user does not exist

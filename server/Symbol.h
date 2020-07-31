@@ -12,11 +12,14 @@
 
 class Symbol {
 private:
+
+
     QChar character;
     QVector<int> position;
     QString identifier;
 public:
     Symbol();
+    Symbol(QChar character);
 
     Symbol(QChar character, QString identifier, QVector<int> position);
 

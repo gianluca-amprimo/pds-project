@@ -29,13 +29,10 @@ add_executable(client
                client.h
                User.cpp
                User.h
-               MainEditor.cpp
-               MainEditor.h
-               SaveAsDialog.cpp
-               SaveAsDialog.h
-               Symbol.cpp
-               SymbolPrototype.cpp
-               Symbol.h
-               ${QRC} )
+        Symbol.h
+        Symbol.cpp
+        FileHandler.cpp
+        FileHandler.h
+        ${QRC})
 target_link_libraries(client ${LIBRARIES})
 

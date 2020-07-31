@@ -7,6 +7,8 @@
 
 Symbol::Symbol() : character(QChar()), identifier(QString()), position(QVector<int>()) {}
 
+Symbol::Symbol(QChar character) : character(character), identifier(QString()), position(QVector<int>()) {}
+
 Symbol::Symbol(QChar character, QString identifier, QVector<int> position) : character(character),
                                                                              identifier(std::move(identifier)),
                                                                              position(std::move(position)) {}
