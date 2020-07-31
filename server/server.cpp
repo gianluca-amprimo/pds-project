@@ -10,12 +10,11 @@
 #include "server.h"
 #include "ui_server.h"
 #include "db_operations.h"
-#include "SymbolPrototype.cpp"
+#include "FileHandler.h"
 
 static QString picturePath("../Pictures/");
 std::array<std::string, 10> colors{"white", "red", "green", "blue",
                                    "cyan", "magenta", "yellow", "gray"};
-typedef char Symbol;
 /*
  * Constructor of the server
  */
@@ -33,7 +32,7 @@ Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
          * When creating a QSettings object,
          * you must pass the name of your company or organization as well as the name of your application.
          */
-        QSettings settings(QSettings::UserScope, QLatin1String("PiDiEsse"));
+        QSettings settings(QSettings::UserScope, QLatin1String("PiDiEsse [server]"));
         // Groups are useful to avoid typing in the same setting paths over and over
         settings.beginGroup(QLatin1String("QtNetwork"));
         const QString id = settings.value(QLatin1String("DefaultNetworkConfiguration")).toString();
@@ -48,7 +47,7 @@ Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
         networkSession = new QNetworkSession(config, this);
         connect(networkSession, &QNetworkSession::opened, this, &Server::sessionOpened);
 
-        printConsole("Ripristino la sessione di rete precedente ...");
+        printConsole("Recovering previous network configuration");
         networkSession->open();
     } else {
         sessionOpened();
@@ -58,7 +57,6 @@ Server::Server(QWidget *parent) : QDialog(parent), ui(new Ui::Server) {
 
     setWindowTitle(QGuiApplication::applicationDisplayName());
 }
-
 
 void Server::sessionOpened() {
     int port = 4848;
@@ -72,7 +70,7 @@ void Server::sessionOpened() {
         else
             id = config.identifier();
 
-        QSettings settings(QSettings::UserScope, QLatin1String("PiDiEsse"));
+        QSettings settings(QSettings::UserScope, QLatin1String("PiDiEsse [server]"));
         settings.beginGroup(QLatin1String("QtNetwork"));
         settings.setValue(QLatin1String("DefaultNetworkConfiguration"), id);
         settings.endGroup();
@@ -80,7 +78,7 @@ void Server::sessionOpened() {
 
     tcpServer = new QTcpServer(this);
     if (!tcpServer->listen(QHostAddress::Any, port)) {
-        printConsole("Impossibile avviare il server - " + tcpServer->errorString().toStdString(), true);
+        printConsole("Not able to start the server - " + tcpServer->errorString().toStdString(), true);
         close();
         return;
     }
@@ -101,15 +99,13 @@ void Server::sessionOpened() {
 #else
     ipAddress = QHostAddress(QHostAddress::LocalHost).toString();
 #endif
-    printConsole("Il server è in funzione e si trova qui:  <u>" + ipAddress.toStdString() + ":" +
+    printConsole("Server is working:  <u>" + ipAddress.toStdString() + ":" +
                  QString::number(tcpServer->serverPort()).toStdString() + "</u>");
 }
-
 
 Server::~Server() {
     delete ui;
 }
-
 
 /*
  * Function to process a user request
@@ -119,9 +115,9 @@ void Server::processUserRequest() {
     in.setDevice(active_socket);
     in.setVersion(QDataStream::Qt_4_0);
 
-    //read the Json message received from client, from header understand what to do
+    // read the JSON message received from client, from header understand what to do
     in.startTransaction();
-    //QString qmessage;
+    // QString qmessage;
     QByteArray jSmessage;
     std::string header;
     QJsonObject jSobject;
@@ -136,7 +132,7 @@ void Server::processUserRequest() {
             jSobject = jsonDoc.object();
             header = jSobject["header"].toString().toStdString();
         } else {
-            QJsonObject message=prepareJsonReply("error", "error", " ");
+            QJsonObject message = prepareJsonReply("error", "error", " ");
             sendMessage(message, active_socket);
             return;
         }
@@ -165,8 +161,8 @@ void Server::processUserRequest() {
     	opResult = Server::refreshFileList(jSobject, active_socket);
     if (header == "newfile")
         opResult = Server::createFile(jSobject, active_socket);
-    if (header == "opfile")
-        opResult = Server::openFile_serial(jSobject, active_socket);
+    if (header == "openfile")
+        opResult = Server::openFile(jSobject, active_socket);
     
     qDebug() << opResult;
 }
@@ -642,23 +638,22 @@ bool Server::refreshFileList(QJsonObject &data, QTcpSocket *active_socket) {
 
 bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
     std::string filename = data["filename"].toString().toStdString();
-    std::string path = data["path"].toString().toStdString();
     std::string username = data["username"].toString().toStdString();
     QJsonObject message;
 
-    int result = addFile(filename, path, username);
+    int result = addFile(filename, username);
     if (result == -1) {
         message["header"] = "error";
         message["body"] = "Internal server error";
         sendMessage(message, active_socket);
-        printConsole("Internal server error while '" + username + "' was creating file '" + filename + "' at '" + path + "'");
+        printConsole("Internal server error while <i>" + username + "</i> was creating file <i>" + filename + "</i>");
         return false;
     }
     if (result == 0) {
         message["header"] = "error";
         message["body"] = "The file already exists";
         sendMessage(message, active_socket);
-        printConsole(username + "' has tried to create file '" + filename + "' at '" + path + "', but it already exists");
+        printConsole("<i>" + username + "</i> has tried to create file <i>" + filename + "</i>, but it already exists");
         return false;
     }
     openFile(data, active_socket);
@@ -667,90 +662,48 @@ bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
 
 bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     std::string filename = data["filename"].toString().toStdString();
-    std::string path = data["path"].toString().toStdString();
     std::string username = data["username"].toString().toStdString();
     QJsonObject message;
 
-    int result = checkIfFileExists(filename, path);
+    int result = checkIfFileExists(filename);
     if (result == -1) {
         message["header"] = "error";
         message["body"] = "Internal server error";
         sendMessage(message, active_socket);
-        printConsole("Internal server error while '" + username + "' was reading file '" + filename + "' at '" + path + "'");
+        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>");
         return false;
     }
     if (result == 0) {
         message["header"] = "error";
         message["body"] = "The file doesn't exist";
         sendMessage(message, active_socket);
-        printConsole(username + "' has tried to open file '" + filename + "' at '" + path + "', but it doesn't exist");
+        printConsole("<i>" + username + "</i> has tried to open file <i>" + filename + "</i>, but it doesn't exist");
         return false;
     }
 
-    std::ifstream fp((fs_root + path + filename).c_str(), std::ios::out | std::ios::binary);
-    if(!fp) {
-        message["header"] = "error";
-        message["body"] = "Internal server error";
-        sendMessage(message, active_socket);
-        printConsole("Internal server error while '" + username + "' was reading file '" + filename + "' at '" + path + "'");
-        return false;
-    }
-
-    QJsonArray arrOfSymbols;
-    Symbol tmp;
-    while( !fp.eof() ) {
-        fp.read((Symbol *) &tmp, sizeof(Symbol));
-        arrOfSymbols.push_back(tmp);
-    }
-    fp.close();
-    if(!fp.good()) {
-        message["header"] = "error";
-        message["body"] = "Internal server error";
-        sendMessage(message, active_socket);
-        printConsole("Internal server error while '" + username + "' was reading file '" + filename + "' at '" + path + "'");
-        return false;
-    }
-
-    message["header"] = "refr_file";
-    message["body"] = arrOfSymbols;
-    sendMessage(message, active_socket);
-    printConsole("Sending file '" + filename + "' at '" + path + "' for user '" + username + "'");
-    return true;
-}
-
-bool Server::openFile_serial(QJsonObject &data, QTcpSocket *active_socket){
-    //Provo a serializzare un file e mandarlo
-    FilePrototype fProto;
-    fProto.addSymbol(1, 'a');
-    fProto.addSymbol(0.5, 's');
-    fProto.addSymbol(0.2, 'c');
-    fProto.addSymbol(0.3, 'a');
-    std::cout << fProto << std::endl;
-
-    fProto.addSymbol(0.2, 'p');
-    fProto.addSymbol(0.7, 's');
-    fProto.addSymbol(2, 'l');
-    fProto.addSymbol(3, 'a');
-    std::cout << fProto << std::endl;
-
+    QFile fi((fs_root + filename).c_str());
+    fi.open(QIODevice::ReadOnly);
     QByteArray byteArrayBuffer;
-    QDataStream stream(&byteArrayBuffer, QIODevice::ReadWrite);
-    stream << fProto;
+    if(fi.isOpen()){
+        byteArrayBuffer = fi.readAll();
+        QDataStream inStream(byteArrayBuffer);
+        FileHandler fileRead;
 
-    QByteArray block;
-    QDataStream out(&block, QIODevice::WriteOnly);
-    out.setVersion(QDataStream::Qt_4_0);
-    QJsonObject message;
-    message["header"] = "opfile";
-    message["body"]="ok";
-    message["file_name"] = data["file_name"];
-    message["file"] = QLatin1String(byteArrayBuffer.toBase64());
-    // send the JSON using QDataStream
-    out << QJsonDocument(message).toJson();
-
-    if (!active_socket->write(block)) {
-        QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+        inStream >> fileRead;
+        fi.close();
+    } else {
+        message["header"] = "error";
+        message["body"] = "Internal server error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>");
+        return false;
     }
-    active_socket->flush();
+
+    message["header"] = "openfile";
+    message["body"] = "ok";
+    message["filename"] = data["filename"];
+    message["content"] = QLatin1String(byteArrayBuffer.toBase64());
+    sendMessage(message, active_socket);
+    printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
     return true;
 }

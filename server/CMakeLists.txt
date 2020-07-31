@@ -35,6 +35,8 @@ add_executable(server
         db_operations.h
         User.cpp
         User.h
-        SymbolPrototype.cpp
-        )
+        Symbol.cpp
+        Symbol.h
+        FileHandler.cpp
+        FileHandler.h)
 target_link_libraries(server ${LIBRARIES})

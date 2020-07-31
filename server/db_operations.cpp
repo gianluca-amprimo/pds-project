@@ -1,10 +1,14 @@
 #include <memory>
 #include <QtCore/QJsonObject>
+#include <QtCore/QFile>
+#include <QtCore/QDataStream>
 #include "db_operations.h"
+#include "Symbol.h"
+#include "FileHandler.h"
 
 
 static std::string db_path = "../pds_db";
-const std::string fs_root = "../pds_db";
+const std::string fs_root = "../files/";
 static int db_counter = 0;
 
 std::set<std::tuple<std::string, std::string>> file_list;
@@ -65,7 +69,7 @@ int checkCredentials(std::string usr, std::string password) {
  */
 static int files(void *NotUsed, int argc, char **argv, char **azColName) {
     // check if argc is correct
-    if (argc != 4) {
+    if (argc != 3) {
         std::cerr << "Error in the number of columns" << std::endl;
         return -1;
     }
@@ -179,7 +183,7 @@ int addUser(std::string user, std::string password, std::string name, std::strin
 /*
  * function to add one file to the db
  */
-int addFile(std::string name, std::string path, std::string username) {
+int addFile(std::string name, std::string username) {
     int rc;
     sqlite3 *db;
     std::string sql;
@@ -195,9 +199,7 @@ int addFile(std::string name, std::string path, std::string username) {
     }
 
     // prepare sql operation to see if the file does not already exist
-    sql = "SELECT * FROM FILES WHERE NAME = '" + name
-          + "' AND PATH = '" + path
-          + "'";
+    sql = "SELECT * FROM FILES WHERE NAME = '" + name + "'";
     db_counter = 0;
     // execute sql statement
     rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
@@ -213,13 +215,23 @@ int addFile(std::string name, std::string path, std::string username) {
         sqlite3_close(db);
         return 0;
     } else {
-        auto fp = std::fopen((fs_root + path).c_str(), "w");
-        if(fp == nullptr)
+        QFile fo((fs_root + name).c_str());
+        fo.open(QIODevice::WriteOnly);
+        if(fo.isOpen()) {
+            QByteArray byteArrayBuffer;
+            QDataStream stream(&byteArrayBuffer, QIODevice::ReadWrite);
+
+            FileHandler emptyFile;
+            stream << emptyFile;
+
+            fo.write(byteArrayBuffer);
+            fo.close();
+        } else {
             return 0;
-        fclose(fp);
+        }
 
         // prepare sql operation
-        sql = "INSERT INTO FILES ('NAME', 'PATH', 'CREATED_BY') VALUES ('" + name + "', '" + fs_root + path + "', '" + username + "')";
+        sql = "INSERT INTO FILES ('NAME', 'CREATED_BY') VALUES ('" + name + "', '" + username + "')";
 
         // execute sql statement
         rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
@@ -477,7 +489,7 @@ int changePassword(std::string username, std::string oldPassword, std::string ne
     return 1;
 }
 
-int checkIfFileExists(std::string name, std::string path) {
+int checkIfFileExists(std::string name) {
     int rc;
     sqlite3 *db;
     std::string sql;
@@ -493,7 +505,7 @@ int checkIfFileExists(std::string name, std::string path) {
     }
 
     // prepare sql operation
-    sql = "SELECT * FROM FILES WHERE NAME = '" + name +"' AND PATH = '" + path + "';";
+    sql = "SELECT * FROM FILES WHERE NAME = '" + name +"';";
     db_counter = 0;
 
     // execute sql statement
