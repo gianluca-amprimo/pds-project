@@ -2,28 +2,43 @@
 // Created by antonio on 25/04/20.
 //
 
-#ifndef EDITOR_SYMBOL_H
-#define EDITOR_SYMBOL_H
+#ifndef SERVER_SYMBOL_H
+#define SERVER_SYMBOL_H
 #include <iostream>
 #include <vector>
+#include <QtCore/QDataStream>
+#include <QtCore/QVector>
 
 
 class Symbol {
 private:
-    char character;
-    std::vector<int> position;
-    std::string identifier;
+    QChar character;
+    QVector<int> position;
+    QString identifier;
 public:
-    Symbol(char character, std::string identifier, std::vector<int> position);
+    Symbol();
 
-    char getCharacter() const;
+    Symbol(QChar character, QString identifier, QVector<int> position);
 
-    void setCharacter(char character);
+    const QChar getCharacter() const;
 
-    const std::vector<int> &getPosition() const;
+    void setCharacter(wchar_t character);
 
-    void setPosition(const std::vector<int> &position);
+    const QVector<int>& getPosition() const;
+
+    void setPosition(const QVector<int>& position);
+
+    QDataStream& serialize(QDataStream& out) const;
+    QDataStream& deserialize(QDataStream& in);
+
+    friend QDataStream& operator<<(QDataStream& out, Symbol const& sym) {
+        return sym.serialize(out);
+    }
+
+    friend QDataStream& operator>>(QDataStream& in, Symbol& sym) {
+        return  sym.deserialize(in);
+    }
 };
 
 
-#endif //EDITOR_SYMBOL_H
+#endif //SERVER_SYMBOL_H
