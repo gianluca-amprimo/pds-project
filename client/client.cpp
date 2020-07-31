@@ -717,7 +717,7 @@ void Client::openExistingFile() {
         tcpSocket->flush();
     }
     qDebug()<<"Requesting file "<<"prova.txt";
-	ChoiceWin->close();
+    //ChoiceWin->close();
 }
 
 void Client::refreshFileList() {

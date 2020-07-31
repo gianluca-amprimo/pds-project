@@ -70,7 +70,7 @@ static int files(void *NotUsed, int argc, char **argv, char **azColName) {
         return -1;
     }
 
-    // argc is 4 because the number of columns is 3
+    // argc is 4 because the number of columns is 4
     // ID, NAME, PATH
     db_counter++;
 
