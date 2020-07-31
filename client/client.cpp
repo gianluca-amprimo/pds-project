@@ -268,12 +268,11 @@ void Client::readResponse()
 		}
 	}
     if(header=="opfile") {
-        qDebug()<<"received opfile message";
         if (result == "ok") {
             //salva file mandato dal client per prova
             auto file= QByteArray::fromBase64(jSobject["file"].toString().toLatin1());
             auto file_name=jSobject["file_name"].toString();
-            qDebug()<<"Received file" << file_name;
+            qDebug()<<file_name;
             QFile fo(file_name);
             fo.open(QIODevice::WriteOnly);
             if(fo.isOpen())
@@ -718,7 +717,7 @@ void Client::openExistingFile() {
         tcpSocket->flush();
     }
     qDebug()<<"Requesting file "<<"prova.txt";
-	//ChoiceWin->close();
+	ChoiceWin->close();
 }
 
 void Client::refreshFileList() {
