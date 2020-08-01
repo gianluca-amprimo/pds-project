@@ -6,22 +6,46 @@
 
 #include <utility>
 
-Symbol::Symbol(wchar_t character, std::wstring identifier, std::vector<int> position) : character(character),
+Symbol::Symbol(QChar character, QString identifier, QVector<int> position) : character(character),
                                                                                    identifier(std::move(identifier)),
                                                                                    position(std::move(position)) {}
 
-wchar_t Symbol::getCharacter() const {
+QChar Symbol::getCharacter() const {
     return character;
 }
 
-void Symbol::setCharacter(wchar_t character) {
+void Symbol::setCharacter(QChar character) {
     Symbol::character = character;
 }
 
-const std::vector<int> &Symbol::getPosition() const {
+const QVector<int> &Symbol::getPosition() const {
     return position;
 }
 
-void Symbol::setPosition(const std::vector<int> &position) {
+void Symbol::setPosition(const QVector<int> &position) {
     Symbol::position = position;
 }
+
+Symbol::Symbol() {
+}
+
+QDataStream& Symbol::serialize(QDataStream& out) const {
+    out << character;
+    out << position;
+    out << identifier;
+    return out;
+}
+
+QDataStream& Symbol::deserialize(QDataStream& in) {
+    in >> character;
+    in >> position;
+    in >> identifier;
+    return in;
+}
+
+const QString &Symbol::getIdentifier() const {
+    return identifier;
+}
+
+
+

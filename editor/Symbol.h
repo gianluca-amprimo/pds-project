@@ -5,24 +5,34 @@
 #ifndef EDITOR_SYMBOL_H
 #define EDITOR_SYMBOL_H
 #include <iostream>
-#include <vector>
-
+#include <QVector>
+#include <QtCore/QDataStream>
 
 class Symbol {
 private:
-    wchar_t character;
-    std::vector<int> position;
-    std::wstring identifier;
+    QChar character;
+    QVector<int> position;
+    QString identifier;
 public:
-    Symbol(wchar_t character, std::wstring identifier, std::vector<int> position);
+    Symbol();
+    Symbol(QChar character, QString identifier, QVector<int> position);
+    QChar getCharacter() const;
 
-    wchar_t getCharacter() const;
+    const QString &getIdentifier() const;
 
-    void setCharacter(wchar_t character);
+    void setCharacter(QChar character);
+    const QVector<int> &getPosition() const;
+    void setPosition(const QVector<int> &position);
+    QDataStream& serialize(QDataStream& out) const;
+    QDataStream& deserialize(QDataStream& in);
 
-    const std::vector<int> &getPosition() const;
+    friend QDataStream& operator<<(QDataStream& out, Symbol const& sym) {
+        return sym.serialize(out);
+    }
 
-    void setPosition(const std::vector<int> &position);
+    friend QDataStream& operator>>(QDataStream& in, Symbol& sym) {
+        return  sym.deserialize(in);
+    }
 };
 
 

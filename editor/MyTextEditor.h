@@ -21,30 +21,26 @@ class MyTextEditor : public QTextEdit{
 public:
 
     explicit MyTextEditor(QWidget *parent);
-    const std::wstring &getThisEditorIdentifier() const;
+    const QString &getThisEditorIdentifier() const;
     void deleteSymbol();
     void deleteSelection();
-    void insertSymbol(wchar_t character, int position);
-    void setThisEditorIdentifier(const std::wstring &thisEditorIdentifier);
-
-    /*TODO
-     * implementare selezione:
-     * - cancellare una porzione di testo selezionata
-     * - sostituire una porzione di testo selezionata
-     * - incollare un testo selezionato
-     */
+    void insertSymbol(QChar character, int position);
+    void setThisEditorIdentifier(const QString &thisEditorIdentifier);
     void keyPressEvent(QKeyEvent *e) override;
+    void generateFile();
+    void loadFromFile();
     virtual void inputMethodEvent(QInputMethodEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *e);
+
 
 public slots:
     virtual void insertFromMimeData(const QMimeData *source);
 
 
 private:
-    std::wstring thisEditorIdentifier = L"AAAA";
+    QString thisEditorIdentifier = "AAAA";
     int charCounter;
-    std::vector<Symbol> _symbols;
+    QVector<Symbol> _symbols;
     int currentPosition = 0;
     int oldPosition = 0;
     int lastPosition = 0;
