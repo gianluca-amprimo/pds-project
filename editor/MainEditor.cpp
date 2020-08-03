@@ -1,7 +1,6 @@
 #include "MainEditor.h"
 #include <QtWidgets/QDialogButtonBox>
 #include <iostream>
-#include <iomanip>
 #include <QDebug>
 #include <QToolButton>
 
@@ -12,10 +11,10 @@ MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier) :
     ui->setupUi(this);
     initUI();
     setupActions();
-    saveAsDialog = new SaveAsDialog(this, ui->textArea);
+    saveAsDialog = new SaveAsDialog(this, this->textArea);
 
     this->thisEditorIdentifier = editorIdentifier;
-//    this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
+//  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
 
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
@@ -46,10 +45,14 @@ void MainEditor::setupActions() {
     QObject::connect(ui->alignJustified, SIGNAL(triggered()), this, SLOT(alignJustify()));
 
     position = 0;
-    QObject::connect(ui->textArea, &QTextEdit::textChanged, this, &MainEditor::updateCharFormat);
+    QObject::connect(this->textArea, &QTextEdit::textChanged, this, &MainEditor::updateCharFormat);
 }
 
 void MainEditor::initUI() {
+    textArea = new MyTextArea(ui->centralwidget);
+    textArea->setObjectName(QString::fromUtf8("textArea"));
+    ui->gridLayout->addWidget(textArea, 1, 0, 1, 1);
+
     auto separator = ui->toolBar->insertSeparator(ui->bold);
     this->fontSelector = new QFontComboBox;
     ui->toolBar->insertWidget(separator, fontSelector);
@@ -65,10 +68,10 @@ void MainEditor::initUI() {
 
     QFont font("Helvetica");
     font.setPointSize(14);
-    ui->textArea->setFont(font);
-    ui->textArea->setAlignment(Qt::AlignLeft);
-    fontSelector->setCurrentText(ui->textArea->currentCharFormat().font().family());
-    sizeSelector->setCurrentText(QString::number(ui->textArea->currentCharFormat().font().pointSize()));
+    this->textArea->setFont(font);
+    this->textArea->setAlignment(Qt::AlignLeft);
+    fontSelector->setCurrentText(this->textArea->currentCharFormat().font().family());
+    sizeSelector->setCurrentText(QString::number(this->textArea->currentCharFormat().font().pointSize()));
     ui->alignLeft->setChecked(true);
 }
 
@@ -76,29 +79,29 @@ void MainEditor::initUI() {
 void MainEditor::Bold() {
     QTextCharFormat format;
     format.setFontWeight(ui->bold->isChecked() ? QFont::Bold : QFont::Normal);
-    ui->textArea->mergeCurrentCharFormat(format);
+    this->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::Italic() {
     QTextCharFormat format;
     format.setFontItalic(ui->italic->isChecked());
-    ui->textArea->mergeCurrentCharFormat(format);
+    this->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::Underline() {
     QTextCharFormat format;
     format.setFontUnderline(ui->underline->isChecked());
-    ui->textArea->mergeCurrentCharFormat(format);
+    this->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::selectFont(const QString &font) {
     QTextCharFormat format;
     format.setFontFamily(font);
-    ui->textArea->mergeCurrentCharFormat(format);
+    this->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::selectSize(const QString &size) {
-    ui->textArea->setFontPointSize(size.toDouble());
+    this->textArea->setFontPointSize(size.toDouble());
 }
 
 void MainEditor::alignCenter() {
@@ -107,7 +110,7 @@ void MainEditor::alignCenter() {
     ui->alignLeft->setChecked(false);
     ui->alignRight->setChecked(false);
     ui->alignJustified->setChecked(false);
-    ui->textArea->textCursor().setBlockFormat(blockFormat);
+    this->textArea->textCursor().setBlockFormat(blockFormat);
 }
 
 void MainEditor::alignLeft() {
@@ -116,7 +119,7 @@ void MainEditor::alignLeft() {
     ui->alignCenter->setChecked(false);
     ui->alignRight->setChecked(false);
     ui->alignJustified->setChecked(false);
-    ui->textArea->textCursor().setBlockFormat(blockFormat);
+    this->textArea->textCursor().setBlockFormat(blockFormat);
 }
 
 void MainEditor::alignRight() {
@@ -125,7 +128,7 @@ void MainEditor::alignRight() {
     ui->alignLeft->setChecked(false);
     ui->alignCenter->setChecked(false);
     ui->alignJustified->setChecked(false);
-    ui->textArea->textCursor().setBlockFormat(blockFormat);
+    this->textArea->textCursor().setBlockFormat(blockFormat);
 }
 
 void MainEditor::alignJustify() {
@@ -134,19 +137,19 @@ void MainEditor::alignJustify() {
     ui->alignLeft->setChecked(false);
     ui->alignCenter->setChecked(false);
     ui->alignRight->setChecked(false);
-    ui->textArea->textCursor().setBlockFormat(blockFormat);
+    this->textArea->textCursor().setBlockFormat(blockFormat);
 }
 
 void MainEditor::updateCharFormat() {
-    if (position > ui->textArea->textCursor().position()) {
-        ui->bold->setChecked(ui->textArea->currentCharFormat().fontWeight() == QFont::Bold);
-        ui->italic->setChecked(ui->textArea->currentCharFormat().fontItalic());
-        ui->underline->setChecked(ui->textArea->currentCharFormat().fontUnderline());
+    if (position > this->textArea->textCursor().position()) {
+        ui->bold->setChecked(this->textArea->currentCharFormat().fontWeight() == QFont::Bold);
+        ui->italic->setChecked(this->textArea->currentCharFormat().fontItalic());
+        ui->underline->setChecked(this->textArea->currentCharFormat().fontUnderline());
 
-        fontSelector->setCurrentText(ui->textArea->currentCharFormat().font().family());
-        sizeSelector->setCurrentText(QString::number(ui->textArea->currentCharFormat().font().pointSize()));
+        fontSelector->setCurrentText(this->textArea->currentCharFormat().font().family());
+        sizeSelector->setCurrentText(QString::number(this->textArea->currentCharFormat().font().pointSize()));
     }
-    position = ui->textArea->textCursor().position();
+    position = this->textArea->textCursor().position();
 }
 
 

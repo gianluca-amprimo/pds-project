@@ -643,15 +643,15 @@ bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
 
     int result = addFile(filename, username);
     if (result == -1) {
-        message["header"] = "error";
-        message["body"] = "Internal server error";
+        message["header"] = "newfile";
+        message["body"] = "internal_error";
         sendMessage(message, active_socket);
         printConsole("Internal server error while <i>" + username + "</i> was creating file <i>" + filename + "</i>");
         return false;
     }
     if (result == 0) {
-        message["header"] = "error";
-        message["body"] = "The file already exists";
+        message["header"] = "newfile";
+        message["body"] = "existing_file";
         sendMessage(message, active_socket);
         printConsole("<i>" + username + "</i> has tried to create file <i>" + filename + "</i>, but it already exists");
         return false;

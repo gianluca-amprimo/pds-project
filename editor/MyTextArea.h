@@ -2,8 +2,8 @@
 // Created by antonio on 04/05/20.
 //
 
-#ifndef EDITOR_MYTEXTEDITOR_H
-#define EDITOR_MYTEXTEDITOR_H
+#ifndef EDITOR_MYTEXTAREA_H
+#define EDITOR_MYTEXTAREA_H
 
 #include <QtWidgets/QTextEdit>
 #include <QKeyEvent>
@@ -15,12 +15,12 @@
 #define MIDDLE  2
 
 
-class MyTextEditor : public QTextEdit{
+class MyTextArea : public QTextEdit{
     Q_OBJECT
 
 public:
 
-    explicit MyTextEditor(QWidget *parent);
+    explicit MyTextArea(QWidget *parent);
     const QString &getThisEditorIdentifier() const;
     void deleteSymbol();
     void deleteSelection();
@@ -51,4 +51,4 @@ private:
 };
 
 
-#endif //EDITOR_MYTEXTEDITOR_H
+#endif //EDITOR_MYTEXTAREA_H

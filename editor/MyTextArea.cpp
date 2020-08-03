@@ -2,9 +2,9 @@
 // Created by antonio on 04/05/20.
 //
 
-#include "MyTextEditor.h"
+#include "MyTextArea.h"
 
-MyTextEditor::MyTextEditor(QWidget *parent) : QTextEdit(parent) {
+MyTextArea::MyTextArea(QWidget *parent) : QTextEdit(parent) {
 
     setAttribute(Qt::WA_InputMethodEnabled, true);
     this->charCounter = 0;
@@ -14,15 +14,15 @@ MyTextEditor::MyTextEditor(QWidget *parent) : QTextEdit(parent) {
 
 
 
-const QString &MyTextEditor::getThisEditorIdentifier() const {
+const QString &MyTextArea::getThisEditorIdentifier() const {
     return thisEditorIdentifier;
 }
 
-void MyTextEditor::setThisEditorIdentifier(const QString &thisEditorIdentifier) {
-    MyTextEditor::thisEditorIdentifier = thisEditorIdentifier;
+void MyTextArea::setThisEditorIdentifier(const QString &thisEditorIdentifier) {
+    MyTextArea::thisEditorIdentifier = thisEditorIdentifier;
 }
 
-void MyTextEditor::keyPressEvent(QKeyEvent *e) {
+void MyTextArea::keyPressEvent(QKeyEvent *e) {
     QTextEdit::keyPressEvent(e);
     int position = this->textCursor().position();
     this->oldPosition = this->currentPosition;
@@ -65,14 +65,14 @@ void MyTextEditor::keyPressEvent(QKeyEvent *e) {
     }
 }
 
-void MyTextEditor::deleteSymbol() {
+void MyTextArea::deleteSymbol() {
     for(int i = 1; i <= this->oldPosition-this->currentPosition; i++){
         qDebug() << "Character deleted" ;
         this->_symbols.erase(this->_symbols.begin()+this->oldPosition-i);
     }
 }
 
-void MyTextEditor::deleteSelection() {
+void MyTextArea::deleteSelection() {
     qDebug() << "selection anchor " << this->anchor ;
     qDebug() << "selection position " << this->oldPosition ;
     if(this->anchor > this->oldPosition){
@@ -89,7 +89,7 @@ void MyTextEditor::deleteSelection() {
     }
 }
 
-void MyTextEditor::insertSymbol(QChar changed, int insertPosition) {
+void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
 
     this->charCounter++;
     int insertType;
@@ -195,7 +195,7 @@ void MyTextEditor::insertSymbol(QChar changed, int insertPosition) {
     qDebug() ;
 }
 
-void MyTextEditor::inputMethodEvent(QInputMethodEvent *event) {
+void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
     QTextEdit::inputMethodEvent(event);
     int position = this->textCursor().position();
     this->oldPosition = this->currentPosition;
@@ -206,7 +206,7 @@ void MyTextEditor::inputMethodEvent(QInputMethodEvent *event) {
     insertSymbol(character, this->currentPosition);
 }
 
-void MyTextEditor::insertFromMimeData(const QMimeData *source) {
+void MyTextArea::insertFromMimeData(const QMimeData *source) {
     QTextEdit::insertFromMimeData(source);
     this->repaint();
 
@@ -225,7 +225,7 @@ void MyTextEditor::insertFromMimeData(const QMimeData *source) {
 
 }
 
-void MyTextEditor::mouseReleaseEvent(QMouseEvent *e) {
+void MyTextArea::mouseReleaseEvent(QMouseEvent *e) {
     QTextEdit::mouseReleaseEvent(e);
 
     int position = this->textCursor().position();
@@ -240,7 +240,7 @@ void MyTextEditor::mouseReleaseEvent(QMouseEvent *e) {
     }
 }
 
-void MyTextEditor::generateFile() {
+void MyTextArea::generateFile() {
     QFile file("output.bin");
     if(!file.open(QIODevice::WriteOnly)){
         qDebug() << "*** Error opening file for serialization ***";
@@ -256,7 +256,7 @@ void MyTextEditor::generateFile() {
     file.close();
 }
 
-void MyTextEditor::loadFromFile() {
+void MyTextArea::loadFromFile() {
     QFile file("output.bin");
     if(!file.open(QIODevice::ReadOnly)){
         qDebug() << "*** Cannot find file to load ***";

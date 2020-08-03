@@ -8,6 +8,7 @@
 #include "ui_SaveAsDialog.h"
 #include "SaveAsDialog.h"
 #include "Symbol.h"
+#include "MyTextArea.h"
 
 #define HEAD    0
 #define BACK    1
@@ -24,12 +25,13 @@ public:
     ~MainEditor() override;
 
 private:
-    std::wstring thisEditorIdentifier = L"AAAA";
+    std::wstring thisEditorIdentifier;
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
 
     QFontComboBox *fontSelector;
     QComboBox *sizeSelector;
+    MyTextArea *textArea;
     int position;
     void initUI();
     void setupActions();
