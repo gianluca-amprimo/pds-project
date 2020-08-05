@@ -4,7 +4,7 @@
 #include <QtCore/QDataStream>
 #include "db_operations.h"
 #include "Symbol.h"
-#include "FileHandler.h"
+#include "MyTextArea.h"
 
 
 static std::string db_path = "../pds_db";
@@ -221,7 +221,7 @@ int addFile(std::string name, std::string username) {
             QByteArray byteArrayBuffer;
             QDataStream stream(&byteArrayBuffer, QIODevice::ReadWrite);
 
-            FileHandler emptyFile;
+            MyTextArea emptyFile;
             stream << emptyFile;
 
             fo.write(byteArrayBuffer);

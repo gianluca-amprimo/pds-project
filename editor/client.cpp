@@ -12,7 +12,6 @@
 #include "ui_SignupWin.h"
 #include "ui_ProfileSettingsWin.h"
 #include "ui_NewFile.h"
-#include "FileHandler.h"
 
 static QString defaultPicture(":/misc/themes/material/user.png");
 
@@ -270,29 +269,41 @@ void Client::readResponse()
 	}
 	if(header=="newfile") {
         if (result == "internal_error") {
-            QMessageBox::information(this, tr("PdS Server"), tr("Internal server error while creating the file.\nTry again later."));
+            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("Internal server error while creating the file.\nTry again later."));
         } else if(result == "existing_file") {
-            QMessageBox::information(this, tr("PdS Server"), tr("You have just tried to create a new file, but it already exists\nTry with a new name."));
+            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("You have just tried to create a new file, but it already exists\nTry with a new name."));
         }
 	}
     if(header=="openfile") {
         if (result == "ok") {
             //salva file mandato dal client per prova
             auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
+            QDataStream contentStream(content);
+
+            /*
+            MyTextArea mta;
+            contentStream >> mta;
+             */
+
             auto filename = jSobject["filename"].toString();
             qDebug() << filename;
 
-            QDataStream inStream(content);
-            FileHandler fileRead;
-
-            inStream >> fileRead;
-            std::cout << fileRead << std::endl;
-
-            this->mainEditor = new MainEditor(this, L"AAAA");
+            this->mainEditor = new MainEditor(this, L"AAAA", filename, this->tcpSocket, &contentStream);
             mainEditor->show();
             ChoiceWin->setVisible(false);
-        } else {
-            QMessageBox::information(this, tr("PdS Server"), tr("Opening failed.\nPlease try again, or refresh the list of files."));
+        } if (result == "internal_error") {
+            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("Internal server error while opening the file.\nTry again later."));
+        } else if(result == "not_existing_file") {
+            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("The file doesn't exist anymore.\nTry to update the list of files."));
+        }
+    }
+    if (header=="savefile") {
+        if (result == "ok") {
+            mainEditor->getUi()->statusBar->showMessage(tr("File saved correctly."), 5000);
+        } if (result == "internal_error") {
+            mainEditor->getUi()->statusBar->showMessage(tr("Internal server error while creating the file. Try again later."), 5000);
+        } else if(result == "not_existing_file") {
+            mainEditor->getUi()->statusBar->showMessage(tr("The file doesn't exist anymore. Try to create a new file."), 5000);
         }
     }
 }
@@ -708,8 +719,6 @@ void Client::openNewFileWin() {
             }
             tcpSocket->flush();
         }
-        //this->mainEditor = new MainEditor(this, L"AAAA");
-        //mainEditor->show();
         ChoiceWin->setVisible(true);
     });
     connect(NewFileWin.get(), &QDialog::rejected, this, [this](){

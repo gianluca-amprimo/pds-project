@@ -37,6 +37,6 @@ add_executable(server
         User.h
         Symbol.cpp
         Symbol.h
-        FileHandler.cpp
-        FileHandler.h)
+        MyTextArea.cpp
+        MyTextArea.h)
 target_link_libraries(server ${LIBRARIES})

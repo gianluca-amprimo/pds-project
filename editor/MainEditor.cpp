@@ -5,11 +5,13 @@
 #include <QToolButton>
 
 
-MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier) :
+MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier, QString filename, QTcpSocket *tcpSocket, QDataStream *contentSteam) :
     QMainWindow(parent),
-    ui(new Ui::MainEditor) {
+    ui(new Ui::MainEditor),
+    filename(filename),
+    tcpSocket(tcpSocket) {
     ui->setupUi(this);
-    initUI();
+    initUI(contentSteam);
     setupActions();
     saveAsDialog = new SaveAsDialog(this, this->textArea);
 
@@ -46,12 +48,19 @@ void MainEditor::setupActions() {
 
     position = 0;
     QObject::connect(this->textArea, &QTextEdit::textChanged, this, &MainEditor::updateCharFormat);
+    QObject::connect(ui->save, SIGNAL(triggered()), this, SLOT(save()));
 }
 
-void MainEditor::initUI() {
+void MainEditor::initUI(QDataStream *contentSteam) {
     textArea = new MyTextArea(ui->centralwidget);
     textArea->setObjectName(QString::fromUtf8("textArea"));
     ui->gridLayout->addWidget(textArea, 1, 0, 1, 1);
+    *contentSteam >> *textArea;
+    QString text;
+    for(auto sym : textArea->get_symbols()){
+        text.append(sym.getCharacter());
+    }
+    textArea->append(text);
 
     auto separator = ui->toolBar->insertSeparator(ui->bold);
     this->fontSelector = new QFontComboBox;
@@ -150,6 +159,45 @@ void MainEditor::updateCharFormat() {
         sizeSelector->setCurrentText(QString::number(this->textArea->currentCharFormat().font().pointSize()));
     }
     position = this->textArea->textCursor().position();
+}
+
+void MainEditor::save() {
+    if (this->tcpSocket != nullptr) {
+        if (!this->tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!this->tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        QJsonObject message;
+        message["header"] = "savefile";
+        message["filename"] = this->filename;
+
+        QByteArray byteArrayBuffer;
+        QDataStream outFileStream(&byteArrayBuffer, QIODevice::WriteOnly);
+        outFileStream << *this->textArea;
+        message["content"] = QLatin1String(byteArrayBuffer.toBase64());
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!this->tcpSocket->write(block)) {
+            ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
+        }
+        this->tcpSocket->flush();
+    }
+    qDebug() << "Saving file " + filename;
+}
+
+Ui::MainEditor *MainEditor::getUi() {
+    return this->ui;
 }
 
 

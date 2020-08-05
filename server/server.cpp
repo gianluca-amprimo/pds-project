@@ -10,7 +10,6 @@
 #include "server.h"
 #include "ui_server.h"
 #include "db_operations.h"
-#include "FileHandler.h"
 
 static QString picturePath("../Pictures/");
 std::array<std::string, 10> colors{"white", "red", "green", "blue",
@@ -163,6 +162,8 @@ void Server::processUserRequest() {
         opResult = Server::createFile(jSobject, active_socket);
     if (header == "openfile")
         opResult = Server::openFile(jSobject, active_socket);
+    if (header == "savefile")
+        opResult = Server::saveFile(jSobject, active_socket);
     
     qDebug() << opResult;
 }
@@ -646,14 +647,14 @@ bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
         message["header"] = "newfile";
         message["body"] = "internal_error";
         sendMessage(message, active_socket);
-        printConsole("Internal server error while <i>" + username + "</i> was creating file <i>" + filename + "</i>");
+        printConsole("Internal server error while <i>" + username + "</i> was creating file <i>" + filename + "</i>", true);
         return false;
     }
     if (result == 0) {
         message["header"] = "newfile";
         message["body"] = "existing_file";
         sendMessage(message, active_socket);
-        printConsole("<i>" + username + "</i> has tried to create file <i>" + filename + "</i>, but it already exists");
+        printConsole("<i>" + username + "</i> has tried to create file <i>" + filename + "</i>, but it already exists", true);
         return false;
     }
     openFile(data, active_socket);
@@ -667,17 +668,17 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 
     int result = checkIfFileExists(filename);
     if (result == -1) {
-        message["header"] = "error";
-        message["body"] = "Internal server error";
+        message["header"] = "openfile";
+        message["body"] = "internal_error";
         sendMessage(message, active_socket);
-        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>");
+        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
         return false;
     }
     if (result == 0) {
-        message["header"] = "error";
-        message["body"] = "The file doesn't exist";
+        message["header"] = "openfile";
+        message["body"] = "not_existing_file";
         sendMessage(message, active_socket);
-        printConsole("<i>" + username + "</i> has tried to open file <i>" + filename + "</i>, but it doesn't exist");
+        printConsole("<i>" + username + "</i> has tried to open file <i>" + filename + "</i>, but it doesn't exist", true);
         return false;
     }
 
@@ -686,16 +687,12 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     QByteArray byteArrayBuffer;
     if(fi.isOpen()){
         byteArrayBuffer = fi.readAll();
-        QDataStream inStream(byteArrayBuffer);
-        FileHandler fileRead;
-
-        inStream >> fileRead;
         fi.close();
     } else {
-        message["header"] = "error";
-        message["body"] = "Internal server error";
+        message["header"] = "openfile";
+        message["body"] = "internal_error";
         sendMessage(message, active_socket);
-        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>");
+        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
         return false;
     }
 
@@ -705,5 +702,48 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     message["content"] = QLatin1String(byteArrayBuffer.toBase64());
     sendMessage(message, active_socket);
     printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
+    return true;
+}
+
+bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
+    auto filename = data["filename"].toString().toStdString();
+    auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+
+    QJsonObject message;
+
+    int result = checkIfFileExists(filename);
+    if (result == -1) {
+        message["header"] = "savefile";
+        message["body"] = "internal_error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
+        return false;
+    }
+    if (result == 0) {
+        message["header"] = "savefile";
+        message["body"] = "not_existing_file";
+        sendMessage(message, active_socket);
+        printConsole("Trying to save file <i>" + filename + "</i>, but it doesn't exist anymore", true);
+        return false;
+    }
+
+    QFile fo((fs_root + filename).c_str());
+    fo.open(QIODevice::WriteOnly);
+    if(fo.isOpen()){
+        fo.write(content);
+        fo.close();
+    } else {
+        message["header"] = "savefile";
+        message["body"] = "internal_error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
+        return false;
+    }
+
+    message["header"] = "savefile";
+    message["body"] = "ok";
+    message["filename"] = data["filename"];
+    sendMessage(message, active_socket);
+    printConsole("<i>" + filename + "</i> correctly saved");
     return true;
 }

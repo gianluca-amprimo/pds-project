@@ -3,30 +3,30 @@
 //
 
 #include "Symbol.h"
+
 #include <utility>
 
-Symbol::Symbol() : character(QChar()), identifier(QString()), position(QVector<int>()) {}
-
-Symbol::Symbol(QChar character) : character(character), identifier(QString()), position(QVector<int>()) {}
-
 Symbol::Symbol(QChar character, QString identifier, QVector<int> position) : character(character),
-                                                                             identifier(std::move(identifier)),
-                                                                             position(std::move(position)) {}
+                                                                                   identifier(std::move(identifier)),
+                                                                                   position(std::move(position)) {}
 
-const QChar Symbol::getCharacter() const {
+QChar Symbol::getCharacter() const {
     return character;
 }
 
-void Symbol::setCharacter(wchar_t character) {
-    this->character = character;
+void Symbol::setCharacter(QChar character) {
+    Symbol::character = character;
 }
 
-const QVector<int>& Symbol::getPosition() const {
+const QVector<int> &Symbol::getPosition() const {
     return position;
 }
 
-void Symbol::setPosition(const QVector<int>& position) {
-    this->position = position;
+void Symbol::setPosition(const QVector<int> &position) {
+    Symbol::position = position;
+}
+
+Symbol::Symbol() {
 }
 
 QDataStream& Symbol::serialize(QDataStream& out) const {
@@ -42,5 +42,10 @@ QDataStream& Symbol::deserialize(QDataStream& in) {
     in >> identifier;
     return in;
 }
+
+const QString &Symbol::getIdentifier() const {
+    return identifier;
+}
+
 
 

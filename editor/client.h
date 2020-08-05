@@ -66,8 +66,8 @@ private slots:
 	void releasePasswordButton(QLineEdit *lineEdit);
 
 private:
-    QTcpSocket *tcpSocket = nullptr;
     QDataStream in;
+    QTcpSocket *tcpSocket = nullptr;
     QString loginReply;
     QNetworkSession *networkSession = nullptr;
 	void requestConnection();
@@ -77,8 +77,7 @@ private:
 	void setFileList(QJsonObject&);
 	bool checkPasswordFormat(std::string password);
 	bool checkUsernameFormat(std::string username);
-    MainEditor *mainEditor;
-	
+
 	std::shared_ptr<Ui::LoginWin> uiLog;
 	std::list<QString> avail_file;
 	std::shared_ptr<QStatusBar> logStatusBar;
@@ -115,6 +114,7 @@ private:
 	QAction *settHideCurrentPassword;
 	QToolButton *settNewPasswordButton;
 	QAction *settHideNewPassword;
+    MainEditor *mainEditor;
 };
 
 #endif

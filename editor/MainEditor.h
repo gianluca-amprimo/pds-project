@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QComboBox>
 #include <QtWidgets/QFontComboBox>
+#include <QtNetwork/QTcpSocket>
 #include "ui_MainEditor.h"
 #include "ui_SaveAsDialog.h"
 #include "SaveAsDialog.h"
@@ -21,19 +22,22 @@ QT_END_NAMESPACE
 class MainEditor : public QMainWindow {
     Q_OBJECT
 public:
-    explicit MainEditor(QWidget *parent = nullptr, std::wstring editorIdentifier = L"AAAA");
+    explicit MainEditor(QWidget *parent = nullptr, std::wstring editorIdentifier = L"AAAA", QString filename = "", QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
     ~MainEditor() override;
+    Ui::MainEditor *getUi();
 
 private:
     std::wstring thisEditorIdentifier;
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
+    QString filename;
+    QTcpSocket *tcpSocket;
 
     QFontComboBox *fontSelector;
     QComboBox *sizeSelector;
     MyTextArea *textArea;
     int position;
-    void initUI();
+    void initUI(QDataStream *mta);
     void setupActions();
 
 private slots:
@@ -47,6 +51,7 @@ private slots:
     void alignRight();
     void alignJustify();
     void updateCharFormat();
+    void save();
 };
 
 

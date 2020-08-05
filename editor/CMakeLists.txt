@@ -31,7 +31,6 @@ add_executable(editor
         client.cpp client.h
         User.cpp User.h
         Symbol.cpp Symbol.h
-        FileHandler.cpp FileHandler.h
         ${QRC} )
 
 target_link_libraries(editor ${LIBRARIES})
