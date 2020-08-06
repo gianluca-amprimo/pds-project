@@ -1,4 +1,5 @@
 #include "MainEditor.h"
+#include "client.h"
 #include <QtWidgets/QDialogButtonBox>
 #include <iostream>
 #include <QDebug>
@@ -12,14 +13,22 @@ MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier, QString f
     tcpSocket(tcpSocket) {
     ui->setupUi(this);
     initUI(contentSteam);
+    this->setWindowTitle("PiDiEsse - " + filename);
     setupActions();
     saveAsDialog = new SaveAsDialog(this, this->textArea);
 
     this->thisEditorIdentifier = editorIdentifier;
 //  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
 
+
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
+}
+
+void MainEditor::closeEvent(QCloseEvent *event) {
+    auto client = qobject_cast<Client *>(this->parent());
+    client->getChoiceWin()->setVisible(true);
+    event->accept();
 }
 
 MainEditor::~MainEditor() {
@@ -55,12 +64,12 @@ void MainEditor::initUI(QDataStream *contentSteam) {
     textArea = new MyTextArea(ui->centralwidget);
     textArea->setObjectName(QString::fromUtf8("textArea"));
     ui->gridLayout->addWidget(textArea, 1, 0, 1, 1);
+
     *contentSteam >> *textArea;
-    QString text;
     for(auto sym : textArea->get_symbols()){
-        text.append(sym.getCharacter());
+        textArea->setCurrentCharFormat(sym.getCharFormat());
+        textArea->insertPlainText(sym.getCharacter());
     }
-    textArea->append(text);
 
     auto separator = ui->toolBar->insertSeparator(ui->bold);
     this->fontSelector = new QFontComboBox;

@@ -19,6 +19,7 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 {
 	uiLog = std::make_shared<Ui::LoginWin>();
     uiLog->setupUi(this);
+    this->setWindowTitle("PiDiEsse - Login");
     logStatusBar = std::make_shared<QStatusBar> (this);
     uiLog->verticalLayout->addWidget(logStatusBar.get());
 
@@ -280,11 +281,6 @@ void Client::readResponse()
             auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
             QDataStream contentStream(content);
 
-            /*
-            MyTextArea mta;
-            contentStream >> mta;
-             */
-
             auto filename = jSobject["filename"].toString();
             qDebug() << filename;
 
@@ -306,6 +302,10 @@ void Client::readResponse()
             mainEditor->getUi()->statusBar->showMessage(tr("The file doesn't exist anymore. Try to create a new file."), 5000);
         }
     }
+}
+
+const std::shared_ptr<QDialog> &Client::getChoiceWin() const {
+    return ChoiceWin;
 }
 
 void Client::displayError(QAbstractSocket::SocketError socketError)
@@ -651,6 +651,7 @@ void Client::openWelcomeWin(bool firstTime) {
 	uiChoice = std::make_shared<Ui::WelcomeWin> ();
 	ChoiceWin = std::make_shared<QDialog> ();
 	uiChoice->setupUi(ChoiceWin.get());
+	ChoiceWin->setWindowTitle("PiDiEsse - " + loggedUser->getUsername());
 	uiChoice->OpenMenu->completer()->setCompletionMode(QCompleter::PopupCompletion);
 	uiChoice->OpenMenu->completer()->setFilterMode(Qt::MatchContains);
 	uiChoice->OpenMenu->installEventFilter(this);
@@ -689,7 +690,7 @@ void Client::openNewFileWin() {
 	ChoiceWin->setVisible(false);
 
     uiNewFile = std::make_shared<Ui::NewFile> ();
-    NewFileWin = std::make_shared<QDialog> ();
+    NewFileWin = std::make_shared<QDialog>();
     uiNewFile->setupUi(NewFileWin.get());
 
     connect(NewFileWin.get(), &QDialog::accepted, this, [this](){
@@ -714,7 +715,7 @@ void Client::openNewFileWin() {
             out << QJsonDocument(message).toJson();
 
             if (!tcpSocket->write(block)) {
-                QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+                QMessageBox::information(this, tr("PiDiEsse"), tr("Could not send message.\nTry again later."));
                 cancStatusBar->showMessage(tr("Could not send message."), 3000);
             }
             tcpSocket->flush();

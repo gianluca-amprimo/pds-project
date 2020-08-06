@@ -52,6 +52,7 @@ private slots:
     void alignJustify();
     void updateCharFormat();
     void save();
+    void closeEvent(QCloseEvent *event);
 };
 
 

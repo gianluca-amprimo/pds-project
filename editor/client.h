@@ -34,6 +34,8 @@ class Client : public QDialog
 public:
     explicit Client(QWidget *parent = nullptr);
 
+    const std::shared_ptr<QDialog> &getChoiceWin() const;
+
 private slots:
     void readResponse();
     void displayError(QAbstractSocket::SocketError socketError);

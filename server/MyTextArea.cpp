@@ -59,10 +59,7 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
         }
         QChar changed;
         changed = toPlainText().toStdWString()[this->currentPosition - 1];
-        if(e->key() == Qt::Key_P && e->modifiers() & Qt::ControlModifier){
-            loadFromFile();
-        }
-        else insertSymbol(changed, this->currentPosition);
+        insertSymbol(changed, this->currentPosition);
     }else{
         this->anchor = this->textCursor().anchor();
     }
@@ -179,7 +176,7 @@ void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
 
     qDebug() << "fractionary position " << strPosition;
 
-    Symbol symbol(changed, charId, position);
+    Symbol symbol(changed, charId, position, this->currentCharFormat());
     switch(insertType){
         case BACK:
             this->_symbols.push_back(symbol);
@@ -241,44 +238,6 @@ void MyTextArea::mouseReleaseEvent(QMouseEvent *e) {
         this->selectionMode = true;
 
     }
-}
-
-void MyTextArea::generateFile() {
-    QFile file("output.bin");
-    if(!file.open(QIODevice::WriteOnly)){
-        qDebug() << "*** Error opening file for serialization ***";
-        return;
-    }
-    QDataStream stream(&file);
-    int len = _symbols.length();
-    stream << len;
-    for(Symbol symbol : _symbols){
-        stream << symbol << '\n';
-    }
-
-    file.close();
-}
-
-void MyTextArea::loadFromFile() {
-    QFile file("output.bin");
-    if(!file.open(QIODevice::ReadOnly)){
-        qDebug() << "*** Cannot find file to load ***";
-        return;
-    }
-
-    QDataStream stream(&file);
-    int len;
-
-    bool ok;
-    len = file.read(4).toHex().toInt(&ok, 16);
-    qDebug() << "Lenght of file is " << len;
-    for(int i = 0; i < len; i++){
-        Symbol symbol;
-        stream >> symbol;
-        this->_symbols.append(symbol);
-    }
-
-    file.close();
 }
 
 QVector<Symbol> MyTextArea::get_symbols() {

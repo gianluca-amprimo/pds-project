@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Settings</string>
+   <string>PiDiEsse - Profile settings</string>
   </property>
   <property name="windowIcon">
    <iconset theme="emblem-system">

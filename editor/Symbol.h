@@ -7,20 +7,25 @@
 #include <iostream>
 #include <QVector>
 #include <QtCore/QDataStream>
+#include <QtGui/QTextCharFormat>
 
 class Symbol {
 private:
     QChar character;
     QVector<int> position;
     QString identifier;
+    QTextCharFormat charFormat;
+
 public:
     Symbol();
-    Symbol(QChar character, QString identifier, QVector<int> position);
-    QChar getCharacter() const;
+    Symbol(QChar character, QString identifier, QVector<int> position, QTextCharFormat charFormat);
 
+    const QTextCharFormat &getCharFormat() const;
     const QString &getIdentifier() const;
 
+    const QChar &getCharacter() const;
     void setCharacter(QChar character);
+
     const QVector<int> &getPosition() const;
     void setPosition(const QVector<int> &position);
     QDataStream& serialize(QDataStream& out) const;
