@@ -1,0 +1,9 @@
+<changelist name="Uncommitted_changes_before_Update_at_07_08_20,_17_28_[Default_Changelist]" date="1596814202917" recycled="true" deleted="true">
+  <option name="PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_20,_17_28_[Default_Changelist]/shelved.patch" />
+  <option name="DESCRIPTION" value="Uncommitted changes before Update at 07/08/20, 17:28 [Default Changelist]" />
+  <binary>
+    <option name="BEFORE_PATH" value="../server/pds_db" />
+    <option name="AFTER_PATH" value="../server/pds_db" />
+    <option name="SHELVED_PATH" value="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_20,_17_28_[Default_Changelist]/pds_db" />
+  </binary>
+</changelist>

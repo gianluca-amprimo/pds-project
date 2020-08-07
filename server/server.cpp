@@ -708,6 +708,7 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
     auto filename = data["filename"].toString().toStdString();
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+    qDebug() << "Saving file with content " << content;
 
     QJsonObject message;
 
