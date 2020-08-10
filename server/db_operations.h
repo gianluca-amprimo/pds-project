@@ -38,7 +38,7 @@ int deleteFile(std::string name, std::string path);
 
 // function to retrieve the user name and surname
 // returns a tuple with the info or error if the user does not exist
-std::tuple<std::string, std::string> getPersonalInfo(std::string username);
+std::tuple<QString, QString> getPersonalInfo(std::string username);
 
 // function to change the password of a user
 // returns 1 for success -1 for failure and 0 if the user does not exist

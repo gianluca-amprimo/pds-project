@@ -23,6 +23,7 @@ MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier, QString f
 
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
+    QObject::connect(this->textArea, &MyTextArea::symbolReady, this, &MainEditor::sendSymbol);
 }
 
 void MainEditor::closeEvent(QCloseEvent *event) {
@@ -207,6 +208,39 @@ void MainEditor::save() {
 
 Ui::MainEditor *MainEditor::getUi() {
     return this->ui;
+}
+
+void MainEditor::sendSymbol(QByteArray serializedSym) {
+    // check socket status
+    if (this->tcpSocket != nullptr) {
+        if (!this->tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!this->tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        QJsonObject message;
+        message["header"] = "symbol";
+
+        message["content"] = QLatin1String(serializedSym.toBase64());
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!this->tcpSocket->write(block)) {
+            ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
+        }
+        this->tcpSocket->flush();
+        qDebug() << "Sending symbol " << message["content"];
+    }
+
 }
 
 

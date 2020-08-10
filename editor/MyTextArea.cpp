@@ -192,7 +192,21 @@ void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
 
     }
     qDebug() << changed << L" Character inserted" ;
-    qDebug() ;
+    qDebug();
+
+    // finally, prepare message for the server
+
+
+    QJsonObject message;
+    message["header"] = "symbol";
+
+    QByteArray serializedSym;
+    QDataStream symbolStream(&serializedSym, QIODevice::WriteOnly);
+    symbolStream << symbol;
+
+    // signal will be caught by MainEditor which will wrap the symbol in a JSON message
+
+    emit symbolReady(serializedSym);
 }
 
 void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {

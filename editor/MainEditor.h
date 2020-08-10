@@ -53,6 +53,7 @@ private slots:
     void updateCharFormat();
     void save();
     void closeEvent(QCloseEvent *event);
+    void sendSymbol(QByteArray serializedSym);
 };
 
 

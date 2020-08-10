@@ -33,10 +33,28 @@ public:
     virtual void inputMethodEvent(QInputMethodEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *e);
     MyTextArea& operator=(const MyTextArea& other);
+    QDataStream& serialize(QDataStream& out) const;
+    QDataStream& deserialize(QDataStream& in);
+    friend QDataStream& operator<<(QDataStream& out, MyTextArea const& mta) {
+        return mta.serialize(out);
+    }
+    friend QDataStream& operator>>(QDataStream& in, MyTextArea& mta) {
+        return mta.deserialize(in);
+    }
+    friend std::ostream& operator<<(std::ostream& out, MyTextArea& mta) {
+        // print something from v to str, e.g: Str << v.getX();
+        for(Symbol sym : mta._symbols){
+            out << sym.getCharacter().toLatin1();
+        }
+        return out;
+    }
 
 
 public slots:
     virtual void insertFromMimeData(const QMimeData *source);
+
+signals:
+    void symbolReady(QByteArray symbol);
 
 
 private:
@@ -50,26 +68,7 @@ private:
     bool pasting = false;
     int anchor;
 
-public:
-    QDataStream& serialize(QDataStream& out) const;
 
-    QDataStream& deserialize(QDataStream& in);
-
-    friend QDataStream& operator<<(QDataStream& out, MyTextArea const& mta) {
-        return mta.serialize(out);
-    }
-
-    friend QDataStream& operator>>(QDataStream& in, MyTextArea& mta) {
-        return mta.deserialize(in);
-    }
-
-    friend std::ostream& operator<<(std::ostream& out, MyTextArea& mta) {
-        // print something from v to str, e.g: Str << v.getX();
-        for(Symbol sym : mta._symbols){
-            out << sym.getCharacter().toLatin1();
-        }
-        return out;
-    }
 };
 
 

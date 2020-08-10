@@ -14,6 +14,9 @@
 class User {
 public:
     User(QString username);
+
+    User(const User &user);
+
     virtual ~User();
 
     bool operator==(const User &rhs) const;
@@ -30,8 +33,13 @@ public:
     
     const QString &getUsername() const;
 
+    const QString &getEditorId() const;
+
+    void setEditorId(const QString &editorId);
+
 private:
 	QString username;           // lo username è un identificativo univoco (username== non sono possibili)
+	QString editorId;
     QString propic;             // path all’immagine del profilo
 };
 

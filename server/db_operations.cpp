@@ -386,8 +386,8 @@ static int personalInfo(void *NotUsed, int argc, char **argv, char **azColName) 
  * returns a tuple with name and surname if the user exists
  * else a tuple with db_error and the specific error
  */
-std::tuple<std::string, std::string> getPersonalInfo(std::string username){
-    std::tuple<std::string, std::string> result;
+std::tuple<QString, QString> getPersonalInfo(std::string username){
+    std::tuple<QString, QString> result;
     int rc;
     sqlite3 *db;
     std::string sql;
@@ -399,7 +399,7 @@ std::tuple<std::string, std::string> getPersonalInfo(std::string username){
     // check the connection has been established
     if (rc != SQLITE_OK) {
         std::cerr << "Can't open the database: " << sqlite3_errmsg(db) << std::endl;
-        result = std::make_tuple("db_error", "Can't open the database");
+        result = std::make_tuple(QString::fromStdString("db_error"), QString::fromStdString("Can't open the database"));
         return result;
     }
 
@@ -421,7 +421,7 @@ std::tuple<std::string, std::string> getPersonalInfo(std::string username){
 
     if (db_counter == 1) {
         // user exists
-        result = std::make_tuple(info_name, info_surname);
+        result = std::make_tuple(QString::fromStdString(info_name), QString::fromStdString(info_surname));
         return result;
     } else {
         // user doesn't exists or credentials are wrong

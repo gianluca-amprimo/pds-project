@@ -12,6 +12,7 @@ User::~User() {
 
 bool User::operator==(const User &rhs) const {
     return username == rhs.username;
+
 }
 
 bool User::operator<(const User &rhs) const {
@@ -36,4 +37,16 @@ bool User::operator!=(const User &rhs) const {
 
 const QString &User::getUsername() const {
     return username;
+}
+
+User::User(const User &user) {
+
+}
+
+const QString &User::getEditorId() const {
+    return editorId;
+}
+
+void User::setEditorId(const QString &editorId) {
+    User::editorId = editorId;
 }

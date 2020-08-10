@@ -26,6 +26,7 @@ list(APPEND LIBRARIES
         )
 list(REMOVE_DUPLICATES LIBRARIES)
 
+SET(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11 -pthread")
 
 add_executable(server
         main.cpp
@@ -39,5 +40,5 @@ add_executable(server
         Symbol.cpp
         Symbol.h
         MyTextArea.cpp
-        MyTextArea.h)
-target_link_libraries(server ${LIBRARIES})
+        MyTextArea.h Session.cpp Session.h)
+target_link_libraries(server ${LIBRARIES} ${CMAKE_DL_LIBS})
