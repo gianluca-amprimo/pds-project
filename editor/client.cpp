@@ -284,7 +284,7 @@ void Client::readResponse()
             auto filename = jSobject["filename"].toString();
             qDebug() << filename;
 
-            this->mainEditor = new MainEditor(this, L"AAAA", filename, this->tcpSocket, &contentStream);
+            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename, this->tcpSocket, &contentStream);
             mainEditor->show();
             ChoiceWin->setVisible(false);
         } if (result == "internal_error") {

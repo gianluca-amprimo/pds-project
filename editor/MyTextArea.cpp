@@ -92,15 +92,13 @@ void MyTextArea::deleteSelection() {
 void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
 
     this->charCounter++;
-    int insertType;
-    qDebug() << "Insert position is: " << insertPosition ;
 
     // calcolo l'id rispetto al mio editor
     int localCharIdLen = std::to_wstring(this->charCounter).length();
-    QVector<int> position;
+
+    FracPosition position;
     QString localCharId  = QString(6-localCharIdLen, '0') + QString::number(charCounter);
     QString charId = this->thisEditorIdentifier + localCharId;
-    qDebug() << "char has id " << charId ;
 
     // calcolo la posizione frazionaria
     // se il carattere è inserito in fondo basta solo vedere il primo intero della posizione frazionaria
@@ -109,90 +107,49 @@ void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
     // last
     if(insertPosition == this->_symbols.size()+1){ // +1 because QChar is already inserted
         lastPosition = insertPosition;
-        insertType = BACK;
-        qDebug() << "Inserting at the back" ;
+        qDebug() << "Inserting at the back";
         // take just the first number of the last element and add 1
-        QVector<int> fracPosition;
-        int last;
 
         //position of last QChar
         // first letter inserted
         if (this->_symbols.empty()) {
-            last = 0;
-            fracPosition.push_back(last);
-            fracPosition.push_back(5);
+            position = one;
         } else {
             // last letter inserted
-            last = this->_symbols.back().getPosition().front() + 1;
-            fracPosition.push_back(last);
+            FracPosition last = this->_symbols.lastKey();
+            position = last + one;
         }
-        position = fracPosition;
     }else if(insertPosition == 1){
-        insertType = HEAD;
+        qDebug() << "Inserting at the head";
         // retrieve prior first element
-        qDebug() << "Inserting at the head" ;
-        QVector<int> oldFirstPos = this->_symbols.front().getPosition();
-        int numDecimals = oldFirstPos.size();
-        for(int i = 0; i < numDecimals; i++)
-            position.push_back(0);
+        FracPosition oldFirstPos = this->_symbols.firstKey();
+        position = oldFirstPos.divideByTwo();
 
-        position.push_back(5);
 
     }else if(insertPosition > 1 && insertPosition < this->_symbols.size()+1) {
-        insertType = MIDDLE;
-        qDebug() << L"Inserting in the middle";
-        QVector<int> prevPos;
-        QVector<int> nextPos;
-        prevPos = this->_symbols.at(insertPosition - 2).getPosition();
-        nextPos = this->_symbols.at(insertPosition-1).getPosition();
+        FracPosition prevPos;
+        FracPosition nextPos;
 
-        // this should be enough to consider both the comprehending symbols
+        nextPos = this->_symbols.keys().at(insertPosition-1);
+        prevPos = this->_symbols.keys().at(insertPosition-2);
 
-        position = prevPos;
-        position.push_back(5);
-        QString strPosition = "";
-        for(int prevPo : prevPos){
-            strPosition += prevPo + '0';
-        }
-        qDebug() << L"Prev pos is: " << strPosition ;
-        strPosition = "";
-        for(int nextPo : nextPos){
-            strPosition += nextPo + '0';
-        }
-        qDebug() << "Next pos is: " << strPosition ;
-        if (position == nextPos) {
-            position.pop_back();
-            position.push_back(0);
-            position.push_back(5);
-        }
+        position = nextPos + prevPos;
+        position = position.divideByTwo();
+// this should be enough to consider both the comprehending symbols
+
     }
 
     // get wstring of fractionary position
 
-    QString strPosition = "";
-    for(int i : position){
-        strPosition += i + '0';
-    }
-
-    qDebug() << "fractionary position " << strPosition;
-
+    //FracPosition pos2("1");
     Symbol symbol(changed, charId, position, this->currentCharFormat());
-    switch(insertType){
-        case BACK:
-            this->_symbols.push_back(symbol);
-            break;
-        case HEAD:
-            this->_symbols.insert(0, symbol);
-            break;
-        case MIDDLE:
-            this->_symbols.insert(insertPosition-1, symbol);
-            break;
-        default:
-            break;
+    //Symbol symbol2(changed, charId, pos2, this->currentCharFormat());
+    qDebug() << "Inserting symbol with id:" << symbol.getIdentifier() << ", char:" << symbol.getCharacter()
+                                                                      << ", position" << symbol.getPosition().getStringPosition();
 
-    }
-    qDebug() << changed << L" Character inserted" ;
-    qDebug();
+    this->_symbols.insert(symbol.getPosition(), symbol);
+    //this->_symbols.insert(symbol2.getPosition(), symbol2);
+
 
     // finally, prepare message for the server
 
@@ -254,12 +211,6 @@ void MyTextArea::mouseReleaseEvent(QMouseEvent *e) {
     }
 }
 
-QVector<Symbol> MyTextArea::get_symbols() {
-    return this->_symbols;
-}
-
-
-
 QDataStream &MyTextArea::serialize(QDataStream &out) const {
     out << thisEditorIdentifier;
     out << charCounter;
@@ -298,6 +249,10 @@ MyTextArea &MyTextArea::operator=(const MyTextArea &other) {
         this->anchor = other.anchor;
     }
     return *this;
+}
+
+const QMap<FracPosition, Symbol> &MyTextArea::getSymbols() const {
+    return _symbols;
 }
 
 

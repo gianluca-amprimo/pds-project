@@ -669,12 +669,6 @@ bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
     QJsonObject message;
     Session session(filename);
     User u(username);
-    QString editorId;
-
-
-    editorId = session.getEditorPrefix() + QString(session.getEditorCounter());
-    u.setEditorId(editorId);
-    session.addUserToSession(u);
 
     int result = addFile(filename.toStdString(), username.toStdString());
     if (result == -1) {
@@ -694,7 +688,6 @@ bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
 
     message["header"] = "newfile";
     message["body"] = "file_created";
-    message["editorId"] = editorId;
     openFile(data, active_socket);
     return true;
 }
@@ -703,34 +696,36 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString();
     QString username = data["username"].toString();
     QString editorId;
-    bool found = false;
 
     User u(username);
     // check in case someone is sending a bad request
-    for (auto session : active_sessions){
-        if(session.getFilename() == filename){
-            // session already exists, simply add the user to it
-            if(idleConnectedUsers.contains(u)){
-                editorId = session.getEditorPrefix() + QString(session.getEditorCounter());
-                u.setEditorId(editorId);
-                session.addUserToSession(u);
-            }
-            printConsole("Adding to session new user: " + u.getUsername() + " and editorId = " + editorId);
+    // session already exists, simply add the user to it
+    if(active_sessions.contains(filename)){
+        Session *session = active_sessions.value(filename);
+        if(idleConnectedUsers.contains(u)){
+
+            qDebug() << "User is connected, can proceed";
+            session->addUserToSession(u);
+            qDebug() << "session has " << session->getEditorCounter() << " users connected";
+            editorId = session->getEditorPrefix() + QString(session->getEditorCounter());
         }
+        printConsole("Adding to session new user: " + u.getUsername() + " and editorId = " + editorId);
 
     }
-    if(!found){
+    else{
         // session doesn't exist, create it and put first user
-        Session fileSession(filename);
-        // register new session in the server
-        active_sessions.append(fileSession);
+        Session *fileSession = new Session(filename);
         if(idleConnectedUsers.contains(u)){
-            editorId = fileSession.getEditorPrefix() + QString(fileSession.getEditorCounter());
+            qDebug() << "User is connected, can proceed";
+            editorId = fileSession->getEditorPrefix() + QString(fileSession->getEditorCounter());
             u.setEditorId(editorId);
-            fileSession.addUserToSession(u);
+            fileSession->addUserToSession(u);
+            qDebug() << "Now there are " << fileSession->getEditorCounter() << " users connected";
         }
 
         printConsole("Creating new session with new user: " + u.getUsername() + " and editorId = " + editorId);
+        // register new session in the server
+        active_sessions.insert(filename, fileSession);
     }
 
     QJsonObject message;
@@ -821,7 +816,18 @@ bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
 
 bool Server::receiveSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+    QString filename = data["filename"].toString().toLatin1();
 
-    qDebug() << "Received symbol " << content;
+    Session *session = this->active_sessions.value(filename);
+    QDataStream in(content);
+    Symbol sym;
+
+    in >> sym;
+    qDebug() << "Received symbol " << sym.getIdentifier() << "\"" << sym.getCharacter() << "\"";
+    session->addSymbol(sym);
+
+    // dispatch symbol to other editors;
+    // first find all editors other than the one that sent the symbol
+
     return true;
 }

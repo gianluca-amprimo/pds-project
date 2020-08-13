@@ -6,7 +6,7 @@
 
 #include <utility>
 
-Symbol::Symbol(QChar character, QString identifier, QVector<int> position, QTextCharFormat charFormat) : character(character),
+Symbol::Symbol(QChar character, QString identifier, FracPosition position, QTextCharFormat charFormat) : character(character),
                                                                                    identifier(std::move(identifier)),
                                                                                    position(std::move(position)),
                                                                                    charFormat(charFormat){}
@@ -15,13 +15,6 @@ void Symbol::setCharacter(QChar character) {
     Symbol::character = character;
 }
 
-const QVector<int> &Symbol::getPosition() const {
-    return position;
-}
-
-void Symbol::setPosition(const QVector<int> &position) {
-    Symbol::position = position;
-}
 
 Symbol::Symbol() {
 }
@@ -52,6 +45,10 @@ const QTextCharFormat &Symbol::getCharFormat() const {
 
 const QChar &Symbol::getCharacter() const {
     return character;
+}
+
+const FracPosition Symbol::getPosition() const {
+    return position;
 }
 
 

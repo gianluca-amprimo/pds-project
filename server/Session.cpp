@@ -14,6 +14,7 @@ Session::Session(const QString &filename) : filename(filename) {
 
 
     editorPrefix = md5.result().toHex();
+    editorCounter = 0;
 }
 
 
@@ -34,14 +35,6 @@ void Session::addSymbol(Symbol sym) {
     symbols.insert(id, sym);
 }
 
-const QMap<QString, &Session::getSymbols() const {
-    return symbols;
-}
-
-void Session::setSymbols(const QMap<QString, &symbols) {
-    Session::symbols = symbols;
-}
-
 int Session::getEditorCounter() const {
     return editorCounter;
 }
@@ -57,3 +50,9 @@ const QString &Session::getEditorPrefix() const {
 void Session::setEditorPrefix(const QString &editorPrefix) {
     Session::editorPrefix = editorPrefix;
 }
+
+void Session::addUserToSession(User u) {
+    this->connectedEditors.insert(u.getUsername(), u);
+    this->editorCounter++;
+}
+

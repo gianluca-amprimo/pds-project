@@ -54,7 +54,7 @@ private:
     //std::map<QString, QList<User>> openFiles; // lista di file aperti e chi ci sta lavorando
     QMap<User, QString> userColorMap; // map to associate a color to a user
 
-    QList<Session> active_sessions; // questa dovrebbe contenere tutte le associazioni necessarie
+    QMap<QString, Session*> active_sessions; // questa dovrebbe contenere tutte le associazioni necessarie
 
     void printConsole(QString msg, bool err = false); // function to print on the console of the server
     QJsonObject prepareJsonReply(QString header, QString result, QString username, bool propic=false, bool filelist=false, bool personal_info=false);

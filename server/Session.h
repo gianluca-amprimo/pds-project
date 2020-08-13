@@ -11,11 +11,6 @@
 #include <QtNetwork/QTcpSocket>
 #include "User.h"
 
-/* A session represents an instan
-#include "Symbol.h"
-#include <QtCore/QVector>
-#include <QtNetwork/QTcpSocket>
-#include "User.h"
 
 /* A session represents an instance of a file that is open in at least an editor.
  * When a user opens a file, if the file is not open in any other editor, a new session will be created.
@@ -27,16 +22,14 @@
 class Session {
 
 private:
-    QMap<QString, Symbol> symbols;
-    QMap<QString, QTcpSocket> connectedEditors; // per adesso io terrei semplicemente il socket del client
+    QHash<QString, Symbol> symbols;
     QString filename;
     QMap<QChar, int> editorCurrentPosition;
     int editorCounter;
     QString editorPrefix;
 public:
-    const QMap<QString, &getSymbols() const;
+    QMap<QString, User> connectedEditors; // per adesso io terrei semplicemente il socket del client
 
-    void setSymbols(const QMap<QString, &symbols);
 
     int getEditorCounter() const;
 

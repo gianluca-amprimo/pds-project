@@ -6,7 +6,7 @@
 #include <QToolButton>
 
 
-MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier, QString filename, QTcpSocket *tcpSocket, QDataStream *contentSteam) :
+MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filename, QTcpSocket *tcpSocket, QDataStream *contentSteam) :
     QMainWindow(parent),
     ui(new Ui::MainEditor),
     filename(filename),
@@ -17,7 +17,8 @@ MainEditor::MainEditor(QWidget *parent, std::wstring editorIdentifier, QString f
     setupActions();
     saveAsDialog = new SaveAsDialog(this, this->textArea);
 
-    this->thisEditorIdentifier = editorIdentifier;
+    this->textArea->setThisEditorIdentifier(editorIdentifier);
+    qDebug() << "Starting with ID " + this->textArea->getThisEditorIdentifier();
 //  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
 
 
@@ -67,7 +68,7 @@ void MainEditor::initUI(QDataStream *contentSteam) {
     ui->gridLayout->addWidget(textArea, 1, 0, 1, 1);
 
     *contentSteam >> *textArea;
-    for(auto sym : textArea->get_symbols()){
+    for(auto sym : textArea->getSymbols()){
         textArea->setCurrentCharFormat(sym.getCharFormat());
         textArea->insertPlainText(sym.getCharacter());
     }

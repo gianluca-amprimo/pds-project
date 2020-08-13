@@ -22,12 +22,12 @@ QT_END_NAMESPACE
 class MainEditor : public QMainWindow {
     Q_OBJECT
 public:
-    explicit MainEditor(QWidget *parent = nullptr, std::wstring editorIdentifier = L"AAAA", QString filename = "", QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
+    explicit MainEditor(QWidget *parent = nullptr, QString editorIdentifier = "", QString filename = "", QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
     ~MainEditor() override;
     Ui::MainEditor *getUi();
 
 private:
-    std::wstring thisEditorIdentifier;
+    QString thisEditorIdentifier;
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
     QString filename;

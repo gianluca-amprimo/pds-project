@@ -8,6 +8,7 @@
 #include <QtWidgets/QTextEdit>
 #include <QKeyEvent>
 #include "Symbol.h"
+#include "FracPosition.h"
 #include <QtWidgets>
 
 #define HEAD    0
@@ -56,11 +57,13 @@ public slots:
 signals:
     void symbolReady(QByteArray symbol);
 
+    const QMap<FracPosition, Symbol> &getSymbols() const;
+
 
 private:
     QString thisEditorIdentifier = "AAAA";
     int charCounter;
-    QVector<Symbol> _symbols;
+    QMap<FracPosition, Symbol> _symbols;
     int currentPosition = 0;
     int oldPosition = 0;
     int lastPosition = 0;

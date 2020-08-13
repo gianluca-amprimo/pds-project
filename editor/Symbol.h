@@ -8,26 +8,28 @@
 #include <QVector>
 #include <QtCore/QDataStream>
 #include <QtGui/QTextCharFormat>
+#include "FracPosition.h"
 
 class Symbol {
 private:
     QChar character;
-    QVector<int> position;
+    FracPosition position;
     QString identifier;
     QTextCharFormat charFormat;
 
 public:
     Symbol();
-    Symbol(QChar character, QString identifier, QVector<int> position, QTextCharFormat charFormat);
+    Symbol(QChar character, QString identifier, FracPosition position, QTextCharFormat charFormat);
 
     const QTextCharFormat &getCharFormat() const;
     const QString &getIdentifier() const;
 
     const QChar &getCharacter() const;
+
+    const FracPosition getPosition() const;
+
     void setCharacter(QChar character);
 
-    const QVector<int> &getPosition() const;
-    void setPosition(const QVector<int> &position);
     QDataStream& serialize(QDataStream& out) const;
     QDataStream& deserialize(QDataStream& in);
 
