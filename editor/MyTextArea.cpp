@@ -67,6 +67,13 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
 
 void MyTextArea::deleteSymbol() {
     for(int i = 1; i <= this->oldPosition-this->currentPosition; i++){
+        QString symId = this->_symbols[this->_symbols.keys().at(this->oldPosition-i)].getIdentifier();
+        QByteArray serializedSymID;
+        QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
+
+        symbolStream << symId;
+        emit symbolDeleted(serializedSymID);
+
         qDebug() << "Character deleted" ;
         this->_symbols.erase(this->_symbols.begin()+this->oldPosition-i);
     }
@@ -78,6 +85,12 @@ void MyTextArea::deleteSelection() {
     if(this->anchor > this->oldPosition){
         for(int i = 1; i <= this->anchor-this->oldPosition; i++){
             qDebug() << "Character deleted" ;
+            QString symId = this->_symbols[this->_symbols.keys().at(this->oldPosition-i)].getIdentifier();
+            QByteArray serializedSymID;
+            QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
+
+            symbolStream << symId;
+            emit symbolDeleted(serializedSymID);
             this->_symbols.erase(this->_symbols.begin()+this->anchor-i);
         }
     }else{
@@ -157,13 +170,10 @@ void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
     QJsonObject message;
     message["header"] = "symbol";
 
-    QByteArray serializedSym;
-    QDataStream symbolStream(&serializedSym, QIODevice::WriteOnly);
-    symbolStream << symbol;
 
     // signal will be caught by MainEditor which will wrap the symbol in a JSON message
 
-    emit symbolReady(serializedSym);
+    emit symbolReady(symbol);
 }
 
 void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
@@ -254,6 +264,26 @@ MyTextArea &MyTextArea::operator=(const MyTextArea &other) {
 const QMap<FracPosition, Symbol> &MyTextArea::getSymbols() const {
     return _symbols;
 }
+
+void MyTextArea::addSymbolToList(Symbol sym) {
+    this->_symbols.insert(sym.getPosition(), sym);
+}
+
+int MyTextArea::getEditorPosition(const FracPosition& fp) {
+    return this->_symbols.keys().indexOf(fp);
+}
+
+void MyTextArea::removeSymbolFromList(QString& symId, QString& fp) {
+    FracPosition fracPos(fp);
+    qDebug() << "Trying to delete character at frac position" << fracPos.getStringPosition();
+    QTextCursor cur = this->textCursor();
+    cur.setPosition(this->getEditorPosition(fracPos));
+    cur.deleteChar();
+    if(this->_symbols.value(fracPos).getIdentifier() == symId){
+        this->_symbols.remove(fracPos);
+    }
+}
+
 
 
 

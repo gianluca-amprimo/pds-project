@@ -25,6 +25,8 @@ public:
     explicit MainEditor(QWidget *parent = nullptr, QString editorIdentifier = "", QString filename = "", QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
     ~MainEditor() override;
     Ui::MainEditor *getUi();
+    void receiveSymbol(QJsonValueRef content);
+    void receiveDeletion(QJsonValueRef id, QJsonValueRef position);
 
 private:
     QString thisEditorIdentifier;
@@ -53,7 +55,8 @@ private slots:
     void updateCharFormat();
     void save();
     void closeEvent(QCloseEvent *event);
-    void sendSymbol(QByteArray serializedSym);
+    void sendSymbol(Symbol& symbol);
+    void sendDeletion(QByteArray serializedSymId);
 };
 
 

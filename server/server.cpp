@@ -166,6 +166,8 @@ void Server::processUserRequest() {
         opResult = Server::saveFile(jSobject, active_socket);
     if (header == "symbol")
         opResult = Server::receiveSymbol(jSobject, active_socket);
+    if (header == "delSymbol")
+        opResult = Server::deleteSymbol(jSobject, active_socket);
 
     qDebug() << opResult;
 }
@@ -213,6 +215,7 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
     QString username = data["username"].toString();
     QString password = data["password"].toString();
     printConsole((QString &&) ("Checking " + username + " " + password));
+    User u(username);
 
     // check the credentialsche stati
     QString loginResult;
@@ -220,43 +223,9 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
         int queryResult = checkCredentials(username.toStdString(), password.toStdString());
         if (queryResult == 1) {
             loginResult = "ok";
-            QString un = username;
-            User u(un);
-            QMapIterator<User, QTcpSocket*> i(idleConnectedUsers);
-            bool found = false;
-            while (i.hasNext()) { //a user could open again the client and log again so first check if it's already there
-                i.next();
-                User user = i.key();
-                if (user == u) {
-                    found = true;
-                    printConsole("The user is trying to connect with more than one editor, this is not allowed");
-                    break;
-                }
+            if(!idleConnectedUsers.contains(u)){
+               idleConnectedUsers.insert(u, active_socket);
             }
-            if (found != true) { //inserisci l'utente nella lista di quelli attualmente connessi
-                idleConnectedUsers[u] = active_socket;
-
-                // assegna colore random allo user
-                std::random_device rd;
-                QString userColor = colors[rd() % 7];
-
-                userColorMap.insert(u, userColor);
-            }
-
-            QString user_list;
-
-
-//            for (QPair<User, QList<QTcpSocket *>> element : idleConnectedUsers) {
-//                User u = element.first;     // Accessing KEY from element
-//                QString socket_list;    // Accessing VALUE from element
-//
-//                for (auto s: element.second) {
-//                    socket_list += QString::fromStdString(std::to_string(s->socketDescriptor()) + " ");
-//                }
-//                user_list += u.getUsername() + ": " + socket_list + " ";
-//            }
-//            printConsole((QString &&) ("List of active users and their socket: " + user_list));
-
         } else if (queryResult == 0)
             loginResult = "unreg";
         else
@@ -697,33 +666,39 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     QString username = data["username"].toString();
     QString editorId;
 
-    User u(username);
+    User *u = new User(username);
+    qDebug() << "Opening file with" << u->getUsername();
+    for(User us: idleConnectedUsers.keys()){
+        qDebug() << us.getUsername() << "is connected to the server";
+    }
+
     // check in case someone is sending a bad request
     // session already exists, simply add the user to it
     if(active_sessions.contains(filename)){
         Session *session = active_sessions.value(filename);
-        if(idleConnectedUsers.contains(u)){
+        if(idleConnectedUsers.contains(*u)){
 
-            qDebug() << "User is connected, can proceed";
+            qDebug() << "User" << u->getUsername() << "is connected, can proceed";
+            editorId = session->getEditorPrefix() + QString(session->getEditorCounter());
+            u->setEditorId(editorId);
             session->addUserToSession(u);
             qDebug() << "session has " << session->getEditorCounter() << " users connected";
-            editorId = session->getEditorPrefix() + QString(session->getEditorCounter());
         }
-        printConsole("Adding to session new user: " + u.getUsername() + " and editorId = " + editorId);
+        printConsole("Adding to session new user: " + u->getUsername() + " and editorId = " + editorId);
 
     }
     else{
         // session doesn't exist, create it and put first user
         Session *fileSession = new Session(filename);
-        if(idleConnectedUsers.contains(u)){
+        if(idleConnectedUsers.contains(*u)){
             qDebug() << "User is connected, can proceed";
             editorId = fileSession->getEditorPrefix() + QString(fileSession->getEditorCounter());
-            u.setEditorId(editorId);
+            u->setEditorId(editorId);
             fileSession->addUserToSession(u);
             qDebug() << "Now there are " << fileSession->getEditorCounter() << " users connected";
         }
 
-        printConsole("Creating new session with new user: " + u.getUsername() + " and editorId = " + editorId);
+        printConsole("Creating new session with new user: " + u->getUsername() + " and editorId = " + editorId);
         // register new session in the server
         active_sessions.insert(filename, fileSession);
     }
@@ -817,17 +792,55 @@ bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
 bool Server::receiveSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
     QString filename = data["filename"].toString().toLatin1();
-
-    Session *session = this->active_sessions.value(filename);
+    qDebug() << "filename is: " << filename;
     QDataStream in(content);
     Symbol sym;
+    Session *session = this->active_sessions.value(filename);
 
+    // acquire symbol
     in >> sym;
-    qDebug() << "Received symbol " << sym.getIdentifier() << "\"" << sym.getCharacter() << "\"";
+    qDebug() << "Received symbol " <<  "\"" << sym.getCharacter() << "\"" << "from" << data["editorId"];
     session->addSymbol(sym);
+    data["header"] = "addSymbol";
 
-    // dispatch symbol to other editors;
-    // first find all editors other than the one that sent the symbol
+    // now send symbol to all other editors
+    for(User *u : session->connectedEditors){
+        qDebug() << "Checking user" << u->getUsername() << "with editorId" << u->getEditorId();
+        if(u->getEditorId() != data["editorId"].toString()){
+            qDebug() << "Sending symbol" << sym.getCharacter() << "to" << u->getEditorId();
+            sendMessage(data, this->idleConnectedUsers[*u]);
+        }
+    }
+
+    return true;
+}
+
+bool Server::deleteSymbol(QJsonObject &data, QTcpSocket *active_socket) {
+    auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+    QString filename = data["filename"].toString().toLatin1();
+    qDebug() << "filename is: " << filename;
+    QDataStream in(content);
+    QString symId;
+    QString symPos;
+    Session *session = this->active_sessions.value(filename);
+
+    // acquire symbol
+    in >> symId;
+    qDebug() << "Deleting Symbol " << symId;
+    data["header"] = "remSymbol";
+    data["id"] = data["content"];
+    QString stringPosition = session->getSymbols().value(symId).getPosition().getStringPosition();
+    data["position"] = stringPosition;
+
+    // now send deletion to all other editors
+    for(User *u : session->connectedEditors){
+        qDebug() << "Checking user" << u->getUsername() << "with editorId" << u->getEditorId();
+        if(u->getEditorId() != data["editorId"].toString()){
+            qDebug() << "Sending deletion of" << session->getSymbols().value(symId).getCharacter() << "with frac pos" << stringPosition << "to" << u->getEditorId();
+            sendMessage(data, this->idleConnectedUsers[*u]);
+        }
+    }
+    session->removeSymbol(symId);
 
     return true;
 }

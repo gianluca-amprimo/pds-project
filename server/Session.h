@@ -1,3 +1,4 @@
+
 //
 // Created by antonio on 08/08/20.
 //
@@ -28,7 +29,7 @@ private:
     int editorCounter;
     QString editorPrefix;
 public:
-    QMap<QString, User> connectedEditors; // per adesso io terrei semplicemente il socket del client
+    QMap<QString, User*> connectedEditors; // per adesso io terrei semplicemente il socket del client
 
 
     int getEditorCounter() const;
@@ -43,9 +44,11 @@ public:
     Session(const QString &filename);
     const QString &getFilename() const;
     void setFilename(const QString &filename);
-    void addUserToSession(User u);
-    void addSymbol(Symbol sym);
+    void addUserToSession(User *u);
+    void addSymbol(Symbol& sym);
     void removeSymbol(QString id);
+
+    const QHash<QString, Symbol> &getSymbols() const;
 };
 
 

@@ -32,10 +32,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="Sistemato tutto e risolto la guerra e la fame nel mondo">
-      <change afterPath="$PROJECT_DIR$/../server/files/prova" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/FracPosition.cpp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/FracPosition.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_20,_17_28_[Default_Changelist]/pds_db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_20,_17_28_[Default_Changelist]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_07_08_20__17_28__Default_Changelist_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FracPosition.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FracPosition.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FracPosition.h" beforeDir="false" afterPath="$PROJECT_DIR$/FracPosition.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTextArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MyTextArea.cpp" afterDir="false" />
@@ -43,10 +45,15 @@
       <change beforePath="$PROJECT_DIR$/Symbol.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Symbol.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Symbol.h" beforeDir="false" afterPath="$PROJECT_DIR$/Symbol.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/MyTextArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/MyTextArea.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/MyTextArea.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/MyTextArea.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Session.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/Session.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Session.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Symbol.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Symbol.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Symbol.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Symbol.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/User.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/User.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.h" afterDir="false" />
     </list>
@@ -89,7 +96,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
     <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="ObjectiveC" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../server" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
@@ -115,10 +122,10 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="CMake Application.provaQT-vera" />
-      <item itemvalue="CMake Application.provaQT_autogen" />
       <item itemvalue="CMake Application.editor" />
       <item itemvalue="CMake Application.editor_autogen" />
+      <item itemvalue="CMake Application.provaQT-vera" />
+      <item itemvalue="CMake Application.provaQT_autogen" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -153,6 +160,12 @@
       <workItem from="1596303785385" duration="2842000" />
       <workItem from="1597048424170" duration="21144000" />
       <workItem from="1597310842432" duration="8519000" />
+      <workItem from="1597326896172" duration="9529000" />
+      <workItem from="1597340733418" duration="609000" />
+      <workItem from="1597487420148" duration="2593000" />
+      <workItem from="1597511893750" duration="1488000" />
+      <workItem from="1597567022118" duration="8111000" />
+      <workItem from="1597595397463" duration="4380000" />
     </task>
     <task id="LOCAL-00001" summary="Inserita azione salva come nel menu">
       <created>1586083395586</created>
@@ -197,10 +210,10 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="623" y="338" width="674" height="416" key="#com.intellij.fileTypes.FileTypeChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1596303818038" />
-    <state x="769" y="264" key="#com.intellij.ide.util.MemberChooser" timestamp="1597313611214">
+    <state x="769" y="264" key="#com.intellij.ide.util.MemberChooser" timestamp="1597576740833">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="769" y="264" key="#com.intellij.ide.util.MemberChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1597313611214" />
+    <state x="769" y="264" key="#com.intellij.ide.util.MemberChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1597576740833" />
     <state x="644" y="303" key="#org.exbin.bined.intellij.debug.DebugViewBinaryAction" timestamp="1597318497050">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
@@ -213,73 +226,45 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state width="479" height="605" key="DebuggerActiveHint/0.32.1920.1048@0.32.1920.1048" timestamp="1597314984803" />
-    <state x="744" y="303" key="FileChooserDialogImpl" timestamp="1596817315921">
+    <state x="744" y="303" key="FileChooserDialogImpl" timestamp="1597576894853">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1596817315921" />
-    <state width="1866" height="356" key="GridCell.Tab.0.bottom" timestamp="1597319709917">
+    <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1597576894853" />
+    <state width="1866" height="247" key="GridCell.Tab.0.bottom" timestamp="1597600935665">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.0.bottom/0.23.1440.827@0.23.1440.827" timestamp="1588891342450" />
-    <state width="1398" height="2" key="GridCell.Tab.0.bottom/0.23.1440.828@0.23.1440.828" timestamp="1588894874034" />
-    <state width="1398" height="139" key="GridCell.Tab.0.bottom/0.23.1440.829@0.23.1440.829" timestamp="1588730903486" />
-    <state width="1866" height="356" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709917" />
+    <state width="1866" height="247" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1597600935665" />
     <state width="1866" height="290" key="GridCell.Tab.0.bottom/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="1866" height="356" key="GridCell.Tab.0.center" timestamp="1597319709917">
+    <state width="1866" height="247" key="GridCell.Tab.0.center" timestamp="1597600935655">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.0.center/0.23.1440.827@0.23.1440.827" timestamp="1588891342449" />
-    <state width="1398" height="2" key="GridCell.Tab.0.center/0.23.1440.828@0.23.1440.828" timestamp="1588894874033" />
-    <state width="1398" height="139" key="GridCell.Tab.0.center/0.23.1440.829@0.23.1440.829" timestamp="1588730903485" />
-    <state width="1866" height="356" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709917" />
+    <state width="1866" height="247" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1597600935655" />
     <state width="1866" height="290" key="GridCell.Tab.0.center/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="356" key="GridCell.Tab.0.left" timestamp="1597319709916">
+    <state width="1866" height="247" key="GridCell.Tab.0.left" timestamp="1597600935647">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.0.left/0.23.1440.827@0.23.1440.827" timestamp="1588891342449" />
-    <state width="1398" height="2" key="GridCell.Tab.0.left/0.23.1440.828@0.23.1440.828" timestamp="1588894874033" />
-    <state width="1398" height="139" key="GridCell.Tab.0.left/0.23.1440.829@0.23.1440.829" timestamp="1588730903484" />
-    <state width="1866" height="356" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709916" />
+    <state width="1866" height="247" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1597600935647" />
     <state width="1866" height="290" key="GridCell.Tab.0.left/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="356" key="GridCell.Tab.0.right" timestamp="1597319709917">
+    <state width="1866" height="247" key="GridCell.Tab.0.right" timestamp="1597600935657">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.0.right/0.23.1440.827@0.23.1440.827" timestamp="1588891342450" />
-    <state width="1398" height="2" key="GridCell.Tab.0.right/0.23.1440.828@0.23.1440.828" timestamp="1588894874034" />
-    <state width="1398" height="139" key="GridCell.Tab.0.right/0.23.1440.829@0.23.1440.829" timestamp="1588730903485" />
-    <state width="1866" height="356" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709917" />
+    <state width="1866" height="247" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1597600935657" />
     <state width="1866" height="290" key="GridCell.Tab.0.right/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
     <state width="1866" height="356" key="GridCell.Tab.1.bottom" timestamp="1597319709921">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.1.bottom/0.23.1440.827@0.23.1440.827" timestamp="1588891342453" />
-    <state width="1398" height="196" key="GridCell.Tab.1.bottom/0.23.1440.828@0.23.1440.828" timestamp="1588810725513" />
-    <state width="1398" height="121" key="GridCell.Tab.1.bottom/0.23.1440.829@0.23.1440.829" timestamp="1588788813000" />
-    <state width="1398" height="121" key="GridCell.Tab.1.bottom/0.23.1440.830@0.23.1440.830" timestamp="1588714574272" />
     <state width="1866" height="356" key="GridCell.Tab.1.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709921" />
     <state width="1866" height="356" key="GridCell.Tab.1.center" timestamp="1597319709918">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.1.center/0.23.1440.827@0.23.1440.827" timestamp="1588891342452" />
-    <state width="1398" height="196" key="GridCell.Tab.1.center/0.23.1440.828@0.23.1440.828" timestamp="1588810725513" />
-    <state width="1398" height="121" key="GridCell.Tab.1.center/0.23.1440.829@0.23.1440.829" timestamp="1588788812999" />
-    <state width="1398" height="121" key="GridCell.Tab.1.center/0.23.1440.830@0.23.1440.830" timestamp="1588714574271" />
     <state width="1866" height="356" key="GridCell.Tab.1.center/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709918" />
     <state width="1866" height="356" key="GridCell.Tab.1.left" timestamp="1597319709918">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.1.left/0.23.1440.827@0.23.1440.827" timestamp="1588891342452" />
-    <state width="1398" height="196" key="GridCell.Tab.1.left/0.23.1440.828@0.23.1440.828" timestamp="1588810725512" />
-    <state width="1398" height="121" key="GridCell.Tab.1.left/0.23.1440.829@0.23.1440.829" timestamp="1588788812999" />
-    <state width="1398" height="121" key="GridCell.Tab.1.left/0.23.1440.830@0.23.1440.830" timestamp="1588714574271" />
     <state width="1866" height="356" key="GridCell.Tab.1.left/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709918" />
     <state width="1866" height="356" key="GridCell.Tab.1.right" timestamp="1597319709919">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1398" height="110" key="GridCell.Tab.1.right/0.23.1440.827@0.23.1440.827" timestamp="1588891342453" />
-    <state width="1398" height="196" key="GridCell.Tab.1.right/0.23.1440.828@0.23.1440.828" timestamp="1588810725513" />
-    <state width="1398" height="121" key="GridCell.Tab.1.right/0.23.1440.829@0.23.1440.829" timestamp="1588788813000" />
-    <state width="1398" height="121" key="GridCell.Tab.1.right/0.23.1440.830@0.23.1440.830" timestamp="1588714574272" />
     <state width="1866" height="356" key="GridCell.Tab.1.right/0.32.1920.1048@0.32.1920.1048" timestamp="1597319709919" />
     <state x="477" y="279" key="IDE.errors.dialog" timestamp="1596304361676">
       <screen x="0" y="32" width="1920" height="1048" />
@@ -288,13 +273,15 @@
     <state x="449" y="166" width="900" height="722" key="SettingsEditor" timestamp="1596218168309">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="337" y="129" width="900" height="722" key="SettingsEditor/0.23.1440.828@0.23.1440.828" timestamp="1588695883009" />
-    <state x="337" y="129" key="SettingsEditor/0.23.1440.829@0.23.1440.829" timestamp="1588695908870" />
     <state x="449" y="166" key="SettingsEditor/0.32.1920.1048@0.32.1920.1048" timestamp="1596218168309" />
     <state x="668" y="274" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1596218154144">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="668" y="274" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1596218154144" />
+    <state x="740" y="323" key="refactoring.ChangeSignatureDialog" timestamp="1597331703243">
+      <screen x="0" y="32" width="1920" height="1048" />
+    </state>
+    <state x="740" y="323" key="refactoring.ChangeSignatureDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1597331703243" />
     <state x="620" y="249" key="run.anything.popup" timestamp="1597234959435">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
@@ -309,7 +296,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/FracPosition.cpp</url>
-          <line>144</line>
+          <line>145</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
       </breakpoints>

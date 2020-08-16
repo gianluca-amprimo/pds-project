@@ -8,6 +8,7 @@
 #include <QtWidgets/QTextEdit>
 #include <QKeyEvent>
 #include "Symbol.h"
+#include "FracPosition.h"
 #include <QtWidgets>
 
 #define HEAD    0
@@ -16,7 +17,7 @@
 
 
 class MyTextArea : public QTextEdit{
-    Q_OBJECT
+Q_OBJECT
 
 public:
     MyTextArea();
@@ -33,36 +34,14 @@ public:
     virtual void inputMethodEvent(QInputMethodEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *e);
     MyTextArea& operator=(const MyTextArea& other);
-
-
-public slots:
-    virtual void insertFromMimeData(const QMimeData *source);
-
-
-private:
-    QString thisEditorIdentifier = "AAAA";
-    int charCounter;
-    QVector<Symbol> _symbols;
-    int currentPosition = 0;
-    int oldPosition = 0;
-    int lastPosition = 0;
-    bool selectionMode = false;
-    bool pasting = false;
-    int anchor;
-
-public:
     QDataStream& serialize(QDataStream& out) const;
-
     QDataStream& deserialize(QDataStream& in);
-
     friend QDataStream& operator<<(QDataStream& out, MyTextArea const& mta) {
         return mta.serialize(out);
     }
-
     friend QDataStream& operator>>(QDataStream& in, MyTextArea& mta) {
         return mta.deserialize(in);
     }
-
     friend std::ostream& operator<<(std::ostream& out, MyTextArea& mta) {
         // print something from v to str, e.g: Str << v.getX();
         for(Symbol sym : mta._symbols){
@@ -70,6 +49,29 @@ public:
         }
         return out;
     }
+
+
+public slots:
+    virtual void insertFromMimeData(const QMimeData *source);
+
+signals:
+    void symbolReady(QByteArray symbol);
+
+    const QMap<FracPosition, Symbol> &getSymbols() const;
+
+
+private:
+    QString thisEditorIdentifier = "AAAA";
+    int charCounter;
+    QMap<FracPosition, Symbol> _symbols;
+    int currentPosition = 0;
+    int oldPosition = 0;
+    int lastPosition = 0;
+    bool selectionMode = false;
+    bool pasting = false;
+    int anchor;
+
+
 };
 
 

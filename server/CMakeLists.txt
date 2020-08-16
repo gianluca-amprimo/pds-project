@@ -39,6 +39,5 @@ add_executable(server
         User.h
         Symbol.cpp
         Symbol.h
-        MyTextArea.cpp
-        MyTextArea.h Session.cpp Session.h)
+        MyTextArea.h Session.cpp Session.h FracPosition.cpp FracPosition.h MyTextArea.cpp)
 target_link_libraries(server ${LIBRARIES} ${CMAKE_DL_LIBS})

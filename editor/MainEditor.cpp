@@ -25,6 +25,7 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
     QObject::connect(this->textArea, &MyTextArea::symbolReady, this, &MainEditor::sendSymbol);
+    QObject::connect(this->textArea, &MyTextArea::symbolDeleted, this, &MainEditor::sendDeletion);
 }
 
 void MainEditor::closeEvent(QCloseEvent *event) {
@@ -211,8 +212,59 @@ Ui::MainEditor *MainEditor::getUi() {
     return this->ui;
 }
 
-void MainEditor::sendSymbol(QByteArray serializedSym) {
+void MainEditor::sendSymbol(Symbol& symbol) {
     // check socket status
+    if (this->tcpSocket != nullptr) {
+        if (!this->tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!this->tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray serializedSym;
+        QDataStream symbolStream(&serializedSym, QIODevice::WriteOnly);
+        symbolStream << symbol;
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        QJsonObject message;
+        message["header"] = "symbol";
+        message["filename"] = this->filename;
+        message["editorId"] = this->textArea->getThisEditorIdentifier();
+
+        message["content"] = QLatin1String(serializedSym.toBase64());
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!this->tcpSocket->write(block)) {
+            ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
+        }
+        this->tcpSocket->flush();
+        qDebug() << "Sending symbol " << symbol.getCharacter() << "at position" << symbol.getPosition().getStringPosition();
+    }
+
+}
+
+void MainEditor::receiveSymbol(QJsonValueRef content) {
+
+    auto data = QByteArray::fromBase64(content.toString().toLatin1());
+    QDataStream in(data);
+    Symbol sym;
+
+    in >> sym;
+    this->textArea->addSymbolToList(sym);
+    QTextCursor cur = this->textArea->textCursor();
+    cur.setPosition(this->textArea->getEditorPosition(sym.getPosition()));
+    cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
+}
+
+void MainEditor::sendDeletion(QByteArray serializedSymId) {
     if (this->tcpSocket != nullptr) {
         if (!this->tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
@@ -228,9 +280,11 @@ void MainEditor::sendSymbol(QByteArray serializedSym) {
         out.setVersion(QDataStream::Qt_4_0);
 
         QJsonObject message;
-        message["header"] = "symbol";
+        message["header"] = "delSymbol";
+        message["filename"] = this->filename;
+        message["editorId"] = this->textArea->getThisEditorIdentifier();
 
-        message["content"] = QLatin1String(serializedSym.toBase64());
+        message["content"] = QLatin1String(serializedSymId.toBase64());
 
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
@@ -239,9 +293,22 @@ void MainEditor::sendSymbol(QByteArray serializedSym) {
             ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
         }
         this->tcpSocket->flush();
-        qDebug() << "Sending symbol " << message["content"];
+        qDebug() << "Sending deletion of" << message["content"];
     }
+}
+
+void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
+    auto symId = QByteArray::fromBase64(id.toString().toLatin1());
+    auto symPos = position.toString();
+    QDataStream idStream(symId);
+    QString idString;
+
+
+    idStream >> idString;
+    qDebug() << "Received the deletion of char" << idString << "at position" << symPos;
+    this->textArea->removeSymbolFromList(idString, symPos);
 
 }
+
 
 

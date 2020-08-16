@@ -28,11 +28,13 @@ const QString &Session::getFilename() const {
 
 void Session::removeSymbol(QString id) {
     symbols.remove(id);
+    /*TODO: tell other editors to remove symbol*/
 }
 
-void Session::addSymbol(Symbol sym) {
-    QString id = sym.getIdentifier();
-    symbols.insert(id, sym);
+void Session::addSymbol(Symbol& sym) {
+    symbols.insert(sym.getIdentifier(), sym);
+
+    /*TODO: dispatch message to other editors*/
 }
 
 int Session::getEditorCounter() const {
@@ -51,8 +53,11 @@ void Session::setEditorPrefix(const QString &editorPrefix) {
     Session::editorPrefix = editorPrefix;
 }
 
-void Session::addUserToSession(User u) {
-    this->connectedEditors.insert(u.getUsername(), u);
+void Session::addUserToSession(User *u) {
+    this->connectedEditors.insert(u->getEditorId(), u);
     this->editorCounter++;
 }
 
+const QHash<QString, Symbol> &Session::getSymbols() const {
+    return this->symbols;
+}

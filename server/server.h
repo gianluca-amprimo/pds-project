@@ -41,6 +41,7 @@ private slots:
 	bool openFile(QJsonObject &data, QTcpSocket *active_socket);
     bool saveFile(QJsonObject &data, QTcpSocket *active_socket);
     bool receiveSymbol(QJsonObject &data, QTcpSocket *active_socket);
+    bool deleteSymbol(QJsonObject &data, QTcpSocket *active_socket);
 
 private:
     Ui::Server *ui;

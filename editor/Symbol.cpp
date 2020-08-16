@@ -51,5 +51,12 @@ const FracPosition Symbol::getPosition() const {
     return position;
 }
 
+Symbol::Symbol(const Symbol& sym) {
+    this->position = sym.getPosition();
+    this->identifier = sym.getIdentifier();
+    this->character = sym.getCharacter();
+    this->charFormat = sym.getCharFormat();
+}
+
 
 

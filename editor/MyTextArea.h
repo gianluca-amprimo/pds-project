@@ -24,18 +24,19 @@ public:
     explicit MyTextArea(QWidget *parent);
     const QString &getThisEditorIdentifier() const;
     void deleteSymbol();
-    QVector<Symbol> get_symbols();
     void deleteSelection();
     void insertSymbol(QChar character, int position);
     void setThisEditorIdentifier(const QString &thisEditorIdentifier);
     void keyPressEvent(QKeyEvent *e) override;
-    void generateFile();
-    void loadFromFile();
+    const QMap<FracPosition, Symbol> &getSymbols() const;
     virtual void inputMethodEvent(QInputMethodEvent *event);
     virtual void mouseReleaseEvent(QMouseEvent *e);
     MyTextArea& operator=(const MyTextArea& other);
     QDataStream& serialize(QDataStream& out) const;
     QDataStream& deserialize(QDataStream& in);
+    void addSymbolToList(Symbol sym);
+    void removeSymbolFromList(QString& symId, QString& fp);
+    int getEditorPosition(const FracPosition& fp);
     friend QDataStream& operator<<(QDataStream& out, MyTextArea const& mta) {
         return mta.serialize(out);
     }
@@ -55,9 +56,9 @@ public slots:
     virtual void insertFromMimeData(const QMimeData *source);
 
 signals:
-    void symbolReady(QByteArray symbol);
+    void symbolReady(Symbol symbol);
+    void symbolDeleted(QByteArray symId);
 
-    const QMap<FracPosition, Symbol> &getSymbols() const;
 
 
 private:

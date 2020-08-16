@@ -69,6 +69,7 @@ private slots:
 
 private:
     QDataStream in;
+    QString loggedUsername;
     QTcpSocket *tcpSocket = nullptr;
     QString loginReply;
     QNetworkSession *networkSession = nullptr;

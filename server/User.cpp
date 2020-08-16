@@ -40,7 +40,7 @@ const QString &User::getUsername() const {
 }
 
 User::User(const User &user) {
-
+    this->username = user.getUsername();
 }
 
 const QString &User::getEditorId() const {

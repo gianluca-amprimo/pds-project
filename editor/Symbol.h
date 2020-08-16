@@ -20,6 +20,7 @@ private:
 public:
     Symbol();
     Symbol(QChar character, QString identifier, FracPosition position, QTextCharFormat charFormat);
+    Symbol(const Symbol& sym);
 
     const QTextCharFormat &getCharFormat() const;
     const QString &getIdentifier() const;

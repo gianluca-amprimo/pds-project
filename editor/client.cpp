@@ -302,6 +302,12 @@ void Client::readResponse()
             mainEditor->getUi()->statusBar->showMessage(tr("The file doesn't exist anymore. Try to create a new file."), 5000);
         }
     }
+    if(header=="addSymbol") {
+        this->mainEditor->receiveSymbol(jSobject["content"]);
+    }
+    if(header=="remSymbol") {
+        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"]);
+    }
 }
 
 const std::shared_ptr<QDialog> &Client::getChoiceWin() const {
@@ -400,6 +406,7 @@ void Client::sendCredentials() {
             QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
             logStatusBar->showMessage(tr("Could not send message."), 3000);
         }
+        this->loggedUsername = uiLog->UsernameEdit->text();
         tcpSocket->flush();
     }
 	
@@ -752,6 +759,7 @@ void Client::openExistingFile() {
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
         message["header"] = "openfile";
+        message["username"] = this->loggedUsername;
         message["filename"] = uiChoice->OpenMenu->currentText();
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
