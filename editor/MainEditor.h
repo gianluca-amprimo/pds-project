@@ -20,12 +20,17 @@ namespace Ui { class MainEditor; }
 QT_END_NAMESPACE
 
 class MainEditor : public QMainWindow {
-    Q_OBJECT
+Q_OBJECT
 public:
-    explicit MainEditor(QWidget *parent = nullptr, QString editorIdentifier = "", QString filename = "", QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
+    explicit MainEditor(QWidget *parent = nullptr, QString editorIdentifier = "", QString filename = "",
+                        QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
+
     ~MainEditor() override;
+
     Ui::MainEditor *getUi();
+
     void receiveSymbol(QJsonValueRef content);
+
     void receiveDeletion(QJsonValueRef id, QJsonValueRef position);
 
 private:
@@ -39,23 +44,39 @@ private:
     QComboBox *sizeSelector;
     MyTextArea *textArea;
     int position;
+
     void initUI(QDataStream *mta);
+
     void setupActions();
 
 private slots:
+
     void Bold();
+
     void Italic();
+
     void Underline();
+
     void selectFont(const QString &font);
+
     void selectSize(const QString &size);
+
     void alignCenter();
+
     void alignLeft();
+
     void alignRight();
+
     void alignJustify();
+
     void updateCharFormat();
+
     void save();
+
     void closeEvent(QCloseEvent *event);
-    void sendSymbol(Symbol& symbol);
+
+    void sendSymbol(Symbol &symbol);
+
     void sendDeletion(QByteArray serializedSymId);
 };
 

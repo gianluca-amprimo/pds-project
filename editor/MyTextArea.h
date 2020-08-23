@@ -16,36 +16,55 @@
 #define MIDDLE  2
 
 
-class MyTextArea : public QTextEdit{
-    Q_OBJECT
+class MyTextArea : public QTextEdit {
+Q_OBJECT
 
 public:
     MyTextArea();
+
     explicit MyTextArea(QWidget *parent);
+
     const QString &getThisEditorIdentifier() const;
+
     void deleteSymbol();
+
     void deleteSelection();
+
     void insertSymbol(QChar character, int position);
+
     void setThisEditorIdentifier(const QString &thisEditorIdentifier);
+
     void keyPressEvent(QKeyEvent *e) override;
+
     const QMap<FracPosition, Symbol> &getSymbols() const;
+
     virtual void inputMethodEvent(QInputMethodEvent *event);
+
     virtual void mouseReleaseEvent(QMouseEvent *e);
-    MyTextArea& operator=(const MyTextArea& other);
-    QDataStream& serialize(QDataStream& out) const;
-    QDataStream& deserialize(QDataStream& in);
+
+    MyTextArea &operator=(const MyTextArea &other);
+
+    QDataStream &serialize(QDataStream &out) const;
+
+    QDataStream &deserialize(QDataStream &in);
+
     void addSymbolToList(Symbol sym);
-    void removeSymbolFromList(QString& symId, QString& fp);
-    int getEditorPosition(const FracPosition& fp);
-    friend QDataStream& operator<<(QDataStream& out, MyTextArea const& mta) {
+
+    void removeSymbolFromList(QString &symId, QString &fp);
+
+    int getEditorPosition(const FracPosition &fp);
+
+    friend QDataStream &operator<<(QDataStream &out, MyTextArea const &mta) {
         return mta.serialize(out);
     }
-    friend QDataStream& operator>>(QDataStream& in, MyTextArea& mta) {
+
+    friend QDataStream &operator>>(QDataStream &in, MyTextArea &mta) {
         return mta.deserialize(in);
     }
-    friend std::ostream& operator<<(std::ostream& out, MyTextArea& mta) {
+
+    friend std::ostream &operator<<(std::ostream &out, MyTextArea &mta) {
         // print something from v to str, e.g: Str << v.getX();
-        for(Symbol sym : mta._symbols){
+        for (Symbol sym : mta._symbols) {
             out << sym.getCharacter().toLatin1();
         }
         return out;
@@ -53,12 +72,14 @@ public:
 
 
 public slots:
+
     virtual void insertFromMimeData(const QMimeData *source);
 
 signals:
-    void symbolReady(Symbol symbol);
-    void symbolDeleted(QByteArray symId);
 
+    void symbolReady(Symbol &rsymbol);
+
+    void symbolDeleted(QByteArray symId);
 
 
 private:

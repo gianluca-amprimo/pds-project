@@ -168,6 +168,8 @@ void Server::processUserRequest() {
         opResult = Server::receiveSymbol(jSobject, active_socket);
     if (header == "delSymbol")
         opResult = Server::deleteSymbol(jSobject, active_socket);
+    if (header == "sessionlogout")
+        opResult = Server::closeFile(jSobject, active_socket);
 
     qDebug() << opResult;
 }
@@ -677,7 +679,6 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     if(active_sessions.contains(filename)){
         Session *session = active_sessions.value(filename);
         if(idleConnectedUsers.contains(*u)){
-
             qDebug() << "User" << u->getUsername() << "is connected, can proceed";
             editorId = session->getEditorPrefix() + QString(session->getEditorCounter());
             u->setEditorId(editorId);
@@ -744,6 +745,58 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
     return true;
 }
+
+// function to remove a user from the session
+// close the session in case is the last user
+bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
+    QString filename = data["filename"].toString();
+    QString editorId = data["editorId"].toString();
+
+    // extract user from map user tcp connections
+    QString username;
+    for (User us: idleConnectedUsers.keys()){
+        if (idleConnectedUsers[us] == active_socket)
+            username = us.getUsername();
+    }
+    User *u = new User(username);
+    qDebug() << "Closing file with " << u->getUsername();
+
+    // check in case someone is sending a bad request
+    // session doesn't exist, simply do nothing
+    if(active_sessions.contains(filename)){ // the session exists
+        Session *session = active_sessions.value(filename);
+        if(idleConnectedUsers.contains(*u)){
+            qDebug() << "User " << u->getUsername() << "is connected, can proceed";
+            qDebug() << "session has " << session->getEditorCounter() << " users connected";
+            session->removeUserFromSession(u);
+            qDebug() << "session now has " << session->getEditorCounter() << " users connected";
+        }
+        printConsole("Removing from session user: " + u->getUsername() + " and editorId = " + editorId);
+
+        // TODO: if editorCounter == 0 destroy the session
+    }
+    else{
+        // session doesn't exist, display error message and nothing else
+        if(idleConnectedUsers.contains(*u)){
+            qDebug() << "User is connected, can proceed";
+            qDebug() << "The session doesn't exist, something went wrong";
+        }
+
+        printConsole("Sending error message to the client");
+        // TODO: send error message to the client
+
+        return false;
+    }
+
+    // send message to client
+    QJsonObject message;
+    message["header"] = "closefile";
+    message["body"] = "okfileclosed";
+    sendMessage(message, active_socket);
+    printConsole("Client disconnected form session file:" + filename + "</i> for user <i>" + username + "</i>");
+    return true;
+}
+
 
 bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
     auto filename = data["filename"].toString();

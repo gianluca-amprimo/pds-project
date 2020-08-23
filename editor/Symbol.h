@@ -24,11 +24,8 @@ public:
 
     const QTextCharFormat &getCharFormat() const;
     const QString &getIdentifier() const;
-
     const QChar &getCharacter() const;
-
     const FracPosition getPosition() const;
-
     void setCharacter(QChar character);
 
     QDataStream& serialize(QDataStream& out) const;

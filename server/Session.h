@@ -31,13 +31,9 @@ private:
 public:
     QMap<QString, User*> connectedEditors; // per adesso io terrei semplicemente il socket del client
 
-
     int getEditorCounter() const;
-
     void setEditorCounter(int editorCounter);
-
     const QString &getEditorPrefix() const;
-
     void setEditorPrefix(const QString &editorPrefix);
 
 public:
@@ -45,6 +41,7 @@ public:
     const QString &getFilename() const;
     void setFilename(const QString &filename);
     void addUserToSession(User *u);
+    void removeUserFromSession(User *u);
     void addSymbol(Symbol& sym);
     void removeSymbol(QString id);
 

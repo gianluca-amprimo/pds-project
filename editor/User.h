@@ -17,19 +17,12 @@ public:
     virtual ~User();
 
     bool operator==(const User &rhs) const;
-
     bool operator!=(const User &rhs) const;
-
     bool operator<(const User &rhs) const;
-
     bool operator>(const User &rhs) const;
-
     bool operator<=(const User &rhs) const;
-
     bool operator>=(const User &rhs) const;
-
     const QPixmap &getPropic() const;
-
     const QString &getUsername() const;
 
 private:
@@ -44,13 +37,9 @@ private:
     QString surname;
 public:
     const QString &getName() const;
-
     void setName(const QString &name);
-
     const QString &getSurname() const;
-
     void setSurname(const QString &surname);
-
     QColor getColor();
 
 };

@@ -36,6 +36,9 @@ public:
     MyTextArea& operator=(const MyTextArea& other);
     QDataStream& serialize(QDataStream& out) const;
     QDataStream& deserialize(QDataStream& in);
+
+    const QMap<FracPosition, Symbol> &getSymbols() const;
+
     friend QDataStream& operator<<(QDataStream& out, MyTextArea const& mta) {
         return mta.serialize(out);
     }
@@ -57,9 +60,6 @@ public slots:
 signals:
     void symbolReady(QByteArray symbol);
 
-    const QMap<FracPosition, Symbol> &getSymbols() const;
-
-
 private:
     QString thisEditorIdentifier = "AAAA";
     int charCounter;
@@ -70,7 +70,6 @@ private:
     bool selectionMode = false;
     bool pasting = false;
     int anchor;
-
 
 };
 

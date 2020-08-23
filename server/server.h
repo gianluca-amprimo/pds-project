@@ -39,6 +39,7 @@ private slots:
 	bool refreshFileList(QJsonObject &, QTcpSocket *);
 	bool createFile(QJsonObject &data, QTcpSocket *active_socket);
 	bool openFile(QJsonObject &data, QTcpSocket *active_socket);
+    bool closeFile(QJsonObject &data, QTcpSocket *active_socket);
     bool saveFile(QJsonObject &data, QTcpSocket *active_socket);
     bool receiveSymbol(QJsonObject &data, QTcpSocket *active_socket);
     bool deleteSymbol(QJsonObject &data, QTcpSocket *active_socket);
@@ -54,7 +55,6 @@ private:
     QMap<User, QTcpSocket*> idleConnectedUsers; // map utente-socket a lui associati (se runna due volte il cliente sono più di uno)
     //std::map<QString, QList<User>> openFiles; // lista di file aperti e chi ci sta lavorando
     QMap<User, QString> userColorMap; // map to associate a color to a user
-
     QMap<QString, Session*> active_sessions; // questa dovrebbe contenere tutte le associazioni necessarie
 
     void printConsole(QString msg, bool err = false); // function to print on the console of the server

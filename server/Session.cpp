@@ -12,7 +12,6 @@ Session::Session(const QString &filename) : filename(filename) {
     ds << filename;
     md5.addData(filenameBytes);
 
-
     editorPrefix = md5.result().toHex();
     editorCounter = 0;
 }
@@ -56,6 +55,12 @@ void Session::setEditorPrefix(const QString &editorPrefix) {
 void Session::addUserToSession(User *u) {
     this->connectedEditors.insert(u->getEditorId(), u);
     this->editorCounter++;
+}
+
+// removing user from session
+void Session::removeUserFromSession(User *u) {
+    this->connectedEditors.remove(u->getEditorId());
+    this->editorCounter--;
 }
 
 const QHash<QString, Symbol> &Session::getSymbols() const {

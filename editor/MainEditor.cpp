@@ -32,6 +32,35 @@ void MainEditor::closeEvent(QCloseEvent *event) {
     auto client = qobject_cast<Client *>(this->parent());
     client->getChoiceWin()->setVisible(true);
     event->accept();
+
+    // TODO: send message for closing file and eventually close the session
+    qDebug() << "Sending message to disconnect client from session from the server.";
+    if (tcpSocket != nullptr) {
+        if (!tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        QJsonObject message;
+        message["header"] = "sessionlogout";
+        message["filename"] = this->filename;
+        message["editorId"] = this->textArea->getThisEditorIdentifier();
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!tcpSocket->write(block)) {
+            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+        }
+        tcpSocket->flush();
+    }
+    qDebug() << "Message session log out sent, waiting for reply...";
 }
 
 MainEditor::~MainEditor() {
