@@ -774,6 +774,20 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
         printConsole("Removing from session user: " + u->getUsername() + " and editorId = " + editorId);
 
         // TODO: if editorCounter == 0 destroy the session
+        // if editorCounter == 0 destroy the session
+        // remove session from map active_sessions
+        if(session->getEditorCounter() == 0){
+            qDebug() << "List of active sessions: ";
+            for(QString file: active_sessions.keys())
+                qDebug() << file;
+            qDebug() << "User " << u->getUsername() << " is the last user... Destroying the session";
+            // destroy the session
+            active_sessions.erase(active_sessions.find(filename));
+            qDebug() << "List of active sessions: ";
+            for(QString file: active_sessions.keys())
+                qDebug() << file;
+        }
+
     }
     else{
         // session doesn't exist, display error message and nothing else
