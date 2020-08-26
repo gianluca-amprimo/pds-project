@@ -797,8 +797,12 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
         }
 
         printConsole("Sending error message to the client");
-        // TODO: send error message to the client
-
+        // send error message to client
+        QJsonObject message;
+        message["header"] = "closefile";
+        message["body"] = "errorfile";
+        sendMessage(message, active_socket);
+        printConsole("Client couldn't disconnect from session file: " + filename + "</i> for user <i>" + username + "</i>");
         return false;
     }
 
@@ -807,7 +811,7 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
     message["header"] = "closefile";
     message["body"] = "okfileclosed";
     sendMessage(message, active_socket);
-    printConsole("Client disconnected form session file:" + filename + "</i> for user <i>" + username + "</i>");
+    printConsole("Client disconnected from session file: " + filename + "</i> for user <i>" + username + "</i>");
     return true;
 }
 

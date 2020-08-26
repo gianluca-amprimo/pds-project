@@ -38,9 +38,9 @@ public:
 
     const QMap<FracPosition, Symbol> &getSymbols() const;
 
-    virtual void inputMethodEvent(QInputMethodEvent *event);
+    virtual void inputMethodEvent(QInputMethodEvent *event) override;
 
-    virtual void mouseReleaseEvent(QMouseEvent *e);
+    virtual void mouseReleaseEvent(QMouseEvent *e) override;
 
     MyTextArea &operator=(const MyTextArea &other);
 
@@ -73,7 +73,7 @@ public:
 
 public slots:
 
-    virtual void insertFromMimeData(const QMimeData *source);
+    virtual void insertFromMimeData(const QMimeData *source) override;
 
 signals:
 

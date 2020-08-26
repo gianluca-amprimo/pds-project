@@ -33,7 +33,6 @@ void MainEditor::closeEvent(QCloseEvent *event) {
     client->getChoiceWin()->setVisible(true);
     event->accept();
 
-    // TODO: send message for closing file and eventually close the session
     qDebug() << "Sending message to disconnect client from session from the server.";
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {

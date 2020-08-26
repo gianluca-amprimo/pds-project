@@ -183,7 +183,6 @@ void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
     this->currentPosition = position;
 
     //QChar character = event->commitString()[0].unicode();
-
     insertSymbol(QChar(), this->currentPosition);
 }
 

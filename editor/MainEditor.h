@@ -73,7 +73,7 @@ private slots:
 
     void save();
 
-    void closeEvent(QCloseEvent *event);
+    void closeEvent(QCloseEvent *event) override;
 
     void sendSymbol(Symbol &symbol);
 
