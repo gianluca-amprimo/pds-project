@@ -53,8 +53,11 @@ private:
 
     // variables for handling the users
     QMap<User, QTcpSocket*> idleConnectedUsers; // map utente-socket a lui associati (se runna due volte il cliente sono più di uno)
-    //std::map<QString, QList<User>> openFiles; // lista di file aperti e chi ci sta lavorando
-    QMap<User, QString> userColorMap; // map to associate a color to a user
+
+    // std::map<QString, QList<User>> openFiles; // lista di file aperti e chi ci sta lavorando
+    // this map has been moved to the session object
+    // QMap<User, QString> userColorMap; // map to associate a color to a user
+
     QMap<QString, Session*> active_sessions; // questa dovrebbe contenere tutte le associazioni necessarie
 
     void printConsole(QString msg, bool err = false); // function to print on the console of the server
@@ -63,6 +66,8 @@ private:
     QPixmap pixmapFrom(const QJsonValue &val);
     bool checkPasswordFormat(QString password);
     void sendMessage(QJsonObject message, QTcpSocket*);
+
+    QColor generateColor(); // function to generate a random color for a user
 };
 
 #endif

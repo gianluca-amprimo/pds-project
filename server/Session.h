@@ -36,6 +36,9 @@ public:
     const QString &getEditorPrefix() const;
     void setEditorPrefix(const QString &editorPrefix);
 
+    // mappa nome utente - colore_posizione
+    QMap<QString, QString> userMap;
+
 public:
     Session(const QString &filename);
     const QString &getFilename() const;

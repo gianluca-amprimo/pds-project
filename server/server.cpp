@@ -267,7 +267,7 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     // load data in the DB and create the associated user if insertion works
     QString registrationResult;
-//    if(checkPasswordFormat(password)){
+    //    if(checkPasswordFormat(password)){
         int queryResult = addUser(username.toStdString(), password.toStdString(), name.toStdString(), surname.toStdString());
         if (queryResult == 1) {
             registrationResult = "ok";
@@ -281,11 +281,6 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
             QFile file(picturePath + username + ".png");
             file.open(QIODevice::WriteOnly);
             propic.save(&file, "png", 100);
-
-            // assegna colore random allo user
-            std::random_device rd;
-            QString userColor = colors[rd() % 7];
-            userColorMap.insert(u, userColor);
         }
         if (queryResult == -1)
             registrationResult = "fail";
@@ -440,12 +435,8 @@ void Server::handleDisconnect() {
         i.next();
         if(i.value() == disconnected_socket){
             idleConnectedUsers.remove(i.key());
-            userColorMap.remove(i.key());
         }
         user_list += i.key().getUsername() + " "; }
-
-
-
 
     //for (QPair<User, QList<QTcpSocket *>> element : idleConnectedUsers) {
     //    User u = element.first;     // Accessing KEY from element
@@ -684,9 +675,18 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             u->setEditorId(editorId);
             session->addUserToSession(u);
             qDebug() << "session has " << session->getEditorCounter() << " users connected";
-        }
-        printConsole("Adding to session new user: " + u->getUsername() + " and editorId = " + editorId);
 
+            // choose a color for the user
+            QColor color = generateColor();
+            // TODO: for now initial position will be 0
+            //  check if correct, later will be updated
+            //  if the user moves the cursor
+            int position = 0;
+            QString color_pos = color.name() + "_" + position;
+            session->userMap.insert(u->getUsername(),color_pos);
+        }
+
+        printConsole("Adding to session new user: " + u->getUsername() + " and editorId = " + editorId);
     }
     else{
         // session doesn't exist, create it and put first user
@@ -697,6 +697,15 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             u->setEditorId(editorId);
             fileSession->addUserToSession(u);
             qDebug() << "Now there are " << fileSession->getEditorCounter() << " users connected";
+
+            // choose a color for the user
+            QColor color = generateColor();
+            // TODO: for now initial position will be 0
+            //  check if correct, later will be updated
+            //  if the user moves the cursor
+            int position = 0;
+            QString color_pos = color.name() + "_" + position;
+            session->userMap.insert(u->getUsername(),color_pos);
         }
 
         printConsole("Creating new session with new user: " + u->getUsername() + " and editorId = " + editorId);
@@ -770,6 +779,9 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
             qDebug() << "session has " << session->getEditorCounter() << " users connected";
             session->removeUserFromSession(u);
             qDebug() << "session now has " << session->getEditorCounter() << " users connected";
+
+            // remove user from userMap
+            session->userMap.erase(session->userMap.find(u->getUsername()));
         }
         printConsole("Removing from session user: " + u->getUsername() + " and editorId = " + editorId);
 
@@ -914,4 +926,15 @@ bool Server::deleteSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     session->removeSymbol(symId);
 
     return true;
+}
+
+QColor Server::generateColor(){
+    std::random_device rd;
+
+    int r = rd() % 256; // generate a random number between 0 and 255 for red
+    int g = rd() % 256; // generate a random number between 0 and 255 for green
+    int b = rd() % 256; // generate a random number between 0 and 255 for blue
+
+    QColor color = QColor(r, g, b);
+    return color;
 }
