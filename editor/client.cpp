@@ -369,7 +369,6 @@ void Client::sessionOpened()
 }
 
 void Client::sendCredentials() {
-
      uiLog->LoginButton->setEnabled(false);
      uiLog->UsernameEdit->setReadOnly(true);
      uiLog->PasswordEdit->setReadOnly(true);
@@ -565,6 +564,7 @@ void Client::requestRegistration() {
 	    QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
 	    regStatusBar->showMessage(tr("Could not send message."), 3000);
     }
+    this->loggedUsername = uiReg->UsernameEdit->text();
     tcpSocket->flush();
 }
 

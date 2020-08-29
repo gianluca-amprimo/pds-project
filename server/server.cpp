@@ -12,8 +12,7 @@
 #include "db_operations.h"
 
 static QString picturePath("../Pictures/");
-std::array<QString, 10> colors{"white", "red", "green", "blue",
-                                   "cyan", "magenta", "yellow", "gray"};
+
 /*
  * Constructor of the server
  */
@@ -212,7 +211,6 @@ void Server::printConsole(QString msg, bool err) {
  * Function to check the user credentials and if they are log the user
  */
 bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
-
     // divide the string username_password in two separate string
     QString username = data["username"].toString();
     QString password = data["password"].toString();
