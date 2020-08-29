@@ -683,6 +683,7 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             //  if the user moves the cursor
             int position = 0;
             QString color_pos = color.name() + "_" + position;
+            qDebug() << "Color associated to user " << u->getUsername() << " is: " << color.name();
             session->userMap.insert(u->getUsername(),color_pos);
         }
 
@@ -705,7 +706,8 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             //  if the user moves the cursor
             int position = 0;
             QString color_pos = color.name() + "_" + position;
-            session->userMap.insert(u->getUsername(),color_pos);
+            qDebug() << "Color associated to user " << u->getUsername() << " is: " << color.name();
+            fileSession->userMap.insert(u->getUsername(),color_pos);
         }
 
         printConsole("Creating new session with new user: " + u->getUsername() + " and editorId = " + editorId);

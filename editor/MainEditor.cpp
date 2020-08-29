@@ -264,7 +264,6 @@ void MainEditor::sendSymbol(Symbol& symbol) {
         message["header"] = "symbol";
         message["filename"] = this->filename;
         message["editorId"] = this->textArea->getThisEditorIdentifier();
-
         message["content"] = QLatin1String(serializedSym.toBase64());
 
         // send the JSON using QDataStream

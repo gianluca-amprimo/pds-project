@@ -220,12 +220,14 @@ FracPosition::FracPosition(const QString &fp) {
 QDataStream &FracPosition::serialize(QDataStream &out) const {
     out << position;
     out << stringPosition;
+    return out;
 }
 
 
 QDataStream &FracPosition::deserialize(QDataStream &in) {
     in >> position;
     in >> stringPosition;
+    return in;
 }
 
 
