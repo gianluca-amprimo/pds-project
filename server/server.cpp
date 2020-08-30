@@ -656,6 +656,22 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString();
     QString username = data["username"].toString();
     QString editorId;
+    QJsonObject message;
+    message["header"] = "openfile";
+
+    int result = checkIfFileExists(filename.toStdString());
+    if (result == -1) {
+        message["body"] = "internal_error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
+        return false;
+    }
+    if (result == 0) {
+        message["body"] = "not_existing_file";
+        sendMessage(message, active_socket);
+        printConsole("<i>" + username + "</i> has tried to open file <i>" + filename + "</i>, but it doesn't exist", true);
+        return false;
+    }
 
     User *u = new User(username);
     qDebug() << "Opening file with" << u->getUsername();
@@ -686,10 +702,21 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
         }
 
         printConsole("Adding to session new user: " + u->getUsername() + " and editorId = " + editorId);
-    }
-    else{
+
+        QByteArray byteArrayBuffer;
+        QDataStream outStream(&byteArrayBuffer, QIODevice::ReadWrite);
+        outStream << session->getSymbols().values();
+
+        message["editorId"] = editorId;
+        message["body"] = "existing_session";
+        message["filename"] = data["filename"];
+        message["content"] = QLatin1String(byteArrayBuffer.toBase64());
+        sendMessage(message, active_socket);
+        printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
+        return true;
+    } else {
         // session doesn't exist, create it and put first user
-        Session *fileSession = new Session(filename);
+        auto *fileSession = new Session(filename);
         if(idleConnectedUsers.contains(*u)){
             qDebug() << "User is connected, can proceed";
             editorId = fileSession->getEditorPrefix() + QString(fileSession->getEditorCounter());
@@ -711,48 +738,34 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
         printConsole("Creating new session with new user: " + u->getUsername() + " and editorId = " + editorId);
         // register new session in the server
         active_sessions.insert(filename, fileSession);
-    }
 
-    QJsonObject message;
+        QFile fi((QString::fromStdString(fs_root) + filename));
+        fi.open(QIODevice::ReadOnly);
+        QByteArray byteArrayBuffer;
+        QDataStream stream(&byteArrayBuffer, QIODevice::ReadOnly);
+        if(fi.isOpen()){
+            byteArrayBuffer = fi.readAll();
+            fi.close();
+        } else {
+            message["body"] = "internal_error";
+            sendMessage(message, active_socket);
+            printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
+            return false;
+        }
 
-    int result = checkIfFileExists(filename.toStdString());
-    if (result == -1) {
-        message["header"] = "openfile";
-        message["body"] = "internal_error";
+        QList<Symbol> listOfSymbols;
+        stream >> listOfSymbols;
+        for(auto& sym: listOfSymbols)
+            fileSession->addSymbol(sym);
+
+        message["editorId"] = editorId;
+        message["body"] = "new_session";
+        message["filename"] = data["filename"];
+        message["content"] = QLatin1String(byteArrayBuffer.toBase64());
         sendMessage(message, active_socket);
-        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
-        return false;
+        printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
+        return true;
     }
-    if (result == 0) {
-        message["header"] = "openfile";
-        message["body"] = "not_existing_file";
-        sendMessage(message, active_socket);
-        printConsole("<i>" + username + "</i> has tried to open file <i>" + filename + "</i>, but it doesn't exist", true);
-        return false;
-    }
-
-    QFile fi((QString::fromStdString(fs_root) + filename));
-    fi.open(QIODevice::ReadOnly);
-    QByteArray byteArrayBuffer;
-    if(fi.isOpen()){
-        byteArrayBuffer = fi.readAll();
-        fi.close();
-    } else {
-        message["header"] = "openfile";
-        message["body"] = "internal_error";
-        sendMessage(message, active_socket);
-        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
-        return false;
-    }
-
-    message["header"] = "openfile";
-    message["editorId"] = editorId;
-    message["body"] = "ok";
-    message["filename"] = data["filename"];
-    message["content"] = QLatin1String(byteArrayBuffer.toBase64());
-    sendMessage(message, active_socket);
-    printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
-    return true;
 }
 
 // function to remove a user from the session
@@ -760,6 +773,8 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString();
     QString editorId = data["editorId"].toString();
+    QJsonObject message;
+    message["header"] = "closefile";
 
     // extract user from map user tcp connections
     QString username;
@@ -792,16 +807,51 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
             qDebug() << "List of active sessions: ";
             for(QString file: active_sessions.keys())
                 qDebug() << file;
-            qDebug() << "User " << u->getUsername() << " is the last user... Destroying the session";
+            qDebug() << "User " << u->getUsername() << " is the last user... Destroying the session and saving the file";
             // destroy the session
             active_sessions.erase(active_sessions.find(filename));
             qDebug() << "List of active sessions: ";
             for(QString file: active_sessions.keys())
                 qDebug() << file;
-        }
+            // saving the file
+            int result = checkIfFileExists(filename.toStdString());
+            if (result == -1) {
+                qDebug() << "User " << u->getUsername() << " is the last user... Destroying the session and saving the file";
+                message["body"] = "internal_error";
+                sendMessage(message, active_socket);
+                printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
+                return false;
+            }
+            if (result == 0) {
+                message["body"] = "not_existing_file";
+                sendMessage(message, active_socket);
+                printConsole("Trying to save file <i>" + filename + "</i>, but it doesn't exist anymore", true);
+                return false;
+            }
 
-    }
-    else{
+            QFile fo((QString::fromStdString(fs_root) + filename));
+            fo.open(QIODevice::WriteOnly);
+
+            QByteArray byteArrayBuffer;
+            QDataStream outStream(&byteArrayBuffer, QIODevice::ReadWrite);
+            outStream << session->getSymbols().values();
+            if(fo.isOpen()){
+                fo.write(byteArrayBuffer);
+                fo.close();
+            } else {
+                message["body"] = "internal_error";
+                sendMessage(message, active_socket);
+                printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
+                return false;
+            }
+
+            message["body"] = "ok";
+            message["filename"] = data["filename"];
+            sendMessage(message, active_socket);
+            printConsole("<i>" + filename + "</i> correctly saved");
+            return true;
+        }
+    } else {
         // session doesn't exist, display error message and nothing else
         if(idleConnectedUsers.contains(*u)){
             qDebug() << "User is connected, can proceed";
@@ -811,17 +861,15 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
         printConsole("Sending error message to the client");
         // send error message to client
         QJsonObject message;
-        message["header"] = "closefile";
-        message["body"] = "errorfile";
+        message["body"] = "error_file";
         sendMessage(message, active_socket);
         printConsole("Client couldn't disconnect from session file: " + filename + "</i> for user <i>" + username + "</i>");
         return false;
     }
 
     // send message to client
-    QJsonObject message;
-    message["header"] = "closefile";
-    message["body"] = "okfileclosed";
+
+    message["body"] = "ok";
     sendMessage(message, active_socket);
     printConsole("Client disconnected from session file: " + filename + "</i> for user <i>" + username + "</i>");
     return true;
@@ -831,6 +879,7 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
 bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
     auto filename = data["filename"].toString();
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+
     qDebug() << "Saving file with content " << content;
 
     QJsonObject message;
@@ -876,12 +925,12 @@ bool Server::receiveSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
     QString filename = data["filename"].toString().toLatin1();
     qDebug() << "filename is: " << filename;
-    QDataStream in(content);
+    QDataStream inStream(&content, QIODevice::ReadOnly);
     Symbol sym;
     Session *session = this->active_sessions.value(filename);
 
     // acquire symbol
-    in >> sym;
+    inStream >> sym;
     qDebug() << "Received symbol " <<  "\"" << sym.getCharacter() << "\"" << "from" << data["editorId"];
     session->addSymbol(sym);
     data["header"] = "addSymbol";
@@ -902,13 +951,13 @@ bool Server::deleteSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
     QString filename = data["filename"].toString().toLatin1();
     qDebug() << "filename is: " << filename;
-    QDataStream in(content);
+    QDataStream inStream(&content, QIODevice::ReadOnly);
     QString symId;
     QString symPos;
     Session *session = this->active_sessions.value(filename);
 
     // acquire symbol
-    in >> symId;
+    inStream >> symId;
     qDebug() << "Deleting Symbol " << symId;
     data["header"] = "remSymbol";
     data["id"] = data["content"];

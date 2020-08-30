@@ -91,13 +91,17 @@ void MainEditor::setupActions() {
     QObject::connect(ui->save, SIGNAL(triggered()), this, SLOT(save()));
 }
 
-void MainEditor::initUI(QDataStream *contentSteam) {
+void MainEditor::initUI(QDataStream *contentStream) {
     textArea = new MyTextArea(ui->centralwidget);
     textArea->setObjectName(QString::fromUtf8("textArea"));
     ui->gridLayout->addWidget(textArea, 1, 0, 1, 1);
 
-    *contentSteam >> *textArea;
-    for(auto sym : textArea->getSymbols()){
+    QList<Symbol> listOfSymbols;
+    *contentStream >> listOfSymbols;
+    for(const auto& sym : listOfSymbols){
+        textArea->addSymbolToList(sym);
+    }
+    for(const auto& sym : textArea->getSymbols().values()){
         textArea->setCurrentCharFormat(sym.getCharFormat());
         textArea->insertPlainText(sym.getCharacter());
     }
@@ -222,7 +226,7 @@ void MainEditor::save() {
 
         QByteArray byteArrayBuffer;
         QDataStream outFileStream(&byteArrayBuffer, QIODevice::WriteOnly);
-        outFileStream << *this->textArea;
+        outFileStream << this->textArea->getSymbols().values();
         message["content"] = QLatin1String(byteArrayBuffer.toBase64());
 
         // send the JSON using QDataStream
@@ -278,19 +282,6 @@ void MainEditor::sendSymbol(Symbol& symbol) {
 
 }
 
-void MainEditor::receiveSymbol(QJsonValueRef content) {
-
-    auto data = QByteArray::fromBase64(content.toString().toLatin1());
-    QDataStream in(data);
-    Symbol sym;
-
-    in >> sym;
-    this->textArea->addSymbolToList(sym);
-    QTextCursor cur = this->textArea->textCursor();
-    cur.setPosition(this->textArea->getEditorPosition(sym.getPosition()));
-    cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
-}
-
 void MainEditor::sendDeletion(QByteArray serializedSymId) {
     if (this->tcpSocket != nullptr) {
         if (!this->tcpSocket->isValid()) {
@@ -310,7 +301,6 @@ void MainEditor::sendDeletion(QByteArray serializedSymId) {
         message["header"] = "delSymbol";
         message["filename"] = this->filename;
         message["editorId"] = this->textArea->getThisEditorIdentifier();
-
         message["content"] = QLatin1String(serializedSymId.toBase64());
 
         // send the JSON using QDataStream
@@ -324,18 +314,30 @@ void MainEditor::sendDeletion(QByteArray serializedSymId) {
     }
 }
 
+void MainEditor::receiveSymbol(QJsonValueRef content) {
+    auto data = QByteArray::fromBase64(content.toString().toLatin1());
+    QDataStream inStream(&data, QIODevice::ReadOnly);
+    Symbol sym;
+
+    inStream >> sym;
+    this->textArea->addSymbolToList(sym);
+
+}
+
 void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
     auto symId = QByteArray::fromBase64(id.toString().toLatin1());
     auto symPos = position.toString();
-    QDataStream idStream(symId);
+    QDataStream idStream(&symId, QIODevice::ReadOnly);
     QString idString;
-
 
     idStream >> idString;
     qDebug() << "Received the deletion of char" << idString << "at position" << symPos;
     this->textArea->removeSymbolFromList(idString, symPos);
-
 }
+
+
+
+
 
 
 
