@@ -319,7 +319,7 @@ void MainEditor::sendDeletion(QByteArray serializedSymId) {
         if (!this->tcpSocket->write(block)) {
             ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
         }
-        this->tcpSocket->flush();
+        //this->tcpSocket->flush();
         qDebug() << "Sending deletion of" << message["content"];
     }
 }

@@ -66,39 +66,39 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
 }
 
 void MyTextArea::deleteSymbol() {
-    for(int i = 1; i <= this->oldPosition-this->currentPosition; i++){
-        QString symId = this->_symbols[this->_symbols.keys().at(this->oldPosition-i)].getIdentifier();
+    //Get symbols in the range
+    QVector<Symbol> syms = getSymbolInRange(this->oldPosition, this->currentPosition);
+    for(Symbol sym : syms){
+        // obtain information about the symbol and perform consequent actions
+        QString symId = sym.getIdentifier();
+        FracPosition pos = sym.getPosition();
         QByteArray serializedSymID;
         QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
 
         symbolStream << symId;
+        // remove the symbol from the queue
+        this->_symbols.remove(pos);
+        // send symbol id to delete
         emit symbolDeleted(serializedSymID);
-
         qDebug() << "Character deleted" ;
-        this->_symbols.erase(this->_symbols.begin()+this->oldPosition-i);
     }
 }
 
 void MyTextArea::deleteSelection() {
     qDebug() << "selection anchor " << this->anchor ;
     qDebug() << "selection position " << this->oldPosition ;
-    if(this->anchor > this->oldPosition){
-        for(int i = 1; i <= this->anchor-this->oldPosition; i++){
-            qDebug() << "Character deleted" ;
-            QString symId = this->_symbols[this->_symbols.keys().at(this->oldPosition-i)].getIdentifier();
-            QByteArray serializedSymID;
-            QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
 
-            symbolStream << symId;
-            emit symbolDeleted(serializedSymID);
-            this->_symbols.erase(this->_symbols.begin()+this->anchor-i);
-        }
-    }else{
-        for(int i = 1; i <= this->oldPosition-this->anchor; i++){
-            qDebug() << "Character deleted" ;
-            this->_symbols.erase(this->_symbols.begin()+this->oldPosition-i);
+    QVector<Symbol> syms = getSymbolInRange(this->anchor, this->oldPosition);
 
-        }
+    for(Symbol sym : syms){
+        QString symId = sym.getIdentifier();
+        FracPosition pos = sym.getPosition();
+        QByteArray serializedSymID;
+        QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
+
+        symbolStream << symId;
+        emit symbolDeleted(serializedSymID);
+        this->_symbols.remove(pos);
     }
 }
 
@@ -184,6 +184,16 @@ void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
 
     //QChar character = event->commitString()[0].unicode();
     insertSymbol(QChar(), this->currentPosition);
+}
+
+/* this function should help in retrieving symbols
+ * based on the cursor position in the editor
+ */
+const Symbol& MyTextArea::getSymbolFromPosition(int position) {
+    /* si prende sempre il simbolo che sta dietro al cursore
+     * quindi se la posizione passata è 1, si prende il primo simbolo
+     */
+    return this->_symbols[this->_symbols.keys().at(position-1)];
 }
 
 void MyTextArea::insertFromMimeData(const QMimeData *source) {
@@ -281,6 +291,19 @@ void MyTextArea::removeSymbolFromList(QString& symId, QString& fp) {
     if(this->_symbols.value(fracPos).getIdentifier() == symId){
         this->_symbols.remove(fracPos);
     }
+}
+
+QVector<Symbol> MyTextArea::getSymbolInRange(int end1, int end2) {
+    QVector<Symbol> symbolsInRange;
+
+    if(end1 > end2){
+        for(int i = end2+1; i <= end1; i++)
+            symbolsInRange.push_back(getSymbolFromPosition(i));
+    }else if(end2 > end1){
+        for(int i = end1+1; i <= end2; i++)
+            symbolsInRange.push_back(getSymbolFromPosition(i));
+    }
+    return symbolsInRange;
 }
 
 

@@ -54,6 +54,9 @@ public:
 
     int getEditorPosition(const FracPosition &fp);
 
+    const Symbol &getSymbolFromPosition(int position);
+    QVector<Symbol> getSymbolInRange(int end1, int end2);
+
     friend QDataStream &operator<<(QDataStream &out, MyTextArea const &mta) {
         return mta.serialize(out);
     }
