@@ -32,9 +32,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="Sistemato tutto e risolto la guerra e la fame nel mondo">
+      <change afterPath="$PROJECT_DIR$/../server/Pictures/bere.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FracPosition.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/FracPosition.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTextArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MyTextArea.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTextArea.h" beforeDir="false" afterPath="$PROJECT_DIR$/MyTextArea.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/FracPosition.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/FracPosition.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/MyTextArea.cpp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/MyTextArea.h" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/db_operations.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/db_operations.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/1" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/2" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/boh" beforeDir="false" afterPath="$PROJECT_DIR$/../server/files/g" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/fileNuovo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/myfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/nuovoFile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/prova" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/speriamo" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -146,7 +166,7 @@
       <workItem from="1597567022118" duration="8111000" />
       <workItem from="1597595397463" duration="4380000" />
       <workItem from="1597934980844" duration="6000" />
-      <workItem from="1598780698851" duration="6083000" />
+      <workItem from="1598780698851" duration="8834000" />
     </task>
     <task id="LOCAL-00001" summary="Inserita azione salva come nel menu">
       <created>1586083395586</created>
@@ -211,25 +231,25 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1597576894853" />
-    <state width="744" height="941" key="GridCell.Tab.0.bottom" timestamp="1598807498885">
+    <state width="1866" height="291" key="GridCell.Tab.0.bottom" timestamp="1598813406325">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="744" height="941" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1598807498885" />
+    <state width="1866" height="291" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1598813406325" />
     <state width="1866" height="290" key="GridCell.Tab.0.bottom/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="744" height="941" key="GridCell.Tab.0.center" timestamp="1598807498881">
+    <state width="1866" height="291" key="GridCell.Tab.0.center" timestamp="1598813406318">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="744" height="941" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1598807498881" />
+    <state width="1866" height="291" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1598813406318" />
     <state width="1866" height="290" key="GridCell.Tab.0.center/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="744" height="941" key="GridCell.Tab.0.left" timestamp="1598807498878">
+    <state width="1866" height="291" key="GridCell.Tab.0.left" timestamp="1598813406317">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="744" height="941" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1598807498878" />
+    <state width="1866" height="291" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1598813406317" />
     <state width="1866" height="290" key="GridCell.Tab.0.left/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="744" height="941" key="GridCell.Tab.0.right" timestamp="1598807498882">
+    <state width="1866" height="291" key="GridCell.Tab.0.right" timestamp="1598813406324">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="744" height="941" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1598807498882" />
+    <state width="1866" height="291" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1598813406324" />
     <state width="1866" height="290" key="GridCell.Tab.0.right/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
     <state width="744" height="941" key="GridCell.Tab.1.bottom" timestamp="1598807498897">
       <screen x="0" y="32" width="1920" height="1048" />

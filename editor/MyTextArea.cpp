@@ -172,7 +172,6 @@ void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
 
 
     // signal will be caught by MainEditor which will wrap the symbol in a JSON message
-
     emit symbolReady(symbol);
 }
 
@@ -230,32 +229,6 @@ void MyTextArea::mouseReleaseEvent(QMouseEvent *e) {
     }
 }
 
-QDataStream &MyTextArea::serialize(QDataStream &out) const {
-    out << thisEditorIdentifier;
-    out << charCounter;
-    out << _symbols;
-    out << currentPosition;
-    out << oldPosition;
-    out << lastPosition;
-    out << selectionMode;
-    out << pasting;
-    out << anchor;
-    return out;
-}
-
-QDataStream &MyTextArea::deserialize(QDataStream &in) {
-    in >> thisEditorIdentifier;
-    in >> charCounter;
-    in >> _symbols;
-    in >> currentPosition;
-    in >> oldPosition;
-    in >> lastPosition;
-    in >> selectionMode;
-    in >> pasting;
-    in >> anchor;
-    return in;
-}
-
 MyTextArea &MyTextArea::operator=(const MyTextArea &other) {
     if (this != &other) { // protect against invalid self-assignment
         this->charCounter = other.charCounter;
@@ -276,6 +249,9 @@ const QMap<FracPosition, Symbol> &MyTextArea::getSymbols() const {
 
 void MyTextArea::addSymbolToList(Symbol sym) {
     this->_symbols.insert(sym.getPosition(), sym);
+    QTextCursor cur = this->textCursor();
+    cur.setPosition(this->getEditorPosition(sym.getPosition()));
+    cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
 }
 
 int MyTextArea::getEditorPosition(const FracPosition& fp) {

@@ -44,10 +44,6 @@ public:
 
     MyTextArea &operator=(const MyTextArea &other);
 
-    QDataStream &serialize(QDataStream &out) const;
-
-    QDataStream &deserialize(QDataStream &in);
-
     void addSymbolToList(Symbol sym);
 
     void removeSymbolFromList(QString &symId, QString &fp);
@@ -56,22 +52,6 @@ public:
 
     const Symbol &getSymbolFromPosition(int position);
     QVector<Symbol> getSymbolInRange(int end1, int end2);
-
-    friend QDataStream &operator<<(QDataStream &out, MyTextArea const &mta) {
-        return mta.serialize(out);
-    }
-
-    friend QDataStream &operator>>(QDataStream &in, MyTextArea &mta) {
-        return mta.deserialize(in);
-    }
-
-    friend std::ostream &operator<<(std::ostream &out, MyTextArea &mta) {
-        // print something from v to str, e.g: Str << v.getX();
-        for (Symbol sym : mta._symbols) {
-            out << sym.getCharacter().toLatin1();
-        }
-        return out;
-    }
 
 
 public slots:
@@ -95,8 +75,6 @@ private:
     bool selectionMode = false;
     bool pasting = false;
     int anchor;
-
-
 };
 
 

@@ -144,7 +144,7 @@ FracPosition FracPosition::operator+(const QString &fp) {
 }
 
 bool FracPosition::operator<(const FracPosition &fp) const {
-    for (int i = 0; i < this->position.size(); i++) {
+    for (int i = 0; i < std::min(this->position.size(), fp.position.size()); i++) {
         if (this->position[i] > fp.position[i]) {
             return false;
         } else if (this->position[i] < fp.position[i]) {
@@ -156,7 +156,7 @@ bool FracPosition::operator<(const FracPosition &fp) const {
 }
 
 bool FracPosition::operator>(const FracPosition &fp) const {
-    for (int i = 0; i < this->position.size(); i++) {
+    for (int i = 0; i < std::min(this->position.size(), fp.position.size()); i++) {
         if (this->position[i] < fp.position[i]) {
             return false;
         } else if (this->position[i] > fp.position[i]) {
@@ -168,7 +168,7 @@ bool FracPosition::operator>(const FracPosition &fp) const {
 }
 
 bool FracPosition::operator>=(const FracPosition &fp) const {
-    for (int i = 0; i < this->position.size(); i++) {
+    for (int i = 0; i < std::min(this->position.size(), fp.position.size()); i++) {
         if (this->position[i] < fp.position[i]) {
             return false;
         } else if (this->position[i] > fp.position[i]) {
@@ -181,7 +181,7 @@ bool FracPosition::operator>=(const FracPosition &fp) const {
 }
 
 bool FracPosition::operator<=(const FracPosition &fp) const {
-    for (int i = 0; i < this->position.size(); i++) {
+    for (int i = 0; i < std::min(this->position.size(), fp.position.size()); i++) {
         if (this->position[i] > fp.position[i]) {
             return false;
         } else if (this->position[i] < fp.position[i]) {
