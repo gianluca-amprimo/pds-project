@@ -223,7 +223,15 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
         int queryResult = checkCredentials(username.toStdString(), password.toStdString());
         if (queryResult == 1) {
             loginResult = "ok";
-            if(!idleConnectedUsers.contains(u)){
+
+            for (User us: idleConnectedUsers.keys()){
+                if (us.getUsername() == u.getUsername()){
+                    loginResult = "fail";
+                    printConsole((QString &&) ("User is already logged on another terminal"));
+                }
+            }
+
+            if(loginResult == "ok"){
                idleConnectedUsers.insert(u, active_socket);
             }
         } else if (queryResult == 0)
