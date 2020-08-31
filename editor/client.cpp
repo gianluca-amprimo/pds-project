@@ -276,18 +276,18 @@ void Client::readResponse()
         }
 	}
     if(header=="openfile") {
-        if (result == "ok") {
-            //salva file mandato dal client per prova
+        if (result == "new_session" || result == "existing_session") {
             auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
             QDataStream contentStream(content);
 
             auto filename = jSobject["filename"].toString();
             qDebug() << filename;
 
-            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename, this->tcpSocket, &contentStream);
+            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename, this->tcpSocket,
+                                              &contentStream);
             mainEditor->show();
             ChoiceWin->setVisible(false);
-        } if (result == "internal_error") {
+        } else if (result == "internal_error") {
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("Internal server error while opening the file.\nTry again later."));
         } else if(result == "not_existing_file") {
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("The file doesn't exist anymore.\nTry to update the list of files."));

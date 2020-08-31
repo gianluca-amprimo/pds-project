@@ -45,7 +45,7 @@ private:
     MyTextArea *textArea;
     int position;
 
-    void initUI(QDataStream *mta);
+    void initUI(QDataStream *contentStream);
 
     void setupActions();
 
