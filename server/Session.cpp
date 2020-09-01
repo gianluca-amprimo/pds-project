@@ -52,14 +52,14 @@ void Session::setEditorPrefix(const QString &editorPrefix) {
     Session::editorPrefix = editorPrefix;
 }
 
-void Session::addUserToSession(User *u) {
-    this->connectedEditors.insert(u->getEditorId(), u);
+void Session::addUserToSession(QString username, QString editorId) {
+    this->userEditorId.insert(username, editorId);
     this->editorCounter++;
 }
 
 // removing user from session
-void Session::removeUserFromSession(User *u) {
-    this->connectedEditors.remove(u->getEditorId());
+void Session::removeUserFromSession(QString username) {
+    this->userEditorId.remove(username);
     this->editorCounter--;
 }
 

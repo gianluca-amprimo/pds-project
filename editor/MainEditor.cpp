@@ -331,7 +331,7 @@ void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
     QString idString;
 
     idStream >> idString;
-    qDebug() << "Received the deletion of char" << idString << "at position" << symPos;
+    qDebug() << "Received the deletion of char:f" << idString << " at position:" << symPos;
     this->textArea->removeSymbolFromList(idString, symPos);
 }
 

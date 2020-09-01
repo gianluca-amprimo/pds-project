@@ -35,8 +35,6 @@ add_executable(server
         server.ui
         db_operations.cpp
         db_operations.h
-        User.cpp
-        User.h
         Symbol.cpp
         Symbol.h
         Session.cpp Session.h FracPosition.cpp FracPosition.h)
