@@ -48,6 +48,9 @@ private slots:
     bool receiveSymbol(QJsonObject &data, QTcpSocket *active_socket);
     bool deleteSymbol(QJsonObject &data, QTcpSocket *active_socket);
 
+    void sendColors(QString filename);
+    bool updatePosition(QJsonObject &jSobject, QTcpSocket *active_socket);
+
 private:
     Ui::Server *ui;
     QTcpServer *tcpServer = nullptr;
@@ -57,6 +60,7 @@ private:
     // variables for handling the users
     QMap<QString, QTcpSocket*> idleConnectedUsers;      // utente -> socket
     QMap<QString, Session*> active_sessions;            // filename -> sessione
+    QMap<QString, QTimer*> timers;                      // filename -> timers
 
     QJsonObject prepareJsonReply(QString header, QString result, QString username, bool propic=false, bool filelist=false, bool personal_info=false);
     QJsonValue jsonValFromPixmap(const QPixmap &p);

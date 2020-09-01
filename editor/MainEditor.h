@@ -23,21 +23,23 @@ class MainEditor : public QMainWindow {
 Q_OBJECT
 public:
     explicit MainEditor(QWidget *parent = nullptr, QString editorIdentifier = "", QString filename = "",
-                        QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
+                        QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr, QString username = "");
 
     ~MainEditor() override;
 
     Ui::MainEditor *getUi();
 
     void receiveSymbol(QJsonValueRef content);
-
     void receiveDeletion(QJsonValueRef id, QJsonValueRef position);
+
+    void colors(QString username, QString color, QString postion);
 
 private:
     QString thisEditorIdentifier;
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
     QString filename;
+    QString username;
     QTcpSocket *tcpSocket;
 
     QFontComboBox *fontSelector;
@@ -45,12 +47,13 @@ private:
     MyTextArea *textArea;
     int position;
 
+    QTimer* timer;
+
     void initUI(QDataStream *contentStream);
 
     void setupActions();
 
 private slots:
-
     void Bold();
     void Italic();
     void Underline();
@@ -70,6 +73,8 @@ private slots:
 
     void sendSymbol(Symbol &symbol);
     void sendDeletion(QByteArray serializedSymId);
+
+    void sendPosition();
 };
 
 

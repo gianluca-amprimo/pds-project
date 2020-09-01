@@ -285,8 +285,8 @@ void Client::readResponse()
             auto filename = jSobject["filename"].toString();
             qDebug() << filename;
 
-            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename, this->tcpSocket,
-                                              &contentStream);
+            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename,
+                                              this->tcpSocket, &contentStream, loggedUsername);
             mainEditor->show();
             ChoiceWin->setVisible(false);
         } else if (result == "internal_error") {
@@ -312,6 +312,10 @@ void Client::readResponse()
 
     if(header=="remSymbol") {
         this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"]);
+    }
+
+    if(header=="colors") {
+        this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString(), jSobject["postion"].toString());
     }
 }
 

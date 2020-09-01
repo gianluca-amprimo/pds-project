@@ -169,6 +169,8 @@ void Server::processUserRequest() {
         opResult = Server::deleteSymbol(jSobject, active_socket);
     if (header == "sessionlogout")
         opResult = Server::closeFile(jSobject, active_socket);
+    if (header == "position")
+        opResult = Server::updatePosition(jSobject, active_socket);
 
     qDebug() << opResult;
 }
@@ -655,7 +657,14 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 
             // add user to session
             session->addUserToSession(username, editorId);
-            qDebug() << "session has " << session->getEditorCounter() << " users connected";
+            qDebug() << "Session has " << session->getEditorCounter() << " users connected";
+            if (session->getEditorCounter() == 2){
+                // create a timer associated to the session
+                QTimer *timer = new QTimer(this);
+                connect(timer, &QTimer::timeout, this, [=](){sendColors(filename);});
+                timer->start(2000);
+                this->timers.insert(filename, timer);
+            }
 
             // choose a color for the user
             QColor color = generateColor();
@@ -741,17 +750,11 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 // close the session in case is the last user
 bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString();
-    QString editorId = data["editorId"].toString();
+    QString username = data["username"].toString();
     QJsonObject message;
     message["header"] = "closefile";
 
     // extract user from map user tcp connections
-    // TODO: make te editor send the username rather than the editorId
-    QString username;
-    for (QString user: idleConnectedUsers.keys()){
-        if (idleConnectedUsers[user] == active_socket)
-            username = user;
-    }
     qDebug() << "Closing file with " << username;
 
     // check in case someone is sending a bad request
@@ -769,7 +772,14 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
             // remove user from userMap
             session->userMap.remove(username);
         }
-        printConsole("Removing from session user: " + username + " \nand editorId = " + editorId);
+        printConsole("Removing from session user: " + username + " \nand editorId = " + session->userEditorId.value(username));
+
+        // if editorCounter == 1 il timer per mandare i colori non server
+        if (session->getEditorCounter() == 1){
+            timers.value(filename)->stop();
+            // remove the timer
+            timers.remove(filename);
+        }
 
         // TODO: if editorCounter == 0 destroy the session
         // if editorCounter == 0 destroy the session
@@ -963,4 +973,55 @@ QColor Server::generateColor(){
 
     QColor color = QColor(r, g, b);
     return color;
+}
+
+void Server::sendColors(QString filename){
+    Session *session = this->active_sessions.value(filename);
+
+    // TODO: mandare lista utente -> colore_posizione
+    QJsonObject message;
+    message["header"] = "colors";
+    for (QString user : session->userMap.keys()){
+        QTcpSocket *socket = this->idleConnectedUsers.value(user);
+
+        for (QString user2 : session->userMap.keys()){
+            if (user2 != user){
+                QString color = session->userMap.value(user2).split("_")[0];
+                QString position = session->userMap.value(user2).split("_")[1];
+
+                // send user and color_position
+                message["username"] = user2;
+                message["color"] = color;
+                message["position"] = position;
+                if (socket != nullptr)
+                    sendMessage(message, socket);
+            }
+        }
+    }
+
+    printConsole("Sending userMap for file: " + filename);
+}
+
+bool Server::updatePosition(QJsonObject &data, QTcpSocket *active_socket){
+    // parse the json object
+    QString username = data["username"].toString();
+    QString filename = data["filename"].toString();
+    QString position = data["position"].toString();
+    qDebug() << "Updating position: " << position;
+
+    Session *session = active_sessions.value(filename);
+
+    if (username == ""){
+        // something went wrong
+        printConsole((QString &&) ("Something went wrong"));
+        return false;
+    }
+
+    qDebug() << "Updating position of user:  " + username + " at position: " + position+ " in file: " + filename;
+
+    // update position
+    QString color_pos = session->userMap.value(username);
+    color_pos = color_pos.split("_")[0] + "_" + position;
+    session->userMap.insert(username, color_pos);
+    return true;
 }

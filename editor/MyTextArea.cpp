@@ -282,7 +282,8 @@ QVector<Symbol> MyTextArea::getSymbolInRange(int end1, int end2) {
     return symbolsInRange;
 }
 
-
-
+int MyTextArea::getCurrentPosition() const {
+    return currentPosition;
+}
 
 

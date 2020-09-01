@@ -50,6 +50,8 @@ public:
 
     int getEditorPosition(const FracPosition &fp);
 
+    int getCurrentPosition() const;
+
     const Symbol &getSymbolFromPosition(int position);
 
     QVector<Symbol> getSymbolInRange(int end1, int end2);
