@@ -19,8 +19,7 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
 
     this->textArea->setThisEditorIdentifier(editorIdentifier);
     qDebug() << "Starting with ID " + this->textArea->getThisEditorIdentifier();
-//  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
-
+    //  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
 
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
@@ -334,10 +333,5 @@ void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
     qDebug() << "Received the deletion of char:f" << idString << " at position:" << symPos;
     this->textArea->removeSymbolFromList(idString, symPos);
 }
-
-
-
-
-
 
 

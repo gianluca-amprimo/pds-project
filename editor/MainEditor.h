@@ -52,31 +52,23 @@ private:
 private slots:
 
     void Bold();
-
     void Italic();
-
     void Underline();
 
     void selectFont(const QString &font);
-
     void selectSize(const QString &size);
 
     void alignCenter();
-
     void alignLeft();
-
     void alignRight();
-
     void alignJustify();
 
     void updateCharFormat();
 
     void save();
-
     void closeEvent(QCloseEvent *event) override;
 
     void sendSymbol(Symbol &symbol);
-
     void sendDeletion(QByteArray serializedSymId);
 };
 

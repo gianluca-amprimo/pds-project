@@ -87,7 +87,6 @@ private:
 	QToolButton *logPasswordButton;
 	QAction *logHidePassword;
 
-
 	std::shared_ptr<User> loggedUser;
 	
 	std::shared_ptr<QDialog> RegWin;

@@ -15,8 +15,7 @@
 
 static QString defaultPicture(":/misc/themes/material/user.png");
 
-Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this))
-{
+Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)) {
 	uiLog = std::make_shared<Ui::LoginWin>();
     uiLog->setupUi(this);
     this->setWindowTitle("PiDiEsse - Login");
@@ -92,7 +91,7 @@ void Client::readResponse()
 	qDebug() << "Reading the response...";
 
 
-//read the Json message received from client, from header understand what to do
+    // read the Json message received from client, from header understand what to do
     in.startTransaction();
 
     QByteArray jSmessage;
@@ -200,6 +199,7 @@ void Client::readResponse()
         }
 
     }
+
     if (header=="canc") {
         if (result=="ok") {
             logStatusBar->showMessage(tr("Successful cancellation."), 3000);
@@ -268,6 +268,7 @@ void Client::readResponse()
 			uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
 		}
 	}
+
 	if(header=="newfile") {
         if (result == "internal_error") {
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("Internal server error while creating the file.\nTry again later."));
@@ -275,6 +276,7 @@ void Client::readResponse()
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("You have just tried to create a new file, but it already exists\nTry with a new name."));
         }
 	}
+
     if(header=="openfile") {
         if (result == "new_session" || result == "existing_session") {
             auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
@@ -293,6 +295,7 @@ void Client::readResponse()
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("The file doesn't exist anymore.\nTry to update the list of files."));
         }
     }
+
     if (header=="savefile") {
         if (result == "ok") {
             mainEditor->getUi()->statusBar->showMessage(tr("File saved correctly."), 5000);
@@ -302,9 +305,11 @@ void Client::readResponse()
             mainEditor->getUi()->statusBar->showMessage(tr("The file doesn't exist anymore. Try to create a new file."), 5000);
         }
     }
+
     if(header=="addSymbol") {
         this->mainEditor->receiveSymbol(jSobject["content"]);
     }
+
     if(header=="remSymbol") {
         this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"]);
     }
@@ -314,8 +319,7 @@ const std::shared_ptr<QDialog> &Client::getChoiceWin() const {
     return ChoiceWin;
 }
 
-void Client::displayError(QAbstractSocket::SocketError socketError)
-{
+void Client::displayError(QAbstractSocket::SocketError socketError) {
 	uiLog->UsernameEdit->setReadOnly(false);
 	uiLog->PasswordEdit->setReadOnly(false);
 	uiLog->LoginButton->setEnabled(true);
@@ -345,14 +349,12 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
     this->close();
 }
 
-void Client::enableLogButton()
-{
+void Client::enableLogButton() {
     uiLog->LoginButton->setEnabled((!networkSession || networkSession->isOpen()) && !uiLog->UsernameEdit->text().isEmpty() && !uiLog->PasswordEdit->text().isEmpty());
 
 }
 
-void Client::sessionOpened()
-{
+void Client::sessionOpened() {
     // Save the used configuration
     QNetworkConfiguration config = networkSession->configuration();
     QString id;
@@ -389,7 +391,6 @@ void Client::sendCredentials() {
             qDebug() << "tcp socket not open";
             return;
         }
-
 
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);

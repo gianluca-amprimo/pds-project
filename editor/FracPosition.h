@@ -14,12 +14,12 @@ class FracPosition {
 private:
     QVector<int> position;
     void stripTrailingZeros();
+
     QString stringPosition;
+
     QDataStream& serialize(QDataStream& out) const;
     QDataStream& deserialize(QDataStream& in);
 
-
-private:
     void stringify();
 
 public:
@@ -44,13 +44,11 @@ public:
 
     static const FracPosition& one();
 
-
     FracPosition(const QString &fp);
     FracPosition();
 
     int operator[](int i);
     FracPosition divideByTwo();
-
 };
 
 static FracPosition one("1");

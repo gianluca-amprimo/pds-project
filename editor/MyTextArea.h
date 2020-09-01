@@ -51,8 +51,8 @@ public:
     int getEditorPosition(const FracPosition &fp);
 
     const Symbol &getSymbolFromPosition(int position);
-    QVector<Symbol> getSymbolInRange(int end1, int end2);
 
+    QVector<Symbol> getSymbolInRange(int end1, int end2);
 
 public slots:
 
@@ -63,7 +63,6 @@ signals:
     void symbolReady(Symbol &rsymbol);
 
     void symbolDeleted(QByteArray symId);
-
 
 private:
     QString thisEditorIdentifier = "AAAA";

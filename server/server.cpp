@@ -175,12 +175,12 @@ void Server::processUserRequest() {
 
 
 void Server::getConnectedSocket() {
-    //accetta la connessione al socket e prendi il socket connesso
+    // accetta la connessione al socket e prendi il socket connesso
     auto active_socket = tcpServer->nextPendingConnection();
     printConsole((QString &&) ("I am accepting a new connection from socket " +
                                QString::fromStdString(std::to_string(active_socket->socketDescriptor()))));
-    //inserisci il socket nella lista dei socket attivi
-    //active_sockets.push_back(active_socket);
+    // inserisci il socket nella lista dei socket attivi
+    // active_sockets.push_back(active_socket);
     connect(active_socket, &QIODevice::readyRead, this, &Server::processUserRequest);
     connect(active_socket, &QAbstractSocket::disconnected, this, &Server::handleDisconnect);
 
@@ -216,13 +216,14 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
     QString password = data["password"].toString();
     printConsole((QString &&) ("Checking " + username + " " + password));
 
-    // check the credentials stati
+    // check user credentials
     QString loginResult;
 //    if (checkPasswordFormat(password)){
         int queryResult = checkCredentials(username.toStdString(), password.toStdString());
         if (queryResult == 1) {
             loginResult = "ok";
 
+            // user cannot log on more than one terminal
             for (QString us: idleConnectedUsers.keys()){
                 if (us == username){
                     loginResult = "fail";
@@ -261,7 +262,6 @@ bool Server::checkUser(QJsonObject &data, QTcpSocket *active_socket) {
  *      false if something went wrong
  */
 bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
-
     // divide the string username_password_name_surname in  separate string
     QString username = data["username"].toString();
     QString password = data["password"].toString();
@@ -303,7 +303,6 @@ bool Server::registerUser(QJsonObject &data, QTcpSocket *active_socket) {
     return true;
 }
 
-
 /*
  * Function to delete an existing user
  *
@@ -325,12 +324,6 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     if (idleConnectedUsers.contains(username))
         flag = true;
 
-    //for(auto const& [key,val]: idleConnectedUsers){
-    //    if(key==u){
-    //        flag=true;
-    //    }
-    //    activeu+=u.getUsername()+" ";
-    //}
     printConsole("While you are trying to delete the following users are online...");
     for (QString user : idleConnectedUsers.keys())
         printConsole(user);
@@ -362,7 +355,6 @@ bool Server::cancelUser(QJsonObject &data, QTcpSocket *active_socket) {
     sendMessage(message, active_socket);
     return true;
 }
-
 
 /*
  * Function to prepare the json to send to the user
@@ -411,7 +403,6 @@ QJsonObject Server::prepareJsonReply(QString header, QString result, QString use
     return message;
 }
 
-
 /*
  * Function to disconnect the user
  */
@@ -433,28 +424,10 @@ void Server::handleDisconnect() {
     // remove the user from the map idleConnectedUsers
     idleConnectedUsers.remove(username);
 
-    //for (QPair<User, QList<QTcpSocket *>> element : idleConnectedUsers) {
-    //    User u = element.first;     // Accessing KEY from element
-    //    QString socket_list;    // Accessing VALUE from element
-
-    //    for (auto s: element.second) {
-    //        socket_list += QString::fromStdString(std::to_string(s->socketDescriptor()) + " ");
-    //        if (s == disconnected_socket) {
-    //            idleConnectedUsers[u].removeAll(s);
-    //            if (idleConnectedUsers[u].empty()) {
-    //                // rimuovi user da mappa user colore
-    //                userColorMap.remove(u);
-    //                idleConnectedUsers.remove(u);
-    //            }
-    //        }
-    //    }
-
-    //}
     disconnected_socket->deleteLater();
 
     // TODO: controllare se l'utente era connesso ad una sessione, quindi disconnetterlo dalla sessione
 }
-
 
 QJsonValue Server::jsonValFromPixmap(const QPixmap &p) {
     QBuffer buffer;
@@ -464,14 +437,12 @@ QJsonValue Server::jsonValFromPixmap(const QPixmap &p) {
     return {QLatin1String(encoded)};
 }
 
-
 QPixmap Server::pixmapFrom(const QJsonValue &val) {
     auto const encoded = val.toString().toLatin1();
     QPixmap p;
     p.loadFromData(QByteArray::fromBase64(encoded), "PNG");
     return p;
 }
-
 
 /*
  * Function to update the password of the user
@@ -530,7 +501,6 @@ bool Server::updateUser(QJsonObject &data, QTcpSocket *active_socket) {
 
     return true;
 }
-
 
 /*
  * Function to check if the password is in the correct format
@@ -880,7 +850,6 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
     return true;
 }
 
-
 bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
     auto filename = data["filename"].toString();
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
@@ -940,7 +909,7 @@ bool Server::receiveSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     session->addSymbol(sym);
     data["header"] = "addSymbol";
 
-    // now send symbol to all other editors
+    // now send symbol to all the other editors
     for(QString user : session->userEditorId.keys()){
         qDebug() << "Checking user" << user << " with editorId: " << session->userEditorId.value(user);
         if(session->userEditorId.value(user) != data["editorId"].toString()){
@@ -971,7 +940,7 @@ bool Server::deleteSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     QString stringPosition = session->getSymbols().value(symId).getPosition().getStringPosition();
     data["position"] = stringPosition;
 
-    // now send deletion to all other editors
+    // now send deletion to all the other editors
     for(QString user : session->userEditorId.keys()){
         qDebug() << "Checking user" << user << " with editorId: " << session->userEditorId.value(user);
         if(session->userEditorId.value(user) != data["editorId"].toString()){

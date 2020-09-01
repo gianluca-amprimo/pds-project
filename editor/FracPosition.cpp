@@ -20,7 +20,6 @@ FracPosition &FracPosition::operator=(const FracPosition &fp) {
 bool FracPosition::operator==(FracPosition fp) {
     bool equals = true;
 
-
     // if size of positions is different, no check required
     if (this->position.size() != fp.position.size()) {
         equals = false;
@@ -201,7 +200,6 @@ void FracPosition::stripTrailingZeros() {
     }
 }
 
-
 FracPosition::FracPosition() {}
 
 FracPosition::FracPosition(const QString &fp) {
@@ -223,17 +221,13 @@ QDataStream &FracPosition::serialize(QDataStream &out) const {
     return out;
 }
 
-
 QDataStream &FracPosition::deserialize(QDataStream &in) {
     in >> position;
     in >> stringPosition;
     return in;
 }
 
-
 const QString &FracPosition::getStringPosition() const {
     return stringPosition;
 }
-
-
 

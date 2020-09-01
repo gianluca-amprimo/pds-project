@@ -16,7 +16,6 @@ Session::Session(const QString &filename) : filename(filename) {
     editorCounter = 0;
 }
 
-
 void Session::setFilename(const QString &filename) {
     Session::filename = filename;
 }
@@ -57,7 +56,6 @@ void Session::addUserToSession(QString username, QString editorId) {
     this->editorCounter++;
 }
 
-// removing user from session
 void Session::removeUserFromSession(QString username) {
     this->userEditorId.remove(username);
     this->editorCounter--;

@@ -15,7 +15,6 @@ void Symbol::setCharacter(QChar character) {
     Symbol::character = character;
 }
 
-
 Symbol::Symbol() {
 }
 
