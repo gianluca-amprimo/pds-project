@@ -275,7 +275,7 @@ void MainEditor::sendSymbol(Symbol& symbol) {
         QJsonObject message;
         message["header"] = "symbol";
         message["filename"] = this->filename;
-        message["editorId"] = this->textArea->getThisEditorIdentifier();
+        message["username"] = this->username;
         message["content"] = QLatin1String(serializedSym.toBase64());
 
         // send the JSON using QDataStream
@@ -308,7 +308,7 @@ void MainEditor::sendDeletion(QByteArray serializedSymId) {
         QJsonObject message;
         message["header"] = "delSymbol";
         message["filename"] = this->filename;
-        message["editorId"] = this->textArea->getThisEditorIdentifier();
+        message["username"] = this->username;
         message["content"] = QLatin1String(serializedSymId.toBase64());
 
         // send the JSON using QDataStream

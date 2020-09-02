@@ -909,6 +909,7 @@ bool Server::receiveSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
     QString filename = data["filename"].toString().toLatin1();
     qDebug() << "filename is: " << filename;
+
     QDataStream inStream(&content, QIODevice::ReadOnly);
     Symbol sym;
     Session *session = this->active_sessions.value(filename);
@@ -920,9 +921,10 @@ bool Server::receiveSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     data["header"] = "addSymbol";
 
     // now send symbol to all the other editors
+    QString username = data["username"].toString();
     for(QString user : session->userEditorId.keys()){
         qDebug() << "Checking user" << user << " with editorId: " << session->userEditorId.value(user);
-        if(session->userEditorId.value(user) != data["editorId"].toString()){
+        if(user != username){
             qDebug() << "Sending symbol" << sym.getCharacter() << "to" << session->userEditorId.value(user);
             sendMessage(data, this->idleConnectedUsers.value(user));
         }
@@ -951,9 +953,10 @@ bool Server::deleteSymbol(QJsonObject &data, QTcpSocket *active_socket) {
     data["position"] = stringPosition;
 
     // now send deletion to all the other editors
+    QString username = data["username"].toString();
     for(QString user : session->userEditorId.keys()){
         qDebug() << "Checking user" << user << " with editorId: " << session->userEditorId.value(user);
-        if(session->userEditorId.value(user) != data["editorId"].toString()){
+        if(user != username){
             qDebug() << "Sending deletion of" << session->getSymbols().value(symId).getCharacter() << "with frac pos"
             << stringPosition << "to" << session->userEditorId.values(user);
             sendMessage(data, this->idleConnectedUsers.value(user));
