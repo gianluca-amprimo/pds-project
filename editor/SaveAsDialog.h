@@ -15,13 +15,16 @@ QT_END_NAMESPACE
 
 class SaveAsDialog : public QDialog{
     Q_OBJECT
+
 public:
     explicit SaveAsDialog(QWidget *mainEditor = nullptr, QTextEdit *textArea = nullptr);
     ~SaveAsDialog() override;
     Ui::SaveAsDialog *ui;
+
 public slots:
     void save();
     void setFileName(std::string filename);
+
 private:
     QTextEdit *textArea;
     std::string fileName = "untitled";

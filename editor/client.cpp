@@ -15,8 +15,7 @@
 
 static QString defaultPicture(":/misc/themes/material/user.png");
 
-Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this))
-{
+Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)) {
 	uiLog = std::make_shared<Ui::LoginWin>();
     uiLog->setupUi(this);
     this->setWindowTitle("PiDiEsse - Login");
@@ -92,14 +91,13 @@ void Client::readResponse()
 	qDebug() << "Reading the response...";
 
 
-//read the Json message received from client, from header understand what to do
+    // read the Json message received from client, from header understand what to do
     in.startTransaction();
 
     QByteArray jSmessage;
     std::string header;
     std::string result;
     QJsonObject jSobject;
-    QJsonArray jSarray;
     QPixmap propic;
     in >> jSmessage;
     QJsonParseError parseError;
@@ -111,11 +109,6 @@ void Client::readResponse()
             jSobject=jsonDoc.object();
             header=jSobject["header"].toString().toStdString();
             result=jSobject["body"].toString().toStdString();
-        }else if(jsonDoc.isArray()){
-            // this could somehow seem like it is breaking the structure of the message system
-            // but it is useful to avoid overheads and not being compelled to have uniform data inside an array
-            jSarray = jsonDoc.array();
-            header = jSarray[0].toObject()["header"].toString().toStdString();
         }
         else{
             QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
@@ -206,6 +199,7 @@ void Client::readResponse()
         }
 
     }
+
     if (header=="canc") {
         if (result=="ok") {
             logStatusBar->showMessage(tr("Successful cancellation."), 3000);
@@ -274,6 +268,7 @@ void Client::readResponse()
 			uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
 		}
 	}
+
 	if(header=="newfile") {
         if (result == "internal_error") {
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("Internal server error while creating the file.\nTry again later."));
@@ -281,6 +276,7 @@ void Client::readResponse()
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("You have just tried to create a new file, but it already exists\nTry with a new name."));
         }
 	}
+
     if(header=="openfile") {
         if (result == "new_session" || result == "existing_session") {
             auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
@@ -289,8 +285,8 @@ void Client::readResponse()
             auto filename = jSobject["filename"].toString();
             qDebug() << filename;
 
-            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename, this->tcpSocket,
-                                              &contentStream);
+            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename,
+                                              this->tcpSocket, &contentStream, loggedUsername);
             mainEditor->show();
             ChoiceWin->setVisible(false);
         } else if (result == "internal_error") {
@@ -299,6 +295,7 @@ void Client::readResponse()
             QMessageBox::information(this, tr("PiDiEsse [client]"), tr("The file doesn't exist anymore.\nTry to update the list of files."));
         }
     }
+
     if (header=="savefile") {
         if (result == "ok") {
             mainEditor->getUi()->statusBar->showMessage(tr("File saved correctly."), 5000);
@@ -308,17 +305,17 @@ void Client::readResponse()
             mainEditor->getUi()->statusBar->showMessage(tr("The file doesn't exist anymore. Try to create a new file."), 5000);
         }
     }
-    if(header=="add1Symbol") {
-        this->mainEditor->receiveSymbol(jSobject["symbol"]);
+
+    if(header=="addSymbol") {
+        this->mainEditor->receiveSymbol(jSobject["content"]);
     }
-    if(header=="delete1Symbol") {
+
+    if(header=="remSymbol") {
         this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"]);
     }
-    if(header=="deleteBatchSymbol") {
-        this->mainEditor->receiveBatchDeletion(jSobject["idsAndPositions"]);
-    }
-    if(header=="addBatchSymbol") {
-        this->mainEditor->receiveBatchSymbol(jSarray);
+
+    if(header=="colors") {
+        this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString(), jSobject["postion"].toString());
     }
 }
 
@@ -326,8 +323,7 @@ const std::shared_ptr<QDialog> &Client::getChoiceWin() const {
     return ChoiceWin;
 }
 
-void Client::displayError(QAbstractSocket::SocketError socketError)
-{
+void Client::displayError(QAbstractSocket::SocketError socketError) {
 	uiLog->UsernameEdit->setReadOnly(false);
 	uiLog->PasswordEdit->setReadOnly(false);
 	uiLog->LoginButton->setEnabled(true);
@@ -357,14 +353,12 @@ void Client::displayError(QAbstractSocket::SocketError socketError)
     this->close();
 }
 
-void Client::enableLogButton()
-{
+void Client::enableLogButton() {
     uiLog->LoginButton->setEnabled((!networkSession || networkSession->isOpen()) && !uiLog->UsernameEdit->text().isEmpty() && !uiLog->PasswordEdit->text().isEmpty());
 
 }
 
-void Client::sessionOpened()
-{
+void Client::sessionOpened() {
     // Save the used configuration
     QNetworkConfiguration config = networkSession->configuration();
     QString id;
@@ -401,7 +395,6 @@ void Client::sendCredentials() {
             qDebug() << "tcp socket not open";
             return;
         }
-
 
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);

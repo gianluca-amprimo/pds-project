@@ -53,9 +53,12 @@ public:
     void addSymbolToList(Symbol sym);
     void removeSymbolFromList(QString &symId, QString &fp);
     int getEditorPosition(const FracPosition &fp);
-    const Symbol &getSymbolFromPosition(int position);
-    QVector<Symbol> getSymbolInRange(int end1, int end2);
 
+    int getCurrentPosition() const;
+
+    const Symbol &getSymbolFromPosition(int position);
+
+    QVector<Symbol> getSymbolInRange(int end1, int end2);
 
 public slots:
 
@@ -67,7 +70,6 @@ signals:
     void charDeleted(QJsonObject message);
     void batchCharDelete(QJsonObject message);
     void batchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
-
 
 private:
     QString thisEditorIdentifier = "AAAA";

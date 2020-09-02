@@ -15,11 +15,10 @@ private:
     QVector<int> position;
     void stripTrailingZeros();
     QString stringPosition;
+    
     QDataStream& serialize(QDataStream& out) const;
     QDataStream& deserialize(QDataStream& in);
 
-
-private:
     void stringify();
 
 public:

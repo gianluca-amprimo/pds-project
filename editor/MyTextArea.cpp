@@ -70,7 +70,7 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
             this->selectionMode = true;
 
         }
-    } 
+    }
     else if(KEY_IS_CUT){
         if (selectionMode){
             this->clipboard->setText(this->textCursor().selectedText());

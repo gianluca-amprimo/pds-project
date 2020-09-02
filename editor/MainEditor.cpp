@@ -6,11 +6,13 @@
 #include <QToolButton>
 
 
-MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filename, QTcpSocket *tcpSocket, QDataStream *contentSteam) :
+MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filename,
+                       QTcpSocket *tcpSocket, QDataStream *contentSteam, QString username) :
     QMainWindow(parent),
     ui(new Ui::MainEditor),
     filename(filename),
-    tcpSocket(tcpSocket) {
+    tcpSocket(tcpSocket),
+    username(username) {
     ui->setupUi(this);
     initUI(contentSteam);
     this->setWindowTitle("PiDiEsse - " + filename);
@@ -19,8 +21,7 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
 
     this->textArea->setThisEditorIdentifier(editorIdentifier);
     qDebug() << "Starting with ID " + this->textArea->getThisEditorIdentifier();
-//  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
-
+    //  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
 
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
@@ -28,6 +29,12 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
     QObject::connect(this->textArea, &MyTextArea::charDeleted, this, &MainEditor::sendCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharDelete, this, &MainEditor::sendBatchCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharInserted, this, &MainEditor::sendBatchCharInserted);
+
+    // TODO: create a timer to send periodically the position of the user
+    // create a timer
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainEditor::sendPosition);
+    timer->start(2000);
 }
 
 void MainEditor::closeEvent(QCloseEvent *event) {
@@ -52,7 +59,7 @@ void MainEditor::closeEvent(QCloseEvent *event) {
         QJsonObject message;
         message["header"] = "sessionlogout";
         message["filename"] = this->filename;
-        message["editorId"] = this->textArea->getThisEditorIdentifier();
+        message["username"] = this->username;
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
 
@@ -62,6 +69,7 @@ void MainEditor::closeEvent(QCloseEvent *event) {
         tcpSocket->flush();
     }
     qDebug() << "Message session log out sent, waiting for reply...";
+    timer->stop();
 }
 
 MainEditor::~MainEditor() {
@@ -303,7 +311,6 @@ void MainEditor::sendCharDeleted(QJsonObject message) {
     }
 }
 
-
 void MainEditor::receiveSymbol(QJsonValueRef content) {
     auto data = QByteArray::fromBase64(content.toString().toLatin1());
     QDataStream inStream(&data, QIODevice::ReadOnly);
@@ -311,7 +318,6 @@ void MainEditor::receiveSymbol(QJsonValueRef content) {
 
     inStream >> sym;
     this->textArea->addSymbolToList(sym);
-
 }
 
 void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
@@ -432,9 +438,40 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
 
 }
 
+void MainEditor::colors(QString username, QString color, QString postion){
+    // TODO: print grafically the users with their color in their position
+    qDebug() << "User: " << username << " has color: " << color << " and is at position: " << position;
+}
 
+void MainEditor::sendPosition(){
+    QString userPosition= QString::number(this->textArea->getCurrentPosition());
+    qDebug() << "Sending position: " << userPosition << "of user: " << this->username;
+    if (tcpSocket != nullptr) {
+        if (!tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
 
+        if (!tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
 
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        QJsonObject message;
+        message["header"] = "position";
+        message["username"] = this->username;
+        message["filename"] = this->filename;
+        message["position"] = userPosition;
 
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
 
-
+        if (!tcpSocket->write(block)) {
+            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+        }
+        tcpSocket->flush();
+    }
+}

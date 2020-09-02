@@ -10,7 +10,6 @@
 #include "Symbol.h"
 #include <QtCore/QVector>
 #include <QtNetwork/QTcpSocket>
-#include "User.h"
 
 
 /* A session represents an instance of a file that is open in at least an editor.
@@ -34,22 +33,23 @@ private:
     int editorCounter;
     QString editorPrefix;
 public:
-    QMap<QString, User*> connectedEditors; // per adesso io terrei semplicemente il socket del client
+    QMap<QString, QString> userMap;                         // utente - colore_posizione
+    QMap<QString, QString> userEditorId;                    // utente -> editorid
+
+    Session(const QString &filename);
+
+    const QString &getFilename() const;
+    void setFilename(const QString &filename);
 
     int getEditorCounter() const;
     void setEditorCounter(int editorCounter);
+
     const QString &getEditorPrefix() const;
     void setEditorPrefix(const QString &editorPrefix);
 
-    // mappa nome utente - colore_posizione
-    QMap<QString, QString> userMap;
+    void addUserToSession(QString username, QString editorId);
+    void removeUserFromSession(QString username);
 
-public:
-    Session(const QString &filename);
-    const QString &getFilename() const;
-    void setFilename(const QString &filename);
-    void addUserToSession(User *u);
-    void removeUserFromSession(User *u);
     void addSymbol(Symbol& sym);
     void removeSymbol(QString id);
     const void removeBatchSymbol(QHash<QString, FracPosition>& symbolsPosition);

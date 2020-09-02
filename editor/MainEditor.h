@@ -23,7 +23,7 @@ class MainEditor : public QMainWindow {
 Q_OBJECT
 public:
     explicit MainEditor(QWidget *parent = nullptr, QString editorIdentifier = "", QString filename = "",
-                        QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr);
+                        QTcpSocket *tcpSocket = nullptr, QDataStream *contentSteam = nullptr, QString username = "");
 
     ~MainEditor() override;
 
@@ -38,11 +38,14 @@ public:
     void receiveBatchDeletion(QJsonValueRef idsAndPositions);
     const QString &getFilename() const;
 
+    void colors(QString username, QString color, QString postion);
+
 private:
     QString thisEditorIdentifier;
     Ui::MainEditor *ui;
     SaveAsDialog *saveAsDialog;
     QString filename;
+    QString username;
     QTcpSocket *tcpSocket;
 
     QFontComboBox *fontSelector;
@@ -50,44 +53,38 @@ private:
     MyTextArea *textArea;
     int position;
 
+    QTimer* timer;
+
     void initUI(QDataStream *contentStream);
 
     void setupActions();
 
 private slots:
-
     void Bold();
-
     void Italic();
-
     void Underline();
 
     void selectFont(const QString &font);
-
-
     void selectSize(const QString &size);
 
     void alignCenter();
-
     void alignLeft();
-
     void alignRight();
-
     void alignJustify();
 
     void updateCharFormat();
 
     void save();
-
     void closeEvent(QCloseEvent *event) override;
 
     void sendCharInserted(QJsonObject message);
 
     void sendCharDeleted(QJsonObject message);
-
     void sendBatchCharDeleted(QJsonObject message);
 
     void sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
+
+    void sendPosition();
 };
 
 

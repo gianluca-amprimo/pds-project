@@ -20,7 +20,6 @@ FracPosition &FracPosition::operator=(const FracPosition &fp) {
 bool FracPosition::operator==(FracPosition fp) {
     bool equals = true;
 
-
     // if size of positions is different, no check required
     if (this->position.size() != fp.position.size()) {
         equals = false;
@@ -137,7 +136,6 @@ FracPosition FracPosition::operator+(const QString &fp) {
             result.position[i] = addend.position[i];
         }
     }
-
     result.stripTrailingZeros();
 
     return result;

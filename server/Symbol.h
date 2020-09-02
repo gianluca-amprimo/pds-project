@@ -19,14 +19,12 @@ private:
 
 public:
     Symbol();
+    Symbol(const Symbol& sym);
     Symbol(QChar character, QString identifier, FracPosition position, QTextCharFormat charFormat);
 
     const QTextCharFormat &getCharFormat() const;
     const QString &getIdentifier() const;
-    Symbol(const Symbol& sym);
-
     const QChar &getCharacter() const;
-
     const FracPosition getPosition() const;
 
     void setCharacter(QChar character);
