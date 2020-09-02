@@ -4,6 +4,7 @@
 
 #include "MyTextArea.h"
 
+
 MyTextArea::MyTextArea(QWidget *parent) : QTextEdit(parent) {
     setAttribute(Qt::WA_InputMethodEnabled, true);
     this->charCounter = 0;
@@ -26,43 +27,67 @@ void MyTextArea::setThisEditorIdentifier(const QString &thisEditorIdentifier) {
 }
 
 void MyTextArea::keyPressEvent(QKeyEvent *e) {
-    QTextEdit::keyPressEvent(e);
-    int position = this->textCursor().position();
-    this->oldPosition = this->currentPosition;
-    this->currentPosition = position;
 
-    // we have to manage selection
-    qDebug() << "Anchor: " << this->textCursor().anchor() ;
-    qDebug() << "Position: " << this->textCursor().position() ;
-    if(this->textCursor().position() != this->textCursor().anchor()){
-        qDebug() << "selection mode" ;
-        this->selectionMode = true;
+    // we have to catch the key in case it was a char to be inserted
+    if(KEY_IS_BACKSPACE){
 
-    }
-
-    if(e->key() == Qt::Key_Backspace || (e->modifiers() & Qt::ControlModifier && e->key() == Qt::Key_X)) {
-        if (selectionMode) deleteSelection();
-        else deleteSymbol();
+        if(this->_symbols.empty()) goto empty;
+        if (selectionMode){
+            this->anchor > this->currentPosition ? deleteBatchChar(currentPosition, anchor) : deleteBatchChar(anchor, currentPosition);
+            this->currentPosition = this->textCursor().position();
+            goto empty;
+        }
+        if (KEY_CTRL_IS_ON){
+            QTextCursor begin = this->textCursor();
+            begin.movePosition(QTextCursor::PreviousWord);
+            deleteBatchChar(begin.position(), this->currentPosition);
+            this->currentPosition = begin.position();
+        }
+        else{
+            deleteChar(this->currentPosition);
+            this->currentPosition--;
+        }
+        empty:
         selectionMode = false;
-        this->anchor = this->textCursor().anchor();
-    }else if((e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis || e->key() == Qt::Key_Return) &&
-            !((e->key() == Qt::Key_V ||
-               e->key() == Qt::Key_C || // taking care of keyboard shortcuts
-               e->key() == Qt::Key_X ||
-               e->key() == Qt::Key_A ) && e->modifiers() & Qt::ControlModifier )) {
+
+    } else if(KEY_IS_A_CHAR && !KEY_CTRL_IS_ON) {
+        QChar unicode = e->text()[0];
         if (selectionMode) {
-            deleteSelection();
-            qDebug() << "substituting selection" ;
-            deleteSelection();
+            this->anchor > this->currentPosition ? deleteBatchChar(currentPosition, anchor) : deleteBatchChar(anchor, currentPosition);
+            this->currentPosition = this->textCursor().position();
+            qDebug() << "substituting selection";
             selectionMode = false;
             this->anchor = this->textCursor().anchor();
         }
-        QChar changed;
-        changed = toPlainText().toStdWString()[this->currentPosition - 1];
-        insertSymbol(changed, this->currentPosition);
-    }else{
-        this->anchor = this->textCursor().anchor();
+        insertChar(unicode, this->currentPosition, this->textCursor().charFormat());
+        this->currentPosition++;
+
+    }else if(KEY_IS_ARROW || KEY_IS_SELECT_ALL || KEY_IS_PASTE){ // from now on, manage shortcuts
+        QTextEdit::keyPressEvent(e);
+        this->currentPosition = this->textCursor().position();
+        if (this->textCursor().position() != this->textCursor().anchor()) {
+            qDebug() << "selection mode";
+            this->selectionMode = true;
+
+        }
+    } 
+    else if(KEY_IS_CUT){
+        if (selectionMode){
+            this->clipboard->setText(this->textCursor().selectedText());
+            this->anchor > this->currentPosition ? deleteBatchChar(currentPosition, anchor) : deleteBatchChar(anchor, currentPosition);
+            this->currentPosition = this->textCursor().selectionStart();
+            this->selectionMode = false;
+        }
+
+    }else if(KEY_IS_COPY){
+        this->clipboard->setText(this->textCursor().selectedText());
     }
+
+
+
+//this->textCursor().setPosition(this->textCursor().position()+1);
+    // we have to manage selection
+    this->anchor = this->textCursor().anchor();
 }
 
 void MyTextArea::deleteSymbol() {
@@ -79,7 +104,7 @@ void MyTextArea::deleteSymbol() {
         // remove the symbol from the queue
         this->_symbols.remove(pos);
         // send symbol id to delete
-        emit symbolDeleted(serializedSymID);
+        //emit charDeleted(serializedSymID);
         qDebug() << "Character deleted" ;
     }
 }
@@ -97,92 +122,15 @@ void MyTextArea::deleteSelection() {
         QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
 
         symbolStream << symId;
-        emit symbolDeleted(serializedSymID);
+        //emit symbolDeleted(serializedSymID);
         this->_symbols.remove(pos);
     }
 }
 
-void MyTextArea::insertSymbol(QChar changed, int insertPosition) {
-
-    this->charCounter++;
-
-    // calcolo l'id rispetto al mio editor
-    int localCharIdLen = std::to_wstring(this->charCounter).length();
-
-    FracPosition position;
-    QString localCharId  = QString(6-localCharIdLen, '0') + QString::number(charCounter);
-    QString charId = this->thisEditorIdentifier + localCharId;
-
-    // calcolo la posizione frazionaria
-    // se il carattere è inserito in fondo basta solo vedere il primo intero della posizione frazionaria
-    // se invece è in mezzo bisogna trovare l'intero
-
-    // last
-    if(insertPosition == this->_symbols.size()+1){ // +1 because QChar is already inserted
-        lastPosition = insertPosition;
-        qDebug() << "Inserting at the back";
-        // take just the first number of the last element and add 1
-
-        //position of last QChar
-        // first letter inserted
-        if (this->_symbols.empty()) {
-            position = one;
-        } else {
-            // last letter inserted
-            FracPosition last = this->_symbols.lastKey();
-            position = last + one;
-        }
-    }else if(insertPosition == 1){
-        qDebug() << "Inserting at the head";
-        // retrieve prior first element
-        FracPosition oldFirstPos = this->_symbols.firstKey();
-        position = oldFirstPos.divideByTwo();
-
-
-    }else if(insertPosition > 1 && insertPosition < this->_symbols.size()+1) {
-        FracPosition prevPos;
-        FracPosition nextPos;
-
-        nextPos = this->_symbols.keys().at(insertPosition-1);
-        prevPos = this->_symbols.keys().at(insertPosition-2);
-
-        position = nextPos + prevPos;
-        position = position.divideByTwo();
-// this should be enough to consider both the comprehending symbols
-
-    }
-
-    // get wstring of fractionary position
-
-    //FracPosition pos2("1");
-    Symbol symbol(changed, charId, position, this->currentCharFormat());
-    //Symbol symbol2(changed, charId, pos2, this->currentCharFormat());
-    qDebug() << "Inserting symbol with id:" << symbol.getIdentifier() << ", char:" << symbol.getCharacter()
-                                                                      << ", position" << symbol.getPosition().getStringPosition();
-
-    this->_symbols.insert(symbol.getPosition(), symbol);
-    //this->_symbols.insert(symbol2.getPosition(), symbol2);
-
-
-    // finally, prepare message for the server
-
-
-    QJsonObject message;
-    message["header"] = "symbol";
-
-
-    // signal will be caught by MainEditor which will wrap the symbol in a JSON message
-    emit symbolReady(symbol);
-}
-
 void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
-    QTextEdit::inputMethodEvent(event);
-    int position = this->textCursor().position();
-    this->oldPosition = this->currentPosition;
-    this->currentPosition = position;
-
-    //QChar character = event->commitString()[0].unicode();
-    insertSymbol(QChar(), this->currentPosition);
+    QChar character = event->commitString()[0].unicode();
+    insertChar(character, this->currentPosition, this->textCursor().charFormat());
+    this->currentPosition++;
 }
 
 /* this function should help in retrieving symbols
@@ -196,19 +144,16 @@ const Symbol& MyTextArea::getSymbolFromPosition(int position) {
 }
 
 void MyTextArea::insertFromMimeData(const QMimeData *source) {
-    QTextEdit::insertFromMimeData(source);
-    this->repaint();
 
-    this->oldPosition = this->currentPosition;
     this->currentPosition = this->textCursor().position();
-    int pasteLength = this->currentPosition-this->oldPosition;
+    int pasteLength = source->text().length();
     qDebug() << "Pastelength is: " << pasteLength ;
 
-    this->pasting = true;
     for(int i = 0; i < pasteLength; i++){
         QChar character = this->toPlainText().toStdWString()[this->oldPosition+i];
-        qDebug() << "Inserting pasted symbol" ;
-        insertSymbol(character, this->oldPosition+i+1);
+        QVector<QTextCharFormat> formats;
+        formats.push_back(this->textCursor().charFormat());
+        insertBatchChar(source->text(), this->currentPosition, formats);
     }
     this->pasting = false;
 
@@ -217,15 +162,12 @@ void MyTextArea::insertFromMimeData(const QMimeData *source) {
 void MyTextArea::mouseReleaseEvent(QMouseEvent *e) {
     QTextEdit::mouseReleaseEvent(e);
 
-    int position = this->textCursor().position();
-    this->oldPosition = this->currentPosition;
-    this->currentPosition = position;
+    this->currentPosition = this->textCursor().position();
     this->anchor = this->textCursor().anchor();
 
-    if(position != this->anchor){
+    if(currentPosition != this->anchor){
         qDebug() << "selection mode" ;
         this->selectionMode = true;
-
     }
 }
 
@@ -252,6 +194,11 @@ void MyTextArea::addSymbolToList(Symbol sym) {
     QTextCursor cur = this->textCursor();
     cur.setPosition(this->getEditorPosition(sym.getPosition()));
     cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
+    // bisogna gestire il fatto che il cursore aggiorni automaticamente la sua posizione
+    // quando vorremmo essere noi a controllarlo
+    this->textCursor().setPosition(this->textCursor().position()-1);
+
+    // change position of the cursor
 }
 
 int MyTextArea::getEditorPosition(const FracPosition& fp) {
@@ -280,6 +227,103 @@ QVector<Symbol> MyTextArea::getSymbolInRange(int end1, int end2) {
             symbolsInRange.push_back(getSymbolFromPosition(i));
     }
     return symbolsInRange;
+}
+
+void MyTextArea::insertChar(QChar unicode, int position, QTextCharFormat format) {
+
+    /* here we simply prepare the message for the server */
+
+    QJsonObject message;
+    QByteArray formatInBytes;
+
+    // prepare id for char
+
+    this->charCounter++;
+    int localCharIdLen = std::to_wstring(this->charCounter).length();
+    QString localCharId  = QString(6-localCharIdLen, '0') + QString::number(charCounter);
+    QString charId = this->thisEditorIdentifier + localCharId;
+
+    // serialize format
+    QDataStream formatOut(&formatInBytes, QIODevice::WriteOnly);
+    formatOut.setVersion(QDataStream::Qt_4_0);
+    formatOut << format;
+
+    message["header"] = SINGLE_CHAR_ADDITION;
+    message["editorId"] = this->getThisEditorIdentifier();
+    message["charId"] = charId;
+    message["unicode"] = QString(unicode);
+    message["position"] = position;
+    qDebug() << "position is" << message["position"];
+    message["format"] = QLatin1String(formatInBytes.toBase64());
+
+    emit charInserted(message);
+
+}
+
+void MyTextArea::deleteChar(int position) {
+    // retrieve the symbol at the specified position
+
+    FracPosition keyPosition = this->_symbols.keys().at(position-1);
+    qDebug() << "Here frac position is:" << keyPosition.getStringPosition();
+    Symbol symbol = this->_symbols.value(keyPosition);
+
+    QJsonObject message;
+    message["header"] = SINGLE_CHAR_DELETION;
+    message["editorId"] = this->getThisEditorIdentifier();
+    message["charId"] = symbol.getIdentifier();
+
+    qDebug() << "char to be deleted is " << symbol.getIdentifier();
+
+    emit charDeleted(message);
+}
+
+void MyTextArea::deleteBatchChar(int begin, int end) {
+    QVector<Symbol> symbolsInRange = getSymbolInRange(begin, end);
+    QVector<QString> idsInRange;
+    for(Symbol sym : symbolsInRange){
+        idsInRange.push_back(sym.getIdentifier());
+    }
+
+    QJsonObject message;
+    QByteArray symbolsInByte;
+    QDataStream symbolsInByteStream(&symbolsInByte, QIODevice::WriteOnly);
+
+    symbolsInByteStream << idsInRange;
+    message["header"] = BATCH_CHAR_DELETION;
+    message["editorId"] = this->getThisEditorIdentifier();
+    message["idsToDelete"] = QLatin1String(symbolsInByte.toBase64());
+
+    emit batchCharDelete(message);
+
+}
+
+void MyTextArea::insertBatchChar(QString text, int position, QVector<QTextCharFormat> formats) {
+    // first of all, take string and create a vector of messages
+    QJsonArray message;
+
+    for(int i = 0; i < text.length(); i++){
+        QJsonObject character;
+        QByteArray formatInBytes;
+
+        // prepare id for char
+        QChar unicode = text[i];
+        this->charCounter++;
+        int localCharIdLen = std::to_wstring(this->charCounter).length();
+        QString localCharId  = QString(6-localCharIdLen, '0') + QString::number(charCounter);
+        QString charId = this->thisEditorIdentifier + localCharId;
+
+        // serialize format
+
+        character["charId"] = charId;
+        character["unicode"] = QString(unicode);
+        character["position"] = position+i;
+        qDebug() << "position is" << character["position"];
+        character["format"] = QLatin1String(formatInBytes.toBase64());
+
+        message.push_back(character);
+    }
+
+    emit batchCharInserted(message, formats);
 }
 
 

@@ -31,7 +31,12 @@ public:
 
     void receiveSymbol(QJsonValueRef content);
 
+    void receiveBatchSymbol(QJsonArray content);
+
     void receiveDeletion(QJsonValueRef id, QJsonValueRef position);
+
+    void receiveBatchDeletion(QJsonValueRef idsAndPositions);
+    const QString &getFilename() const;
 
 private:
     QString thisEditorIdentifier;
@@ -59,6 +64,7 @@ private slots:
 
     void selectFont(const QString &font);
 
+
     void selectSize(const QString &size);
 
     void alignCenter();
@@ -75,9 +81,13 @@ private slots:
 
     void closeEvent(QCloseEvent *event) override;
 
-    void sendSymbol(Symbol &symbol);
+    void sendCharInserted(QJsonObject message);
 
-    void sendDeletion(QByteArray serializedSymId);
+    void sendCharDeleted(QJsonObject message);
+
+    void sendBatchCharDeleted(QJsonObject message);
+
+    void sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
 };
 
 

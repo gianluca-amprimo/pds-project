@@ -114,63 +114,74 @@ void Server::processUserRequest() {
     in.setVersion(QDataStream::Qt_4_0);
 
     // read the JSON message received from client, from header understand what to do
-    in.startTransaction();
     // QString qmessage;
     QByteArray jSmessage;
     QString header;
     QJsonObject jSobject;
+    QJsonArray jSarray;
     //QString reply;
-    in >> jSmessage;
-    QJsonParseError parseError;
-    // we try to create a json document with the data we received
-    const QJsonDocument jsonDoc = QJsonDocument::fromJson(jSmessage, &parseError);
-    if (parseError.error == QJsonParseError::NoError) {
-        // if the data was indeed valid JSON
-        if (jsonDoc.isObject()) {
-            jSobject = jsonDoc.object();
-            header = jSobject["header"].toString();
+    while(!in.atEnd()){
+        in.startTransaction();
+        in >> jSmessage;
+        QJsonParseError parseError;
+        // we try to create a json document with the data we received
+        const QJsonDocument jsonDoc = QJsonDocument::fromJson(jSmessage, &parseError);
+        if (parseError.error == QJsonParseError::NoError) {
+            // if the data was indeed valid JSON
+            if (jsonDoc.isObject()) {
+                jSobject = jsonDoc.object();
+                header = jSobject["header"].toString();
+            } else if(jsonDoc.isArray()){
+               jSarray = jsonDoc.array();
+               header = jSobject[0].toObject()["header"].toString();
+            }else{
+                QJsonObject message = prepareJsonReply("error", "error", " ");
+                sendMessage(message, active_socket);
+                return;
+            }
+
         } else {
-            QJsonObject message = prepareJsonReply("error", "error", " ");
+            QJsonObject message=prepareJsonReply("error", "error", " ");
             sendMessage(message, active_socket);
             return;
         }
 
-    } else {
-        QJsonObject message=prepareJsonReply("error", "error", " ");
-        sendMessage(message, active_socket);
-        return;
+        if (!in.commitTransaction())
+            return;
+
+        printConsole("[" + active_socket->peerAddress().toString() + ":" +
+                     QString::number(active_socket->peerPort()) + "] " + header);
+
+        bool opResult;
+        if (header == "log")
+            opResult = Server::checkUser(jSobject, active_socket);
+        if (header == "reg")
+            opResult = Server::registerUser(jSobject, active_socket);
+        if (header == "canc")
+            opResult = Server::cancelUser(jSobject, active_socket);
+        if (header == "upd")
+            opResult = Server::updateUser(jSobject, active_socket);
+        if (header == "refr")
+            opResult = Server::refreshFileList(jSobject, active_socket);
+        if (header == "newfile")
+            opResult = Server::createFile(jSobject, active_socket);
+        if (header == "openfile")
+            opResult = Server::openFile(jSobject, active_socket);
+        if (header == "savefile")
+            opResult = Server::saveFile(jSobject, active_socket);
+        if (header == "add1Char")
+            opResult = Server::receiveChar(jSobject, active_socket);
+        if (header == "addBatchChar")
+            opResult = Server::receiveBatchChar(jSarray, active_socket);
+        if (header == "delete1Char")
+            opResult = Server::deleteChar(jSobject, active_socket);
+        if (header == "deleteBatchChar")
+            opResult = Server::deleteBatchChar(jSobject, active_socket);
+        if (header == "sessionlogout")
+            opResult = Server::closeFile(jSobject, active_socket);
+
+        qDebug() << opResult;
     }
-
-    if (!in.commitTransaction())
-        return;
-    printConsole("[" + active_socket->peerAddress().toString() + ":" +
-                 QString::number(active_socket->peerPort()) + "] " + header);
-
-    bool opResult;
-    if (header == "log")
-        opResult = Server::checkUser(jSobject, active_socket);
-    if (header == "reg")
-        opResult = Server::registerUser(jSobject, active_socket);
-    if (header == "canc")
-        opResult = Server::cancelUser(jSobject, active_socket);
-    if (header == "upd")
-        opResult = Server::updateUser(jSobject, active_socket);
-    if (header == "refr")
-    	opResult = Server::refreshFileList(jSobject, active_socket);
-    if (header == "newfile")
-        opResult = Server::createFile(jSobject, active_socket);
-    if (header == "openfile")
-        opResult = Server::openFile(jSobject, active_socket);
-    if (header == "savefile")
-        opResult = Server::saveFile(jSobject, active_socket);
-    if (header == "symbol")
-        opResult = Server::receiveSymbol(jSobject, active_socket);
-    if (header == "delSymbol")
-        opResult = Server::deleteSymbol(jSobject, active_socket);
-    if (header == "sessionlogout")
-        opResult = Server::closeFile(jSobject, active_socket);
-
-    qDebug() << opResult;
 }
 
 
@@ -582,6 +593,33 @@ bool Server::checkPasswordFormat(QString password){
 			return false;
 	}
 }
+void Server::sendMessage(QJsonArray message, QTcpSocket *active_socket){
+    if (active_socket != nullptr) {
+        if (!active_socket->isValid()) {
+            printConsole("Socket TCP non valida", true);
+            return;
+        }
+        if (!active_socket->isOpen()) {
+            printConsole("Socket TCP non aperta", true);
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        printConsole("Sending back " + message[0].toObject()["header"].toString());
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+        if (!active_socket->write(block)) {
+            printConsole("Impossibile rispondere al client", true);
+        }
+        active_socket->flush();
+    }
+    else{
+        printConsole("Wrong! You are trying to write to a non existing socket!", true);
+    }
+}
 void Server::sendMessage(QJsonObject message, QTcpSocket *active_socket){
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
@@ -705,7 +743,7 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 
         QByteArray byteArrayBuffer;
         QDataStream outStream(&byteArrayBuffer, QIODevice::ReadWrite);
-        outStream << session->getSymbols().values();
+        outStream << session->getSymbolsById().values();
 
         message["editorId"] = editorId;
         message["body"] = "existing_session";
@@ -834,7 +872,7 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
 
             QByteArray byteArrayBuffer;
             QDataStream outStream(&byteArrayBuffer, QIODevice::ReadWrite);
-            outStream << session->getSymbols().values();
+            outStream << session->getSymbolsById().values();
             if(fo.isOpen()){
                 fo.write(byteArrayBuffer);
                 fo.close();
@@ -921,56 +959,96 @@ bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
     return true;
 }
 
-bool Server::receiveSymbol(QJsonObject &data, QTcpSocket *active_socket) {
-    auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
+    /* message structure:
+     * - header
+     * - filename
+     * - charId
+     * - unicode
+     * - position
+     * - format
+     */
+
+    auto format = QByteArray::fromBase64(data["format"].toString().toLatin1());
     QString filename = data["filename"].toString().toLatin1();
-    qDebug() << "filename is: " << filename;
-    QDataStream inStream(&content, QIODevice::ReadOnly);
-    Symbol sym;
+    QByteArray symbolInBytes;
+    QJsonObject message;
+    QDataStream inFormatStream(&format, QIODevice::ReadOnly);
+    QDataStream outSymbol(&symbolInBytes, QIODevice::WriteOnly);
+    QTextCharFormat charFormat;
+
+    // retrieve session from filename
     Session *session = this->active_sessions.value(filename);
 
-    // acquire symbol
-    inStream >> sym;
-    qDebug() << "Received symbol " <<  "\"" << sym.getCharacter() << "\"" << "from" << data["editorId"];
-    session->addSymbol(sym);
-    data["header"] = "addSymbol";
+    // retrieve data for symbol from message
+    FracPosition fp1, fp2, symbolFp;
+    int position = data["position"].toInt();
+    QString unicode = data["unicode"].toString();
+    QString charId = data["charId"].toString();
+
+    // deserialize format
+    inFormatStream >> charFormat;
+    qDebug() << "Received char " << unicode << "at position" << position;
+
+    // compute Frac position
+    if(position == 0){
+        // insert at the head
+        if(session->getSymbolsByPosition().empty()){
+            // no symbols inserted yet
+            symbolFp = "1";
+        }else{
+            // inserting before the first symbol
+            symbolFp = session->getSymbolsByPosition().keys().at(0);
+            symbolFp = symbolFp.divideByTwo();
+        }
+    }else if(position >= session->getSymbolsByPosition().size()){
+        // insert at the back
+        symbolFp = session->getSymbolsByPosition().keys().last() + one;
+    }else{
+        // insert in the middle
+        fp1 = session->getSymbolsByPosition().keys().at(position-1);
+        fp2 = session->getSymbolsByPosition().keys().at(position);
+        symbolFp = fp1+fp2;
+        symbolFp = symbolFp.divideByTwo();
+
+    }
+
+    // create symbol from message
+
+    Symbol symbol(unicode[0], charId, symbolFp, charFormat);
+    session->addSymbol(symbol);
+    outSymbol << symbol;
+    message["header"] = "add1Symbol";
+    message["symbol"] = QLatin1String(symbolInBytes.toBase64());
 
     // now send symbol to all other editors
     for(User *u : session->connectedEditors){
-        qDebug() << "Checking user" << u->getUsername() << "with editorId" << u->getEditorId();
-        if(u->getEditorId() != data["editorId"].toString()){
-            qDebug() << "Sending symbol" << sym.getCharacter() << "to" << u->getEditorId();
-            sendMessage(data, this->idleConnectedUsers[*u]);
-        }
+        qDebug() << "Sending symbol" << symbol.getCharacter() << "to" << u->getEditorId();
+        sendMessage(message, this->idleConnectedUsers[*u]);
     }
 
     return true;
 }
 
-bool Server::deleteSymbol(QJsonObject &data, QTcpSocket *active_socket) {
-    auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString().toLatin1();
     qDebug() << "filename is: " << filename;
-    QDataStream inStream(&content, QIODevice::ReadOnly);
-    QString symId;
+
+    QString symId = data["charId"].toString();
     QString symPos;
     Session *session = this->active_sessions.value(filename);
 
     // acquire symbol
-    inStream >> symId;
-    qDebug() << "Deleting Symbol " << symId;
-    data["header"] = "remSymbol";
-    data["id"] = data["content"];
-    QString stringPosition = session->getSymbols().value(symId).getPosition().getStringPosition();
-    data["position"] = stringPosition;
+    QJsonObject message;
+    message["header"] = "delete1Symbol";
+    message["id"] = symId;
+    QString stringPosition = session->getSymbolsById().value(symId).getPosition().getStringPosition();
+    message["position"] = stringPosition;
 
     // now send deletion to all other editors
     for(User *u : session->connectedEditors){
-        qDebug() << "Checking user" << u->getUsername() << "with editorId" << u->getEditorId();
-        if(u->getEditorId() != data["editorId"].toString()){
-            qDebug() << "Sending deletion of" << session->getSymbols().value(symId).getCharacter() << "with frac pos" << stringPosition << "to" << u->getEditorId();
-            sendMessage(data, this->idleConnectedUsers[*u]);
-        }
+        qDebug() << "Sending deletion of" <<  symId << "with frac pos" << stringPosition << "to" << u->getEditorId();
+        sendMessage(message, this->idleConnectedUsers[*u]);
     }
     session->removeSymbol(symId);
 
@@ -986,4 +1064,133 @@ QColor Server::generateColor(){
 
     QColor color = QColor(r, g, b);
     return color;
+}
+
+bool Server::deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket) {
+    QString filename = data["filename"].toString().toLatin1();
+    qDebug() << "filename is: " << filename;
+    QVector<QString> symbolsInRange;
+    QHash<QString, FracPosition> symbolsPosition;
+
+    auto inSymbolsBytes = QByteArray::fromBase64(data["idsToDelete"].toString().toLatin1());
+    QByteArray symbolPositionBytes;
+    QDataStream outSymbolPositionStream(&symbolPositionBytes, QIODevice::WriteOnly);
+    QDataStream inSymbolBytesStream(&inSymbolsBytes, QIODevice::ReadOnly);
+    inSymbolBytesStream >> symbolsInRange;
+
+    Session *session = this->active_sessions.value(filename);
+    // we have to retrieve all the symbol ids
+    for(QString id: symbolsInRange){
+        FracPosition fp = session->getSymbolsById().value(id).getPosition();
+        symbolsPosition.insert(id, fp);
+    }
+
+    outSymbolPositionStream << symbolsPosition;
+
+    QJsonObject message;
+    message["header"] = "deleteBatchSymbol";
+    message["idsAndPositions"] = QLatin1String(symbolPositionBytes.toBase64());
+
+    // now send deletion to all other editors
+    for(User *u : session->connectedEditors){
+        sendMessage(message, this->idleConnectedUsers[*u]);
+    }
+    session->removeBatchSymbol(symbolsPosition);
+
+    return true;
+}
+
+bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
+    /* message structure:
+     * - metadata
+     *  - header
+     *  - filename
+     *  - editorId
+     *  - formatLength
+     *  - length
+     *  - formats
+     *  symbols here:
+     * - charId
+     * - unicode
+     * - position
+     */
+
+    // extrapolate metadata from the array
+    QJsonObject metadata = data[0].toObject();
+    QJsonObject metadataOut;
+    QByteArray symbolInBytes;
+    QJsonArray message;
+
+    auto formats = QByteArray::fromBase64(metadata["formats"].toString().toLatin1());
+    QDataStream inFormatStream(&formats, QIODevice::ReadOnly);
+    QString filename = metadata["filename"].toString().toLatin1();
+    int arrayLenght = metadata["lenght"].toInt();
+    QVector<QTextCharFormat> charFormats;
+
+    metadataOut["header"] = "addBatchSymbol";
+    metadataOut["length"] = arrayLenght;
+    metadataOut["formatLength"] = metadata["formatLength"];
+    metadataOut["formats"] = metadata["format"];
+
+    message.push_front(metadataOut);
+
+    inFormatStream >> charFormats;
+    // prepare session
+    Session *session = this->active_sessions.value(filename);
+
+
+    // cycle through the array
+
+    for(int i = 0; i < arrayLenght; i++){
+        // take the object from the array
+        QJsonObject singleChar = data[i+1].toObject();
+        QJsonObject singleCharOut;
+        FracPosition fp1, fp2, symbolFp;
+        int position = singleChar["position"].toInt();
+        QString unicode = singleChar["unicode"].toString();
+        QString charId = singleChar["charId"].toString();
+
+        // assign frac position
+        if(position == 0){
+            // insert at the head
+            if(session->getSymbolsByPosition().empty()){
+                // no symbols inserted yet
+                symbolFp = "1";
+            }else{
+                // inserting before the first symbol
+                symbolFp = session->getSymbolsByPosition().keys().at(0);
+                symbolFp = symbolFp.divideByTwo();
+            }
+        }else if(position >= session->getSymbolsByPosition().size()){
+            // insert at the back
+            symbolFp = session->getSymbolsByPosition().keys().last() + one;
+        }else{
+            // insert in the middle
+            fp1 = session->getSymbolsByPosition().keys().at(position-1);
+            fp2 = session->getSymbolsByPosition().keys().at(position);
+            symbolFp = fp1+fp2;
+            symbolFp = symbolFp.divideByTwo();
+
+        }
+        qDebug() << "Received char " << unicode << "at position" << position;
+
+        // build symbol from received data
+        Symbol symbol(unicode[0], charId, symbolFp, charFormats[0]);
+        session->addSymbol(symbol);
+
+        // rebuild another JSON object with frac position to send
+        singleCharOut["fracPosition"] = symbolFp.getStringPosition();
+        singleCharOut["unicode"] = symbolFp.getStringPosition();
+        singleCharOut["charId"] = symbolFp.getStringPosition();
+
+        message.push_back(singleCharOut);
+    }
+
+    // now send symbol to all other editors
+    for(User *u : session->connectedEditors){
+        qDebug() << "Sending symbols" <<  "to" << u->getEditorId();
+        sendMessage(message, this->idleConnectedUsers[*u]);
+    }
+
+    return true;
 }

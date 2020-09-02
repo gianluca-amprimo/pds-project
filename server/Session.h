@@ -23,9 +23,14 @@
 class Session {
 
 private:
-    QHash<QString, Symbol> symbols;
+    QHash<QString, Symbol> symbolsById;
+    QMap<FracPosition, Symbol> symbolsByPosition;
     QString filename;
     QMap<QChar, int> editorCurrentPosition;
+public:
+    const QMap<FracPosition, Symbol> &getSymbolsByPosition() const;
+
+private:
     int editorCounter;
     QString editorPrefix;
 public:
@@ -47,8 +52,10 @@ public:
     void removeUserFromSession(User *u);
     void addSymbol(Symbol& sym);
     void removeSymbol(QString id);
+    const void removeBatchSymbol(QHash<QString, FracPosition>& symbolsPosition);
 
-    const QHash<QString, Symbol> &getSymbols() const;
+    const QHash<QString, Symbol> &getSymbolsById() const;
+
 };
 
 

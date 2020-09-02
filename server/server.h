@@ -13,6 +13,7 @@
 
 #include "User.h"
 #include "Session.h"
+#include "FracPosition.h"
 
 QT_BEGIN_NAMESPACE
 class QTcpServer;
@@ -41,8 +42,11 @@ private slots:
 	bool openFile(QJsonObject &data, QTcpSocket *active_socket);
     bool closeFile(QJsonObject &data, QTcpSocket *active_socket);
     bool saveFile(QJsonObject &data, QTcpSocket *active_socket);
-    bool receiveSymbol(QJsonObject &data, QTcpSocket *active_socket);
-    bool deleteSymbol(QJsonObject &data, QTcpSocket *active_socket);
+    bool receiveChar(QJsonObject &data, QTcpSocket *active_socket);
+    bool receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket);
+    bool deleteChar(QJsonObject &data, QTcpSocket *active_socket);
+    bool deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket);
+
 
 private:
     Ui::Server *ui;
@@ -66,6 +70,7 @@ private:
     QPixmap pixmapFrom(const QJsonValue &val);
     bool checkPasswordFormat(QString password);
     void sendMessage(QJsonObject message, QTcpSocket*);
+    void sendMessage(QJsonArray message, QTcpSocket*);
 
     QColor generateColor(); // function to generate a random color for a user
 };

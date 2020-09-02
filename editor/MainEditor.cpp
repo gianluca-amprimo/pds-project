@@ -24,8 +24,10 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
 
     QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
     QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
-    QObject::connect(this->textArea, &MyTextArea::symbolReady, this, &MainEditor::sendSymbol);
-    QObject::connect(this->textArea, &MyTextArea::symbolDeleted, this, &MainEditor::sendDeletion);
+    QObject::connect(this->textArea, &MyTextArea::charInserted, this, &MainEditor::sendCharInserted);
+    QObject::connect(this->textArea, &MyTextArea::charDeleted, this, &MainEditor::sendCharDeleted);
+    QObject::connect(this->textArea, &MyTextArea::batchCharDelete, this, &MainEditor::sendBatchCharDeleted);
+    QObject::connect(this->textArea, &MyTextArea::batchCharInserted, this, &MainEditor::sendBatchCharInserted);
 }
 
 void MainEditor::closeEvent(QCloseEvent *event) {
@@ -244,7 +246,7 @@ Ui::MainEditor *MainEditor::getUi() {
     return this->ui;
 }
 
-void MainEditor::sendSymbol(Symbol& symbol) {
+void MainEditor::sendCharInserted(QJsonObject message) {
     // check socket status
     if (this->tcpSocket != nullptr) {
         if (!this->tcpSocket->isValid()) {
@@ -256,33 +258,24 @@ void MainEditor::sendSymbol(Symbol& symbol) {
             return;
         }
 
-        QByteArray serializedSym;
-        QDataStream symbolStream(&serializedSym, QIODevice::WriteOnly);
-        symbolStream << symbol;
-
+        // add filename to message
+        message["filename"] = this->filename;
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
-
-        QJsonObject message;
-        message["header"] = "symbol";
-        message["filename"] = this->filename;
-        message["editorId"] = this->textArea->getThisEditorIdentifier();
-        message["content"] = QLatin1String(serializedSym.toBase64());
-
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
 
         if (!this->tcpSocket->write(block)) {
-            ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
+            ui->statusBar->showMessage(tr("Could not send message to the server, char will be not inserted."), 5000);
         }
         this->tcpSocket->flush();
-        qDebug() << "Sending symbol " << symbol.getCharacter() << "at position" << symbol.getPosition().getStringPosition();
+        qDebug() << "Sending insertion of char " << message["unicode"] << "at position" << message["position"];
     }
 
 }
 
-void MainEditor::sendDeletion(QByteArray serializedSymId) {
+void MainEditor::sendCharDeleted(QJsonObject message) {
     if (this->tcpSocket != nullptr) {
         if (!this->tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
@@ -297,11 +290,7 @@ void MainEditor::sendDeletion(QByteArray serializedSymId) {
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
 
-        QJsonObject message;
-        message["header"] = "delSymbol";
         message["filename"] = this->filename;
-        message["editorId"] = this->textArea->getThisEditorIdentifier();
-        message["content"] = QLatin1String(serializedSymId.toBase64());
 
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
@@ -309,10 +298,11 @@ void MainEditor::sendDeletion(QByteArray serializedSymId) {
         if (!this->tcpSocket->write(block)) {
             ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
         }
-        //this->tcpSocket->flush();
-        qDebug() << "Sending deletion of" << message["content"];
+        this->tcpSocket->flush();
+        qDebug() << "Sending deletion of" << message["charId"];
     }
 }
+
 
 void MainEditor::receiveSymbol(QJsonValueRef content) {
     auto data = QByteArray::fromBase64(content.toString().toLatin1());
@@ -325,14 +315,121 @@ void MainEditor::receiveSymbol(QJsonValueRef content) {
 }
 
 void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
-    auto symId = QByteArray::fromBase64(id.toString().toLatin1());
+    auto symId = id.toString();
     auto symPos = position.toString();
-    QDataStream idStream(&symId, QIODevice::ReadOnly);
-    QString idString;
 
-    idStream >> idString;
-    qDebug() << "Received the deletion of char" << idString << "at position" << symPos;
-    this->textArea->removeSymbolFromList(idString, symPos);
+    qDebug() << "Received the deletion of char" << symId << "at position" << symPos;
+    this->textArea->removeSymbolFromList(symId, symPos);
+}
+
+const QString &MainEditor::getFilename() const {
+    return filename;
+}
+
+void MainEditor::sendBatchCharDeleted(QJsonObject message) {
+    if (this->tcpSocket != nullptr) {
+        if (!this->tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!this->tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        message["filename"] = this->filename;
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!this->tcpSocket->write(block)) {
+            ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
+        }
+        this->tcpSocket->flush();
+    }
+
+}
+
+void MainEditor::receiveBatchDeletion(QJsonValueRef idsAndPositionsJson) {
+    auto idsPositionsBytes = QByteArray::fromBase64(idsAndPositionsJson.toString().toLatin1());
+    QDataStream inIdsPositionBytesStream(&idsPositionsBytes, QIODevice::ReadOnly);
+
+    QHash<QString, FracPosition> idsAndPositions;
+    inIdsPositionBytesStream >> idsAndPositions;
+
+    for(auto key : idsAndPositions.keys()){
+        this->textArea->removeSymbolFromList(key, const_cast<QString &>(idsAndPositions.value(key).getStringPosition()));
+    }
+}
+
+void MainEditor::sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats) {
+
+    if (this->tcpSocket != nullptr) {
+        if (!this->tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!this->tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QByteArray formatInBytes;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        QDataStream formatOut(&formatInBytes, QIODevice::WriteOnly);
+        formatOut.setVersion(QDataStream::Qt_4_0);
+        formatOut << formats;
+
+        QJsonObject metadata;
+        metadata["filename"] = this->filename;
+        metadata["editorId"] = this->textArea->getThisEditorIdentifier();
+        metadata["charLength"] = message.size();
+        metadata["formatLength"] = 0;
+        metadata["header"] = BATCH_CHAR_ADDITION;
+        metadata["formats"] = QLatin1String(formatInBytes.toBase64());
+
+        message.push_front(metadata);
+
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        if (!this->tcpSocket->write(block)) {
+            ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
+        }
+        this->tcpSocket->flush();
+    }
+}
+
+void MainEditor::receiveBatchSymbol(QJsonArray data) {
+    QJsonObject metadata = data[0].toObject();
+
+    auto formatsInBytes = QByteArray::fromBase64(metadata["formats"].toString().toLatin1());
+    QVector<QTextCharFormat> formats;
+    QDataStream inFormatsStream(&formatsInBytes, QIODevice::ReadOnly);
+    inFormatsStream >> formats;
+
+    int arrayLength = metadata["length"].toInt();
+    qDebug() << "Going to paste" << arrayLength;
+
+    for(int i = 0; i < arrayLength; i++){
+        QJsonObject singleSymbol = data[i+1].toObject();
+        FracPosition fp(singleSymbol["fracPosition"].toString());
+        QChar unicode = singleSymbol["unicode"].toString()[0];
+        QString charId = singleSymbol["charId"].toString();
+        QTextCharFormat format = formats[0];
+
+        Symbol sym(unicode, charId, fp, format);
+        qDebug() << "Batch inserting" << sym.getCharacter() << "at position" << sym.getPosition().getStringPosition();
+         this->textArea->addSymbolToList(sym);
+    }
+
 }
 
 

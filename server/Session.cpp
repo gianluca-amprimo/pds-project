@@ -26,14 +26,14 @@ const QString &Session::getFilename() const {
 }
 
 void Session::removeSymbol(QString id) {
-    symbols.remove(id);
-    /*TODO: tell other editors to remove symbol*/
+    FracPosition position = symbolsById.value(id).getPosition();
+    symbolsById.remove(id);
+    symbolsByPosition.remove(position);
 }
 
 void Session::addSymbol(Symbol& sym) {
-    symbols.insert(sym.getIdentifier(), sym);
-
-    /*TODO: dispatch message to other editors*/
+    symbolsById.insert(sym.getIdentifier(), sym);
+    symbolsByPosition.insert(sym.getPosition(), sym);
 }
 
 int Session::getEditorCounter() const {
@@ -63,6 +63,16 @@ void Session::removeUserFromSession(User *u) {
     this->editorCounter--;
 }
 
-const QHash<QString, Symbol> &Session::getSymbols() const {
-    return this->symbols;
+const QHash<QString, Symbol> &Session::getSymbolsById() const {
+    return this->symbolsById;
+}
+
+const QMap<FracPosition, Symbol> &Session::getSymbolsByPosition() const {
+    return symbolsByPosition;
+}
+
+const void Session::removeBatchSymbol(QHash<QString, FracPosition>& symbolsPosition) {
+    for(QString key : symbolsPosition.keys()){
+        removeSymbol(key);
+    }
 }
