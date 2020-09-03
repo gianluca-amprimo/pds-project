@@ -312,12 +312,14 @@ void MainEditor::sendCharDeleted(QJsonObject message) {
 }
 
 void MainEditor::receiveSymbol(QJsonValueRef content) {
+    qDebug() << "Qui almeno ci entro?";
     auto data = QByteArray::fromBase64(content.toString().toLatin1());
     QDataStream inStream(&data, QIODevice::ReadOnly);
     Symbol sym;
 
     inStream >> sym;
     this->textArea->addSymbolToList(sym);
+    this->textArea->setHandlingEvent(false);
 }
 
 void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
@@ -326,6 +328,7 @@ void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
 
     qDebug() << "Received the deletion of char" << symId << "at position" << symPos;
     this->textArea->removeSymbolFromList(symId, symPos);
+    this->textArea->setHandlingEvent(false);
 }
 
 const QString &MainEditor::getFilename() const {
@@ -370,6 +373,7 @@ void MainEditor::receiveBatchDeletion(QJsonValueRef idsAndPositionsJson) {
     for(auto key : idsAndPositions.keys()){
         this->textArea->removeSymbolFromList(key, const_cast<QString &>(idsAndPositions.value(key).getStringPosition()));
     }
+    this->textArea->setHandlingEvent(false);
 }
 
 void MainEditor::sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats) {
@@ -398,6 +402,7 @@ void MainEditor::sendBatchCharInserted(QJsonArray message, QVector<QTextCharForm
         metadata["editorId"] = this->textArea->getThisEditorIdentifier();
         metadata["charLength"] = message.size();
         metadata["formatLength"] = 0;
+        metadata["length"] = message.size();
         metadata["header"] = BATCH_CHAR_ADDITION;
         metadata["formats"] = QLatin1String(formatInBytes.toBase64());
 
@@ -422,7 +427,7 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
     inFormatsStream >> formats;
 
     int arrayLength = metadata["length"].toInt();
-    qDebug() << "Going to paste" << arrayLength;
+    qDebug() << "Going to paste" << arrayLength << "characters";
 
     for(int i = 0; i < arrayLength; i++){
         QJsonObject singleSymbol = data[i+1].toObject();
@@ -435,6 +440,7 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
         qDebug() << "Batch inserting" << sym.getCharacter() << "at position" << sym.getPosition().getStringPosition();
          this->textArea->addSymbolToList(sym);
     }
+    this->textArea->setHandlingEvent(false);
 
 }
 
@@ -445,7 +451,6 @@ void MainEditor::colors(QString username, QString color, QString postion){
 
 void MainEditor::sendPosition(){
     QString userPosition= QString::number(this->textArea->getCurrentPosition());
-    qDebug() << "Sending position: " << userPosition << "of user: " << this->username;
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";

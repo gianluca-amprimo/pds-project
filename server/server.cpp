@@ -133,7 +133,9 @@ void Server::processUserRequest() {
                 header = jSobject["header"].toString();
             } else if(jsonDoc.isArray()){
                jSarray = jsonDoc.array();
-               header = jSobject[0].toObject()["header"].toString();
+               header = jSarray[0].toObject()["header"].toString();
+               qDebug() << "header is " << header;
+
             }else{
                 QJsonObject message = prepareJsonReply("error", "error", " ");
                 sendMessage(message, active_socket);
@@ -179,8 +181,8 @@ void Server::processUserRequest() {
             opResult = Server::deleteBatchChar(jSobject, active_socket);
         if (header == "sessionlogout")
             opResult = Server::closeFile(jSobject, active_socket);
-    if (header == "position")
-        opResult = Server::updatePosition(jSobject, active_socket);
+        if (header == "position")
+            opResult = Server::updatePosition(jSobject, active_socket);
 
         qDebug() << opResult;
     }
@@ -1006,7 +1008,7 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
 
     // now send symbol to all the other editors
     for(QString user : session->userEditorId.keys()){
-        qDebug() << "Sending symbol" << sym.getCharacter() << "to" << session->userEditorId.value(user);
+        qDebug() << "Sending symbol" << symbol.getCharacter() << "to" << session->userEditorId.value(user);
         sendMessage(message, this->idleConnectedUsers.value(user));
     }
 
@@ -1031,9 +1033,9 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
 
     // now send deletion to all the other editors
     for(QString user : session->userEditorId.keys()){
-        qDebug() << "Sending deletion of" << session->getSymbols().value(symId).getCharacter() << "with frac pos"
+        qDebug() << "Sending deletion of" << session->getSymbolsById().value(symId).getCharacter() << "with frac pos"
         << stringPosition << "to" << session->userEditorId.values(user);
-        sendMessage(data, this->idleConnectedUsers.value(user));
+        sendMessage(message, this->idleConnectedUsers.value(user));
     }
     session->removeSymbol(symId);
 
@@ -1077,8 +1079,8 @@ bool Server::deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket) {
     message["idsAndPositions"] = QLatin1String(symbolPositionBytes.toBase64());
 
     // now send deletion to all other editors
-    for(User *u : session->connectedEditors){
-        sendMessage(message, this->idleConnectedUsers[*u]);
+    for(QString user : session->userEditorId.keys()){
+        sendMessage(message, this->idleConnectedUsers[user]);
     }
     session->removeBatchSymbol(symbolsPosition);
 
@@ -1106,16 +1108,17 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
     QByteArray symbolInBytes;
     QJsonArray message;
 
+    qDebug() << "Seems like the editor wants to paste" << metadata["length"] << "characters";
     auto formats = QByteArray::fromBase64(metadata["formats"].toString().toLatin1());
     QDataStream inFormatStream(&formats, QIODevice::ReadOnly);
     QString filename = metadata["filename"].toString().toLatin1();
-    int arrayLenght = metadata["lenght"].toInt();
+    int arrayLenght = metadata["length"].toInt();
     QVector<QTextCharFormat> charFormats;
 
     metadataOut["header"] = "addBatchSymbol";
     metadataOut["length"] = arrayLenght;
     metadataOut["formatLength"] = metadata["formatLength"];
-    metadataOut["formats"] = metadata["format"];
+    metadataOut["formats"] = metadata["formats"];
 
     message.push_front(metadataOut);
 
@@ -1165,16 +1168,16 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
 
         // rebuild another JSON object with frac position to send
         singleCharOut["fracPosition"] = symbolFp.getStringPosition();
-        singleCharOut["unicode"] = symbolFp.getStringPosition();
-        singleCharOut["charId"] = symbolFp.getStringPosition();
+        singleCharOut["unicode"] = unicode;
+        singleCharOut["charId"] = charId;
 
         message.push_back(singleCharOut);
     }
 
     // now send symbol to all other editors
-    for(User *u : session->connectedEditors){
-        qDebug() << "Sending symbols" <<  "to" << u->getEditorId();
-        sendMessage(message, this->idleConnectedUsers[*u]);
+    for(QString user : session->userEditorId.keys()){
+        qDebug() << "Sending symbols" <<  "to" << user;
+        sendMessage(message, this->idleConnectedUsers[user]);
     }
 
     return true;
@@ -1212,7 +1215,6 @@ bool Server::updatePosition(QJsonObject &data, QTcpSocket *active_socket){
     QString username = data["username"].toString();
     QString filename = data["filename"].toString();
     QString position = data["position"].toString();
-    qDebug() << "Updating position: " << position;
 
     Session *session = active_sessions.value(filename);
 
@@ -1222,7 +1224,6 @@ bool Server::updatePosition(QJsonObject &data, QTcpSocket *active_socket){
         return false;
     }
 
-    qDebug() << "Updating position of user:  " + username + " at position: " + position+ " in file: " + filename;
 
     // update position
     QString color_pos = session->userMap.value(username);

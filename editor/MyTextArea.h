@@ -21,14 +21,14 @@
 #define SINGLE_CHAR_ADDITION "add1Char"
 #define BATCH_CHAR_ADDITION "addBatchChar"
 
-#define KEY_IS_BACKSPACE (e->key() == Qt::Key_Backspace)
-#define KEY_IS_CUT (e->modifiers() & Qt::ControlModifier && e->key() == Qt::Key_X)
-#define KEY_IS_A_CHAR (e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis || e->key() == Qt::Key_Return)
-#define KEY_IS_PASTE (e->key() == Qt::Key_V && e->modifiers() & Qt::ControlModifier)
-#define KEY_IS_COPY (e->key() == Qt::Key_C && e->modifiers() & Qt::ControlModifier)
-#define KEY_IS_SELECT_ALL (e->key() == Qt::Key_A && e->modifiers() & Qt::ControlModifier)
-#define KEY_IS_ARROW (e->key() == Qt::Key_Up || e->key() == Qt::Key_Down || e->key() == Qt::Key_Right || e->key() == Qt::Key_Left)
-#define KEY_CTRL_IS_ON (e->modifiers() & Qt::ControlModifier)
+#define KEY_IS_BACKSPACE(e) (e->key() == Qt::Key_Backspace)
+#define KEY_IS_CUT(e) (e->modifiers() & Qt::ControlModifier && e->key() == Qt::Key_X)
+#define KEY_IS_A_CHAR(e) (e->key() >= Qt::Key_Space && e->key() <= Qt::Key_ydiaeresis || e->key() == Qt::Key_Return)
+#define KEY_IS_PASTE(e) (e->key() == Qt::Key_V && e->modifiers() & Qt::ControlModifier)
+#define KEY_IS_COPY(e) (e->key() == Qt::Key_C && e->modifiers() & Qt::ControlModifier)
+#define KEY_IS_SELECT_ALL(e) (e->key() == Qt::Key_A && e->modifiers() & Qt::ControlModifier)
+#define KEY_IS_ARROW(e) (e->key() == Qt::Key_Up || e->key() == Qt::Key_Down || e->key() == Qt::Key_Right || e->key() == Qt::Key_Left)
+#define KEY_CTRL_IS_ON(e) (e->modifiers() & Qt::ControlModifier)
 
 class MyTextArea : public QTextEdit {
 Q_OBJECT
@@ -73,13 +73,20 @@ signals:
 
 private:
     QString thisEditorIdentifier = "AAAA";
+    QList<QKeyEvent *> unhandledEvents;
     int charCounter;
     QMap<FracPosition, Symbol> _symbols;
     int currentPosition = 0;
     int oldPosition = 0;
+public:
+    bool isHandlingEvent() const;
+
+    void setHandlingEvent(bool handlingEvent);
+
+private:
     int lastPosition = 0;
     bool selectionMode = false;
-    bool pasting = false;
+    bool handlingEvent = false;
     int anchor;
     QClipboard *clipboard = QGuiApplication::clipboard();
 };

@@ -98,6 +98,7 @@ void Client::readResponse()
     std::string header;
     std::string result;
     QJsonObject jSobject;
+    QJsonArray jSarray;
     QPixmap propic;
     in >> jSmessage;
     QJsonParseError parseError;
@@ -109,6 +110,9 @@ void Client::readResponse()
             jSobject=jsonDoc.object();
             header=jSobject["header"].toString().toStdString();
             result=jSobject["body"].toString().toStdString();
+        }else if(jsonDoc.isArray()){
+            jSarray=jsonDoc.array();
+            header=jSarray[0].toObject()["header"].toString().toStdString();
         }
         else{
             QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
@@ -316,6 +320,18 @@ void Client::readResponse()
 
     if(header=="colors") {
         this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString(), jSobject["postion"].toString());
+    }
+    if(header=="add1Symbol") {
+        this->mainEditor->receiveSymbol(jSobject["symbol"]);
+    }
+    if(header=="delete1Symbol") {
+        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"]);
+    }
+    if(header=="deleteBatchSymbol") {
+        this->mainEditor->receiveBatchDeletion(jSobject["idsAndPositions"]);
+    }
+    if(header=="addBatchSymbol"){
+        this->mainEditor->receiveBatchSymbol(jSarray);
     }
 }
 
