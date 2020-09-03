@@ -11,6 +11,7 @@
 #include <map>
 #include <list>
 
+#include "exceptions.h"
 #include "Session.h"
 #include "FracPosition.h"
 

@@ -25,6 +25,10 @@ const QString &Session::getFilename() const {
 }
 
 void Session::removeSymbol(QString id) {
+    if(!symbolsById.contains(id)){
+        NonExistingSymbol nes;
+        throw nes;
+    }
     FracPosition position = symbolsById.value(id).getPosition();
     symbolsById.remove(id);
     symbolsByPosition.remove(position);

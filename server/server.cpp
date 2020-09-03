@@ -1032,12 +1032,14 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
     message["position"] = stringPosition;
 
     // now send deletion to all the other editors
+    try {
+        session->removeSymbol(symId);
+    }catch (NonExistingSymbol &e){
+        return false;
+    }
     for(QString user : session->userEditorId.keys()){
-        qDebug() << "Sending deletion of" << session->getSymbolsById().value(symId).getCharacter() << "with frac pos"
-        << stringPosition << "to" << session->userEditorId.values(user);
         sendMessage(message, this->idleConnectedUsers.value(user));
     }
-    session->removeSymbol(symId);
 
     return true;
 }
@@ -1079,10 +1081,14 @@ bool Server::deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket) {
     message["idsAndPositions"] = QLatin1String(symbolPositionBytes.toBase64());
 
     // now send deletion to all other editors
+    try {
+        session->removeBatchSymbol(symbolsPosition);
+    }catch (NonExistingSymbol &e){
+        return false;
+    }
     for(QString user : session->userEditorId.keys()){
         sendMessage(message, this->idleConnectedUsers[user]);
     }
-    session->removeBatchSymbol(symbolsPosition);
 
     return true;
 }

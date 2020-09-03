@@ -32,6 +32,16 @@
 
 class MyTextArea : public QTextEdit {
 Q_OBJECT
+private:
+    QString thisEditorIdentifier = "AAAA";
+    int charCounter;
+    QMap<FracPosition, Symbol> _symbols;
+    int currentPosition = 0;
+    int lastPosition = 0;
+    bool selectionMode = false;
+    int anchor;
+    QClipboard *clipboard = QGuiApplication::clipboard();
+    int oldPosition = 0;
 
 public:
     MyTextArea();
@@ -71,24 +81,6 @@ signals:
     void batchCharDelete(QJsonObject message);
     void batchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
 
-private:
-    QString thisEditorIdentifier = "AAAA";
-    QList<QKeyEvent *> unhandledEvents;
-    int charCounter;
-    QMap<FracPosition, Symbol> _symbols;
-    int currentPosition = 0;
-    int oldPosition = 0;
-public:
-    bool isHandlingEvent() const;
-
-    void setHandlingEvent(bool handlingEvent);
-
-private:
-    int lastPosition = 0;
-    bool selectionMode = false;
-    bool handlingEvent = false;
-    int anchor;
-    QClipboard *clipboard = QGuiApplication::clipboard();
 };
 
 

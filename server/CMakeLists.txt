@@ -37,5 +37,5 @@ add_executable(server
         db_operations.h
         Symbol.cpp
         Symbol.h
-        Session.cpp Session.h FracPosition.cpp FracPosition.h)
+        Session.cpp Session.h FracPosition.cpp FracPosition.h exceptions.h)
 target_link_libraries(server ${LIBRARIES} ${CMAKE_DL_LIBS})
