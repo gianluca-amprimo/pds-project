@@ -1192,7 +1192,6 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
 void Server::sendColors(QString filename){
     Session *session = this->active_sessions.value(filename);
 
-    // TODO: mandare lista utente -> colore_posizione
     QJsonObject message;
     message["header"] = "colors";
     for (QString user : session->userMap.keys()){

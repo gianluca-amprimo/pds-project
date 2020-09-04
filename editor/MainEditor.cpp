@@ -438,13 +438,13 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
     }
 }
 
-void MainEditor::colors(QString username, QString color, QString postion){
+void MainEditor::colors(QString username, QString color, QString position){
     // TODO: print grafically the users with their color in their position
     qDebug() << "User: " << username << " has color: " << color << " and is at position: " << position;
 }
 
 void MainEditor::sendPosition(){
-    QString userPosition= QString::number(this->textArea->getCurrentPosition());
+    QString userPosition= QString::number(this->textArea->textCursor().position());
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
