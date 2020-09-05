@@ -102,9 +102,17 @@ void MainEditor::setupActions() {
 }
 
 void MainEditor::initUI(QDataStream *contentStream) {
+    // initialising the scroll bar were we will place the online users
+    onlineUsers = new QListWidget(ui->centralwidget);
+    onlineUsers->setObjectName(QString::fromUtf8("onlineUsers"));
+    QString line = "Here the online users \nwill be displayed";
+    onlineUsers->addItem(line);
+    ui->gridLayout->addWidget(onlineUsers, 0, 0, 1, -1);
+
+    // initialising the text area
     textArea = new MyTextArea(ui->centralwidget);
     textArea->setObjectName(QString::fromUtf8("textArea"));
-    ui->gridLayout->addWidget(textArea, 1, 0, 1, 1);
+    ui->gridLayout->addWidget(textArea, 0, 1, -1, 4);
 
     QList<Symbol> listOfSymbols;
     *contentStream >> listOfSymbols;
@@ -439,8 +447,29 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
 }
 
 void MainEditor::colors(QString username, QString color, QString position){
-    // TODO: print grafically the users with their color in their position
     qDebug() << "User: " << username << " has color: " << color << " and is at position: " << position;
+
+    if (this->userMap.empty()){
+        // received the first user -> delete the first item
+        this->onlineUsers->takeItem(0);
+    }
+
+    // check if user already online
+    if (!this->userMap.contains(username)){
+        this->userMap.insert(username, color);
+
+        QColor userColor{color};
+        this->onlineUsers->addItem(username);
+        qDebug() << this->userMap.size();
+        onlineUsers->item(this->userMap.size()-1)->setForeground(userColor);
+    } else {
+        // user was already online
+        // just update its position
+        // TODO: print cursor in new position
+    }
+
+    // TODO: handle when we don't receive
+    //  update of a certain user for some time
 }
 
 void MainEditor::sendPosition(){

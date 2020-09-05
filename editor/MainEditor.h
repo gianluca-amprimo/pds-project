@@ -51,6 +51,10 @@ private:
     QFontComboBox *fontSelector;
     QComboBox *sizeSelector;
     MyTextArea *textArea;
+    QListWidget *onlineUsers;
+
+    QMap<QString, QString> userMap;
+
     int position;
 
     QTimer* timer;
