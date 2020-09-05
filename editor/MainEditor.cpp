@@ -458,14 +458,22 @@ void MainEditor::colors(QString username, QString color, QString position){
     if (!this->userMap.contains(username)){
         this->userMap.insert(username, color);
 
+        // insert the user with its color
         QColor userColor{color};
         this->onlineUsers->addItem(username);
-        qDebug() << this->userMap.size();
         onlineUsers->item(this->userMap.size()-1)->setForeground(userColor);
+
+        // TODO: insert the cursor in the correct position
     } else {
         // user was already online
         // just update its position
-        // TODO: print cursor in new position
+        if (position == "-1"){
+            this->userMap.remove(username);
+            for (QListWidgetItem *item : this->onlineUsers->findItems(username, Qt::MatchExactly))
+                this->onlineUsers->takeItem(this->onlineUsers->row(item));
+        } else {
+            // TODO: print cursor in new position
+        }
     }
 
     // TODO: handle when we don't receive
