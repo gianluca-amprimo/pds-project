@@ -7,10 +7,9 @@
 #include <QString>
 #include <QTcpSocket>
 #include <QColor>
-
 #include <map>
 #include <list>
-
+#include <memory>
 #include "exceptions.h"
 #include "Session.h"
 #include "FracPosition.h"
@@ -44,15 +43,15 @@ private slots:
 	bool refreshFileList(QJsonObject &, QTcpSocket *);
 	bool createFile(QJsonObject &data, QTcpSocket *active_socket);
 	bool openFile(QJsonObject &data, QTcpSocket *active_socket);
-    bool closeFile(QJsonObject &data, QTcpSocket *active_socket);
-    bool saveFile(QJsonObject &data, QTcpSocket *active_socket);
+    bool closeFileReq(QJsonObject &data, QTcpSocket *active_socket);
+    bool saveFileReq(QJsonObject &data, QTcpSocket *active_socket);
     bool receiveChar(QJsonObject &data, QTcpSocket *active_socket);
     bool receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket);
     bool deleteChar(QJsonObject &data, QTcpSocket *active_socket);
     bool deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket);
 
+
     void sendColors(QString filename);
-    void sendLogout(QString filename, QString username);
     bool updatePosition(QJsonObject &jSobject, QTcpSocket *active_socket);
 
 private:
@@ -62,9 +61,9 @@ private:
     QNetworkSession *networkSession = nullptr;
 
     // variables for handling the users
-    QMap<QString, QTcpSocket*> idleConnectedUsers;      // utente -> socket
-    QMap<QString, Session*> active_sessions;            // filename -> sessione
-    QMap<QString, QTimer*> timers;                      // filename -> timers
+    QHash<QString, QTcpSocket*> idleConnectedUsers;      // utente -> socket
+    QHash<QString, std::shared_ptr<Session>> active_sessions;            // filename -> sessione
+    QHash<QString, QTimer*> timers;                      // filename -> timers
 
     QJsonObject prepareJsonReply(QString header, QString result, QString username, bool propic=false, bool filelist=false, bool personal_info=false);
     QJsonValue jsonValFromPixmap(const QPixmap &p);
@@ -76,6 +75,11 @@ private:
     void sendMessage(QJsonArray message, QTcpSocket*);
 
     QColor generateColor(); // function to generate a random color for a user
+    bool removeUserFromSession(std::shared_ptr<Session> session, const QString& username, std::optional<std::shared_ptr<QJsonObject>> returnMessage);
+
+    bool
+    saveFile(const QString &filename, const QByteArray &content,
+             std::optional<std::shared_ptr<QJsonObject>> returnMessage);
 };
 
 #endif

@@ -8,7 +8,7 @@
 Session::Session(const QString &filename) : filename(filename) {
     QCryptographicHash md5(QCryptographicHash::Md5);
     QByteArray filenameBytes;
-    QDataStream ds(filenameBytes);
+    QDataStream ds(&filenameBytes, QIODevice::WriteOnly);
     ds << filename;
     md5.addData(filenameBytes);
 
@@ -60,9 +60,12 @@ void Session::addUserToSession(QString username, QString editorId) {
     this->editorCounter++;
 }
 
-void Session::removeUserFromSession(QString username) {
+QString Session::removeUserFromSession(const QString& username) {
+    auto editorId = this->userEditorId.value(username);
     this->userEditorId.remove(username);
+    this->userMap.remove(username);
     this->editorCounter--;
+    return editorId;
 }
 
 const QHash<QString, Symbol> &Session::getSymbolsById() const {

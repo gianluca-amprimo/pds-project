@@ -170,7 +170,7 @@ void Server::processUserRequest() {
         if (header == "openfile")
             opResult = Server::openFile(jSobject, active_socket);
         if (header == "savefile")
-            opResult = Server::saveFile(jSobject, active_socket);
+            opResult = Server::saveFileReq(jSobject, active_socket);
         if (header == "add1Char")
             opResult = Server::receiveChar(jSobject, active_socket);
         if (header == "addBatchChar")
@@ -180,7 +180,7 @@ void Server::processUserRequest() {
         if (header == "deleteBatchChar")
             opResult = Server::deleteBatchChar(jSobject, active_socket);
         if (header == "sessionlogout")
-            opResult = Server::closeFile(jSobject, active_socket);
+            opResult = Server::closeFileReq(jSobject, active_socket);
         if (header == "position")
             opResult = Server::updatePosition(jSobject, active_socket);
 
@@ -195,6 +195,7 @@ void Server::getConnectedSocket() {
     printConsole((QString &&) ("I am accepting a new connection from socket " +
                                QString::fromStdString(std::to_string(active_socket->socketDescriptor()))));
     // inserisci il socket nella lista dei socket attivi
+    // active_sockets.push_back(active_socket);
     // active_sockets.push_back(active_socket);
     connect(active_socket, &QIODevice::readyRead, this, &Server::processUserRequest);
     connect(active_socket, &QAbstractSocket::disconnected, this, &Server::handleDisconnect);
@@ -418,30 +419,30 @@ QJsonObject Server::prepareJsonReply(QString header, QString result, QString use
     return message;
 }
 
-/*
- * Function to disconnect the user
- */
+// the user is closing the socket and disconnecting from the server
 void Server::handleDisconnect() {
-    QTcpSocket *disconnected_socket = (QTcpSocket *) sender();
+    auto *disconnected_socket = (QTcpSocket *) sender();
     QString currently_active;
     QString user_list;
+
     // un utente può essere connesso solo con un editor, quindi non bisogna prendere
     // in considerazione il caso in cui ci siano più socket attivi
-
-    printConsole("List of active users and their socket: ");
     // find the username of the user
-    QString username;
-    for (QString user : idleConnectedUsers.keys()) {
-        printConsole(user);
-        if (idleConnectedUsers.value(user) == disconnected_socket)
-            username = user;
+    for (const QString& user : idleConnectedUsers.keys()) {
+        if (idleConnectedUsers.value(user) == disconnected_socket) {
+            qDebug() << "User " << user << " disconnected from the server";
+            idleConnectedUsers.remove(user);
+            for(const auto session : active_sessions) {
+                auto it = session->userMap.find(user);
+                if(it != session->userMap.end()) {
+                    removeUserFromSession(session, user, std::optional<std::shared_ptr<QJsonObject>>());
+                    break;
+                }
+            }
+        }
     }
     // remove the user from the map idleConnectedUsers
-    idleConnectedUsers.remove(username);
-
     disconnected_socket->deleteLater();
-
-    // TODO: controllare se l'utente era connesso ad una sessione, quindi disconnetterlo dalla sessione
 }
 
 QJsonValue Server::jsonValFromPixmap(const QPixmap &p) {
@@ -635,7 +636,6 @@ bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString();
     QString username = data["username"].toString();
     QJsonObject message;
-    Session session(filename);
 
     int result = addFile(filename.toStdString(), username.toStdString());
     if (result == -1) {
@@ -652,9 +652,8 @@ bool Server::createFile(QJsonObject &data, QTcpSocket *active_socket) {
         printConsole("<i>" + username + "</i> has tried to create file <i>" + filename + "</i>, but it already exists", true);
         return false;
     }
-
     message["header"] = "newfile";
-    message["body"] = "file_created";
+    message["body"] = "ok";
     openFile(data, active_socket);
     return true;
 }
@@ -667,37 +666,37 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
     QJsonObject message;
     message["header"] = "openfile";
 
-    int result = checkIfFileExists(filename.toStdString());
-    if (result == -1) {
-        message["body"] = "internal_error";
-        sendMessage(message, active_socket);
-        printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
-        return false;
-    }
-    if (result == 0) {
-        message["body"] = "not_existing_file";
-        sendMessage(message, active_socket);
-        printConsole("<i>" + username + "</i> has tried to open file <i>" + filename + "</i>, but it doesn't exist", true);
-        return false;
-    }
+    if(idleConnectedUsers.contains(username)){
+        qDebug() << username << " is opening file : " << filename;
+        int result = checkIfFileExists(filename.toStdString());
+        if (result == -1) {
+            message["body"] = "internal_error";
+            sendMessage(message, active_socket);
+            printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
+            return false;
+        }
+        if (result == 0) {
+            message["body"] = "not_existing_file";
+            sendMessage(message, active_socket);
+            printConsole("<i>" + username + "</i> has tried to open file <i>" + filename + "</i>, but it doesn't exist", true);
+            return false;
+        }
 
-    qDebug() << "Opening file with" << username;
-    for(QString user: idleConnectedUsers.keys()){
-        qDebug() << user << "is connected to the server";
-    }
+        QString listUsers("List of users currently connected to the server: ");
+        for(QString user: idleConnectedUsers.keys()){
+            listUsers.append(user + " ");
+        }
+        qDebug() << listUsers;
 
-    // check in case someone is sending a bad request
-    // session already exists, simply add the user to it
-    if(active_sessions.contains(filename)){
-        Session *session = active_sessions.value(filename);
-        if(idleConnectedUsers.contains(username)){
-            qDebug() << "User" << username << "is connected, can proceed";
-            editorId = session->getEditorPrefix() + QString(session->getEditorCounter());
-
+        auto session = active_sessions.find(filename);
+        // session already exists, simply add the user to it
+        if(session != active_sessions.end()){
+            qDebug() << "User " << username << " joining existing session for file " << filename;
+            editorId = (*session)->getEditorPrefix() + "_" + std::to_string((*session)->getEditorCounter()).c_str();
             // add user to session
-            session->addUserToSession(username, editorId);
-            qDebug() << "Session has " << session->getEditorCounter() << " users connected";
-            if (session->getEditorCounter() == 2){
+            (*session)->addUserToSession(username, editorId);
+            qDebug() << "Session has " << (*session)->getEditorCounter() << " users connected";
+            if ((*session)->getEditorCounter() == 2){
                 // create a timer associated to the session
                 QTimer *timer = new QTimer(this);
                 connect(timer, &QTimer::timeout, this, [=](){sendColors(filename);});
@@ -710,216 +709,179 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             // TODO: for now initial position will be end of the file
             //  check if correct, later will be updated
             //  if the user moves the cursor
-            int position = 0;
+            char position = '0';
             QString color_pos = color.name() + "_" + position;
             qDebug() << "Color associated to user " << username << " is: " << color.name();
-            session->userMap.insert(username, color_pos);
-        }
+            (*session)->userMap.insert(username, color_pos);
+            printConsole("Adding user <i>" + username + "</i> with editorId = <i>" + editorId + "</i> to session for file <i>" + filename + "</i>");
 
-        printConsole("Adding to session new user: " + username + " \nand editorId = " + editorId);
-
-        // send message to the client with the result of the operation
-        QByteArray byteArrayBuffer;
-        QDataStream outStream(&byteArrayBuffer, QIODevice::ReadWrite);
-        outStream << session->getSymbolsById().values();
-
-        message["editorId"] = editorId;
-        message["body"] = "existing_session";
-        message["filename"] = data["filename"];
-        message["content"] = QLatin1String(byteArrayBuffer.toBase64());
-        sendMessage(message, active_socket);
-        printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
-        return true;
-    } else {
-        // session doesn't exist, create it and put first user
-        auto *fileSession = new Session(filename);
-        if(idleConnectedUsers.contains(username)){
-            qDebug() << "User is connected, can proceed";
-            editorId = fileSession->getEditorPrefix() + QString(fileSession->getEditorCounter());
+            // send message to the client with the result of the operation
+            QByteArray byteArrayBuffer;
+            QDataStream outStream(&byteArrayBuffer, QIODevice::WriteOnly);
+            // TODO: mutex on the QHash
+            outStream << (*session)->getSymbolsById().values();
+            message["editorId"] = editorId;
+            message["body"] = "existing_session";
+            message["filename"] = data["filename"];
+            message["content"] = QLatin1String(byteArrayBuffer.toBase64());
+            sendMessage(message, active_socket);
+            printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
+            return true;
+        } else {
+            // session doesn't exist, create it and put first user
+            qDebug() << "User " << username << " is asking to create a new sessions for file " << filename;
+            auto newSession = std::make_shared<Session>(filename);
+            editorId = newSession->getEditorPrefix() + "_" + std::to_string(newSession->getEditorCounter()).c_str();
 
             // add user to session
-            fileSession->addUserToSession(username, editorId);
-            qDebug() << "Now there are " << fileSession->getEditorCounter() << " users connected";
+            newSession->addUserToSession(username, editorId);
+            qDebug() << "Now there are " << newSession->getEditorCounter() << " users connected to the session for file " << filename;
 
             // choose a color for the user
             QColor color = generateColor();
             // TODO: for now initial position will be 0
             //  check if correct, later will be updated
             //  if the user moves the cursor
-            int position = 0;
+            char position = '0';
             QString color_pos = color.name() + "_" + position;
             qDebug() << "Color associated to user " << username << " is: " << color.name();
-            fileSession->userMap.insert(username, color_pos);
-        }
+            newSession->userMap.insert(username, color_pos);
 
-        printConsole("Creating new session with new user: " + username + " \nand editorId = " + editorId);
-        // register new session in the server
-        active_sessions.insert(filename, fileSession);
+            printConsole("Creating new session for file <i>" + filename + "</i> by user <i>" + username + "</i> with editorId = <i>" + editorId + "</i>");
+            // register new session in the server
+            active_sessions.insert(filename, newSession);
 
-        QFile fi((QString::fromStdString(fs_root) + filename));
-        fi.open(QIODevice::ReadOnly);
-        QByteArray byteArrayBuffer;
-        QDataStream stream(&byteArrayBuffer, QIODevice::ReadOnly);
-        if(fi.isOpen()){
-            byteArrayBuffer = fi.readAll();
-            fi.close();
-        } else {
-            message["body"] = "internal_error";
+            QFile fi((QString::fromStdString(fs_root) + filename));
+            fi.open(QIODevice::ReadOnly);
+            QByteArray byteArrayBuffer;
+            QDataStream stream(&byteArrayBuffer, QIODevice::ReadOnly);
+            if(fi.isOpen()){
+                byteArrayBuffer = fi.readAll();
+                fi.close();
+            } else {
+                message["body"] = "internal_error";
+                sendMessage(message, active_socket);
+                printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
+                return false;
+            }
+
+            QList<Symbol> listOfSymbols;
+            stream >> listOfSymbols;
+            for(auto& sym: listOfSymbols)
+                newSession->addSymbol(sym);
+
+            message["editorId"] = editorId;
+            message["body"] = "new_session";
+            message["filename"] = data["filename"];
+            message["content"] = QLatin1String(byteArrayBuffer.toBase64());
             sendMessage(message, active_socket);
-            printConsole("Internal server error while <i>" + username + "</i> was reading file <i>" + filename + "</i>", true);
-            return false;
+            printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
+            return true;
         }
-
-        QList<Symbol> listOfSymbols;
-        stream >> listOfSymbols;
-        for(auto& sym: listOfSymbols)
-            fileSession->addSymbol(sym);
-
-        message["editorId"] = editorId;
-        message["body"] = "new_session";
-        message["filename"] = data["filename"];
-        message["content"] = QLatin1String(byteArrayBuffer.toBase64());
-        sendMessage(message, active_socket);
-        printConsole("Sending file <i>" + filename + "</i> for user <i>" + username + "</i>");
-        return true;
     }
+    message["body"] = "bad_request";
+    sendMessage(message, active_socket);
+    printConsole("User <i>" + username + "</i> is trying to open file <i>" + filename + "</i> but it's not connected to the server");
+    return false;
+}
+
+// removing a user from a session
+// and eventually destroy the session
+// if there's no connected user anymore
+bool Server::removeUserFromSession(std::shared_ptr<Session> session, const QString& username, std::optional<std::shared_ptr<QJsonObject>> returnMessage) {
+    // qDebug() << "Session for file " << filename << " has " << session->getEditorCounter() << " users connected";
+    // remove user from the session
+    qDebug() << "Removing user from session for file " << session->getFilename();
+    QString editorId = session->removeUserFromSession(username);
+    printConsole("Removing from session for file <i>" + session->getFilename() + "</i> user <i>" + username + "</i> with editorId = <i>" + editorId + "</i>");
+    // qDebug() << "Session for file " << filename << " now has " << session->getEditorCounter() << " users connected";
+
+    // if editorCounter == 1 destroy the timer to send colors
+    // as it's not needed anymore
+    if (session->getEditorCounter() == 1){
+        timers.value(session->getFilename())->stop();
+        timers.remove(session->getFilename());
+    }
+
+    // if editorCounter == 0 destroy the session
+    // remove session from map active_sessions
+    if(session->getEditorCounter() == 0) {
+        qDebug() << "Destroying session for file " << session->getFilename() << " from the list of active ones";
+        // destroy the session
+        active_sessions.remove(session->getFilename());
+
+        QString listOfSessions;
+        for(const QString& file: active_sessions.keys())
+            listOfSessions.append(file + " ");
+        qDebug() << "Checking the list of currently active sessions : " << listOfSessions;
+
+        // saving the file
+        QByteArray byteArrayBuffer;
+        QDataStream outStream(&byteArrayBuffer, QIODevice::WriteOnly);
+        outStream << session->getSymbolsById().values();
+        if(!saveFile(session->getFilename(), byteArrayBuffer, returnMessage))
+            return false;
+    }
+    if(returnMessage.has_value())
+        (*returnMessage.value())["body"] = "ok";
+    return true;
 }
 
 // function to remove a user from the session
 // close the session in case is the last user
-bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
+bool Server::closeFileReq(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString();
     QString username = data["username"].toString();
-    QJsonObject message;
-    message["header"] = "closefile";
+    auto message = std::make_shared<QJsonObject>();
+    (*message)["header"] = "closefile";
 
     // extract user from map user tcp connections
-    qDebug() << "Closing file with " << username;
+    qDebug() << username << " is closing file " << filename;
 
     // check in case someone is sending a bad request
     // session doesn't exist, simply do nothing
-    if(active_sessions.contains(filename)){ // the session exists
-        Session *session = active_sessions.value(filename);
-        if(idleConnectedUsers.contains(username)){
-            qDebug() << "User " << username << "is connected, can proceed";
-            qDebug() << "session has " << session->getEditorCounter() << " users connected";
-
-            // remove user from the session
-            session->removeUserFromSession(username);
-            qDebug() << "session now has " << session->getEditorCounter() << " users connected";
-
-            // notify the other connected users of the log out and remove user
-            if (session->getEditorCounter() >= 1)
-                sendLogout(filename, username);
-        }
-        printConsole("Removing from session user: " + username + " \nand editorId = " + session->userEditorId.value(username));
-
-        // if editorCounter == 1 il timer per mandare i colori non server
-        if (session->getEditorCounter() == 1){
-            timers.value(filename)->stop();
-            // remove the timer
-            timers.remove(filename);
-        }
-
-        // TODO: if editorCounter == 0 destroy the session
-        // if editorCounter == 0 destroy the session
-        // remove session from map active_sessions
-        if(session->getEditorCounter() == 0){
-            qDebug() << "List of active sessions: ";
-            for(QString file: active_sessions.keys())
-                qDebug() << file;
-
-            qDebug() << "User " << username << " is the last user... Destroying the session and saving the file";
-
-            // destroy the session
-            active_sessions.erase(active_sessions.find(filename));
-
-            // check the file is no more in the list of opened file
-            qDebug() << "List of active sessions: ";
-            for(QString file: active_sessions.keys())
-                qDebug() << file;
-
-            // saving the file
-            int result = checkIfFileExists(filename.toStdString());
-            if (result == -1) {
-                message["body"] = "internal_error";
-                sendMessage(message, active_socket);
-                printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
+    if(idleConnectedUsers.contains(username)){
+        auto it = active_sessions.find(filename);
+        if(it != active_sessions.end()){
+            // the session exists
+            if(!removeUserFromSession(*it, username, message)) {
+                sendMessage(*message, active_socket);
                 return false;
             }
-            if (result == 0) {
-                message["body"] = "not_existing_file";
-                sendMessage(message, active_socket);
-                printConsole("Trying to save file <i>" + filename + "</i>, but it doesn't exist anymore", true);
-                return false;
-            }
-
-            QFile fo((QString::fromStdString(fs_root) + filename));
-            fo.open(QIODevice::WriteOnly);
-
-            QByteArray byteArrayBuffer;
-            QDataStream outStream(&byteArrayBuffer, QIODevice::ReadWrite);
-            outStream << session->getSymbolsById().values();
-            if(fo.isOpen()){
-                fo.write(byteArrayBuffer);
-                fo.close();
-            } else {
-                message["body"] = "internal_error";
-                sendMessage(message, active_socket);
-                printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
-                return false;
-            }
-
-            message["body"] = "ok";
-            message["filename"] = data["filename"];
-            sendMessage(message, active_socket);
-            printConsole("<i>" + filename + "</i> correctly saved");
-            return true;
-        }
-    } else {
-        // session doesn't exist, display error message and nothing else
-        if(idleConnectedUsers.contains(username)){
-            qDebug() << "User is connected, can proceed";
+        } else {
+            // the session doesn't exist: display error message and nothing else
             qDebug() << "The session doesn't exist, something went wrong";
+            printConsole("User <i>" + username + "</i> is trying to close the session for file <i>" + filename + "</i> but it doesn't exist");
+            // send error message to client
+            (*message)["body"] = "error_file";
+            sendMessage(*message, active_socket);
+            return false;
         }
-
-        printConsole("Sending error message to the client");
-        // send error message to client
-        QJsonObject message;
-        message["body"] = "error_file";
-        sendMessage(message, active_socket);
-        printConsole("Client couldn't disconnect from session file: " + filename + "</i> for user <i>" + username + "</i>");
-        return false;
+        // send message to client
+        sendMessage(*message, active_socket);
+        printConsole("User <i>" + username + "</i> disconnected from session for file <i>" + filename + "</i>");
+        return true;
     }
-
-    // send message to client
-
-    message["body"] = "ok";
-    sendMessage(message, active_socket);
-    printConsole("Client disconnected from session file: " + filename + "</i> for user <i>" + username + "</i>");
-    return true;
+    // bad request, user not connected
+    qDebug() << "User " << username << " is trying to close file " << filename << " but it's not connected to the server";
+    printConsole("User <i>" + username + "</i> is trying to close file <i>" + filename + "</i> but it's not connected to the server");
+    // send error message to client
+    (*message)["body"] = "bad_request";
+    sendMessage(*message, active_socket);
+    return false;
 }
 
-bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
-    auto filename = data["filename"].toString();
-    auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
-
-    qDebug() << "Saving file with content " << content;
-
-    QJsonObject message;
-
+bool Server::saveFile(const QString& filename, const QByteArray& content, std::optional<std::shared_ptr<QJsonObject>> returnMessage) {
     int result = checkIfFileExists(filename.toStdString());
     if (result == -1) {
-        message["header"] = "savefile";
-        message["body"] = "internal_error";
-        sendMessage(message, active_socket);
+        if(returnMessage.has_value())
+            (*returnMessage.value())["body"] = "internal_error";
         printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
         return false;
     }
     if (result == 0) {
-        message["header"] = "savefile";
-        message["body"] = "not_existing_file";
-        sendMessage(message, active_socket);
+        if(returnMessage.has_value())
+            (*returnMessage.value())["body"] = "not_existing_file";
         printConsole("Trying to save file <i>" + filename + "</i>, but it doesn't exist anymore", true);
         return false;
     }
@@ -930,18 +892,30 @@ bool Server::saveFile(QJsonObject &data, QTcpSocket *active_socket) {
         fo.write(content);
         fo.close();
     } else {
-        message["header"] = "savefile";
-        message["body"] = "internal_error";
-        sendMessage(message, active_socket);
+        if(returnMessage.has_value())
+            (*returnMessage.value())["body"] = "internal_error";
         printConsole("Internal server error while saving file <i>" + filename + "</i>", true);
         return false;
     }
-
-    message["header"] = "savefile";
-    message["body"] = "ok";
-    message["filename"] = data["filename"];
-    sendMessage(message, active_socket);
+    if(returnMessage.has_value()){
+        (*returnMessage.value())["body"] = "ok";
+        (*returnMessage.value())["filename"] = filename;
+    }
     printConsole("<i>" + filename + "</i> correctly saved");
+    return true;
+}
+
+bool Server::saveFileReq(QJsonObject &data, QTcpSocket *active_socket) {
+    auto filename = data["filename"].toString();
+    auto content = QByteArray::fromBase64(data["content"].toString().toLatin1());
+    auto message = std::make_shared<QJsonObject>();
+    (*message)["header"] = "savefile";
+
+    qDebug() << "Saving file " << filename;
+    bool res = saveFile(filename, content, message);
+    sendMessage(*message, active_socket);
+    if(!res)
+        return false;
     return true;
 }
 
@@ -964,7 +938,7 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
     QTextCharFormat charFormat;
 
     // retrieve session from filename
-    Session *session = this->active_sessions.value(filename);
+    auto session = this->active_sessions.value(filename);
 
     // retrieve data for symbol from message
     FracPosition fp1, fp2, symbolFp;
@@ -1023,7 +997,7 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
     QString symId = data["charId"].toString();
     QString symPos;
 
-    Session *session = this->active_sessions.value(filename);
+    auto session = this->active_sessions.value(filename);
 
     // acquire symbol
     QJsonObject message;
@@ -1068,7 +1042,7 @@ bool Server::deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket) {
     QDataStream inSymbolBytesStream(&inSymbolsBytes, QIODevice::ReadOnly);
     inSymbolBytesStream >> symbolsInRange;
 
-    Session *session = this->active_sessions.value(filename);
+    auto session = this->active_sessions.value(filename);
     // we have to retrieve all the symbol ids
     for(QString id: symbolsInRange){
         FracPosition fp = session->getSymbolsById().value(id).getPosition();
@@ -1131,7 +1105,7 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
 
     inFormatStream >> charFormats;
     // prepare session
-    Session *session = this->active_sessions.value(filename);
+    auto session = this->active_sessions.value(filename);
 
 
     // cycle through the array
@@ -1191,7 +1165,7 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
 }
 
 void Server::sendColors(QString filename){
-    Session *session = this->active_sessions.value(filename);
+    auto session = this->active_sessions.value(filename);
 
     QJsonObject message;
     message["header"] = "colors";
@@ -1213,38 +1187,7 @@ void Server::sendColors(QString filename){
         }
     }
 
-    // remove logged out users
-    for (QString user : session->userMap.keys()){
-        // user has logged out if position is == -1
-        if (session->userMap.value(user).split("_")[1] == "-1")
-            session->userMap.remove(user);
-    }
-
     printConsole("Sending userMap for file: " + filename);
-}
-
-void Server::sendLogout(QString filename, QString username) {
-    Session *session = this->active_sessions.value(filename);
-
-    QJsonObject message;
-    message["header"] = "colors";
-
-    // remove logged out user
-    session->userMap.remove(username);
-
-    // send logged out information to the other users
-    for (QString user : session->userMap.keys()){
-        QTcpSocket *socket = this->idleConnectedUsers.value(user);
-        QString color = "";
-        QString position = "-1";
-
-        // send user and color_position
-        message["username"] = username;
-        message["color"] = color;
-        message["position"] = position;
-        if (socket != nullptr)
-            sendMessage(message, socket);
-    }
 }
 
 bool Server::updatePosition(QJsonObject &data, QTcpSocket *active_socket){
@@ -1253,13 +1196,14 @@ bool Server::updatePosition(QJsonObject &data, QTcpSocket *active_socket){
     QString filename = data["filename"].toString();
     QString position = data["position"].toString();
 
-    Session *session = active_sessions.value(filename);
+    auto session = active_sessions.value(filename);
 
     if (username == ""){
         // something went wrong
         printConsole((QString &&) ("Something went wrong"));
         return false;
     }
+
 
     // update position
     QString color_pos = session->userMap.value(username);

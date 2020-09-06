@@ -34,8 +34,8 @@ private:
     int editorCounter;
     QString editorPrefix;
 public:
-    QMap<QString, QString> userMap;                         // utente - colore_posizione
-    QMap<QString, QString> userEditorId;                    // utente -> editorid
+    QHash<QString, QString> userMap;                         // utente - colore_posizione
+    QHash<QString, QString> userEditorId;                    // utente -> editorid
 
     Session(const QString &filename);
 
@@ -49,7 +49,7 @@ public:
     void setEditorPrefix(const QString &editorPrefix);
 
     void addUserToSession(QString username, QString editorId);
-    void removeUserFromSession(QString username);
+    QString removeUserFromSession(const QString& username);
 
     void addSymbol(Symbol& sym);
     void removeSymbol(QString id);
