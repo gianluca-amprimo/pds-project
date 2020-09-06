@@ -808,8 +808,9 @@ bool Server::closeFile(QJsonObject &data, QTcpSocket *active_socket) {
             session->removeUserFromSession(username);
             qDebug() << "session now has " << session->getEditorCounter() << " users connected";
 
-            // remove user from userMap
-            session->userMap.remove(username);
+            // notify the other connected users of the log out and remove user
+            if (session->getEditorCounter() >= 1)
+                sendLogout(filename, username);
         }
         printConsole("Removing from session user: " + username + " \nand editorId = " + session->userEditorId.value(username));
 
@@ -1212,7 +1213,38 @@ void Server::sendColors(QString filename){
         }
     }
 
+    // remove logged out users
+    for (QString user : session->userMap.keys()){
+        // user has logged out if position is == -1
+        if (session->userMap.value(user).split("_")[1] == "-1")
+            session->userMap.remove(user);
+    }
+
     printConsole("Sending userMap for file: " + filename);
+}
+
+void Server::sendLogout(QString filename, QString username) {
+    Session *session = this->active_sessions.value(filename);
+
+    QJsonObject message;
+    message["header"] = "colors";
+
+    // remove logged out user
+    session->userMap.remove(username);
+
+    // send logged out information to the other users
+    for (QString user : session->userMap.keys()){
+        QTcpSocket *socket = this->idleConnectedUsers.value(user);
+        QString color = "";
+        QString position = "-1";
+
+        // send user and color_position
+        message["username"] = username;
+        message["color"] = color;
+        message["position"] = position;
+        if (socket != nullptr)
+            sendMessage(message, socket);
+    }
 }
 
 bool Server::updatePosition(QJsonObject &data, QTcpSocket *active_socket){
@@ -1228,7 +1260,6 @@ bool Server::updatePosition(QJsonObject &data, QTcpSocket *active_socket){
         printConsole((QString &&) ("Something went wrong"));
         return false;
     }
-
 
     // update position
     QString color_pos = session->userMap.value(username);

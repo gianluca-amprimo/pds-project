@@ -51,8 +51,8 @@ private slots:
     bool deleteChar(QJsonObject &data, QTcpSocket *active_socket);
     bool deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket);
 
-
     void sendColors(QString filename);
+    void sendLogout(QString filename, QString username);
     bool updatePosition(QJsonObject &jSobject, QTcpSocket *active_socket);
 
 private:
