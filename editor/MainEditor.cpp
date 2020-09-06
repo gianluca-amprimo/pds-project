@@ -30,7 +30,6 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
     QObject::connect(this->textArea, &MyTextArea::batchCharDelete, this, &MainEditor::sendBatchCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharInserted, this, &MainEditor::sendBatchCharInserted);
 
-    // TODO: create a timer to send periodically the position of the user
     // create a timer
     timer = new QTimer(this);
     connect(timer, &QTimer::timeout, this, &MainEditor::sendPosition);
@@ -110,10 +109,6 @@ void MainEditor::initUI(QDataStream *contentStream) {
     *contentStream >> listOfSymbols;
     for(const auto& sym : listOfSymbols){
         textArea->addSymbolToList(sym);
-    }
-    for(const auto& sym : textArea->getSymbols().values()){
-        textArea->setCurrentCharFormat(sym.getCharFormat());
-        textArea->insertPlainText(sym.getCharacter());
     }
 
     auto separator = ui->toolBar->insertSeparator(ui->bold);

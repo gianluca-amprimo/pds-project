@@ -284,7 +284,7 @@ void Client::readResponse()
     if(header=="openfile") {
         if (result == "new_session" || result == "existing_session") {
             auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
-            QDataStream contentStream(content);
+            QDataStream contentStream(&content, QIODevice::ReadOnly);
 
             auto filename = jSobject["filename"].toString();
             qDebug() << filename;

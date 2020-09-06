@@ -129,6 +129,7 @@ void MyTextArea::deleteSelection() {
 }
 
 void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
+    qDebug() << event->commitString();
     QChar character = event->commitString()[0].unicode();
     insertChar(character, this->currentPosition, this->textCursor().charFormat());
     this->currentPosition++;
@@ -191,9 +192,10 @@ void MyTextArea::addSymbolToList(Symbol sym) {
     cur.setPosition(this->getEditorPosition(sym.getPosition()));
     cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
 
-    // bisogna gestire il fatto che il cursore aggiorni automaticamente la sua posizione
-    // quando vorremmo essere noi a controllarlo
-    // change position of the cursor
+    // TODO: bisogna gestire il fatto che il cursore aggiorni
+    //  automaticamente la sua posizione
+    //  quando vorremmo essere noi a controllarlo
+    //  change position of the cursor
 }
 
 int MyTextArea::getEditorPosition(const FracPosition &fp) {
