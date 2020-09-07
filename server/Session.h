@@ -34,7 +34,7 @@ private:
     int editorCounter;
     QString editorPrefix;
 public:
-    QHash<QString, QString> userMap;                         // utente - colore_posizione
+    QHash<QString, QString> userMap;                         // utente - colore
     QHash<QString, QString> userEditorId;                    // utente -> editorid
 
     Session(const QString &filename);

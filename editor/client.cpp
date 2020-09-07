@@ -319,7 +319,7 @@ void Client::readResponse()
     }
 
     if(header=="colors") {
-        this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString(), jSobject["position"].toString());
+        this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString());
     }
     if(header=="add1Symbol") {
         this->mainEditor->receiveSymbol(jSobject["symbol"]);

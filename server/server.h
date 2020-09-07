@@ -50,9 +50,7 @@ private slots:
     bool deleteChar(QJsonObject &data, QTcpSocket *active_socket);
     bool deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket);
 
-
-    void sendColors(QString filename);
-    bool updatePosition(QJsonObject &jSobject, QTcpSocket *active_socket);
+    void sendColors(QString filename, QString username);
 
 private:
     Ui::Server *ui;
@@ -61,9 +59,8 @@ private:
     QNetworkSession *networkSession = nullptr;
 
     // variables for handling the users
-    QHash<QString, QTcpSocket*> idleConnectedUsers;      // utente -> socket
-    QHash<QString, std::shared_ptr<Session>> active_sessions;            // filename -> sessione
-    QHash<QString, QTimer*> timers;                      // filename -> timers
+    QHash<QString, QTcpSocket*> idleConnectedUsers;                         // utente -> socket
+    QHash<QString, std::shared_ptr<Session>> active_sessions;               // filename -> sessione
 
     QJsonObject prepareJsonReply(QString header, QString result, QString username, bool propic=false, bool filelist=false, bool personal_info=false);
     QJsonValue jsonValFromPixmap(const QPixmap &p);
@@ -77,8 +74,7 @@ private:
     QColor generateColor(); // function to generate a random color for a user
     bool removeUserFromSession(std::shared_ptr<Session> session, const QString& username, std::optional<std::shared_ptr<QJsonObject>> returnMessage);
 
-    bool
-    saveFile(const QString &filename, const QByteArray &content,
+    bool saveFile(const QString &filename, const QByteArray &content,
              std::optional<std::shared_ptr<QJsonObject>> returnMessage);
 };
 

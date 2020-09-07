@@ -38,7 +38,7 @@ public:
     void receiveBatchDeletion(QJsonValueRef idsAndPositions);
     const QString &getFilename() const;
 
-    void colors(QString username, QString color, QString postion);
+    void colors(QString username, QString color);
 
 private:
     QString thisEditorIdentifier;
@@ -54,11 +54,8 @@ private:
     QListWidget *onlineUsers;
 
     QMap<QString, QString> userMap;
-    QMap<QString, QCursor> userPos;
 
     int position;
-
-    QTimer* timer;
 
     void initUI(QDataStream *contentStream);
 
@@ -88,8 +85,6 @@ private slots:
     void sendBatchCharDeleted(QJsonObject message);
 
     void sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
-
-    void sendPosition();
 };
 
 

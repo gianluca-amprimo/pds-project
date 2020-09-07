@@ -29,11 +29,6 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
     QObject::connect(this->textArea, &MyTextArea::charDeleted, this, &MainEditor::sendCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharDelete, this, &MainEditor::sendBatchCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharInserted, this, &MainEditor::sendBatchCharInserted);
-
-    // create a timer
-    timer = new QTimer(this);
-    connect(timer, &QTimer::timeout, this, &MainEditor::sendPosition);
-    timer->start(2000);
 }
 
 void MainEditor::closeEvent(QCloseEvent *event) {
@@ -68,7 +63,6 @@ void MainEditor::closeEvent(QCloseEvent *event) {
         tcpSocket->flush();
     }
     qDebug() << "Message session log out sent, waiting for reply...";
-    timer->stop();
 }
 
 MainEditor::~MainEditor() {
@@ -441,68 +435,28 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
     }
 }
 
-void MainEditor::colors(QString username, QString color, QString position){
-    qDebug() << "User: " << username << " has color: " << color << " and is at position: " << position;
+void MainEditor::colors(QString username, QString color){
+    qDebug() << "User: " << username << " has color: " << color;
 
-    if (this->userMap.empty()){
+    if (this->userMap.isEmpty()){
         // received the first user -> delete the first item
         this->onlineUsers->takeItem(0);
     }
 
     // check if user already online
     if (!this->userMap.contains(username)){
+        // user was not online
         this->userMap.insert(username, color);
 
         // insert the user with its color
         QColor userColor{color};
         this->onlineUsers->addItem(username);
         onlineUsers->item(this->userMap.size()-1)->setForeground(userColor);
-
-        // TODO: insert the cursor in the correct position
-    } else {
-        // user was already online
-        // just update its position
-        if (position == "-1"){
-            this->userMap.remove(username);
-            for (QListWidgetItem *item : this->onlineUsers->findItems(username, Qt::MatchExactly))
-                this->onlineUsers->takeItem(this->onlineUsers->row(item));
-        } else {
-            // TODO: print cursor in new position
-        }
-    }
-
-    // TODO: handle when we don't receive
-    //  update of a certain user for some time
-}
-
-void MainEditor::sendPosition(){
-    QString userPosition= QString::number(this->textArea->textCursor().position());
-    if (tcpSocket != nullptr) {
-        if (!tcpSocket->isValid()) {
-            qDebug() << "tcp socket invalid";
-            return;
-        }
-
-        if (!tcpSocket->isOpen()) {
-            qDebug() << "tcp socket not open";
-            return;
-        }
-
-        QByteArray block;
-        QDataStream out(&block, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_4_0);
-        QJsonObject message;
-        message["header"] = "position";
-        message["username"] = this->username;
-        message["filename"] = this->filename;
-        message["position"] = userPosition;
-
-        // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
-
-        if (!tcpSocket->write(block)) {
-            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
-        }
-        tcpSocket->flush();
+    } else if (color == "-1"){
+        // user has logged out
+        this->userMap.remove(username);
+        for (QListWidgetItem *item : this->onlineUsers->findItems(username, Qt::MatchExactly))
+            this->onlineUsers->takeItem(this->onlineUsers->row(item));
     }
 }
+
