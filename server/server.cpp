@@ -201,7 +201,6 @@ void Server::getConnectedSocket() {
 
 }
 
-
 void Server::printConsole(QString msg, bool err) {
     // Get the current time
     time_t t = time(nullptr);
@@ -562,7 +561,9 @@ bool Server::checkPasswordFormat(QString password){
 			return false;
 	}
 }
-void Server::sendMessage(QJsonArray message, QTcpSocket *active_socket){
+
+template<typename QJson>
+void Server::sendMessage(QJson message, QTcpSocket *active_socket){
     if (active_socket != nullptr) {
         if (!active_socket->isValid()) {
             printConsole("Socket TCP non valida", true);
@@ -576,35 +577,6 @@ void Server::sendMessage(QJsonArray message, QTcpSocket *active_socket){
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
-        printConsole("Sending back " + message[0].toObject()["header"].toString());
-
-        // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
-        if (!active_socket->write(block)) {
-            printConsole("Impossibile rispondere al client", true);
-        }
-        active_socket->flush();
-    }
-    else{
-        printConsole("Wrong! You are trying to write to a non existing socket!", true);
-    }
-}
-void Server::sendMessage(QJsonObject message, QTcpSocket *active_socket){
-    if (active_socket != nullptr) {
-        if (!active_socket->isValid()) {
-            printConsole("Socket TCP non valida", true);
-            return;
-        }
-        if (!active_socket->isOpen()) {
-            printConsole("Socket TCP non aperta", true);
-            return;
-        }
-
-        QByteArray block;
-        QDataStream out(&block, QIODevice::WriteOnly);
-        out.setVersion(QDataStream::Qt_4_0);
-        printConsole("Sending back " + message["header"].toString() + " " +
-                     message["body"].toString());
 
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
@@ -707,8 +679,8 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             // send message to the client with the result of the operation
             QByteArray byteArrayBuffer;
             QDataStream outStream(&byteArrayBuffer, QIODevice::WriteOnly);
-            // TODO: mutex on the QHash
-            outStream << (*session)->getSymbolsById().values();
+
+            outStream << (*session)->getSymbolsByPosition().values();
             message["editorId"] = editorId;
             message["body"] = "existing_session";
             message["filename"] = data["filename"];
@@ -723,12 +695,12 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             // session doesn't exist, create it and put first user
             qDebug() << "User " << username << " is asking to create a new sessions for file " << filename;
             auto newSession = std::make_shared<Session>(filename);
+            active_sessions.insert(filename, newSession);
             editorId = newSession->getEditorPrefix() + "_" + std::to_string(newSession->getEditorCounter()).c_str();
 
             // add user to session
             newSession->addUserToSession(username, editorId);
-            qDebug() << "Now there are " << newSession->getEditorCounter()
-                        << " users connected to the session for file " << filename;
+            qDebug() << "Now there are " << newSession->getEditorCounter() << " users connected to the session for file " << filename;
 
             // choose a color for the user
             QColor color = generateColor();
@@ -740,8 +712,6 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
                                 "</i> by user <i>" + username +
                                 "</i> with editorId = <i>" + editorId + "</i>");
 
-            // register new session in the server
-            active_sessions.insert(filename, newSession);
 
             QFile fi((QString::fromStdString(fs_root) + filename));
             fi.open(QIODevice::ReadOnly);
@@ -759,8 +729,10 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 
             QList<Symbol> listOfSymbols;
             stream >> listOfSymbols;
-            for(auto& sym: listOfSymbols)
+            for(auto& sym: listOfSymbols) {
                 newSession->addSymbol(sym);
+                qDebug() << "Inserting symbol with " << sym.getCharacter() << " and position " << sym.getPosition().getStringPosition();
+            }
 
             message["editorId"] = editorId;
             message["body"] = "new_session";
@@ -783,11 +755,9 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
 bool Server::removeUserFromSession(std::shared_ptr<Session> session, const QString& username, std::optional<std::shared_ptr<QJsonObject>> returnMessage) {
     // qDebug() << "Session for file " << filename << " has " << session->getEditorCounter() << " users connected";
     // remove user from the session
-    qDebug() << "Removing user from session for file " << session->getFilename();
+    qDebug() << "Removing user " << username << " from session for file " << session->getFilename();
     QString editorId = session->removeUserFromSession(username);
-    printConsole("Removing from session for file <i>" + session->getFilename() +
-                        "</i> user <i>" + username +
-                        "</i> with editorId = <i>" + editorId + "</i>");
+    printConsole("Removing from session for file <i>" + session->getFilename() + "</i> user <i>" + username + "</i> with editorId = <i>" + editorId + "</i>");
     // qDebug() << "Session for file " << filename << " now has " << session->getEditorCounter() << " users connected";
 
     // if editorCounter == 0 destroy the session
@@ -817,7 +787,7 @@ bool Server::removeUserFromSession(std::shared_ptr<Session> session, const QStri
 }
 
 // function to remove a user from the session
-// close the session in case is the last user
+// close the session in case it is the last user
 bool Server::closeFileReq(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString();
     QString username = data["username"].toString();
@@ -846,18 +816,12 @@ bool Server::closeFileReq(QJsonObject &data, QTcpSocket *active_socket) {
             sendMessage(*message, active_socket);
             return false;
         }
-
         // send message to client
         sendMessage(*message, active_socket);
-        printConsole("User <i>" + username +
-                            "</i> disconnected from session for file <i>" + filename + "</i>");
         return true;
     }
-
     // bad request, user not connected
-    qDebug() << "User " << username
-                << " is trying to close file " << filename
-                << " but it's not connected to the server";
+    qDebug() << "User " << username << " is trying to close file " << filename << " but it's not connected to the server";
     printConsole("User <i>" + username + "</i> is trying to close file <i>" + filename + "</i> but it's not connected to the server");
     // send error message to client
     (*message)["body"] = "bad_request";
@@ -924,11 +888,14 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
      */
 
     auto format = QByteArray::fromBase64(data["format"].toString().toLatin1());
-    QString filename = data["filename"].toString().toLatin1();
-    QByteArray symbolInBytes;
-    QJsonObject message;
     QDataStream inFormatStream(&format, QIODevice::ReadOnly);
+
+    QString filename = data["filename"].toString().toLatin1();
+
+    QByteArray symbolInBytes;
     QDataStream outSymbol(&symbolInBytes, QIODevice::WriteOnly);
+
+    QJsonObject message;
     QTextCharFormat charFormat;
 
     // retrieve session from filename
@@ -942,7 +909,7 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
 
     // deserialize format
     inFormatStream >> charFormat;
-    qDebug() << "Received char " << unicode << "at position" << position;
+    qDebug() << "Received char " << unicode << " at position " << position;
 
     // compute Frac position
     if(position == 0){

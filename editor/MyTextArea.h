@@ -60,7 +60,7 @@ public:
     virtual void inputMethodEvent(QInputMethodEvent *event) override;
     virtual void mouseReleaseEvent(QMouseEvent *e) override;
     MyTextArea &operator=(const MyTextArea &other);
-    void addSymbolToList(Symbol sym);
+    void addSymbolToList(const Symbol& sym);
     void removeSymbolFromList(QString &symId, QString &fp);
     int getEditorPosition(const FracPosition &fp);
 
@@ -75,12 +75,10 @@ public slots:
     virtual void insertFromMimeData(const QMimeData *source) override;
 
 signals:
-
     void charInserted(QJsonObject message);
     void charDeleted(QJsonObject message);
     void batchCharDelete(QJsonObject message);
     void batchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
-
 };
 
 

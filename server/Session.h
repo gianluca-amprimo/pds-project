@@ -25,6 +25,8 @@ class Session {
 private:
     QHash<QString, Symbol> symbolsById;
     QMap<FracPosition, Symbol> symbolsByPosition;
+
+private:
     QString filename;
     QMap<QChar, int> editorCurrentPosition;
 public:
@@ -36,6 +38,7 @@ private:
 public:
     QHash<QString, QString> userMap;                         // utente - colore
     QHash<QString, QString> userEditorId;                    // utente -> editorid
+    void setSymbolsByPosition(const QMap<FracPosition, Symbol> &symbolsByPosition);
 
     Session(const QString &filename);
 

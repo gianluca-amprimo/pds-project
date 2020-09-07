@@ -68,14 +68,15 @@ private:
 
     void printConsole(QString msg, bool err = false);   // function to print on the console of the server
     bool checkPasswordFormat(QString password);
-    void sendMessage(QJsonObject message, QTcpSocket*);
-    void sendMessage(QJsonArray message, QTcpSocket*);
+    template<typename QJson> void sendMessage(QJson message, QTcpSocket *active_socket);
 
     QColor generateColor(); // function to generate a random color for a user
     bool removeUserFromSession(std::shared_ptr<Session> session, const QString& username, std::optional<std::shared_ptr<QJsonObject>> returnMessage);
 
     bool saveFile(const QString &filename, const QByteArray &content,
              std::optional<std::shared_ptr<QJsonObject>> returnMessage);
+
+
 };
 
 #endif

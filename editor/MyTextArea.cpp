@@ -6,7 +6,7 @@
 
 
 MyTextArea::MyTextArea(QWidget *parent) : QTextEdit(parent) {
-    setAttribute(Qt::WA_InputMethodEnabled, true);
+    setAttribute(Qt::WA_InputMethodEnabled, false);
     this->charCounter = 0;
     this->currentPosition = 0;
     this->oldPosition = 0;
@@ -183,15 +183,17 @@ const QMap<FracPosition, Symbol> &MyTextArea::getSymbols() const {
     return _symbols;
 }
 
-void MyTextArea::addSymbolToList(Symbol sym) {
+void MyTextArea::addSymbolToList(const Symbol& sym) {
     this->_symbols.insert(sym.getPosition(), sym);
     if(getEditorPosition(sym.getPosition()) < this->currentPosition){
-        this->currentPosition++;
+        // this->currentPosition++;
     }
+
     QTextCursor cur = this->textCursor();
     cur.setPosition(this->getEditorPosition(sym.getPosition()));
     cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
 
+    this->charCounter++;
     // TODO: bisogna gestire il fatto che il cursore aggiorni
     //  automaticamente la sua posizione
     //  quando vorremmo essere noi a controllarlo
@@ -230,14 +232,11 @@ QVector<Symbol> MyTextArea::getSymbolInRange(int end1, int end2) {
 }
 
 void MyTextArea::insertChar(QChar unicode, int position, QTextCharFormat format) {
-
     /* here we simply prepare the message for the server */
-
     QJsonObject message;
     QByteArray formatInBytes;
 
     // prepare id for char
-
     this->charCounter++;
     int localCharIdLen = std::to_wstring(this->charCounter).length();
     QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(charCounter);
