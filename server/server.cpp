@@ -662,7 +662,7 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
         // session already exists, simply add the user to it
         if(session != active_sessions.end()){
             qDebug() << "User " << username << " joining existing session for file " << filename;
-            editorId = (*session)->getEditorPrefix() + "_" + std::to_string((*session)->getEditorCounter()).c_str();
+            editorId = (*session)->getEditorPrefix() + std::to_string((*session)->getEditorCounter()).c_str();
             // add user to session
             (*session)->addUserToSession(username, editorId);
             qDebug() << "Session has " << (*session)->getEditorCounter() << " users connected";
@@ -696,7 +696,7 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             qDebug() << "User " << username << " is asking to create a new sessions for file " << filename;
             auto newSession = std::make_shared<Session>(filename);
             active_sessions.insert(filename, newSession);
-            editorId = newSession->getEditorPrefix() + "_" + std::to_string(newSession->getEditorCounter()).c_str();
+            editorId = newSession->getEditorPrefix() + std::to_string(newSession->getEditorCounter()).c_str();
 
             // add user to session
             newSession->addUserToSession(username, editorId);
@@ -902,10 +902,18 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
     auto session = this->active_sessions.value(filename);
 
     // retrieve data for symbol from message
+
+    // compute charId
+    QString editorId = data["editorId"].toString();
+    int counter = session->getSymbolsById().size();
+    int localCharIdLen = std::to_wstring(counter).length();
+    QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(counter);
+
+    QString charId = editorId + "_" + localCharId;
+
     FracPosition fp1, fp2, symbolFp;
     int position = data["position"].toInt();
     QString unicode = data["unicode"].toString();
-    QString charId = data["charId"].toString();
 
     // deserialize format
     inFormatStream >> charFormat;
@@ -1078,7 +1086,13 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
         FracPosition fp1, fp2, symbolFp;
         int position = singleChar["position"].toInt();
         QString unicode = singleChar["unicode"].toString();
-        QString charId = singleChar["charId"].toString();
+
+        QString editorId = metadata["editorId"].toString();
+        int counter = session->getSymbolsById().size();
+        int localCharIdLen = std::to_wstring(counter).length();
+        QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(counter);
+
+        QString charId = editorId + "_" + localCharId;
 
         // assign frac position
         if(position == 0){

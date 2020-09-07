@@ -184,6 +184,12 @@ const QMap<FracPosition, Symbol> &MyTextArea::getSymbols() const {
 }
 
 void MyTextArea::addSymbolToList(const Symbol& sym) {
+    if(sym.getIdentifier().split("_")[0] != this->getThisEditorIdentifier()){
+        if(getEditorPosition(sym.getPosition()) < this->currentPosition){
+            this->currentPosition++;
+        }
+    }
+
     this->_symbols.insert(sym.getPosition(), sym);
     if(getEditorPosition(sym.getPosition()) < this->currentPosition){
         // this->currentPosition++;
@@ -193,7 +199,6 @@ void MyTextArea::addSymbolToList(const Symbol& sym) {
     cur.setPosition(this->getEditorPosition(sym.getPosition()));
     cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
 
-    this->charCounter++;
     // TODO: bisogna gestire il fatto che il cursore aggiorni
     //  automaticamente la sua posizione
     //  quando vorremmo essere noi a controllarlo
@@ -206,8 +211,10 @@ int MyTextArea::getEditorPosition(const FracPosition &fp) {
 
 void MyTextArea::removeSymbolFromList(QString &symId, QString &fp) {
     FracPosition fracPos(fp);
-    if(getEditorPosition(fracPos) < this->currentPosition){
-        this->currentPosition--;
+    if(symId.split("_")[0] != this->getThisEditorIdentifier()){
+        if(getEditorPosition(fracPos) < this->currentPosition){
+            this->currentPosition--;
+        }
     }
     qDebug() << "Trying to delete character at frac position" << fracPos.getStringPosition();
     QTextCursor cur = this->textCursor();
@@ -237,10 +244,9 @@ void MyTextArea::insertChar(QChar unicode, int position, QTextCharFormat format)
     QByteArray formatInBytes;
 
     // prepare id for char
-    this->charCounter++;
     int localCharIdLen = std::to_wstring(this->charCounter).length();
     QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(charCounter);
-    QString charId = this->thisEditorIdentifier + localCharId;
+    QString charId = this->thisEditorIdentifier + "_" + localCharId;
 
     // serialize format
     QDataStream formatOut(&formatInBytes, QIODevice::WriteOnly);
