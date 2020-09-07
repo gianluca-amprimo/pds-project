@@ -98,14 +98,14 @@ void MainEditor::initUI(QDataStream *contentStream) {
     // initialising the scroll bar were we will place the online users
     onlineUsers = new QListWidget(ui->centralwidget);
     onlineUsers->setObjectName(QString::fromUtf8("onlineUsers"));
-    QString line = "Here the online users \nwill be displayed";
+    QString line = "Here online users \nwill be displayed";
     onlineUsers->addItem(line);
     ui->gridLayout->addWidget(onlineUsers, 0, 0, 1, -1);
 
     // initialising the text area
     textArea = new MyTextArea(ui->centralwidget);
     textArea->setObjectName(QString::fromUtf8("textArea"));
-    ui->gridLayout->addWidget(textArea, 0, 1, -1, 4);
+    ui->gridLayout->addWidget(textArea, 0, 1, -1, 6);
 
     QList<Symbol> listOfSymbols;
     *contentStream >> listOfSymbols;
