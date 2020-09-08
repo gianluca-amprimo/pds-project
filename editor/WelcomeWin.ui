@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>290</width>
-    <height>368</height>
+    <width>392</width>
+    <height>585</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -123,6 +123,24 @@
        <property name="icon">
         <iconset resource="icons.qrc">
          <normaloff>:/file/themes/material/open_doc.png</normaloff>:/file/themes/material/open_doc.png</iconset>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <widget class="QLineEdit" name="LinkURI">
+       <property name="text">
+        <string>Insert URI</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="LinkButton">
+       <property name="text">
+        <string>Open URI</string>
        </property>
       </widget>
      </item>

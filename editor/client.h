@@ -67,6 +67,8 @@ private slots:
     void pressPasswordButton(QLineEdit *lineEdit);
 	void releasePasswordButton(QLineEdit *lineEdit);
 
+	void openLink();
+
 private:
     QDataStream in;
     QString loggedUsername;

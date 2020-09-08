@@ -710,7 +710,10 @@ void Client::openWelcomeWin(bool firstTime) {
 	connect(uiChoice->SettingsButton, &QPushButton::released, this, &Client::openSettingsWindow);
 	connect(uiChoice->LogoutButton, &QPushButton::released, this, &Client::requestLogout);
 	connect(uiChoice->RefreshButton, &QPushButton::released, this, &Client::refreshFileList);
-	
+
+	uiChoice->LinkURI->setClearButtonEnabled(true);
+	connect(uiChoice->LinkButton, &QPushButton::released, this, &Client::openLink);
+
 	ChoiceWin->show();
 }
 
@@ -1082,3 +1085,45 @@ QPixmap Client::circularPixmap(QPixmap &&source, int size, const QColor& color) 
 
     return QPixmap::fromImage(imageOut);
 }
+
+void Client::openLink() {
+    // TODO: aprire link
+    if (uiChoice->LinkURI->text().isEmpty()) {
+        QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("Link not inserted, insert link and try again"), QMessageBox::Ok);
+        qDebug() << "Link not inserted";
+        return;
+    }
+
+    QString link = uiChoice->LinkURI->text();
+    qDebug() << "Opening inserted link...";
+    if (tcpSocket != nullptr) {
+        if (!tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        // TODO: da modificare
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+        QJsonObject message;
+        message["header"] = "openlink";
+        message["username"] = this->loggedUsername;
+        message["link"] = link;
+        // send the JSON using QDataStream
+        out << QJsonDocument(message).toJson();
+
+        qDebug() << "Trying to open file at link " << link;
+
+//        if (!tcpSocket->write(block)) {
+//            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+//            cancStatusBar->showMessage(tr("Could not send message."), 3000);
+//        }
+//        tcpSocket->flush();
+    }
+}
+
