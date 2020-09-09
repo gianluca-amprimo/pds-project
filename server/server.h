@@ -77,6 +77,7 @@ private:
              std::optional<std::shared_ptr<QJsonObject>> returnMessage);
 
 
+    bool shareFileReq(QJsonObject object, QTcpSocket *pSocket);
 };
 
 #endif

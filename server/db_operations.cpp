@@ -76,7 +76,7 @@ static int files(void *NotUsed, int argc, char **argv, char **azColName) {
     // ID, NAME, PATH
     db_counter++;
 
-    // create a tuple with name and path of the file
+    // create a tuple with name and creator of the file
     std::tuple<std::string, std::string> file = std::make_tuple(argv[1], argv[2]);
 
     // add the tuple to the vector of files
@@ -89,11 +89,14 @@ static int files(void *NotUsed, int argc, char **argv, char **azColName) {
  * This function uses the files function as callback
  * function to modify the list of files structure
  */
-int readFiles() {
+int readFiles(std::string user) {
     int rc;
     sqlite3 *db;
     std::string sql;
     char *errMsg = nullptr;
+
+    //a new read of filelist has been required, hence clean previous file_list
+    file_list.clear();
 
     // open database connection
     rc = sqlite3_open(db_path.c_str(), &db);
@@ -105,7 +108,7 @@ int readFiles() {
     }
 
     // prepare sql operation
-    sql = "SELECT * FROM FILES;";
+    sql = "SELECT ID,NAME,CREATED_BY  FROM FILES,GRANTED_FILE_ACCESS  WHERE FILES.NAME=GRANTED_FILE_ACCESS.FILENAME AND USERNAME='" + user + "'";
     db_counter = 0;
 
     // execute sql statement
@@ -240,6 +243,19 @@ int addFile(std::string name, std::string username) {
             return -1;
         }
     }
+
+    // give access to creator
+    sql = "INSERT INTO GRANTED_FILE_ACCESS ('FILENAME', 'USERNAME') VALUES ('" + name + "', '" + username + "')";
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cout << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+        return -1;
+    }
+
     sqlite3_close(db);
     return 1;
 }
@@ -289,6 +305,19 @@ int deleteUser(std::string username, std::string password) {
             sqlite3_close(db);
             return -1;
         }
+
+        //remove the access the user had to files
+        sql = "DELETE FROM GRANTED_FILE_ACCESS WHERE USERNAME = '" + username+ "';";
+
+        // execute sql statement
+        rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
+        if (rc != SQLITE_OK) {
+            std::cout << "SQL error: " << errMsg << std::endl;
+            sqlite3_free(errMsg);
+            sqlite3_close(db);
+            return -1;
+        }
+
     } else {
         // user doesn't exists or credentials are wrong
         return 0;
@@ -519,4 +548,93 @@ int checkIfFileExists(std::string name) {
     if (db_counter >= 1)
         return 1;
     return 0;
+}
+
+int shareFiles(std::string username, std::string filename){
+    int rc;
+    sqlite3 *db;
+    std::string sql;
+    char *errMsg = nullptr;
+
+    // open database connection
+    rc = sqlite3_open(db_path.c_str(), &db);
+
+    // check the connection has been established
+    if (rc != SQLITE_OK) {
+        std::cerr << "Can't open the database: " << sqlite3_errmsg(db) << std::endl;
+        return -1;
+    }
+
+    // prepare sql operation to check if requested file exists in table FILE
+    sql = "SELECT * FROM FILES WHERE NAME = '" + filename+ "' ";
+    db_counter = 0;
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cout << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+        return -1;
+    }
+
+    int file_exist=db_counter;
+    //prepare sql operation to check if the user exits (additional control to prevent attacks)
+    sql = "SELECT * FROM USERS WHERE USERNAME = '" + username+ "'; ";
+    db_counter = 0;
+
+    // execute sql statement
+    rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
+    if (rc != SQLITE_OK) {
+        std::cout << "SQL error: " << errMsg << std::endl;
+        sqlite3_free(errMsg);
+        sqlite3_close(db);
+        return -1;
+    }
+
+    int user_exist=db_counter;
+
+    if (user_exist == 1 && file_exist==1) {
+        // file exists
+        // prepare sql operation to check if user is not yet in GRANTED_FILE_ACCESS
+        db_counter=0;
+        sql = "SELECT * FROM GRANTED_FILE_ACCESS WHERE USERNAME = '" + username
+              + "' AND FILENAME = '" + filename
+              + "';";
+
+        // execute sql statement
+        rc = sqlite3_exec(db, sql.c_str(), check, nullptr, &errMsg);
+        if (rc != SQLITE_OK) {
+            std::cout << "SQL error: " << errMsg << std::endl;
+            sqlite3_free(errMsg);
+            sqlite3_close(db);
+            return -1;
+        }
+
+        if (db_counter==0) {
+            //user wasn't allowed yet, grant access
+            sql = "INSERT INTO GRANTED_FILE_ACCESS ('FILENAME', 'USERNAME') VALUES ('" + filename + "', '" + username + "')";
+            db_counter = 0;
+
+            // execute sql statement
+            rc = sqlite3_exec(db, sql.c_str(), nullptr, nullptr, &errMsg);
+            if (rc != SQLITE_OK) {
+                std::cout << "SQL error: " << errMsg << std::endl;
+                sqlite3_free(errMsg);
+                sqlite3_close(db);
+                return -1;
+            }
+        }
+        else{
+            //the user has already the permission so he can't be inserted again, send error message to client
+            return 2;
+        }
+
+    }
+    else {
+        // file does not exists or user does not exists
+        return 0;
+    }
+    sqlite3_close(db);
+    return 1;
 }

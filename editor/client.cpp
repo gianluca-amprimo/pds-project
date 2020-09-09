@@ -310,6 +310,15 @@ void Client::readResponse()
         }
     }
 
+    if(header=="shareFile") {
+        if (result == "internal_error")
+            mainEditor->getUi()->statusBar->showMessage(tr("Internal server error while creating the file. Try again later."), 5000);
+        if(result=="non_existing_file_or_user")
+            QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("File or user not recognized. Try again."), QMessageBox::Ok);
+        if(result=="already_granted")
+            QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("You already have access to this file!"), QMessageBox::Ok);
+    }
+
     if(header=="addSymbol") {
         this->mainEditor->receiveSymbol(jSobject["content"]);
     }
@@ -815,6 +824,7 @@ void Client::refreshFileList() {
 	out.setVersion(QDataStream::Qt_4_0);
 	QJsonObject message;
 	message["header"] = "refr";
+	message["username"]=this->loggedUsername;
 	
 	// send the JSON using QDataStream
 	out << QJsonDocument(message).toJson();
@@ -1087,7 +1097,6 @@ QPixmap Client::circularPixmap(QPixmap &&source, int size, const QColor& color) 
 }
 
 void Client::openLink() {
-    // TODO: aprire link
     if (uiChoice->LinkURI->text().isEmpty()) {
         QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("Link not inserted, insert link and try again"), QMessageBox::Ok);
         qDebug() << "Link not inserted";
@@ -1095,6 +1104,13 @@ void Client::openLink() {
     }
 
     QString link = uiChoice->LinkURI->text();
+    //check if the link is in a valid format
+    QString prefix=link.split("/").at(0);
+    if(prefix!="PDS-SharedEditor"){
+        QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("Invalid link format, check your insertion!"), QMessageBox::Ok);
+        qDebug() << "Link not inserted";
+        return;
+    }
     qDebug() << "Opening inserted link...";
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
@@ -1106,12 +1122,11 @@ void Client::openLink() {
             return;
         }
 
-        // TODO: da modificare
         QByteArray block;
         QDataStream out(&block, QIODevice::WriteOnly);
         out.setVersion(QDataStream::Qt_4_0);
         QJsonObject message;
-        message["header"] = "openlink";
+        message["header"] = "shareFile";
         message["username"] = this->loggedUsername;
         message["link"] = link;
         // send the JSON using QDataStream
@@ -1119,11 +1134,11 @@ void Client::openLink() {
 
         qDebug() << "Trying to open file at link " << link;
 
-//        if (!tcpSocket->write(block)) {
-//            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
-//            cancStatusBar->showMessage(tr("Could not send message."), 3000);
-//        }
-//        tcpSocket->flush();
+        if (!tcpSocket->write(block)) {
+            QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));
+            cancStatusBar->showMessage(tr("Could not send message."), 3000);
+        }
+        tcpSocket->flush();
     }
 }
 

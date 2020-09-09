@@ -16,7 +16,9 @@ int checkCredentials(std::string usr, std::string password);
 
 // function to retrieve the list of files
 // updates the file_list
-int readFiles();
+int readFiles(std::string);
+
+int shareFiles(std::string username, std::string file);
 
 int checkIfFileExists(std::string name);
 

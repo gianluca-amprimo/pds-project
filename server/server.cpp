@@ -181,7 +181,8 @@ void Server::processUserRequest() {
             opResult = Server::deleteBatchChar(jSobject, active_socket);
         if (header == "sessionlogout")
             opResult = Server::closeFileReq(jSobject, active_socket);
-
+        if (header=="shareFile")
+            opResult = Server::shareFileReq(jSobject, active_socket);
         qDebug() << opResult;
     }
 }
@@ -384,7 +385,7 @@ QJsonObject Server::prepareJsonReply(QString header, QString result, QString use
     message["body"] = result;
 
     if(filelist){
-        int ret = readFiles();
+        int ret = readFiles(username.toStdString());
         if (ret==-1) {
             message["header"]="error";
             return message;
@@ -1192,5 +1193,43 @@ void Server::sendColors(QString filename, QString username){
     }
 
     qDebug() << "Sending userMap for file: " << filename;
+}
+
+bool Server::shareFileReq(QJsonObject data, QTcpSocket *active_socket) {
+    QString link = data["link"].toString();
+    QString filename=link.split("/").at(1); //take only filename
+    QString username = data["username"].toString();
+    QJsonObject message;
+
+    qDebug()<<"trying to get access to file "<<filename;
+    int result = shareFiles(username.toStdString(), filename.toStdString());
+    if (result == -1) {
+        message["header"] = "shareFile";
+        message["body"] = "internal_error";
+        sendMessage(message, active_socket);
+        printConsole("Internal server error while <i>" + username + "</i> was trying to get access to file <i>" + filename + "</i>", true);
+        return false;
+    }
+    if (result == 0) {
+        message["header"] = "shareFile";
+        message["body"] = "non_existing_file_or_user";
+        sendMessage(message, active_socket);
+        printConsole("<i>" + username + "</i> has tried to have access to file <i>" + filename + "</i>, but user or file does not exists", true);
+        return false;
+    }
+    if (result==2){
+        //user access already granted
+        message["header"] = "shareFile";
+        message["body"] = "already_granted";
+        sendMessage(message, active_socket);
+        printConsole("<i>" + username + "</i> has tried to get access to file <i>" + filename + "</i>, but it already has", true);
+        return false;
+    }
+
+    //everything is ok, access is granted so send the file  to the user
+    message["username"]=username;
+    message["filename"]=filename;
+    openFile(message, active_socket);
+    return true;
 }
 
