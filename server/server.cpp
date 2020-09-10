@@ -906,7 +906,7 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
 
     // compute charId
     QString editorId = data["editorId"].toString();
-    int counter = session->getSymbolsById().size();
+    int counter = session->charCounter++;
     int localCharIdLen = std::to_wstring(counter).length();
     QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(counter);
 
@@ -1089,7 +1089,7 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
         QString unicode = singleChar["unicode"].toString();
 
         QString editorId = metadata["editorId"].toString();
-        int counter = session->getSymbolsById().size();
+        int counter = session->charCounter++;
         int localCharIdLen = std::to_wstring(counter).length();
         QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(counter);
 

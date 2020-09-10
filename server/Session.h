@@ -36,6 +36,7 @@ private:
     int editorCounter;
     QString editorPrefix;
 public:
+    int charCounter = 0;
     QHash<QString, QString> userMap;                         // utente - colore
     QHash<QString, QString> userEditorId;                    // utente -> editorid
     void setSymbolsByPosition(const QMap<FracPosition, Symbol> &symbolsByPosition);

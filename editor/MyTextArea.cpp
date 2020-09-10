@@ -27,28 +27,33 @@ void MyTextArea::setThisEditorIdentifier(const QString &thisEditorIdentifier) {
 }
 
 void MyTextArea::keyPressEvent(QKeyEvent *e) {
-    // events continue to arrive when we process other events. We need to enque
+    /* è importante che il cursore visivo sia sincronizzato il più possibile con la posizione
+     * corrente di inserimento. Questo perchè l'utente deve sempre avere il controllo di dove sta inserendo.
+     */
 
-    // this is a method to avoid that multiple events occur when the architecture is in an inconsistent state.
-    // It emulates a lock, but since we are not in a multithreaded application we can just use a variable.
     if (KEY_IS_BACKSPACE(e)) {
         if (this->_symbols.empty()) {
             goto empty;
         }
         if (selectionMode) {
+
             this->anchor > this->currentPosition ? deleteBatchChar(currentPosition, anchor) : deleteBatchChar(
                     anchor, currentPosition);
-            this->currentPosition = this->textCursor().position();
             goto empty;
         }
         if (KEY_CTRL_IS_ON(e)) {
             QTextCursor begin = this->textCursor();
+            begin.setPosition(this->currentPosition);
             begin.movePosition(QTextCursor::PreviousWord);
             deleteBatchChar(begin.position(), this->currentPosition);
-            this->currentPosition = begin.position();
+          //  this->currentPosition = begin.position();
+          // this->textCursor().setPosition(this->currentPosition);
         } else {
             deleteChar(this->currentPosition);
-            //this->currentPosition--;
+            // Non c'è bisogno di aggiornare la posizion
+            // perchè i backspace non hanno un ordine prioritario
+            // (il server riconosce se si sta provando a cancellare in una posizion
+            // in cui non esiste un carattere)
         }
         empty:
         selectionMode = false;
@@ -58,15 +63,20 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
         if (selectionMode) {
             this->anchor > this->currentPosition ? deleteBatchChar(currentPosition, anchor) : deleteBatchChar(
                     anchor, currentPosition);
-            this->currentPosition = this->textCursor().position();
             qDebug() << "substituting selection";
             selectionMode = false;
             this->anchor = this->textCursor().anchor();
         }
         insertChar(unicode, this->currentPosition, this->textCursor().charFormat());
         this->currentPosition++;
+        this->textCursor().setPosition(this->currentPosition);
+        // qui c'è bisogno di aggiornare la posizione di inserimento perchè
+        // l'utente mentre è nel flusso di scrittura rischia di sbagliare se aspetta un messaggio
+        // dal server. Dato che vogliamo che l'utente comunque sappia dove sarà la prossima posizione di inserimento
+        // aggiorniamo subito anche il cursore in maniera che anche se non arriva la risposta dal server,
+        // saprà da dove inserire
 
-    } else if (KEY_IS_ARROW(e) || KEY_IS_SELECT_ALL(e) || KEY_IS_PASTE(e)) { // from now on, manage shortcuts
+    } else if (KEY_IS_ARROW(e) || KEY_IS_SELECT_ALL(e)) { // from now on, manage shortcuts
         QTextEdit::keyPressEvent(e);
         this->currentPosition = this->textCursor().position();
         if (this->textCursor().position() != this->textCursor().anchor()) {
@@ -74,12 +84,15 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
             this->selectionMode = true;
 
         }
+    } else if(KEY_IS_PASTE(e)){
+        QTextEdit::keyPressEvent(e);
     } else if (KEY_IS_CUT(e)) {
         if (selectionMode) {
             this->clipboard->setText(this->textCursor().selectedText());
             this->anchor > this->currentPosition ? deleteBatchChar(currentPosition, anchor) : deleteBatchChar(
                     anchor, currentPosition);
             this->currentPosition = this->textCursor().selectionStart();
+            this->textCursor().setPosition(this->currentPosition);
             this->selectionMode = false;
         }
     } else if (KEY_IS_COPY(e)) {
@@ -151,7 +164,6 @@ void MyTextArea::insertFromMimeData(const QMimeData *source) {
     QVector<QTextCharFormat> formats;
     formats.push_back(this->textCursor().charFormat());
     insertBatchChar(source->text(), this->currentPosition, formats);
-
 }
 
 void MyTextArea::mouseReleaseEvent(QMouseEvent *e) {
@@ -215,14 +227,19 @@ void MyTextArea::removeSymbolFromList(QString &symId, QString &fp) {
         if(getEditorPosition(fracPos) < this->currentPosition){
             this->currentPosition--;
         }
+    }else if(symId.split("_")[0] == this->getThisEditorIdentifier()){
+        this->currentPosition--;
+        this->textCursor().setPosition(this->currentPosition);
     }
     qDebug() << "Trying to delete character at frac position" << fracPos.getStringPosition();
     QTextCursor cur = this->textCursor();
     cur.setPosition(this->getEditorPosition(fracPos));
     cur.deleteChar();
+
     if (this->_symbols.value(fracPos).getIdentifier() == symId) {
         this->_symbols.remove(fracPos);
     }
+
 }
 
 QVector<Symbol> MyTextArea::getSymbolInRange(int end1, int end2) {
@@ -244,9 +261,6 @@ void MyTextArea::insertChar(QChar unicode, int position, QTextCharFormat format)
     QByteArray formatInBytes;
 
     // prepare id for char
-    int localCharIdLen = std::to_wstring(this->charCounter).length();
-    QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(charCounter);
-    QString charId = this->thisEditorIdentifier + "_" + localCharId;
 
     // serialize format
     QDataStream formatOut(&formatInBytes, QIODevice::WriteOnly);
@@ -255,7 +269,7 @@ void MyTextArea::insertChar(QChar unicode, int position, QTextCharFormat format)
 
     message["header"] = SINGLE_CHAR_ADDITION;
     message["editorId"] = this->getThisEditorIdentifier();
-    message["charId"] = charId;
+    message["charId"] = "";
     message["unicode"] = QString(unicode);
     message["position"] = position;
     qDebug() << "position is" << message["position"];
@@ -288,6 +302,7 @@ void MyTextArea::deleteChar(int position) {
 void MyTextArea::deleteBatchChar(int begin, int end) {
     QVector<Symbol> symbolsInRange = getSymbolInRange(begin, end);
     QVector<QString> idsInRange;
+    this->currentPosition=end;
     for (Symbol sym : symbolsInRange) {
         idsInRange.push_back(sym.getIdentifier());
     }
@@ -310,12 +325,13 @@ void MyTextArea::insertBatchChar(QString text, int position, QVector<QTextCharFo
     QJsonArray message;
 
     for (int i = 0; i < text.length(); i++) {
+        this->currentPosition++;
         QJsonObject character;
         QByteArray formatInBytes;
 
         // prepare id for char
         QChar unicode = text[i];
-        this->charCounter++;
+
         int localCharIdLen = std::to_wstring(this->charCounter).length();
         QString localCharId = QString(6 - localCharIdLen, '0') + QString::number(charCounter);
         QString charId = this->thisEditorIdentifier + localCharId;
@@ -331,6 +347,7 @@ void MyTextArea::insertBatchChar(QString text, int position, QVector<QTextCharFo
         message.push_back(character);
     }
 
+     qDebug() << "next insert will be at position" << this->currentPosition;
     emit batchCharInserted(message, formats);
 }
 

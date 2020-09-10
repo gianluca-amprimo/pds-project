@@ -432,6 +432,7 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
         Symbol sym(unicode, charId, fp, format);
         qDebug() << "Batch inserting" << sym.getCharacter() << "at position" << sym.getPosition().getStringPosition();
          this->textArea->addSymbolToList(sym);
+
     }
 }
 
