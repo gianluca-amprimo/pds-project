@@ -38,7 +38,7 @@
     <addaction name="newDoc"/>
     <addaction name="openDoc"/>
     <addaction name="save"/>
-    <addaction name="saveAs"/>
+    <addaction name="exportAsPDF"/>
    </widget>
    <widget class="QMenu" name="menuEdit">
     <property name="title">
@@ -294,6 +294,15 @@
    </property>
    <property name="toolTip">
     <string>Align selected paragraphs to the center</string>
+   </property>
+  </action>
+  <action name="exportAsPDF">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/file/themes/material/export_pdf.png</normaloff>:/file/themes/material/export_pdf.png</iconset>
+   </property>
+   <property name="text">
+    <string>Export as PDF</string>
    </property>
   </action>
  </widget>

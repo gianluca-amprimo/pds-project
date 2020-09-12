@@ -360,3 +360,4 @@ int MyTextArea::getCurrentPosition() const {
 
 
 
+

@@ -3,8 +3,6 @@
 #include <QtWidgets/QDialogButtonBox>
 #include <iostream>
 #include <QDebug>
-#include <QToolButton>
-
 
 MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filename,
                        QTcpSocket *tcpSocket, QDataStream *contentSteam, QString username) :
@@ -17,14 +15,12 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
     initUI(contentSteam);
     this->setWindowTitle("PiDiEsse - " + filename);
     setupActions();
-    saveAsDialog = new SaveAsDialog(this, this->textArea);
 
     this->textArea->setThisEditorIdentifier(editorIdentifier);
     qDebug() << "Starting with ID " + this->textArea->getThisEditorIdentifier();
     //  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
 
-    QObject::connect(ui->saveAs, SIGNAL(triggered()), saveAsDialog, SLOT(exec()) );
-    QObject::connect(saveAsDialog->ui->buttonBox, &QDialogButtonBox::accepted, saveAsDialog, [=](){saveAsDialog->setFileName(saveAsDialog->ui->lineEdit->text().toStdString());});
+    QObject::connect(ui->exportAsPDF, SIGNAL(triggered()), this, SLOT(exportAsPDF()));
     QObject::connect(this->textArea, &MyTextArea::charInserted, this, &MainEditor::sendCharInserted);
     QObject::connect(this->textArea, &MyTextArea::charDeleted, this, &MainEditor::sendCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharDelete, this, &MainEditor::sendBatchCharDeleted);
@@ -460,4 +456,20 @@ void MainEditor::colors(QString username, QString color){
             this->onlineUsers->takeItem(this->onlineUsers->row(item));
     }
 }
+
+void MainEditor::exportAsPDF() {
+    QFileDialog fileDialog(this, tr("Export as PDF"));
+    fileDialog.setAcceptMode(QFileDialog::AcceptSave);
+    fileDialog.setMimeTypeFilters(QStringList("application/pdf"));
+    fileDialog.setDefaultSuffix("pdf");
+    if (fileDialog.exec() != QDialog::Accepted)
+        return;
+    QString fileName = fileDialog.selectedFiles().first();
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setOutputFormat(QPrinter::PdfFormat);
+    printer.setOutputFileName(fileName);
+    this->textArea->document()->print(&printer);
+    statusBar()->showMessage(tr("Exported \"%1\"").arg(QDir::toNativeSeparators(fileName)));
+}
+
 

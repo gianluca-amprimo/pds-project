@@ -6,10 +6,9 @@
 #include <QtWidgets/QFontComboBox>
 #include <QtNetwork/QTcpSocket>
 #include "ui_MainEditor.h"
-#include "ui_SaveAsDialog.h"
-#include "SaveAsDialog.h"
 #include "Symbol.h"
 #include "MyTextArea.h"
+#include <QtPrintSupport/QPrinter>
 
 #define HEAD    0
 #define BACK    1
@@ -43,7 +42,6 @@ public:
 private:
     QString thisEditorIdentifier;
     Ui::MainEditor *ui;
-    SaveAsDialog *saveAsDialog;
     QString filename;
     QString username;
     QTcpSocket *tcpSocket;
@@ -85,6 +83,8 @@ private slots:
     void sendBatchCharDeleted(QJsonObject message);
 
     void sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
+
+    void exportAsPDF();
 };
 
 

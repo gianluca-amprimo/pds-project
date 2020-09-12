@@ -15,6 +15,7 @@
         <file>themes/material/save_as.png</file>
         <file>themes/material/open_doc.png</file>
         <file>themes/material/user.png</file>
+        <file>themes/material/export_pdf.png</file>
     </qresource>
     <qresource prefix="/text_align">
         <file>themes/material/align_center.png</file>

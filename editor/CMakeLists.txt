@@ -10,6 +10,7 @@ find_package(Qt5Gui REQUIRED)
 find_package(Qt5Widgets REQUIRED)
 find_package(Qt5Charts REQUIRED)
 find_package(Qt5Network REQUIRED)
+find_package(Qt5PrintSupport REQUIRED)
 
 qt5_add_resources(QRC icons.qrc)
 
@@ -19,18 +20,18 @@ list(APPEND LIBRARIES
         Qt5::Widgets
         Qt5::Network
         Qt5::Charts
+        Qt5::PrintSupport
         )
 list(REMOVE_DUPLICATES LIBRARIES)
 
 add_executable(editor
         main.cpp
-        SaveAsDialog.cpp SaveAsDialog.h
         MainEditor.cpp MainEditor.h
         MyTextArea.cpp MyTextArea.h
         FracPosition.cpp FracPosition.h
         client.cpp client.h
         User.cpp User.h
         Symbol.cpp Symbol.h
-        ${QRC} )
+        ${QRC})
 
 target_link_libraries(editor ${LIBRARIES})
