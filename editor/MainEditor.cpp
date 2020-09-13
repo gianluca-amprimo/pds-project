@@ -129,6 +129,9 @@ void MainEditor::initUI(QDataStream *contentStream) {
     fontSelector->setCurrentText(this->textArea->currentCharFormat().font().family());
     sizeSelector->setCurrentText(QString::number(this->textArea->currentCharFormat().font().pointSize()));
     ui->alignLeft->setChecked(true);
+
+    QObject::connect(this->fontSelector,  &QFontComboBox::currentFontChanged, this, &MainEditor::selectFont);
+    QObject::connect(this->sizeSelector,  &QComboBox::currentTextChanged, this, &MainEditor::selectSize);
 }
 
 
@@ -150,14 +153,16 @@ void MainEditor::Underline() {
     this->textArea->mergeCurrentCharFormat(format);
 }
 
-void MainEditor::selectFont(const QString &font) {
+void MainEditor::selectFont() {
     QTextCharFormat format;
-    format.setFontFamily(font);
+    format.setFontFamily(this->fontSelector->currentText());
     this->textArea->mergeCurrentCharFormat(format);
 }
 
-void MainEditor::selectSize(const QString &size) {
-    this->textArea->setFontPointSize(size.toDouble());
+void MainEditor::selectSize() {
+    QTextCharFormat format;
+    format.setFontPointSize(this->sizeSelector->currentText().toDouble());
+    this->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::alignCenter() {
@@ -267,11 +272,17 @@ void MainEditor::sendCharInserted(QJsonObject message) {
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
 
+        auto messageFormat = QByteArray::fromBase64(message["format"].toString().toLatin1());
+        QDataStream inFormatStream(&messageFormat, QIODevice::ReadOnly);
+        QTextCharFormat format;
+        inFormatStream >> format;
+
         if (!this->tcpSocket->write(block)) {
             ui->statusBar->showMessage(tr("Could not send message to the server, char will be not inserted."), 5000);
         }
         this->tcpSocket->flush();
-        qDebug() << "Sending insertion of char " << message["unicode"] << "at position" << message["position"];
+        qDebug() << "Sending char " << message["unicode"] << " at position " << message["position"]
+                 << " with format I:" << format.fontItalic() << "; U:" << format.fontUnderline() << "; B:" << (format.fontWeight() == QFont::Bold);
     }
 
 }
@@ -471,5 +482,7 @@ void MainEditor::exportAsPDF() {
     this->textArea->document()->print(&printer);
     statusBar()->showMessage(tr("Exported \"%1\"").arg(QDir::toNativeSeparators(fileName)));
 }
+
+
 
 

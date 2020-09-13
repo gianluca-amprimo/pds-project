@@ -64,8 +64,8 @@ private slots:
     void Italic();
     void Underline();
 
-    void selectFont(const QString &font);
-    void selectSize(const QString &size);
+    void selectFont();
+    void selectSize();
 
     void alignCenter();
     void alignLeft();

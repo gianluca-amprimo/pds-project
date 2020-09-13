@@ -70,11 +70,11 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
         insertChar(unicode, this->currentPosition, this->textCursor().charFormat());
         this->currentPosition++;
         this->textCursor().setPosition(this->currentPosition);
-        // qui c'è bisogno di aggiornare la posizione di inserimento perchè
-        // l'utente mentre è nel flusso di scrittura rischia di sbagliare se aspetta un messaggio
-        // dal server. Dato che vogliamo che l'utente comunque sappia dove sarà la prossima posizione di inserimento
-        // aggiorniamo subito anche il cursore in maniera che anche se non arriva la risposta dal server,
-        // saprà da dove inserire
+        // TODO: qui c'è bisogno di aggiornare la posizione di inserimento perchè
+        //  l'utente mentre è nel flusso di scrittura rischia di sbagliare se aspetta un messaggio
+        //  dal server. Dato che vogliamo che l'utente comunque sappia dove sarà la prossima posizione di inserimento
+        //  aggiorniamo subito anche il cursore in maniera che anche se non arriva la risposta dal server,
+        //  saprà da dove inserire
 
     } else if (KEY_IS_ARROW(e) || KEY_IS_SELECT_ALL(e)) { // from now on, manage shortcuts
         QTextEdit::keyPressEvent(e);
@@ -255,28 +255,26 @@ QVector<Symbol> MyTextArea::getSymbolInRange(int end1, int end2) {
     return symbolsInRange;
 }
 
-void MyTextArea::insertChar(QChar unicode, int position, QTextCharFormat format) {
+void MyTextArea::insertChar(QChar unicode, int position, const QTextCharFormat& format) {
     /* here we simply prepare the message for the server */
     QJsonObject message;
-    QByteArray formatInBytes;
-
-    // prepare id for char
 
     // serialize format
+    QByteArray formatInBytes;
     QDataStream formatOut(&formatInBytes, QIODevice::WriteOnly);
-    formatOut.setVersion(QDataStream::Qt_4_0);
     formatOut << format;
+
+    qDebug() << "Sending char " << unicode << " at position " << position
+             << " with format I:" << format.fontItalic() << "; U:" << format.fontUnderline() << "; B:" << (format.fontWeight() == QFont::Bold);
 
     message["header"] = SINGLE_CHAR_ADDITION;
     message["editorId"] = this->getThisEditorIdentifier();
     message["charId"] = "";
     message["unicode"] = QString(unicode);
     message["position"] = position;
-    qDebug() << "position is" << message["position"];
     message["format"] = QLatin1String(formatInBytes.toBase64());
 
     emit charInserted(message);
-
 }
 
 void MyTextArea::deleteChar(int position) {

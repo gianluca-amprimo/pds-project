@@ -49,7 +49,7 @@ public:
     const QString &getThisEditorIdentifier() const;
     void deleteSymbol();
     void deleteSelection();
-    void insertChar(QChar unicode, int position, QTextCharFormat format);
+    void insertChar(QChar unicode, int position, const QTextCharFormat& format);
     void insertBatchChar(QString text, int position, QVector<QTextCharFormat> formats);
     void deleteChar(int position);
     void deleteBatchChar(int begin, int end);
