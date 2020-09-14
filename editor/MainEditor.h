@@ -51,6 +51,8 @@ private:
     MyTextArea *textArea;
     QListWidget *onlineUsers;
 
+    QAction *pdf, *share;
+
     QMap<QString, QString> userMap;
 
     int position;
@@ -84,6 +86,7 @@ private slots:
 
     void sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
 
+    void shareLink();
     void exportAsPDF();
 };
 
