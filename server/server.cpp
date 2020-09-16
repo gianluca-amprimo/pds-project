@@ -881,6 +881,7 @@ bool Server::saveFileReq(QJsonObject &data, QTcpSocket *active_socket) {
 bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
     /* message structure:
      * - header
+     * - username
      * - filename
      * - charId
      * - unicode
@@ -891,6 +892,7 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
     auto format = QByteArray::fromBase64(data["format"].toString().toLatin1());
     QDataStream inFormatStream(&format, QIODevice::ReadOnly);
 
+    QString username = data["username"].toString().toLatin1();
     QString filename = data["filename"].toString().toLatin1();
 
     QByteArray symbolInBytes;
@@ -944,12 +946,14 @@ bool Server::receiveChar(QJsonObject &data, QTcpSocket *active_socket) {
     }
 
     // create symbol from message
-
     Symbol symbol(unicode[0], charId, symbolFp, charFormat);
     session->addSymbol(symbol);
     outSymbol << symbol;
     message["header"] = "add1Symbol";
     message["symbol"] = QLatin1String(symbolInBytes.toBase64());
+
+    // TODO: add username of the user who performed the insertion
+    message["username"] = username;
 
     // now send symbol to all the other editors
     for(QString user : session->userEditorId.keys()){
@@ -964,6 +968,9 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString().toLatin1();
     qDebug() << "filename is: " << filename;
 
+    // acquire username
+    QString username = data["username"].toString();
+
     QString symId = data["charId"].toString();
     QString symPos;
 
@@ -975,6 +982,7 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
     message["id"] = symId;
     QString stringPosition = session->getSymbolsById().value(symId).getPosition().getStringPosition();
     message["position"] = stringPosition;
+    message["username"] = username;
 
     // now send deletion to all the other editors
     try {
@@ -1006,6 +1014,9 @@ bool Server::deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket) {
     QVector<QString> symbolsInRange;
     QHash<QString, FracPosition> symbolsPosition;
 
+    // extract username
+    QString user = data["username"].toString();
+
     auto inSymbolsBytes = QByteArray::fromBase64(data["idsToDelete"].toString().toLatin1());
     QByteArray symbolPositionBytes;
     QDataStream outSymbolPositionStream(&symbolPositionBytes, QIODevice::WriteOnly);
@@ -1024,6 +1035,7 @@ bool Server::deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket) {
     QJsonObject message;
     message["header"] = "deleteBatchSymbol";
     message["idsAndPositions"] = QLatin1String(symbolPositionBytes.toBase64());
+    message["username"] = user;
 
     // now send deletion to all other editors
     try {
@@ -1047,6 +1059,7 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
      *  - formatLength
      *  - length
      *  - formats
+     *  - username
      *  symbols here:
      * - charId
      * - unicode
@@ -1070,6 +1083,7 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
     metadataOut["length"] = arrayLenght;
     metadataOut["formatLength"] = metadata["formatLength"];
     metadataOut["formats"] = metadata["formats"];
+    metadataOut["username"] = metadata["username"];
 
     message.push_front(metadataOut);
 
@@ -1079,7 +1093,6 @@ bool Server::receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket) {
 
 
     // cycle through the array
-
     for(int i = 0; i < arrayLenght; i++){
         // take the object from the array
         QJsonObject singleChar = data[i+1].toObject();

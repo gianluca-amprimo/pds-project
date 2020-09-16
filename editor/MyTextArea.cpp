@@ -195,7 +195,7 @@ const QMap<FracPosition, Symbol> &MyTextArea::getSymbols() const {
     return _symbols;
 }
 
-void MyTextArea::addSymbolToList(const Symbol& sym) {
+void MyTextArea::addSymbolToList(const Symbol& sym, QString color) {
     if(sym.getIdentifier().split("_")[0] != this->getThisEditorIdentifier()){
         if(getEditorPosition(sym.getPosition()) < this->currentPosition){
             this->currentPosition++;
@@ -209,7 +209,16 @@ void MyTextArea::addSymbolToList(const Symbol& sym) {
 
     QTextCursor cur = this->textCursor();
     cur.setPosition(this->getEditorPosition(sym.getPosition()));
-    cur.insertText(QString(sym.getCharacter()), sym.getCharFormat());
+    QTextCharFormat fmt = sym.getCharFormat();
+    if (color != ""){
+        QColor color_highlight{color};
+        QBrush highlight{color_highlight};
+        fmt.setBackground(highlight);
+
+        // inserire un timer one shot
+        QTimer::singleShot(800, this, [=]{MyTextArea::removeHighlight(sym);});
+    }
+    cur.insertText(QString(sym.getCharacter()), fmt);
 
     // TODO: bisogna gestire il fatto che il cursore aggiorni
     //  automaticamente la sua posizione
@@ -221,7 +230,7 @@ int MyTextArea::getEditorPosition(const FracPosition &fp) {
     return this->_symbols.keys().indexOf(fp);
 }
 
-void MyTextArea::removeSymbolFromList(QString &symId, QString &fp) {
+void MyTextArea::removeSymbolFromList(QString &symId, QString &fp, QString color) {
     FracPosition fracPos(fp);
     if(symId.split("_")[0] != this->getThisEditorIdentifier()){
         if(getEditorPosition(fracPos) < this->currentPosition){
@@ -233,6 +242,19 @@ void MyTextArea::removeSymbolFromList(QString &symId, QString &fp) {
     }
     qDebug() << "Trying to delete character at frac position" << fracPos.getStringPosition();
     QTextCursor cur = this->textCursor();
+    cur.setPosition(this->getEditorPosition(fracPos));
+    cur.setPosition(this->getEditorPosition(fracPos) + 1, QTextCursor::KeepAnchor);
+
+    // highlight the color of the user who performed the operation
+    if (color != ""){
+        qDebug() << "Background color is: " << color;
+        QTextCharFormat fmt{cur.charFormat()};
+        QColor color_highlight{color};
+        QBrush highlight{color_highlight};
+        fmt.setBackground(highlight);
+        cur.setCharFormat(fmt);
+    }
+
     cur.setPosition(this->getEditorPosition(fracPos));
     cur.deleteChar();
 
@@ -353,7 +375,19 @@ int MyTextArea::getCurrentPosition() const {
     return this->currentPosition;
 }
 
+void MyTextArea::removeHighlight(const Symbol& sym) {
+    QTextCursor cur = this->textCursor();
+    // qDebug() << "Symbol selected " << sym.getCharacter() << " at position " << sym.getPosition().getStringPosition();
+    cur.setPosition(this->getEditorPosition(sym.getPosition()));
+    cur.setPosition(this->getEditorPosition(sym.getPosition()) + 1, QTextCursor::KeepAnchor);
 
+    // qDebug() << cur.selectedText() << " char selected";
+
+    // reset the symbol format
+    QTextCharFormat fmt = sym.getCharFormat();
+    fmt.clearBackground();
+    cur.setCharFormat(fmt);
+}
 
 
 

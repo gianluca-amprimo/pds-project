@@ -28,13 +28,13 @@ public:
 
     Ui::MainEditor *getUi();
 
-    void receiveSymbol(QJsonValueRef content);
+    void receiveSymbol(QJsonValueRef content, QJsonValueRef username);
 
     void receiveBatchSymbol(QJsonArray content);
 
-    void receiveDeletion(QJsonValueRef id, QJsonValueRef position);
+    void receiveDeletion(QJsonValueRef id, QJsonValueRef position, QJsonValueRef username);
 
-    void receiveBatchDeletion(QJsonValueRef idsAndPositions);
+    void receiveBatchDeletion(QJsonValueRef idsAndPositions, QJsonValueRef user);
     const QString &getFilename() const;
 
     void colors(QString username, QString color);
@@ -53,7 +53,7 @@ private:
 
     QAction *pdf, *share;
 
-    QMap<QString, QString> userMap;
+    QMap<QString, QString> userMap;         // user -> color
 
     int position;
 

@@ -106,7 +106,7 @@ void MainEditor::initUI(QDataStream *contentStream) {
     QList<Symbol> listOfSymbols;
     *contentStream >> listOfSymbols;
     for(const auto& sym : listOfSymbols){
-        textArea->addSymbolToList(sym);
+        textArea->addSymbolToList(sym, "");
     }
 
     auto separator = ui->toolBar->insertSeparator(ui->bold);
@@ -274,6 +274,9 @@ void MainEditor::sendCharInserted(QJsonObject message) {
             return;
         }
 
+        // TODO: add the username to highlight the insertion
+        message["username"] = this->username;
+
         // add filename to message
         message["filename"] = this->filename;
         QByteArray block;
@@ -313,6 +316,7 @@ void MainEditor::sendCharDeleted(QJsonObject message) {
         out.setVersion(QDataStream::Qt_4_0);
 
         message["filename"] = this->filename;
+        message["username"] = this->username;
 
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
@@ -325,21 +329,36 @@ void MainEditor::sendCharDeleted(QJsonObject message) {
     }
 }
 
-void MainEditor::receiveSymbol(QJsonValueRef content) {
+void MainEditor::receiveSymbol(QJsonValueRef content, QJsonValueRef username) {
     auto data = QByteArray::fromBase64(content.toString().toLatin1());
     QDataStream inStream(&data, QIODevice::ReadOnly);
-    Symbol sym;
 
+    Symbol sym;
     inStream >> sym;
-    this->textArea->addSymbolToList(sym);
+
+    // TODO: add username highlighting
+    QString user = username.toString().toLatin1();
+    QString color;
+    if (user != this->username)
+        color = userMap.value(user);
+    else
+        color = "";
+    this->textArea->addSymbolToList(sym, color);
 }
 
-void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position) {
+void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position, QJsonValueRef username) {
     auto symId = id.toString();
     auto symPos = position.toString();
 
+    QString user = username.toString();
+    QString color;
+    if (user != this->username)
+        color = userMap.value(user);
+    else
+        color = "";
+
     qDebug() << "Received the deletion of char" << symId << "at position" << symPos;
-    this->textArea->removeSymbolFromList(symId, symPos);
+    this->textArea->removeSymbolFromList(symId, symPos, color);
 }
 
 const QString &MainEditor::getFilename() const {
@@ -362,6 +381,7 @@ void MainEditor::sendBatchCharDeleted(QJsonObject message) {
         out.setVersion(QDataStream::Qt_4_0);
 
         message["filename"] = this->filename;
+        message["username"] = this->username;
 
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
@@ -374,15 +394,22 @@ void MainEditor::sendBatchCharDeleted(QJsonObject message) {
 
 }
 
-void MainEditor::receiveBatchDeletion(QJsonValueRef idsAndPositionsJson) {
+void MainEditor::receiveBatchDeletion(QJsonValueRef idsAndPositionsJson, QJsonValueRef user) {
     auto idsPositionsBytes = QByteArray::fromBase64(idsAndPositionsJson.toString().toLatin1());
     QDataStream inIdsPositionBytesStream(&idsPositionsBytes, QIODevice::ReadOnly);
 
     QHash<QString, FracPosition> idsAndPositions;
     inIdsPositionBytesStream >> idsAndPositions;
 
+    QString name = user.toString();
+    QString color;
+    if (name != this->username)
+        color = this->userMap.value(name);
+    else
+        color = "";
+
     for(auto key : idsAndPositions.keys()){
-        this->textArea->removeSymbolFromList(key, const_cast<QString &>(idsAndPositions.value(key).getStringPosition()));
+        this->textArea->removeSymbolFromList(key, const_cast<QString &>(idsAndPositions.value(key).getStringPosition()), color);
     }
 }
 
@@ -415,6 +442,7 @@ void MainEditor::sendBatchCharInserted(QJsonArray message, QVector<QTextCharForm
         metadata["length"] = message.size();
         metadata["header"] = BATCH_CHAR_ADDITION;
         metadata["formats"] = QLatin1String(formatInBytes.toBase64());
+        metadata["username"] = this->username;
 
         message.push_front(metadata);
 
@@ -439,6 +467,14 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
     int arrayLength = metadata["length"].toInt();
     qDebug() << "Going to paste" << arrayLength << "characters";
 
+    // extract username of user who performed the operation
+    QString user = metadata["username"].toString();
+    QString color;
+    if (user != this->username)
+        color = this->userMap.value(user);
+    else
+        color = "";
+
     for(int i = 0; i < arrayLength; i++){
         QJsonObject singleSymbol = data[i+1].toObject();
         FracPosition fp(singleSymbol["fracPosition"].toString());
@@ -448,8 +484,7 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
 
         Symbol sym(unicode, charId, fp, format);
         qDebug() << "Batch inserting" << sym.getCharacter() << "at position" << sym.getPosition().getStringPosition();
-         this->textArea->addSymbolToList(sym);
-
+        this->textArea->addSymbolToList(sym, color);
     }
 }
 

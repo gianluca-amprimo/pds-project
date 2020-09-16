@@ -60,8 +60,8 @@ public:
     virtual void inputMethodEvent(QInputMethodEvent *event) override;
     virtual void mouseReleaseEvent(QMouseEvent *e) override;
     MyTextArea &operator=(const MyTextArea &other);
-    void addSymbolToList(const Symbol& sym);
-    void removeSymbolFromList(QString &symId, QString &fp);
+    void addSymbolToList(const Symbol& sym, QString color);
+    void removeSymbolFromList(QString &symId, QString &fp, QString color);
     int getEditorPosition(const FracPosition &fp);
 
     int getCurrentPosition() const;
@@ -73,6 +73,8 @@ public:
 public slots:
 
     virtual void insertFromMimeData(const QMimeData *source) override;
+
+    void removeHighlight(const Symbol& sym);
 
 signals:
     void charInserted(QJsonObject message);

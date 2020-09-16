@@ -320,24 +320,24 @@ void Client::readResponse()
     }
 
     if(header=="addSymbol") {
-        this->mainEditor->receiveSymbol(jSobject["content"]);
+        this->mainEditor->receiveSymbol(jSobject["content"], jSobject["username"]);
     }
 
     if(header=="remSymbol") {
-        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"]);
+        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"], jSobject["username"]);
     }
 
     if(header=="colors") {
         this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString());
     }
     if(header=="add1Symbol") {
-        this->mainEditor->receiveSymbol(jSobject["symbol"]);
+        this->mainEditor->receiveSymbol(jSobject["symbol"], jSobject["username"]);
     }
     if(header=="delete1Symbol") {
-        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"]);
+        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"], jSobject["username"]);
     }
     if(header=="deleteBatchSymbol") {
-        this->mainEditor->receiveBatchDeletion(jSobject["idsAndPositions"]);
+        this->mainEditor->receiveBatchDeletion(jSobject["idsAndPositions"], jSobject["username"]);
     }
     if(header=="addBatchSymbol"){
         this->mainEditor->receiveBatchSymbol(jSarray);
