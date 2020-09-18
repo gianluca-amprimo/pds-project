@@ -384,7 +384,9 @@ void MainEditor::sendBatchCharDeleted(QJsonObject message) {
         message["username"] = this->username;
 
         // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
+        const QByteArray &outputJson = QJsonDocument(message).toJson();
+        qDebug() << "Sending message of length" << outputJson.size();
+        out << outputJson;
 
         if (!this->tcpSocket->write(block)) {
             ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);

@@ -89,259 +89,291 @@ void Client::readResponse()
 {
 	logStatusBar->showMessage(tr("Reading the response..."));
 	qDebug() << "Reading the response...";
-
-
-    // read the Json message received from client, from header understand what to do
-    in.startTransaction();
-
     QByteArray jSmessage;
     std::string header;
     std::string result;
     QJsonObject jSobject;
     QJsonArray jSarray;
     QPixmap propic;
-    in >> jSmessage;
     QJsonParseError parseError;
+    qDebug() << "Going to read" << this->tcpSocket->bytesAvailable() << "bytes";
+    // read the Json message received from client, from header understand what to do
+    while(!in.atEnd()) {
+
+        in.startTransaction();
+        in >> jSmessage;
+        qDebug() << "message length is" << jSmessage.length();
+        if (!in.commitTransaction()) {
+            return;
+        }
+    }
     // we try to create a json document with the data we received
     const QJsonDocument jsonDoc = QJsonDocument::fromJson(jSmessage, &parseError);
     if (parseError.error == QJsonParseError::NoError) {
-        // if the data was indeed valid JSON
-        if (jsonDoc.isObject()){
-            jSobject=jsonDoc.object();
-            header=jSobject["header"].toString().toStdString();
-            result=jSobject["body"].toString().toStdString();
-        }else if(jsonDoc.isArray()){
-            jSarray=jsonDoc.array();
-            header=jSarray[0].toObject()["header"].toString().toStdString();
-        }
-        else{
-            QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
-            QApplication::quit();
-        }
+                                                  // if the data was indeed valid JSON
+                                                  if (jsonDoc.isObject()) {
+                                                  jSobject = jsonDoc.object();
+                                                  header = jSobject["header"].toString().toStdString();
+                                                  result = jSobject["body"].toString().toStdString();
+                                                  } else if (jsonDoc.isArray()) {
+                                                  jSarray = jsonDoc.array();
+                                                  header = jSarray[0].toObject()["header"].toString().toStdString();
+                                                  } else {
+                                                  QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
+                                                  QApplication::quit();
+                                                  }
 
-    }
-    else {
-        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
-        QApplication::quit();
-    }
+                                                  } else {
+                                                             QString filename = "responseLog.json";
+                                                             QFile file(filename);
+                                                             QTextStream fileStream(&file);
+
+                                                             qDebug() << "Error in response of type" << parseError.error << "at offset" << parseError.offset;
+                                                             qDebug() << "Logging Json response to " << filename;
+                                                             if (file.open(QIODevice::WriteOnly)) {
+                                                             fileStream << QString::fromStdString(jsonDoc.toJson().toStdString());
+                                                             file.close();
+                                                             }
+                                                             if (jsonDoc.isEmpty()) {
+                                                             QMessageBox::information(this, tr("PdS Server"), tr("Server response is empty"));
+                                                             } else {
+                                                             QMessageBox::information(this, tr("PdS Server"), tr("Error in the server response"));
+
+                                                             }
+                                                             QApplication::quit();
+                                                             }
 
 
-    if (!in.commitTransaction()) {
-    	return;
-    }
-    
+
     qDebug().noquote() << QString::fromStdString(header + ": " + result);
-    if(header=="error"){
-        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
-        QApplication::quit();
-    }
-    if(header=="log") {
-        if (result == "ok") {
-	        setFileList(jSobject);
-	        //create the associated user
-	        User u(uiLog->UsernameEdit->text(),pixmapFrom(jSobject["propic"]), jSobject["name"].toString(), jSobject["surname"].toString());
-	        qDebug()<<u.getName()<<" "<<u.getSurname();
-	        loggedUser=std::make_shared<User>(u);
-            openWelcomeWin(false);
-            this->close();
-        }
-        if (result=="unreg") {
-            QMessageBox::information(this, tr("PdS Server"), tr("User not found.\nCheck again username and password."));
-            logStatusBar->showMessage(tr("User not found."), 3000);
-            uiLog->LoginButton->setEnabled(true);
-	        uiLog->UsernameEdit->setReadOnly(false);
-	        uiLog->PasswordEdit->setReadOnly(false);
-            uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
-            uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
-            uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
-            uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
-	        QWidget::setTabOrder(uiLog->UsernameEdit, uiLog->PasswordEdit);
-	        QWidget::setTabOrder(uiLog->PasswordEdit, uiLog->LoginButton);
-        }
-        if (result=="fail") {
-            QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
-	        logStatusBar->showMessage(tr("Server error."), 3000);
-            uiLog->LoginButton->setEnabled(true);
-            uiLog->UsernameEdit->setReadOnly(false);
-            uiLog->PasswordEdit->setReadOnly(false);
-            uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
-            uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
-            uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
-            uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
-	        QWidget::setTabOrder(uiLog->UsernameEdit, uiLog->PasswordEdit);
-	        QWidget::setTabOrder(uiLog->PasswordEdit, uiLog->LoginButton);
-        }
-    }
-    
-    if (header=="reg") {
-        if (result=="ok") {
-            User u(uiReg->UsernameEdit->text(),pixmapFrom(jSobject["propic"]), jSobject["name"].toString(), jSobject["surname"].toString());
+    if (header == "error") {
+                       QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
+                       QApplication::quit();
+                       }
+    if (header == "log") {
+                     if (result == "ok") {
+                     setFileList(jSobject);
+                     //create the associated user
+                     User u(uiLog->UsernameEdit->text(), pixmapFrom(jSobject["propic"]), jSobject["name"].toString(),
+                     jSobject["surname"].toString());
+                     qDebug() << u.getName() << " " << u.getSurname();
+                     loggedUser = std::make_shared<User>(u);
+                     openWelcomeWin(false);
+                     this->close();
+                     }
+                     if (result == "unreg") {
+                     QMessageBox::information(this, tr("PdS Server"),
+                     tr("User not found.\nCheck again username and password."));
+                     logStatusBar->showMessage(tr("User not found."), 3000);
+                     uiLog->LoginButton->setEnabled(true);
+                     uiLog->UsernameEdit->setReadOnly(false);
+                     uiLog->PasswordEdit->setReadOnly(false);
+                     uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+                     uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+                     uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
+                     uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
+                     QWidget::setTabOrder(uiLog->UsernameEdit, uiLog->PasswordEdit);
+                     QWidget::setTabOrder(uiLog->PasswordEdit, uiLog->LoginButton);
+                     }
+                     if (result == "fail") {
+                     QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
+                     logStatusBar->showMessage(tr("Server error."), 3000);
+                     uiLog->LoginButton->setEnabled(true);
+                     uiLog->UsernameEdit->setReadOnly(false);
+                     uiLog->PasswordEdit->setReadOnly(false);
+                     uiLog->RegistrationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+                     uiLog->CancellationLink->setTextInteractionFlags(Qt::TextBrowserInteraction);
+                     uiLog->RegistrationLink->setCursor(QCursor(Qt::PointingHandCursor));
+                     uiLog->CancellationLink->setCursor(QCursor(Qt::PointingHandCursor));
+                     QWidget::setTabOrder(uiLog->UsernameEdit, uiLog->PasswordEdit);
+                     QWidget::setTabOrder(uiLog->PasswordEdit, uiLog->LoginButton);
+                     }
+                     }
 
-            loggedUser=std::make_shared<User>(u);
-            setFileList(jSobject);
-            openWelcomeWin(true);
-            RegWin->close();
-            this->close();
-        }
-        if (result=="fail") {
-        	QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
-	        regStatusBar->showMessage(tr("Server error."), 3000);
-            uiReg->NameEdit->setReadOnly(false);
-            uiReg->SurnameEdit->setReadOnly(false);
-            uiReg->UsernameEdit->setReadOnly(false);
-            uiReg->PasswordEdit->setReadOnly(false);
-	        uiReg->RepeatPasswordEdit->setReadOnly(false);
-        }
-        if (result=="alreadyreg") {
-        	QMessageBox::information(this, tr("PdS Server"), tr("This username is already taken.\nTry another one."));
-	        regStatusBar->showMessage(tr("Username already taken."), 3000);
-            uiReg->NameEdit->setReadOnly(false);
-            uiReg->SurnameEdit->setReadOnly(false);
-            uiReg->UsernameEdit->setReadOnly(false);
-            uiReg->PasswordEdit->setReadOnly(false);
-	        uiReg->RepeatPasswordEdit->setReadOnly(false);
-        }
+    if (header == "reg") {
+                     if (result == "ok") {
+                     User u(uiReg->UsernameEdit->text(), pixmapFrom(jSobject["propic"]), jSobject["name"].toString(),
+                     jSobject["surname"].toString());
 
-    }
+                     loggedUser = std::make_shared<User>(u);
+                     setFileList(jSobject);
+                     openWelcomeWin(true);
+                     RegWin->close();
+                     this->close();
+                     }
+                     if (result == "fail") {
+                     QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
+                     regStatusBar->showMessage(tr("Server error."), 3000);
+                     uiReg->NameEdit->setReadOnly(false);
+                     uiReg->SurnameEdit->setReadOnly(false);
+                     uiReg->UsernameEdit->setReadOnly(false);
+                     uiReg->PasswordEdit->setReadOnly(false);
+                     uiReg->RepeatPasswordEdit->setReadOnly(false);
+                     }
+                     if (result == "alreadyreg") {
+                     QMessageBox::information(this, tr("PdS Server"),
+                     tr("This username is already taken.\nTry another one."));
+                     regStatusBar->showMessage(tr("Username already taken."), 3000);
+                     uiReg->NameEdit->setReadOnly(false);
+                     uiReg->SurnameEdit->setReadOnly(false);
+                     uiReg->UsernameEdit->setReadOnly(false);
+                     uiReg->PasswordEdit->setReadOnly(false);
+                     uiReg->RepeatPasswordEdit->setReadOnly(false);
+                     }
 
-    if (header=="canc") {
-        if (result=="ok") {
-            logStatusBar->showMessage(tr("Successful cancellation."), 3000);
-            CancWin->close();
-            reactivateLoginWindow();
-        }
-        if (result=="notpres") {
-	        QMessageBox::information(this, tr("PdS Server"), tr("User not found.\nCheck again the username and the password."));
-	        cancStatusBar->showMessage(tr("User not found or wrong password."), 3000);
-	        uiCanc->UsernameEdit->setReadOnly(false);
-	        uiCanc->PasswordEdit->setReadOnly(false);
-	        uiCanc->DeleteButton->setEnabled(true);
-        }
-        if (result=="fail") {
-	        QMessageBox::information(this, tr("PdS Server"), tr("Cancellation failed.\nCheck again username and password."));
-	        logStatusBar->showMessage(tr("Cancellation failed."), 3000);
-	        uiCanc->UsernameEdit->setReadOnly(false);
-	        uiCanc->PasswordEdit->setReadOnly(false);
-	        uiCanc->DeleteButton->setEnabled(true);
-        }
-    }
-	
-	if (header=="upd") {
-		if (result == "ok") {
-			User u(uiSett->UsernameEdit->text(), pixmapFrom(jSobject["propic"]), jSobject["name"].toString(),
-			       jSobject["surname"].toString());
-			
-			loggedUser = std::make_shared<User>(u);
-			avail_file.clear();
-			setFileList(jSobject);
-			SettWin->close();
-			uiChoice->ProfilePicture->setPixmap(circularPixmap(const_cast<QPixmap &&>(loggedUser->getPropic())));
-			ChoiceWin->setVisible(true);
-		}
-		if (result == "fail") {
-			QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
-			settStatusBar->showMessage(tr("Server error."), 3000);
-			uiSett->CurrentPasswordEdit->setReadOnly(false);
-			uiSett->NewPasswordEdit->setReadOnly(false);
-			uiSett->DeletePictureButton->setEnabled(true);
-			uiSett->ProfilePictureButton->setEnabled(true);
-			uiSett->UndoButton->setEnabled(true);
-		}
-		if (result == "wrongpass") {
-			QMessageBox::information(this, tr("PdS Server"), tr("The password is wrong.\nTry again."));
-			settStatusBar->showMessage(tr("Wrong password."), 3000);
-			uiSett->CurrentPasswordEdit->setReadOnly(false);
-			uiSett->NewPasswordEdit->setReadOnly(false);
-			uiSett->DeletePictureButton->setEnabled(true);
-			uiSett->ProfilePictureButton->setEnabled(true);
-			uiSett->UndoButton->setEnabled(true);
-		}
-	}
-	
-	if(header=="refr") {
-		if (result == "ok") {
-			setFileList(jSobject);
-			uiChoice->OpenMenu->clear();
-			QStringList fileList;
-			for(auto s: avail_file){
-				fileList+=s;
-			}
-			for (auto &file: fileList) {
-				uiChoice->OpenMenu->addItem(file);
-			}
-			uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
-		}
-	}
+                     }
 
-	if(header=="newfile") {
-        if (result == "internal_error") {
-            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("Internal server error while creating the file.\nTry again later."));
-        } else if(result == "existing_file") {
-            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("You have just tried to create a new file, but it already exists\nTry with a new name."));
-        }
-	}
+    if (header == "canc") {
+                      if (result == "ok") {
+                      logStatusBar->showMessage(tr("Successful cancellation."), 3000);
+                      CancWin->close();
+                      reactivateLoginWindow();
+                      }
+                      if (result == "notpres") {
+                      QMessageBox::information(this, tr("PdS Server"),
+                      tr("User not found.\nCheck again the username and the password."));
+                      cancStatusBar->showMessage(tr("User not found or wrong password."), 3000);
+                      uiCanc->UsernameEdit->setReadOnly(false);
+                      uiCanc->PasswordEdit->setReadOnly(false);
+                      uiCanc->DeleteButton->setEnabled(true);
+                      }
+                      if (result == "fail") {
+                      QMessageBox::information(this, tr("PdS Server"),
+                      tr("Cancellation failed.\nCheck again username and password."));
+                      logStatusBar->showMessage(tr("Cancellation failed."), 3000);
+                      uiCanc->UsernameEdit->setReadOnly(false);
+                      uiCanc->PasswordEdit->setReadOnly(false);
+                      uiCanc->DeleteButton->setEnabled(true);
+                      }
+                      }
 
-    if(header=="openfile") {
-        if (result == "new_session" || result == "existing_session") {
-            auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
-            QDataStream contentStream(&content, QIODevice::ReadOnly);
+    if (header == "upd") {
+                     if (result == "ok") {
+                     User u(uiSett->UsernameEdit->text(), pixmapFrom(jSobject["propic"]), jSobject["name"].toString(),
+                     jSobject["surname"].toString());
 
-            auto filename = jSobject["filename"].toString();
-            qDebug() << filename;
+                     loggedUser = std::make_shared<User>(u);
+                     avail_file.clear();
+                     setFileList(jSobject);
+                     SettWin->close();
+                     uiChoice->ProfilePicture->setPixmap(circularPixmap(const_cast<QPixmap &&>(loggedUser->getPropic())));
+                     ChoiceWin->setVisible(true);
+                     }
+                     if (result == "fail") {
+                     QMessageBox::information(this, tr("PdS Server"), tr("Server error.\nTry again later."));
+                     settStatusBar->showMessage(tr("Server error."), 3000);
+                     uiSett->CurrentPasswordEdit->setReadOnly(false);
+                     uiSett->NewPasswordEdit->setReadOnly(false);
+                     uiSett->DeletePictureButton->setEnabled(true);
+                     uiSett->ProfilePictureButton->setEnabled(true);
+                     uiSett->UndoButton->setEnabled(true);
+                     }
+                     if (result == "wrongpass") {
+                     QMessageBox::information(this, tr("PdS Server"), tr("The password is wrong.\nTry again."));
+                     settStatusBar->showMessage(tr("Wrong password."), 3000);
+                     uiSett->CurrentPasswordEdit->setReadOnly(false);
+                     uiSett->NewPasswordEdit->setReadOnly(false);
+                     uiSett->DeletePictureButton->setEnabled(true);
+                     uiSett->ProfilePictureButton->setEnabled(true);
+                     uiSett->UndoButton->setEnabled(true);
+                     }
+                     }
 
-            this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename,
-                                              this->tcpSocket, &contentStream, loggedUsername);
-            mainEditor->show();
-            ChoiceWin->setVisible(false);
-        } else if (result == "internal_error") {
-            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("Internal server error while opening the file.\nTry again later."));
-        } else if(result == "not_existing_file") {
-            QMessageBox::information(this, tr("PiDiEsse [client]"), tr("The file doesn't exist anymore.\nTry to update the list of files."));
-        }
-    }
+    if (header == "refr") {
+                      if (result == "ok") {
+                      setFileList(jSobject);
+                      uiChoice->OpenMenu->clear();
+                      QStringList fileList;
+                      for (auto s: avail_file) {
+                      fileList += s;
+                      }
+                      for (auto &file: fileList) {
+                      uiChoice->OpenMenu->addItem(file);
+                      }
+                      uiChoice->OpenMenu->setCurrentText(
+                      "");                 // Questo deve stare dopo il caricamento della lista
+                      }
+                      }
 
-    if (header=="savefile") {
-        if (result == "ok") {
-            mainEditor->getUi()->statusBar->showMessage(tr("File saved correctly."), 5000);
-        } if (result == "internal_error") {
-            mainEditor->getUi()->statusBar->showMessage(tr("Internal server error while creating the file. Try again later."), 5000);
-        } else if(result == "not_existing_file") {
-            mainEditor->getUi()->statusBar->showMessage(tr("The file doesn't exist anymore. Try to create a new file."), 5000);
-        }
-    }
+    if (header == "newfile") {
+                         if (result == "internal_error") {
+                         QMessageBox::information(this, tr("PiDiEsse [client]"),
+                         tr("Internal server error while creating the file.\nTry again later."));
+                         } else if (result == "existing_file") {
+                         QMessageBox::information(this, tr("PiDiEsse [client]"),
+                         tr("You have just tried to create a new file, but it already exists\nTry with a new name."));
+                         }
+                         }
 
-    if(header=="shareFile") {
-        if (result == "internal_error")
-            mainEditor->getUi()->statusBar->showMessage(tr("Internal server error while creating the file. Try again later."), 5000);
-        if(result=="non_existing_file_or_user")
-            QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("File or user not recognized. Try again."), QMessageBox::Ok);
-        if(result=="already_granted")
-            QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("You already have access to this file!"), QMessageBox::Ok);
-    }
+    if (header == "openfile") {
+                          if (result == "new_session" || result == "existing_session") {
+                          auto content = QByteArray::fromBase64(jSobject["content"].toString().toLatin1());
+                          QDataStream contentStream(&content, QIODevice::ReadOnly);
 
-    if(header=="addSymbol") {
-        this->mainEditor->receiveSymbol(jSobject["content"], jSobject["username"]);
-    }
+                          auto filename = jSobject["filename"].toString();
+                          qDebug() << filename;
 
-    if(header=="remSymbol") {
-        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"], jSobject["username"]);
-    }
+                          this->mainEditor = new MainEditor(this, jSobject["editorId"].toString(), filename,
+                          this->tcpSocket, &contentStream, loggedUsername);
+                          mainEditor->show();
+                          ChoiceWin->setVisible(false);
+                          } else if (result == "internal_error") {
+                          QMessageBox::information(this, tr("PiDiEsse [client]"),
+                          tr("Internal server error while opening the file.\nTry again later."));
+                          } else if (result == "not_existing_file") {
+                          QMessageBox::information(this, tr("PiDiEsse [client]"),
+                          tr("The file doesn't exist anymore.\nTry to update the list of files."));
+                          }
+                          }
 
-    if(header=="colors") {
-        this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString());
-    }
-    if(header=="add1Symbol") {
-        this->mainEditor->receiveSymbol(jSobject["symbol"], jSobject["username"]);
-    }
-    if(header=="delete1Symbol") {
-        this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"], jSobject["username"]);
-    }
-    if(header=="deleteBatchSymbol") {
-        this->mainEditor->receiveBatchDeletion(jSobject["idsAndPositions"], jSobject["username"]);
-    }
-    if(header=="addBatchSymbol"){
-        this->mainEditor->receiveBatchSymbol(jSarray);
-    }
+    if (header == "savefile") {
+                          if (result == "ok") {
+                          mainEditor->getUi()->statusBar->showMessage(tr("File saved correctly."), 5000);
+                          }
+                          if (result == "internal_error") {
+                          mainEditor->getUi()->statusBar->showMessage(
+                          tr("Internal server error while creating the file. Try again later."), 5000);
+                          } else if (result == "not_existing_file") {
+                          mainEditor->getUi()->statusBar->showMessage(
+                          tr("The file doesn't exist anymore. Try to create a new file."), 5000);
+                          }
+                          }
+
+    if (header == "shareFile") {
+                           if (result == "internal_error")
+                           mainEditor->getUi()->statusBar->showMessage(
+                           tr("Internal server error while creating the file. Try again later."), 5000);
+                           if (result == "non_existing_file_or_user")
+                           QMessageBox::information(ChoiceWin.get(), tr("PdS Server"),
+                           tr("File or user not recognized. Try again."), QMessageBox::Ok);
+                           if (result == "already_granted")
+                           QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("You already have access to this file!"),
+                           QMessageBox::Ok);
+                           }
+
+    if (header == "addSymbol") {
+                           this->mainEditor->receiveSymbol(jSobject["content"], jSobject["username"]);
+                           }
+
+    if (header == "remSymbol") {
+                           this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"], jSobject["username"]);
+                           }
+
+    if (header == "colors") {
+                        this->mainEditor->colors(jSobject["username"].toString(), jSobject["color"].toString());
+                        }
+    if (header == "add1Symbol") {
+                            this->mainEditor->receiveSymbol(jSobject["symbol"], jSobject["username"]);
+                            }
+    if (header == "delete1Symbol") {
+                               this->mainEditor->receiveDeletion(jSobject["id"], jSobject["position"], jSobject["username"]);
+                               }
+    if (header == "deleteBatchSymbol") {
+                                   this->mainEditor->receiveBatchDeletion(jSobject["idsAndPositions"], jSobject["username"]);
+                                   }
+    if (header == "addBatchSymbol") {
+                                this->mainEditor->receiveBatchSymbol(jSarray);
+                                }
 }
 
 const std::shared_ptr<QDialog> &Client::getChoiceWin() const {

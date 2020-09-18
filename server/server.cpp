@@ -119,72 +119,71 @@ void Server::processUserRequest() {
     QString header;
     QJsonObject jSobject;
     QJsonArray jSarray;
+    QJsonParseError parseError;
     //QString reply;
-    while(!in.atEnd()){
+    while(!in.atEnd()) {
         in.startTransaction();
         in >> jSmessage;
-        QJsonParseError parseError;
-        // we try to create a json document with the data we received
-        const QJsonDocument jsonDoc = QJsonDocument::fromJson(jSmessage, &parseError);
-        if (parseError.error == QJsonParseError::NoError) {
-            // if the data was indeed valid JSON
-            if (jsonDoc.isObject()) {
-                jSobject = jsonDoc.object();
-                header = jSobject["header"].toString();
-            } else if(jsonDoc.isArray()){
-               jSarray = jsonDoc.array();
-               header = jSarray[0].toObject()["header"].toString();
-               qDebug() << "header is " << header;
-
-            }else{
-                QJsonObject message = prepareJsonReply("error", "error", " ");
-                sendMessage(message, active_socket);
-                return;
-            }
-
-        } else {
-            QJsonObject message=prepareJsonReply("error", "error", " ");
-            sendMessage(message, active_socket);
-            return;
-        }
-
         if (!in.commitTransaction())
             return;
-
-        printConsole("[" + active_socket->peerAddress().toString() + ":" +
-                     QString::number(active_socket->peerPort()) + "] " + header);
-
-        bool opResult;
-        if (header == "log")
-            opResult = Server::checkUser(jSobject, active_socket);
-        if (header == "reg")
-            opResult = Server::registerUser(jSobject, active_socket);
-        if (header == "canc")
-            opResult = Server::cancelUser(jSobject, active_socket);
-        if (header == "upd")
-            opResult = Server::updateUser(jSobject, active_socket);
-        if (header == "refr")
-            opResult = Server::refreshFileList(jSobject, active_socket);
-        if (header == "newfile")
-            opResult = Server::createFile(jSobject, active_socket);
-        if (header == "openfile")
-            opResult = Server::openFile(jSobject, active_socket);
-        if (header == "savefile")
-            opResult = Server::saveFileReq(jSobject, active_socket);
-        if (header == "add1Char")
-            opResult = Server::receiveChar(jSobject, active_socket);
-        if (header == "addBatchChar")
-            opResult = Server::receiveBatchChar(jSarray, active_socket);
-        if (header == "delete1Char")
-            opResult = Server::deleteChar(jSobject, active_socket);
-        if (header == "deleteBatchChar")
-            opResult = Server::deleteBatchChar(jSobject, active_socket);
-        if (header == "sessionlogout")
-            opResult = Server::closeFileReq(jSobject, active_socket);
-        if (header=="shareFile")
-            opResult = Server::shareFileReq(jSobject, active_socket);
-        qDebug() << opResult;
     }
+    // we try to create a json document with the data we received
+    const QJsonDocument jsonDoc = QJsonDocument::fromJson(jSmessage, &parseError);
+    if (parseError.error == QJsonParseError::NoError) {
+                                                  // if the data was indeed valid JSON
+                                                  if (jsonDoc.isObject()) {
+                                                  jSobject = jsonDoc.object();
+                                                  header = jSobject["header"].toString();
+                                                  } else if(jsonDoc.isArray()){
+                                                  jSarray = jsonDoc.array();
+                                                  header = jSarray[0].toObject()["header"].toString();
+                                                  qDebug() << "header is " << header;
+
+                                                  }else{
+                                                  QJsonObject message = prepareJsonReply("error", "error", " ");
+                                                  sendMessage(message, active_socket);
+                                                  return;
+                                                  }
+
+                                                  } else {
+                                                             QJsonObject message=prepareJsonReply("error", "error", " ");
+                                                             sendMessage(message, active_socket);
+                                                             return;
+                                                             }
+
+
+    printConsole("[" + active_socket->peerAddress().toString() + ":" +
+                 QString::number(active_socket->peerPort()) + "] " + header);
+
+    bool opResult;
+    if (header == "log")
+        opResult = Server::checkUser(jSobject, active_socket);
+    if (header == "reg")
+        opResult = Server::registerUser(jSobject, active_socket);
+    if (header == "canc")
+        opResult = Server::cancelUser(jSobject, active_socket);
+    if (header == "upd")
+        opResult = Server::updateUser(jSobject, active_socket);
+    if (header == "refr")
+        opResult = Server::refreshFileList(jSobject, active_socket);
+    if (header == "newfile")
+        opResult = Server::createFile(jSobject, active_socket);
+    if (header == "openfile")
+        opResult = Server::openFile(jSobject, active_socket);
+    if (header == "savefile")
+        opResult = Server::saveFileReq(jSobject, active_socket);
+    if (header == "add1Char")
+        opResult = Server::receiveChar(jSobject, active_socket);
+    if (header == "addBatchChar")
+        opResult = Server::receiveBatchChar(jSarray, active_socket);
+    if (header == "delete1Char")
+        opResult = Server::deleteChar(jSobject, active_socket);
+    if (header == "deleteBatchChar")
+        opResult = Server::deleteBatchChar(jSobject, active_socket);
+    if (header == "sessionlogout")
+        opResult = Server::closeFileReq(jSobject, active_socket);
+    if (header=="shareFile")
+        opResult = Server::shareFileReq(jSobject, active_socket);
 }
 
 
@@ -580,7 +579,11 @@ void Server::sendMessage(QJson message, QTcpSocket *active_socket){
         out.setVersion(QDataStream::Qt_4_0);
 
         // send the JSON using QDataStream
-        out << QJsonDocument(message).toJson();
+        const QByteArray &jsonOutput = QJsonDocument(message).toJson();
+        qDebug() << "Sending out" << jsonOutput.length() << "bytes";
+        out.startTransaction();
+        out << jsonOutput;
+        out.commitTransaction();
         if (!active_socket->write(block)) {
             printConsole("Impossibile rispondere al client", true);
         }
