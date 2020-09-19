@@ -132,16 +132,7 @@ void MainEditor::initUI(QDataStream *contentStream) {
 
     QObject::connect(this->fontSelector,  &QFontComboBox::currentFontChanged, this, &MainEditor::selectFont);
     QObject::connect(this->sizeSelector,  &QComboBox::currentTextChanged, this, &MainEditor::selectSize);
-
-    // insert in the toolbar the share button
-    QIcon share_icon{"../themes/material/share_icon.png"};
-    share = ui->toolBar->addAction(share_icon, "Share Link");
-    // insert in the toolbar the pdf button
-    QIcon pdf_icon{"../themes/material/pdf_icon.png"};
-    pdf = ui->toolBar->addAction(pdf_icon, "Export to PDF");
-
-    QObject::connect(share, SIGNAL(triggered()), this, SLOT(shareLink()));
-    QObject::connect(pdf, SIGNAL(triggered()), this, SLOT(exportAsPDF()));
+    QObject::connect(ui->share, SIGNAL(triggered()), this, SLOT(shareLink()));
 }
 
 

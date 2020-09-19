@@ -4,6 +4,8 @@
 
 #include "MyTextArea.h"
 
+#include <utility>
+
 
 MyTextArea::MyTextArea(QWidget *parent) : QTextEdit(parent) {
     setAttribute(Qt::WA_InputMethodEnabled, false);
@@ -159,7 +161,6 @@ const Symbol &MyTextArea::getSymbolFromPosition(int position) {
 }
 
 void MyTextArea::insertFromMimeData(const QMimeData *source) {
-
     this->currentPosition = this->textCursor().position();
     QVector<QTextCharFormat> formats;
     formats.push_back(this->textCursor().charFormat());
@@ -368,7 +369,7 @@ void MyTextArea::insertBatchChar(QString text, int position, QVector<QTextCharFo
     }
 
      qDebug() << "next insert will be at position" << this->currentPosition;
-    emit batchCharInserted(message, formats);
+    emit batchCharInserted(message, std::move(formats));
 }
 
 int MyTextArea::getCurrentPosition() const {

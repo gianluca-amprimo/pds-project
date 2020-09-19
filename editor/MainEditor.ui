@@ -85,6 +85,8 @@
    <addaction name="alignRight"/>
    <addaction name="alignJustified"/>
    <addaction name="separator"/>
+   <addaction name="share"/>
+   <addaction name="exportAsPDF"/>
   </widget>
   <action name="saveAs">
    <property name="icon">
@@ -303,6 +305,21 @@
    </property>
    <property name="text">
     <string>Export as PDF</string>
+   </property>
+  </action>
+  <action name="share">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/file/themes/material/share.png</normaloff>:/file/themes/material/share.png</iconset>
+   </property>
+   <property name="text">
+    <string>Share</string>
+   </property>
+   <property name="toolTip">
+    <string>Share link</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
    </property>
   </action>
  </widget>
