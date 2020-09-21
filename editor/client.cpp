@@ -64,7 +64,10 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 	
 	    uiLog->LoginButton->setEnabled(false);
 	    logStatusBar->showMessage(tr("Opening network session..."), 3000);
+
+#if DEBUG
 	    qDebug() << "Opening network session...";
+#endif
 	    networkSession->open();
     }
 	uiLog->UsernameEdit->setFocus();            // questo deve stare ultimo
@@ -72,7 +75,10 @@ Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)
 
 void Client::requestConnection()
 {
+#if DEBUG
     qDebug()<< "requesting connection";
+#endif
+
 #ifndef LOCALHOST
     // define whatever IP address the server is running on
 	auto host = "128.0.0.1";
@@ -88,7 +94,11 @@ void Client::requestConnection()
 void Client::readResponse()
 {
 	logStatusBar->showMessage(tr("Reading the response..."));
-	qDebug() << "Reading the response...";
+
+#if DEBUG
+    qDebug() << "Reading the response...";
+#endif
+
     QByteArray jSmessage;
     std::string header;
     std::string result;
@@ -96,13 +106,21 @@ void Client::readResponse()
     QJsonArray jSarray;
     QPixmap propic;
     QJsonParseError parseError;
+
+#if DEBUG
     qDebug() << "Going to read" << this->tcpSocket->bytesAvailable() << "bytes";
+#endif
+
     // read the Json message received from client, from header understand what to do
     while(!in.atEnd()) {
 
         in.startTransaction();
         in >> jSmessage;
+
+#if DEBUG
         qDebug() << "message length is" << jSmessage.length();
+#endif
+
         if (!in.commitTransaction()) {
             return;
         }
@@ -127,9 +145,11 @@ void Client::readResponse()
                                                              QString filename = "responseLog.json";
                                                              QFile file(filename);
                                                              QTextStream fileStream(&file);
+                                                             #if DEBUG
+                                                                qDebug() << "Error in response of type" << parseError.error << "at offset" << parseError.offset;
+                                                                qDebug() << "Logging Json response to " << filename;
+                                                             #endif
 
-                                                             qDebug() << "Error in response of type" << parseError.error << "at offset" << parseError.offset;
-                                                             qDebug() << "Logging Json response to " << filename;
                                                              if (file.open(QIODevice::WriteOnly)) {
                                                              fileStream << QString::fromStdString(jsonDoc.toJson().toStdString());
                                                              file.close();
@@ -144,8 +164,10 @@ void Client::readResponse()
                                                              }
 
 
-
+#if DEBUG
     qDebug().noquote() << QString::fromStdString(header + ": " + result);
+#endif
+
     if (header == "error") {
                        QMessageBox::information(this, tr("PdS Server"), tr("Generic Server error.\nTry again later"));
                        QApplication::quit();
@@ -393,19 +415,27 @@ void Client::displayError(QAbstractSocket::SocketError socketError) {
     switch (socketError) {
         case QAbstractSocket::RemoteHostClosedError:
             QMessageBox::information(this, tr("PdS Client"),tr("Server closed connection. Relaunch the program in a few minutes"));
+#if DEBUG
             qDebug() << "The server has disconnected. Client will close, try to launch again in few seconds.";
+#endif
             break;
         case QAbstractSocket::HostNotFoundError:
             QMessageBox::information(this, tr("PdS Client"),tr("The host was not found.\nPlease check the host name and port settings."));
+#if DEBUG
             qDebug() << "The host was not found. Please check the host name and port settings.";
+#endif
             break;
         case QAbstractSocket::ConnectionRefusedError:
             QMessageBox::information(this, tr("Pds Client"),tr("The connection was refused by the peer.\nMake sure the PdS server is running and check that the host name and port settings are correct."));
+#if DEBUG
             qDebug() << "The connection was refused by the peer. Make sure the PdS server is running and check that the host name and port settings are correct.";
+#endif
             break;
         default:
             QMessageBox::information(this, tr("PdS Client"),tr("The following error occurred: %1.").arg(tcpSocket->errorString()));
+#if DEBUG
             qDebug() << QString("The following error occurred: %1.").arg(tcpSocket->errorString());
+#endif
     }
     this->close();
 }
@@ -441,7 +471,9 @@ void Client::sendCredentials() {
      uiLog->RegistrationLink->setCursor(QCursor(Qt::ArrowCursor));
      uiLog->CancellationLink->setCursor(QCursor(Qt::ArrowCursor));
      logStatusBar->showMessage(tr("Connected to the server."));
-     qDebug() << "Connected to the server.";
+#if DEBUG
+    qDebug() << "Connected to the server.";
+#endif
 
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
@@ -472,7 +504,9 @@ void Client::sendCredentials() {
     }
 	
     logStatusBar->showMessage(tr("Credential sent, waiting for reply..."), 3000);
+#if DEBUG
     qDebug() << "Credential sent, waiting for reply...";
+#endif
 }
 
 void Client::openRegistrationWindow() {
@@ -524,7 +558,10 @@ void Client::openRegistrationWindow() {
 }
 
 void Client::uploadProfilePicture(QLabel* label, QPushButton *deleteButton) {
-	qDebug() << "Uploading profile picture";
+#if DEBUG
+    qDebug() << "Uploading profile picture";
+#endif
+
 	QString filename = QFileDialog::getOpenFileName(this, tr("Choose"), "", tr("Images (*.jpg *.png *.jpeg *.bmp *.JPG *.PNG *.JPEG *.BMP)"));
 	if (QString::compare(filename, QString()) != 0) {
 		QImage image;
@@ -537,7 +574,10 @@ void Client::uploadProfilePicture(QLabel* label, QPushButton *deleteButton) {
 }
 
 void Client::deleteProfilePicture(QLabel* label, QPushButton *deleteButton) {
-	qDebug() << "Deleting profile picture";
+#if DEBUG
+    qDebug() << "Deleting profile picture";
+#endif
+
 	label->setPixmap(circularPixmap(QPixmap(defaultPicture)));
 	deleteButton->setEnabled(false);
 	deleteButton->parentWidget()->setFocus();
@@ -595,7 +635,9 @@ void Client::requestRegistration() {
 	uiReg->RepeatPasswordEdit->setReadOnly(true);
 	
 	regStatusBar->showMessage(tr("Checking database..."), 3000);
-	qDebug() << "Checking database...";
+#if DEBUG
+    qDebug() << "Checking database...";
+#endif
 
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
@@ -678,7 +720,9 @@ void Client::enableDelButton() {
 
 void Client::requestDeletion() {
 	cancStatusBar->showMessage(tr("Deleting account..."), 3000);
-	qDebug() << "Deleting account...";
+#if DEBUG
+    qDebug() << "Deleting account...";
+#endif
 	
 	uiCanc->UsernameEdit->setReadOnly(true);
 	uiCanc->PasswordEdit->setReadOnly(true);
@@ -712,8 +756,9 @@ void Client::requestDeletion() {
     }
 
     logStatusBar->showMessage(tr("Credential sent, waiting for reply..."), 3000);
+#if DEBUG
     qDebug() << "Credential sent, waiting for reply...";
-
+#endif
 }
 
 void Client::openWelcomeWin(bool firstTime) {
@@ -808,7 +853,11 @@ void Client::openExistingFile() {
 		qDebug() << "The file does not exist.";
 		return;
 	}
-	qDebug() << "Opening selected file...";
+
+#if DEBUG
+    qDebug() << "Opening selected file...";
+#endif
+
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
@@ -835,7 +884,6 @@ void Client::openExistingFile() {
         }
         tcpSocket->flush();
     }
-
     //ChoiceWin->close();
 }
 
@@ -869,7 +917,10 @@ void Client::refreshFileList() {
 }
 
 void Client::requestLogout() {
-	qDebug() << "Requesting the logout...";
+#if DEBUG
+    qDebug() << "Requesting the logout...";
+#endif
+
 	//close the socket. The server will automatically log out the user
 	tcpSocket->disconnectFromHost();
     loggedUser.reset();
@@ -1009,7 +1060,9 @@ void Client::requestUserUpdate() {
 	uiSett->UndoButton->setEnabled(false);
 	
 	settStatusBar->showMessage(tr("Checking password..."), 3000);
-	qDebug() << "Checking password...";
+#if DEBUG
+    qDebug() << "Checking password...";
+#endif
 	
 	if (tcpSocket != nullptr) {
 		if (!tcpSocket->isValid()) {
@@ -1143,7 +1196,11 @@ void Client::openLink() {
         qDebug() << "Link not inserted";
         return;
     }
+
+#if DEBUG
     qDebug() << "Opening inserted link...";
+#endif
+
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
@@ -1164,7 +1221,9 @@ void Client::openLink() {
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
 
+#if DEBUG
         qDebug() << "Trying to open file at link " << link;
+#endif
 
         if (!tcpSocket->write(block)) {
             QMessageBox::information(this, tr("PdS Server"), tr("Could not send message.\nTry again later."));

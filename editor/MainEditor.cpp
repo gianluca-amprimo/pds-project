@@ -17,7 +17,9 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
     setupActions();
 
     this->textArea->setThisEditorIdentifier(editorIdentifier);
+#if DEBUG
     qDebug() << "Starting with ID " + this->textArea->getThisEditorIdentifier();
+#endif
     //  this->ui->textArea->setThisEditorIdentifier(editorIdentifier);
 
     QObject::connect(ui->exportAsPDF, SIGNAL(triggered()), this, SLOT(exportAsPDF()));
@@ -32,7 +34,10 @@ void MainEditor::closeEvent(QCloseEvent *event) {
     client->getChoiceWin()->setVisible(true);
     event->accept();
 
+#if DEBUG
     qDebug() << "Sending message to disconnect client from session from the server.";
+#endif
+
     if (tcpSocket != nullptr) {
         if (!tcpSocket->isValid()) {
             qDebug() << "tcp socket invalid";
@@ -58,7 +63,9 @@ void MainEditor::closeEvent(QCloseEvent *event) {
         }
         tcpSocket->flush();
     }
+#if DEBUG
     qDebug() << "Message session log out sent, waiting for reply...";
+#endif
 }
 
 MainEditor::~MainEditor() {
@@ -246,7 +253,9 @@ void MainEditor::save() {
         }
         this->tcpSocket->flush();
     }
+#if DEBUG
     qDebug() << "Saving file " + filename;
+#endif
 }
 
 Ui::MainEditor *MainEditor::getUi() {
@@ -285,10 +294,11 @@ void MainEditor::sendCharInserted(QJsonObject message) {
             ui->statusBar->showMessage(tr("Could not send message to the server, char will be not inserted."), 5000);
         }
         this->tcpSocket->flush();
+#if DEBUG
         qDebug() << "Sending char " << message["unicode"] << " at position " << message["position"]
                  << " with format I:" << format.fontItalic() << "; U:" << format.fontUnderline() << "; B:" << (format.fontWeight() == QFont::Bold);
+#endif
     }
-
 }
 
 void MainEditor::sendCharDeleted(QJsonObject message) {
@@ -316,7 +326,9 @@ void MainEditor::sendCharDeleted(QJsonObject message) {
             ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
         }
         this->tcpSocket->flush();
+#if DEBUG
         qDebug() << "Sending deletion of" << message["charId"];
+#endif
     }
 }
 
@@ -348,7 +360,10 @@ void MainEditor::receiveDeletion(QJsonValueRef id, QJsonValueRef position, QJson
     else
         color = "";
 
+#if DEBUG
     qDebug() << "Received the deletion of char" << symId << "at position" << symPos;
+#endif
+
     this->textArea->removeSymbolFromList(symId, symPos, color);
 }
 
@@ -376,7 +391,9 @@ void MainEditor::sendBatchCharDeleted(QJsonObject message) {
 
         // send the JSON using QDataStream
         const QByteArray &outputJson = QJsonDocument(message).toJson();
+#if DEBUG
         qDebug() << "Sending message of length" << outputJson.size();
+#endif
         out << outputJson;
 
         if (!this->tcpSocket->write(block)) {
@@ -458,7 +475,9 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
     inFormatsStream >> formats;
 
     int arrayLength = metadata["length"].toInt();
+#if DEBUG
     qDebug() << "Going to paste" << arrayLength << "characters";
+#endif
 
     // extract username of user who performed the operation
     QString user = metadata["username"].toString();
@@ -476,13 +495,17 @@ void MainEditor::receiveBatchSymbol(QJsonArray data) {
         QTextCharFormat format = formats[0];
 
         Symbol sym(unicode, charId, fp, format);
+#if DEBUG
         qDebug() << "Batch inserting" << sym.getCharacter() << "at position" << sym.getPosition().getStringPosition();
+#endif
         this->textArea->addSymbolToList(sym, color);
     }
 }
 
 void MainEditor::colors(QString username, QString color){
+#if DEBUG
     qDebug() << "User: " << username << " has color: " << color;
+#endif
 
     if (this->userMap.isEmpty()){
         // received the first user -> delete the first item

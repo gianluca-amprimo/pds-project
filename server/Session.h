@@ -10,7 +10,10 @@
 #include "Symbol.h"
 #include <QtCore/QVector>
 #include <QtNetwork/QTcpSocket>
+
 #include "exceptions.h"
+
+#define DEBUG false
 
 
 /* A session represents an instance of a file that is open in at least an editor.

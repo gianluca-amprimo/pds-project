@@ -36,8 +36,10 @@ void Session::removeSymbol(QString id) {
 
 void Session::addSymbol(Symbol& sym) {
     if(symbolsById.contains(sym.getIdentifier())){
-        qDebug() << "+++++++WARNING: SYMBOL WITH THIS IDENTIFIER EXISTS+++++++";
-        qDebug() << sym.getIdentifier();
+        #if DEBUG
+            qDebug() << "+++++++WARNING: SYMBOL WITH THIS IDENTIFIER EXISTS+++++++";
+            qDebug() << sym.getIdentifier();
+        #endif
     }
     symbolsById.insert(sym.getIdentifier(), sym);
     symbolsByPosition.insert(sym.getPosition(), sym);

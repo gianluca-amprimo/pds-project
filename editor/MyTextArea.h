@@ -11,6 +11,8 @@
 #include "FracPosition.h"
 #include <QtWidgets>
 
+#define DEBUG false
+
 #define HEAD    0
 #define BACK    1
 #define MIDDLE  2

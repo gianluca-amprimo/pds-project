@@ -65,7 +65,9 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
         if (selectionMode) {
             this->anchor > this->currentPosition ? deleteBatchChar(currentPosition, anchor) : deleteBatchChar(
                     anchor, currentPosition);
-            qDebug() << "substituting selection";
+            #if DEBUG
+                qDebug() << "substituting selection";
+            #endif
             selectionMode = false;
             this->anchor = this->textCursor().anchor();
         }
@@ -82,7 +84,9 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
         QTextEdit::keyPressEvent(e);
         this->currentPosition = this->textCursor().position();
         if (this->textCursor().position() != this->textCursor().anchor()) {
-            qDebug() << "selection mode";
+            #if DEBUG
+                qDebug() << "selection mode";
+            #endif
             this->selectionMode = true;
 
         }
@@ -102,7 +106,6 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
     }
 
     this->anchor = this->textCursor().anchor();
-
     // we have to catch the key in case it was a char to be inserted
 }
 
@@ -121,13 +124,17 @@ void MyTextArea::deleteSymbol() {
         this->_symbols.remove(pos);
         // send symbol id to delete
         //emit charDeleted(serializedSymID);
+#if DEBUG
         qDebug() << "Character deleted";
+#endif
     }
 }
 
 void MyTextArea::deleteSelection() {
+#if DEBUG
     qDebug() << "selection anchor " << this->anchor;
     qDebug() << "selection position " << this->oldPosition;
+#endif
 
     QVector<Symbol> syms = getSymbolInRange(this->anchor, this->oldPosition);
 
@@ -144,7 +151,10 @@ void MyTextArea::deleteSelection() {
 }
 
 void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
+#if DEBUG
     qDebug() << event->commitString();
+#endif
+
     QChar character = event->commitString()[0].unicode();
     insertChar(character, this->currentPosition, this->textCursor().charFormat());
     this->currentPosition++;
@@ -174,7 +184,9 @@ void MyTextArea::mouseReleaseEvent(QMouseEvent *e) {
     this->anchor = this->textCursor().anchor();
 
     if (currentPosition != this->anchor) {
-        qDebug() << "selection mode";
+        #if DEBUG
+            qDebug() << "selection mode";
+        #endif
         this->selectionMode = true;
     }
 }
@@ -241,14 +253,21 @@ void MyTextArea::removeSymbolFromList(QString &symId, QString &fp, QString color
         this->currentPosition--;
         this->textCursor().setPosition(this->currentPosition);
     }
+
+#if DEBUG
     qDebug() << "Trying to delete character at frac position" << fracPos.getStringPosition();
+#endif
+
     QTextCursor cur = this->textCursor();
     cur.setPosition(this->getEditorPosition(fracPos));
     cur.setPosition(this->getEditorPosition(fracPos) + 1, QTextCursor::KeepAnchor);
 
     // highlight the color of the user who performed the operation
     if (color != ""){
-        qDebug() << "Background color is: " << color;
+        #if DEBUG
+            qDebug() << "Background color is: " << color;
+        #endif
+
         QTextCharFormat fmt{cur.charFormat()};
         QColor color_highlight{color};
         QBrush highlight{color_highlight};
@@ -287,8 +306,10 @@ void MyTextArea::insertChar(QChar unicode, int position, const QTextCharFormat& 
     QDataStream formatOut(&formatInBytes, QIODevice::WriteOnly);
     formatOut << format;
 
+#if DEBUG
     qDebug() << "Sending char " << unicode << " at position " << position
              << " with format I:" << format.fontItalic() << "; U:" << format.fontUnderline() << "; B:" << (format.fontWeight() == QFont::Bold);
+#endif
 
     message["header"] = SINGLE_CHAR_ADDITION;
     message["editorId"] = this->getThisEditorIdentifier();
@@ -307,7 +328,9 @@ void MyTextArea::deleteChar(int position) {
     }
 
     FracPosition keyPosition = this->_symbols.keys().at(position - 1);
+#if DEBUG
     qDebug() << "Here frac position is:" << keyPosition.getStringPosition();
+#endif
     Symbol symbol = this->_symbols.value(keyPosition);
 
     QJsonObject message;
@@ -315,7 +338,9 @@ void MyTextArea::deleteChar(int position) {
     message["editorId"] = this->getThisEditorIdentifier();
     message["charId"] = symbol.getIdentifier();
 
+#if DEBUG
     qDebug() << "char to be deleted is " << symbol.getIdentifier();
+#endif
 
     emit charDeleted(message);
 }
@@ -362,13 +387,18 @@ void MyTextArea::insertBatchChar(QString text, int position, QVector<QTextCharFo
         character["charId"] = charId;
         character["unicode"] = QString(unicode);
         character["position"] = position + i;
+#if DEBUG
         qDebug() << "position is" << character["position"];
+#endif
         character["format"] = QLatin1String(formatInBytes.toBase64());
 
         message.push_back(character);
     }
 
-     qDebug() << "next insert will be at position" << this->currentPosition;
+#if DEBUG
+    qDebug() << "next insert will be at position" << this->currentPosition;
+#endif
+
     emit batchCharInserted(message, std::move(formats));
 }
 
