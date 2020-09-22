@@ -147,38 +147,38 @@
     </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="SettingsButton">
-     <property name="text">
-      <string>Settings</string>
-     </property>
-     <property name="icon">
-      <iconset resource="icons.qrc">
-       <normaloff>:/misc/themes/material/settings.png</normaloff>:/misc/themes/material/settings.png</iconset>
-     </property>
-    </widget>
-   </item>
-   <item alignment="Qt::AlignRight">
-    <widget class="QPushButton" name="LogoutButton">
-     <property name="sizePolicy">
-      <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-       <horstretch>0</horstretch>
-       <verstretch>0</verstretch>
-      </sizepolicy>
-     </property>
-     <property name="maximumSize">
-      <size>
-       <width>100</width>
-       <height>25</height>
-      </size>
-     </property>
-     <property name="text">
-      <string>Logout</string>
-     </property>
-     <property name="icon">
-      <iconset theme="gnome-logout">
-       <normaloff>.</normaloff>.</iconset>
-     </property>
-    </widget>
+    <layout class="QHBoxLayout" name="horizontalLayout_3">
+     <item>
+      <widget class="QPushButton" name="SettingsButton">
+       <property name="text">
+        <string>Settings</string>
+       </property>
+       <property name="icon">
+        <iconset resource="icons.qrc">
+         <normaloff>:/misc/themes/material/settings.png</normaloff>:/misc/themes/material/settings.png</iconset>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="LogoutButton">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>16777206</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Logout</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
    </item>
   </layout>
  </widget>
