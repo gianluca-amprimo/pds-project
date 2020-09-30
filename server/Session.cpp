@@ -29,7 +29,7 @@ void Session::removeSymbol(QString id) {
         NonExistingSymbol nes;
         throw nes;
     }
-    FracPosition position = symbolsById.value(id).getPosition();
+    FracPosition position = symbolsById.value(id)->getPosition();
     symbolsById.remove(id);
     symbolsByPosition.remove(position);
 }
@@ -41,8 +41,10 @@ void Session::addSymbol(Symbol& sym) {
             qDebug() << sym.getIdentifier();
         #endif
     }
-    symbolsById.insert(sym.getIdentifier(), sym);
-    symbolsByPosition.insert(sym.getPosition(), sym);
+    Symbol* symbol = new Symbol(sym);
+    std::shared_ptr<Symbol> shared_symbol(symbol);
+    symbolsById.insert(sym.getIdentifier(), shared_symbol);
+    symbolsByPosition.insert(sym.getPosition(), shared_symbol);
 }
 
 int Session::getEditorCounter() const {
@@ -74,11 +76,11 @@ QString Session::removeUserFromSession(const QString& username) {
     return editorId;
 }
 
-const QHash<QString, Symbol> &Session::getSymbolsById() const {
+const QHash<QString, std::shared_ptr<Symbol>> &Session::getSymbolsById() const {
     return this->symbolsById;
 }
 
-const QMap<FracPosition, Symbol> &Session::getSymbolsByPosition() const {
+const QMap<FracPosition, std::shared_ptr<Symbol>> &Session::getSymbolsByPosition() const {
     return symbolsByPosition;
 }
 
@@ -87,3 +89,10 @@ const void Session::removeBatchSymbol(QHash<QString, FracPosition>& symbolsPosit
         removeSymbol(key);
     }
 }
+
+void Session::changeSymbolFormat(QHash<QString, FracPosition> symbolsPosition, QTextCharFormat format) {
+    for(QString id : symbolsPosition.keys()){
+       this->symbolsById.value(id)->setCharFormat(format);
+    }
+}
+

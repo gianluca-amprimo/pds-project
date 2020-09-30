@@ -10,9 +10,7 @@
 #include "MyTextArea.h"
 #include <QtPrintSupport/QPrinter>
 
-#define HEAD    0
-#define BACK    1
-#define MIDDLE  2
+#define DEBUG 1
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainEditor; }
@@ -35,6 +33,7 @@ public:
     void receiveDeletion(QJsonValueRef id, QJsonValueRef position, QJsonValueRef username);
 
     void receiveBatchDeletion(QJsonValueRef idsAndPositions, QJsonValueRef user);
+    void receiveFormatChanged(QJsonValueRef idsAndPositions, QJsonValueRef user);
     const QString &getFilename() const;
 
     void colors(QString username, QString color);
@@ -85,10 +84,14 @@ private slots:
     void sendBatchCharDeleted(QJsonObject message);
 
     void sendBatchCharInserted(QJsonArray message, QVector<QTextCharFormat> formats);
+    void sendCharFormatChanged(QJsonObject message);
 
     void shareLink();
     void exportAsPDF();
+    void updateStyleButton(const QTextCharFormat &f);
+
 };
+
 
 
 #endif //PIDIESSE_MAINEDITOR_H

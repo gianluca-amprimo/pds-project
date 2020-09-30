@@ -20,8 +20,8 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="editor" targetName="editor_autogen" />
       <config projectName="editor" targetName="editor" />
+      <config projectName="editor" targetName="editor_autogen" />
       <config projectName="editor" targetName="provaQT_autogen" />
     </generated>
   </component>
@@ -31,25 +31,25 @@
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="Implementato il copia incolla">
-      <change afterPath="$PROJECT_DIR$/../server/exceptions.h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/11" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/bella" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/boh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/ciao" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/gioia" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/h" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/s" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/z" afterDir="false" />
+    <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="La transazione per leggere il socket è stata aggiustata">
+      <change beforePath="$PROJECT_DIR$/../Editor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Editor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.ui" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.ui" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTextArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MyTextArea.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTextArea.h" beforeDir="false" afterPath="$PROJECT_DIR$/MyTextArea.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/CMakeLists.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbol.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Symbol.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Symbol.h" beforeDir="false" afterPath="$PROJECT_DIR$/Symbol.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Pictures/antonio.png" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Pictures/antonio.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/Session.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Session.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/Session.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Session.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Symbol.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Symbol.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/Symbol.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/Symbol.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/bo" beforeDir="false" afterPath="$PROJECT_DIR$/../server/files/bo" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/pk" beforeDir="false" afterPath="$PROJECT_DIR$/../server/files/pk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.h" afterDir="false" />
     </list>
@@ -97,11 +97,6 @@
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunManager" selected="CMake Application.editor">
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="editor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="editor">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
@@ -120,11 +115,6 @@
     <configuration name="provaQT_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="provaQT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="provaQT">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <list>
@@ -181,7 +171,21 @@
       <workItem from="1599055896338" duration="1335000" />
       <workItem from="1599059866555" duration="3799000" />
       <workItem from="1599127912245" duration="13201000" />
-      <workItem from="1599145193913" duration="2022000" />
+      <workItem from="1599145193913" duration="3962000" />
+      <workItem from="1599211864108" duration="512000" />
+      <workItem from="1599499069758" duration="3156000" />
+      <workItem from="1599668228509" duration="3817000" />
+      <workItem from="1599732229780" duration="3756000" />
+      <workItem from="1599750275469" duration="6465000" />
+      <workItem from="1600187872778" duration="3467000" />
+      <workItem from="1600421567973" duration="5227000" />
+      <workItem from="1600427009260" duration="6050000" />
+      <workItem from="1600973090780" duration="4317000" />
+      <workItem from="1601025432948" duration="5137000" />
+      <workItem from="1601200769903" duration="14775000" />
+      <workItem from="1601396375476" duration="5000000" />
+      <workItem from="1601484166268" duration="2251000" />
+      <workItem from="1601486441421" duration="983000" />
     </task>
     <task id="LOCAL-00001" summary="Inserita azione salva come nel menu">
       <created>1586083395586</created>
@@ -204,7 +208,14 @@
       <option name="project" value="LOCAL" />
       <updated>1599139497472</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="La transazione per leggere il socket è stata aggiustata">
+      <created>1600441305708</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1600441305708</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,17 +238,18 @@
     <MESSAGE value="Inserita azione salva come nel menu" />
     <MESSAGE value="Sistemato tutto e risolto la guerra e la fame nel mondo" />
     <MESSAGE value="Implementato il copia incolla" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implementato il copia incolla" />
+    <MESSAGE value="La transazione per leggere il socket è stata aggiustata" />
+    <option name="LAST_COMMIT_MESSAGE" value="La transazione per leggere il socket è stata aggiustata" />
   </component>
   <component name="WindowStateProjectService">
     <state x="623" y="338" width="674" height="416" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596303818038">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="623" y="338" width="674" height="416" key="#com.intellij.fileTypes.FileTypeChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1596303818038" />
-    <state x="769" y="264" width="382" height="564" key="#com.intellij.ide.util.MemberChooser" timestamp="1599133196382">
+    <state x="769" y="264" width="382" height="564" key="#com.intellij.ide.util.MemberChooser" timestamp="1601400782611">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="769" y="264" width="382" height="564" key="#com.intellij.ide.util.MemberChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1599133196382" />
+    <state x="769" y="264" width="382" height="564" key="#com.intellij.ide.util.MemberChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1601400782611" />
     <state x="694" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599045622054">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
@@ -262,42 +274,42 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1598976088282" />
-    <state width="1866" height="342" key="GridCell.Tab.0.bottom" timestamp="1599145164751">
+    <state width="1866" height="193" key="GridCell.Tab.0.bottom" timestamp="1601487423003">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164751" />
+    <state width="1866" height="193" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601487423003" />
     <state width="1866" height="290" key="GridCell.Tab.0.bottom/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="1866" height="342" key="GridCell.Tab.0.center" timestamp="1599145164751">
+    <state width="1866" height="193" key="GridCell.Tab.0.center" timestamp="1601487423002">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164751" />
+    <state width="1866" height="193" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601487423002" />
     <state width="1866" height="290" key="GridCell.Tab.0.center/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="342" key="GridCell.Tab.0.left" timestamp="1599145164750">
+    <state width="1866" height="193" key="GridCell.Tab.0.left" timestamp="1601487423002">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164750" />
+    <state width="1866" height="193" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601487423002" />
     <state width="1866" height="290" key="GridCell.Tab.0.left/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="342" key="GridCell.Tab.0.right" timestamp="1599145164751">
+    <state width="1866" height="193" key="GridCell.Tab.0.right" timestamp="1601487423003">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164751" />
+    <state width="1866" height="193" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601487423003" />
     <state width="1866" height="290" key="GridCell.Tab.0.right/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="1866" height="342" key="GridCell.Tab.1.bottom" timestamp="1599145164752">
+    <state width="641" height="638" key="GridCell.Tab.1.bottom" timestamp="1601230709631">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.1.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164752" />
-    <state width="1866" height="342" key="GridCell.Tab.1.center" timestamp="1599145164752">
+    <state width="641" height="638" key="GridCell.Tab.1.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709631" />
+    <state width="641" height="638" key="GridCell.Tab.1.center" timestamp="1601230709630">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.1.center/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164752" />
-    <state width="1866" height="342" key="GridCell.Tab.1.left" timestamp="1599145164751">
+    <state width="641" height="638" key="GridCell.Tab.1.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709630" />
+    <state width="641" height="638" key="GridCell.Tab.1.left" timestamp="1601230709627">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.1.left/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164751" />
-    <state width="1866" height="342" key="GridCell.Tab.1.right" timestamp="1599145164752">
+    <state width="641" height="638" key="GridCell.Tab.1.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709627" />
+    <state width="641" height="638" key="GridCell.Tab.1.right" timestamp="1601230709631">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="342" key="GridCell.Tab.1.right/0.32.1920.1048@0.32.1920.1048" timestamp="1599145164752" />
+    <state width="641" height="638" key="GridCell.Tab.1.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709631" />
     <state x="477" y="279" key="IDE.errors.dialog" timestamp="1596304361676">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
@@ -306,52 +318,81 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="449" y="166" key="SettingsEditor/0.32.1920.1048@0.32.1920.1048" timestamp="1596218168309" />
-    <state x="556" y="279" key="Vcs.Push.Dialog.v2" timestamp="1599139559704">
+    <state x="556" y="279" key="Vcs.Push.Dialog.v2" timestamp="1600441308588">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="556" y="279" key="Vcs.Push.Dialog.v2/0.32.1920.1048@0.32.1920.1048" timestamp="1599139559704" />
+    <state x="556" y="279" key="Vcs.Push.Dialog.v2/0.32.1920.1048@0.32.1920.1048" timestamp="1600441308588" />
+    <state width="964" height="540" key="XDebugger.FullValuePopup" timestamp="1601227477057">
+      <screen x="0" y="32" width="1920" height="1048" />
+    </state>
+    <state width="964" height="540" key="XDebugger.FullValuePopup/0.32.1920.1048@0.32.1920.1048" timestamp="1601227477057" />
     <state x="668" y="274" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599043072589">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="668" y="274" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1599043072589" />
-    <state x="708" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1598780726058">
+    <state x="708" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600187926904">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="708" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.32.1920.1048@0.32.1920.1048" timestamp="1598780726058" />
-    <state x="478" y="206" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1599131821509">
+    <state x="708" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.32.1920.1048@0.32.1920.1048" timestamp="1600187926904" />
+    <state x="478" y="206" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600188647493">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="478" y="206" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.32.1920.1048@0.32.1920.1048" timestamp="1599131821509" />
+    <state x="478" y="206" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.32.1920.1048@0.32.1920.1048" timestamp="1600188647493" />
     <state x="46" y="32" width="1874" height="1028" key="dock-window-1" timestamp="1598953260172">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="46" y="32" width="1874" height="1028" key="dock-window-1/0.32.1920.1048@0.32.1920.1048" timestamp="1598953260172" />
-    <state x="626" y="75" width="692" height="942" key="find.popup" timestamp="1599128563047">
+    <state x="626" y="75" width="702" height="942" key="find.popup" timestamp="1601226608978">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="626" y="75" width="692" height="942" key="find.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1599128563047" />
-    <state x="740" y="323" key="refactoring.ChangeSignatureDialog" timestamp="1599048226284">
+    <state x="626" y="75" width="702" height="942" key="find.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1601226608978" />
+    <state x="740" y="323" key="refactoring.ChangeSignatureDialog" timestamp="1600979020518">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="740" y="323" key="refactoring.ChangeSignatureDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1599048226284" />
+    <state x="740" y="323" key="refactoring.ChangeSignatureDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1600979020518" />
     <state x="620" y="249" key="run.anything.popup" timestamp="1597234959435">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="620" y="249" key="run.anything.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1597234959435" />
-    <state x="623" y="245" width="672" height="678" key="search.everywhere.popup" timestamp="1599128554255">
+    <state x="623" y="245" width="672" height="678" key="search.everywhere.popup" timestamp="1601028323335">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="623" y="245" width="672" height="678" key="search.everywhere.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1599128554255" />
+    <state x="623" y="245" width="672" height="678" key="search.everywhere.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1601028323335" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/client.cpp</url>
-          <line>327</line>
+          <line>409</line>
           <option name="timeStamp" value="4" />
+        </line-breakpoint>
+        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/MyTextArea.cpp</url>
+          <line>378</line>
+          <option name="timeStamp" value="8" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/client.cpp</url>
+          <line>137</line>
+          <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/client.cpp</url>
+          <line>141</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/client.cpp</url>
+          <line>143</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="CMakeRunConfiguration">
+        <watch expression="this-&gt;currentPosition" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

@@ -26,6 +26,7 @@ public:
     const QString &getIdentifier() const;
     const QChar &getCharacter() const;
     const FracPosition getPosition() const;
+    void setCharFormat(QTextCharFormat format);
     void setCharacter(QChar character);
 
     QDataStream& serialize(QDataStream& out) const;

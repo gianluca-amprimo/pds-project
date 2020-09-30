@@ -396,6 +396,9 @@ void Client::readResponse()
     if (header == "addBatchSymbol") {
                                 this->mainEditor->receiveBatchSymbol(jSarray);
                                 }
+    if (header == "changeSymbolFormat"){
+        this->mainEditor->receiveFormatChanged(jSobject["idsAndPositions"], jSobject["format"]);
+    }
 }
 
 const std::shared_ptr<QDialog> &Client::getChoiceWin() const {
@@ -1163,8 +1166,8 @@ QPixmap Client::circularPixmap(QPixmap &&source, int size, const QColor& color) 
     float boarderPix = float(size)/100 * 5;
 
     QImage img = scaled.toImage();
-    img = img.convertToFormat(QImage::Format_ARGB32);
-    QImage imageOut(img.size(),QImage::Format_ARGB32);
+    img = img.convertToFormat(QImage::Format_ARGB32_Premultiplied);
+    QImage imageOut(img.size(),QImage::Format_ARGB32_Premultiplied);
     QPainter painter(&imageOut);
     painter.setRenderHint(QPainter::Antialiasing);
 
@@ -1172,13 +1175,14 @@ QPixmap Client::circularPixmap(QPixmap &&source, int size, const QColor& color) 
     painter.setBrush(brush);
     painter.drawRoundedRect(1, 1, int(float(size) - boarderPix/2), int(float(size) - boarderPix/2), size, size);
 
-    QPen pen(color);
-    pen.setWidth(int(boarderPix));
-    pen.setStyle(Qt::SolidLine);
-    painter.setPen(pen);
-    painter.drawRoundedRect(int(boarderPix/2), int(boarderPix/2), int(float(size) - boarderPix), int(float(size) - boarderPix), size, size);
+    //jQPen pen(color);
+    //jpen.setWidth(int(boarderPix));
+    //jpen.setStyle(Qt::SolidLine);
+    //jpainter.setPen(pen);
+   //  painter.drawRoundedRect(int(boarderPix/2), int(boarderPix/2), int(float(size) - boarderPix), int(float(size) - boarderPix), size, size);
+   //  painter.drawRoundedRect(int(boarderPix/2), int(boarderPix/2), int(float(size) - boarderPix), int(float(size) - boarderPix), size, size);
 
-    return QPixmap::fromImage(imageOut);
+    return QPixmap::fromImage(img);
 }
 
 void Client::openLink() {

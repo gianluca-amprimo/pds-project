@@ -10,6 +10,7 @@
 #include "Symbol.h"
 #include <QtCore/QVector>
 #include <QtNetwork/QTcpSocket>
+#include <memory>
 
 #include "exceptions.h"
 
@@ -26,14 +27,16 @@
 class Session {
 
 private:
-    QHash<QString, Symbol> symbolsById;
-    QMap<FracPosition, Symbol> symbolsByPosition;
+    QList<Symbol> symbolsList;
+    QHash<QString, std::shared_ptr<Symbol>> symbolsById;
+    QMap<FracPosition, std::shared_ptr<Symbol>> symbolsByPosition;
 
 private:
     QString filename;
     QMap<QChar, int> editorCurrentPosition;
 public:
-    const QMap<FracPosition, Symbol> &getSymbolsByPosition() const;
+    const QMap<FracPosition, std::shared_ptr<Symbol>> &getSymbolsByPosition() const;
+
 
 private:
     int editorCounter;
@@ -42,7 +45,7 @@ public:
     int charCounter = 0;
     QHash<QString, QString> userMap;                         // utente - colore
     QHash<QString, QString> userEditorId;                    // utente -> editorid
-    void setSymbolsByPosition(const QMap<FracPosition, Symbol> &symbolsByPosition);
+    //void setSymbolsByPosition(const QMap<FracPosition, Symbol> &symbolsByPosition);
 
     Session(const QString &filename);
 
@@ -60,9 +63,10 @@ public:
 
     void addSymbol(Symbol& sym);
     void removeSymbol(QString id);
+    void changeSymbolFormat(QHash<QString, FracPosition> symbolsPosition, QTextCharFormat format);
     const void removeBatchSymbol(QHash<QString, FracPosition>& symbolsPosition);
 
-    const QHash<QString, Symbol> &getSymbolsById() const;
+    const QHash<QString, std::shared_ptr<Symbol>> &getSymbolsById() const;
 
 };
 

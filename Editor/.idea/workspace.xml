@@ -28,14 +28,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c5b76d14-f26e-4973-99e4-1c73a087ceae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../client/.idea/shelf/Uncommitted_changes_before_Update_at_31_07_20__19_23__Default_Changelist_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-debug/client_autogen/EWIEGA46WW/moc_client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../client/cmake-build-debug/client_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../client/cmake-build-debug/client_autogen/moc_predefs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../editor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../editor/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/CMakeLists.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../server/CMakeLists.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/EWIEGA46WW/moc_server.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/moc_predefs.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/cmake-build-debug/server_autogen/moc_predefs.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,6 +65,8 @@
       <option name="presentableId" value="Default" />
       <updated>1596218192881</updated>
       <workItem from="1596218194227" duration="13000" />
+      <workItem from="1599668179467" duration="6000" />
+      <workItem from="1599668211438" duration="6000" />
     </task>
     <servers />
   </component>
@@ -86,6 +83,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="744" y="303" key="FileChooserDialogImpl" timestamp="1596218205166">

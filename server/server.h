@@ -14,6 +14,7 @@
 #include "Session.h"
 #include "FracPosition.h"
 
+#define DEBUG 1
 QT_BEGIN_NAMESPACE
 class QTcpServer;
 class QNetworkSession;
@@ -49,6 +50,7 @@ private slots:
     bool receiveBatchChar(QJsonArray &data, QTcpSocket *active_socket);
     bool deleteChar(QJsonObject &data, QTcpSocket *active_socket);
     bool deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket);
+    bool changeCharFormat(QJsonObject &data, QTcpSocket *active_socket);
 
     void sendColors(QString filename, QString username);
 

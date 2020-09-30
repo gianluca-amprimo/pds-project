@@ -27,6 +27,7 @@ MainEditor::MainEditor(QWidget *parent, QString editorIdentifier, QString filena
     QObject::connect(this->textArea, &MyTextArea::charDeleted, this, &MainEditor::sendCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharDelete, this, &MainEditor::sendBatchCharDeleted);
     QObject::connect(this->textArea, &MyTextArea::batchCharInserted, this, &MainEditor::sendBatchCharInserted);
+    QObject::connect(this->textArea, &MyTextArea::formatCharChanged, this, &MainEditor::sendCharFormatChanged);
 }
 
 void MainEditor::closeEvent(QCloseEvent *event) {
@@ -75,13 +76,16 @@ MainEditor::~MainEditor() {
 void MainEditor::setupActions() {
     ui->bold->setCheckable(true);
     QObject::connect(ui->bold, SIGNAL(triggered()), this, SLOT(Bold()));
+    QObject::connect(this->textArea, SIGNAL(boldFormatActivate()), this, SLOT(BoldShortcut()));
     ui->italic->setCheckable(true);
     QObject::connect(ui->italic, SIGNAL(triggered()), this, SLOT(Italic()));
+    QObject::connect(this->textArea, SIGNAL(italicFormatActivate()), this, SLOT(ItalicShortcut()));
     ui->underline->setCheckable(true);
     QObject::connect(ui->underline, SIGNAL(triggered()), this, SLOT(Underline()));
-
+    QObject::connect(this->textArea, SIGNAL(underlineFormatActivate()), this, SLOT(UnderlineShortcut()));
     //QObject::connect(fontSelector, SIGNAL(textActivated()), this, SLOT(selectFont()));
     //QObject::connect(sizeSelector, SIGNAL(textActivated()), this, SLOT( selectSize()));
+    QObject::connect(this->textArea, &MyTextArea::currentCharFormatChanged, this, &MainEditor::updateStyleButton);
 
     ui->alignCenter->setCheckable(true);
     QObject::connect(ui->alignCenter, SIGNAL(triggered()), this, SLOT(alignCenter()));
@@ -143,21 +147,36 @@ void MainEditor::initUI(QDataStream *contentStream) {
 }
 
 
+void MainEditor::updateStyleButton(const QTextCharFormat &f) {
+#ifdef DEBUG
+    qDebug() << "format has changed";
+#endif
+    ui->italic->setChecked( f.fontItalic());
+    ui->underline->setChecked( f.fontUnderline());
+    ui->bold->setChecked( f.fontWeight() == QFont::Bold);
+}
+
 void MainEditor::Bold() {
-    QTextCharFormat format;
-    format.setFontWeight(ui->bold->isChecked() ? QFont::Bold : QFont::Normal);
+#ifdef DEBUG
+    qDebug() << "Ha dittu bold?";
+#endif
+    QTextCharFormat format = this->textArea->textCursor().charFormat();
+    this->textArea->setIsBold(!this->textArea->isBold1());
+    format.setFontWeight(this->textArea->isBold1() ? QFont::Bold : QFont::Normal);
     this->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::Italic() {
-    QTextCharFormat format;
-    format.setFontItalic(ui->italic->isChecked());
+    QTextCharFormat format = this->textArea->textCursor().charFormat();
+    this->textArea->setIsItalic(!this->textArea->isItalic1());
+    format.setFontItalic(this->textArea->isItalic1());
     this->textArea->mergeCurrentCharFormat(format);
 }
 
 void MainEditor::Underline() {
-    QTextCharFormat format;
-    format.setFontUnderline(ui->underline->isChecked());
+    QTextCharFormat format = this->textArea->textCursor().charFormat();
+    this->textArea->setIsUnderline(!this->textArea->isUnderline1());
+    format.setFontUnderline(!this->textArea->isUnderline1());
     this->textArea->mergeCurrentCharFormat(format);
 }
 
@@ -327,7 +346,7 @@ void MainEditor::sendCharDeleted(QJsonObject message) {
         }
         this->tcpSocket->flush();
 #if DEBUG
-        qDebug() << "Sending deletion of" << message["charId"];
+        qDebug() <<"Sending deletion of" << message["charId"];
 #endif
     }
 }
@@ -418,6 +437,9 @@ void MainEditor::receiveBatchDeletion(QJsonValueRef idsAndPositionsJson, QJsonVa
     else
         color = "";
 
+#ifdef DEBUG
+    qDebug() << "remove symbol";
+#endif
     for(auto key : idsAndPositions.keys()){
         this->textArea->removeSymbolFromList(key, const_cast<QString &>(idsAndPositions.value(key).getStringPosition()), color);
     }
@@ -552,6 +574,62 @@ void MainEditor::shareLink() {
     shareDialog.setStandardButtons(QMessageBox::Ok);
     shareDialog.setDefaultButton(QMessageBox::Ok);
     shareDialog.exec();
+}
+
+void MainEditor::sendCharFormatChanged(QJsonObject message) {
+    if (this->tcpSocket != nullptr) {
+        if (!this->tcpSocket->isValid()) {
+            qDebug() << "tcp socket invalid";
+            return;
+        }
+        if (!this->tcpSocket->isOpen()) {
+            qDebug() << "tcp socket not open";
+            return;
+        }
+
+        QByteArray block;
+        QDataStream out(&block, QIODevice::WriteOnly);
+        out.setVersion(QDataStream::Qt_4_0);
+
+        message["filename"] = this->filename;
+        message["username"] = this->username;
+
+        // send the JSON using QDataStream
+        const QByteArray &outputJson = QJsonDocument(message).toJson();
+#if DEBUG
+        qDebug() << "Sending message of length" << outputJson.size();
+#endif
+        out << outputJson;
+
+        if (!this->tcpSocket->write(block)) {
+            ui->statusBar->showMessage(tr("Could not save the file.\nTry again later."), 5000);
+        }
+        this->tcpSocket->flush();
+    }
+
+}
+
+void MainEditor::receiveFormatChanged(QJsonValueRef idsAndPositions, QJsonValueRef format) {
+#ifdef DEBUG
+    qDebug() << "Io provo a cambiare il formato";
+#endif
+    auto idsPositionsBytes = QByteArray::fromBase64(idsAndPositions.toString().toLatin1());
+    auto formatBytes = QByteArray::fromBase64(format.toString().toLatin1());
+    QDataStream inIdsPositionBytesStream(&idsPositionsBytes, QIODevice::ReadOnly);
+    QDataStream inFormatStream(&formatBytes, QIODevice::ReadOnly);
+
+    QHash<QString, FracPosition> idsAndPositionsHash;
+    QTextCharFormat textCharFormat;
+    inIdsPositionBytesStream >> idsAndPositionsHash;
+    inFormatStream >> textCharFormat;
+#ifdef  DEBUG
+    qDebug() << "in MainEditor, font weight is" << textCharFormat.fontWeight();
+#endif
+
+    for(auto key : idsAndPositionsHash.keys()){
+        this->textArea->changeSymbolFormat(key, const_cast<QString &>(idsAndPositionsHash.value(key).getStringPosition()), textCharFormat);
+    }
+
 }
 
 

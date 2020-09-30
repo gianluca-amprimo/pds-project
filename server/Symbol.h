@@ -36,6 +36,8 @@ public:
         return sym.serialize(out);
     }
 
+    void setCharFormat(const QTextCharFormat &charFormat);
+
     friend QDataStream& operator>>(QDataStream& in, Symbol& sym) {
         return  sym.deserialize(in);
     }

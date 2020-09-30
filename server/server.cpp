@@ -187,6 +187,8 @@ void Server::processUserRequest() {
         opResult = Server::closeFileReq(jSobject, active_socket);
     if (header=="shareFile")
         opResult = Server::shareFileReq(jSobject, active_socket);
+    if (header=="changeCharFormat")
+        opResult = Server::changeCharFormat(jSobject, active_socket);
 }
 
 
@@ -703,7 +705,11 @@ bool Server::openFile(QJsonObject &data, QTcpSocket *active_socket) {
             QByteArray byteArrayBuffer;
             QDataStream outStream(&byteArrayBuffer, QIODevice::WriteOnly);
 
-            outStream << (*session)->getSymbolsByPosition().values();
+            QList<Symbol> symbols;
+            for(auto sym : (*session)->getSymbolsByPosition().values()){
+                symbols.push_back(*sym);
+            }
+            outStream << symbols;
             message["editorId"] = editorId;
             message["body"] = "existing_session";
             message["filename"] = data["filename"];
@@ -815,7 +821,12 @@ bool Server::removeUserFromSession(std::shared_ptr<Session> session, const QStri
         // saving the file
         QByteArray byteArrayBuffer;
         QDataStream outStream(&byteArrayBuffer, QIODevice::WriteOnly);
-        outStream << session->getSymbolsById().values();
+        // we need to unwrap the pointers
+        QList<Symbol> symbols;
+        for(auto symbol : session->getSymbolsById().values()){
+            symbols.push_back(*symbol);
+        }
+        outStream << symbols;
         if(!saveFile(session->getFilename(), byteArrayBuffer, returnMessage))
             return false;
     } else
@@ -1035,13 +1046,23 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
     QJsonObject message;
     message["header"] = "delete1Symbol";
     message["id"] = symId;
-    QString stringPosition = session->getSymbolsById().value(symId).getPosition().getStringPosition();
-    message["position"] = stringPosition;
-    message["username"] = username;
+#if DEBUG
+    qDebug() << "removing symbol with id" << symId;
+#endif
 
     // now send deletion to all the other editors
     try {
-        session->removeSymbol(symId);
+        if(session->getSymbolsById().value(symId) != nullptr){
+            QString stringPosition = session->getSymbolsById().value(symId)->getPosition().getStringPosition();
+            message["position"] = stringPosition;
+            message["username"] = username;
+            session->removeSymbol(symId);
+#ifdef DEBUG
+            qDebug() << "Symbol already removed";
+#endif
+        }else{
+            throw NonExistingSymbol();
+        }
     }catch (NonExistingSymbol &e){
         return false;
     }
@@ -1077,15 +1098,20 @@ bool Server::deleteBatchChar(QJsonObject &data, QTcpSocket *active_socket) {
 
     auto inSymbolsBytes = QByteArray::fromBase64(data["idsToDelete"].toString().toLatin1());
     QByteArray symbolPositionBytes;
+
     QDataStream outSymbolPositionStream(&symbolPositionBytes, QIODevice::WriteOnly);
     QDataStream inSymbolBytesStream(&inSymbolsBytes, QIODevice::ReadOnly);
+
     inSymbolBytesStream >> symbolsInRange;
 
     auto session = this->active_sessions.value(filename);
     // we have to retrieve all the symbol ids
     for(QString id: symbolsInRange){
-        FracPosition fp = session->getSymbolsById().value(id).getPosition();
-        symbolsPosition.insert(id, fp);
+        const std::shared_ptr<Symbol> &symbol = session->getSymbolsById().value(id);
+        if(symbol != nullptr){
+            FracPosition fp = symbol->getPosition();
+            symbolsPosition.insert(id, fp);
+        }
     }
 
     outSymbolPositionStream << symbolsPosition;
@@ -1313,6 +1339,66 @@ bool Server::shareFileReq(QJsonObject data, QTcpSocket *active_socket) {
     message["username"]=username;
     message["filename"]=filename;
     openFile(message, active_socket);
+    return true;
+}
+
+bool Server::changeCharFormat(QJsonObject &data, QTcpSocket *active_socket) {
+    QString filename = data["filename"].toString().toLatin1();
+#if DEBUG
+    qDebug() << "filename is: " << filename;
+#endif
+
+    QVector<QString> symbolsInRange;
+    QTextCharFormat format;
+    QHash<QString, FracPosition> symbolsPosition;
+
+    // extract username
+    QString user = data["username"].toString();
+
+    // prepare symbols and format byte streams
+    auto inFormatBytes = QByteArray::fromBase64(data["format"].toString().toLatin1());
+    auto inSymbolsBytes = QByteArray::fromBase64(data["idsToChange"].toString().toLatin1());
+    QByteArray symbolPositionBytes;
+
+    QDataStream inFormatBytesStream(&inFormatBytes, QIODevice::ReadOnly);
+    QDataStream outSymbolPositionStream(&symbolPositionBytes, QIODevice::WriteOnly);
+    QDataStream inSymbolBytesStream(&inSymbolsBytes, QIODevice::ReadOnly);
+
+    inSymbolBytesStream >> symbolsInRange;
+    inFormatBytesStream >> format;
+
+    auto session = this->active_sessions.value(filename);
+    // we have to retrieve all the symbol ids
+    for(QString id: symbolsInRange){
+        FracPosition fp = session->getSymbolsById().value(id)->getPosition();
+        symbolsPosition.insert(id, fp);
+    }
+
+    outSymbolPositionStream << symbolsPosition;
+
+    QJsonObject message;
+    message["header"] = "changeSymbolFormat";
+    message["format"] = data["format"];
+    message["idsAndPositions"] = QLatin1String(symbolPositionBytes.toBase64());
+    message["username"] = user;
+
+#if DEBUG
+    qDebug() << "Format is going to change";
+    qDebug() << "Font weight is " << format.fontWeight();
+    qDebug() << "Is italic?" << format.fontItalic();
+    qDebug() << "Is underline?" << format.fontUnderline();
+#endif
+
+    // now send deletion to all other editors
+    try {
+        session->changeSymbolFormat(symbolsPosition, format);
+    }catch (NonExistingSymbol &e){
+        return false;
+    }
+    for(QString user : session->userEditorId.keys()){
+        sendMessage(message, this->idleConnectedUsers[user]);
+    }
+
     return true;
 }
 

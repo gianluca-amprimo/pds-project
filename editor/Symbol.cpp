@@ -58,5 +58,9 @@ Symbol::Symbol(const Symbol& sym) {
     this->charFormat = sym.getCharFormat();
 }
 
+void Symbol::setCharFormat(QTextCharFormat format) {
+    this->charFormat = format;
+}
+
 
 

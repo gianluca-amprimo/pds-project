@@ -11,13 +11,13 @@ MyTextArea::MyTextArea(QWidget *parent) : QTextEdit(parent) {
     setAttribute(Qt::WA_InputMethodEnabled, false);
     this->charCounter = 0;
     this->currentPosition = 0;
-    this->oldPosition = 0;
+    QObject::connect(this, &MyTextArea::currentCharFormatChanged, this, &MyTextArea::updateStyle);
 }
 
 MyTextArea::MyTextArea() : QTextEdit(nullptr) {
     this->charCounter = 0;
     this->currentPosition = 0;
-    this->oldPosition = 0;
+    QObject::connect(this, &MyTextArea::currentCharFormatChanged, this, &MyTextArea::updateStyle);
 }
 
 const QString &MyTextArea::getThisEditorIdentifier() const {
@@ -103,52 +103,36 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
         }
     } else if (KEY_IS_COPY(e)) {
         this->clipboard->setText(this->textCursor().selectedText());
+    } else if(KEY_IS_BOLD(e) || KEY_IS_ITALIC(e) || KEY_IS_UNDERLINE(e)){
+        QTextCharFormat format = this->textCursor().charFormat();
+        if(KEY_IS_BOLD(e)){
+            this->isBold = !this->isBold;
+            emit boldFormatActivate();
+            format.setFontWeight(isBold ? QFont::Bold : QFont::Normal);
+        }
+        else if(KEY_IS_ITALIC(e)){
+            this->isItalic = !this->isItalic;
+            emit italicFormatActivate();
+            format.setFontItalic(isItalic);
+        }
+        else if(KEY_IS_UNDERLINE(e)){
+            this->isUnderline = !this->isUnderline;
+            emit underlineFormatActivate();
+            format.setFontUnderline(isUnderline);
+        }
+        this->textCursor().setCharFormat(format);
+        if(selectionMode){
+            int begin = this->anchor;
+            int end = this->currentPosition;
+            changeSelectionFormat(begin, end, format);
+        }
     }
 
     this->anchor = this->textCursor().anchor();
     // we have to catch the key in case it was a char to be inserted
 }
 
-void MyTextArea::deleteSymbol() {
-    //Get symbols in the range
-    QVector<Symbol> syms = getSymbolInRange(this->oldPosition, this->currentPosition);
-    for (Symbol sym : syms) {
-        // obtain information about the symbol and perform consequent actions
-        QString symId = sym.getIdentifier();
-        FracPosition pos = sym.getPosition();
-        QByteArray serializedSymID;
-        QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
 
-        symbolStream << symId;
-        // remove the symbol from the queue
-        this->_symbols.remove(pos);
-        // send symbol id to delete
-        //emit charDeleted(serializedSymID);
-#if DEBUG
-        qDebug() << "Character deleted";
-#endif
-    }
-}
-
-void MyTextArea::deleteSelection() {
-#if DEBUG
-    qDebug() << "selection anchor " << this->anchor;
-    qDebug() << "selection position " << this->oldPosition;
-#endif
-
-    QVector<Symbol> syms = getSymbolInRange(this->anchor, this->oldPosition);
-
-    for (Symbol sym : syms) {
-        QString symId = sym.getIdentifier();
-        FracPosition pos = sym.getPosition();
-        QByteArray serializedSymID;
-        QDataStream symbolStream(&serializedSymID, QIODevice::WriteOnly);
-
-        symbolStream << symId;
-        //emit symbolDeleted(serializedSymID);
-        this->_symbols.remove(pos);
-    }
-}
 
 void MyTextArea::inputMethodEvent(QInputMethodEvent *event) {
 #if DEBUG
@@ -418,6 +402,106 @@ void MyTextArea::removeHighlight(const Symbol& sym) {
     QTextCharFormat fmt = sym.getCharFormat();
     fmt.clearBackground();
     cur.setCharFormat(fmt);
+}
+
+void MyTextArea::changeSelectionFormat(int begin, int end, QTextCharFormat format) {
+    QVector<Symbol> symbolsInRange = getSymbolInRange(begin, end);
+    QVector<QString> idsInRange;
+    this->currentPosition=end;
+    this->textCursor().setPosition(end);
+    for (Symbol sym : symbolsInRange) {
+        idsInRange.push_back(sym.getIdentifier());
+    }
+
+    QJsonObject message;
+    QByteArray formatInBytes;
+    QDataStream formatInByteStream(&formatInBytes, QIODevice::WriteOnly);
+    QByteArray symbolsInByte;
+    QDataStream symbolsInByteStream(&symbolsInByte, QIODevice::WriteOnly);
+
+    symbolsInByteStream << idsInRange;
+    formatInByteStream << format;
+    message["header"] = CHANGE_CHAR_FORMAT;
+    message["editorId"] = this->getThisEditorIdentifier();
+    message["format"] = QLatin1String(formatInBytes.toBase64());
+    message["idsToChange"] = QLatin1String(symbolsInByte.toBase64());
+
+    emit formatCharChanged(message);
+
+}
+
+void MyTextArea::changeSymbolFormat(QString &symId, QString &fp, QTextCharFormat format) {
+    FracPosition fracPos(fp);
+
+#if DEBUG
+    qDebug() << "Trying to delete character at frac position" << fracPos.getStringPosition();
+#endif
+
+    QTextCursor cur = this->textCursor();
+    cur.setPosition(this->getEditorPosition(fracPos));
+    cur.setPosition(this->getEditorPosition(fracPos) + 1, QTextCursor::KeepAnchor);
+
+    cur.setCharFormat(format);
+#ifdef DEBUG
+    qDebug() << "font weight is" << format.fontWeight();
+#endif
+
+    // highlight the color of the user who performed the operation
+    //if (color != ""){
+#if DEBUG
+    //    qDebug() << "Background color is: " << color;
+#endif
+
+    //    QTextCharFormat fmt{cur.charFormat()};
+    //    QColor color_highlight{color};
+    //    QBrush highlight{color_highlight};
+    //    fmt.setBackground(highlight);
+    //    cur.setCharFormat(fmt);
+    //}
+
+    cur.setPosition(this->getEditorPosition(fracPos));
+
+    if (this->_symbols.value(fracPos).getIdentifier() == symId) {
+        Symbol sym = this->_symbols.value(fracPos);
+        sym.setCharFormat(format);
+        this->_symbols.remove(fracPos);
+        this->_symbols.insert(fracPos, sym);
+    }
+
+}
+
+const QMetaObject &MyTextArea::getStaticMetaObject() {
+    return staticMetaObject;
+}
+
+bool MyTextArea::isBold1() const {
+    return isBold;
+}
+
+void MyTextArea::setIsBold(bool isBold) {
+    MyTextArea::isBold = isBold;
+}
+
+bool MyTextArea::isItalic1() const {
+    return isItalic;
+}
+
+void MyTextArea::setIsItalic(bool isItalic) {
+    MyTextArea::isItalic = isItalic;
+}
+
+bool MyTextArea::isUnderline1() const {
+    return isUnderline;
+}
+
+void MyTextArea::setIsUnderline(bool isUnderline) {
+    MyTextArea::isUnderline = isUnderline;
+}
+
+void MyTextArea::updateStyle(const QTextCharFormat &f) {
+    this->isItalic = f.fontItalic();
+    this->isUnderline = f.fontUnderline();
+    this->isBold = ( f.fontWeight() == QFont::Bold);
 }
 
 
