@@ -12,7 +12,7 @@
 #include "ui_SignupWin.h"
 #include "ui_ProfileSettingsWin.h"
 #include "ui_NewFile.h"
-
+#include "ui_WelcomeWinClone.h"
 static QString defaultPicture(":/misc/themes/material/user.png");
 
 Client::Client(QWidget *parent): QDialog(parent), tcpSocket(new QTcpSocket(this)) {
@@ -180,7 +180,7 @@ void Client::readResponse()
                      jSobject["surname"].toString());
                      qDebug() << u.getName() << " " << u.getSurname();
                      loggedUser = std::make_shared<User>(u);
-                     openWelcomeWin(false);
+                     openWelcomeWin2(false);
                      this->close();
                      }
                      if (result == "unreg") {
@@ -219,7 +219,7 @@ void Client::readResponse()
 
                      loggedUser = std::make_shared<User>(u);
                      setFileList(jSobject);
-                     openWelcomeWin(true);
+                     openWelcomeWin2(true);
                      RegWin->close();
                      this->close();
                      }
@@ -302,20 +302,22 @@ void Client::readResponse()
                      }
 
     if (header == "refr") {
-                      if (result == "ok") {
-                      setFileList(jSobject);
-                      uiChoice->OpenMenu->clear();
-                      QStringList fileList;
-                      for (auto s: avail_file) {
-                      fileList += s;
-                      }
-                      for (auto &file: fileList) {
-                      uiChoice->OpenMenu->addItem(file);
-                      }
-                      uiChoice->OpenMenu->setCurrentText(
-                      "");                 // Questo deve stare dopo il caricamento della lista
-                      }
-                      }
+        if (result == "ok") {
+            setFileList(jSobject);
+            uiChoice->OpenTable->clear();
+            QStringList fileList;
+            for (auto s: avail_file) {
+                fileList += s;
+            }
+            int i = 0;
+            for (auto &file: fileList) {
+                QTableWidgetItem *item = new QTableWidgetItem(file);
+                item->setFlags(item->flags() ^ Qt::ItemIsEditable);
+                uiChoice->OpenTable->setItem(i, 0, item);
+                i++;
+            }
+        }
+    }
 
     if (header == "newfile") {
                          if (result == "internal_error") {
@@ -764,46 +766,43 @@ void Client::requestDeletion() {
 #endif
 }
 
-void Client::openWelcomeWin(bool firstTime) {
-	uiChoice = std::make_shared<Ui::WelcomeWin> ();
-	ChoiceWin = std::make_shared<QDialog> ();
-	uiChoice->setupUi(ChoiceWin.get());
-	ChoiceWin->setWindowTitle("PiDiEsse - " + loggedUser->getUsername());
-	uiChoice->OpenMenu->completer()->setCompletionMode(QCompleter::PopupCompletion);
-	uiChoice->OpenMenu->completer()->setFilterMode(Qt::MatchContains);
-	uiChoice->OpenMenu->installEventFilter(this);
-	auto cbModel = new QStringListModel;
-	uiChoice->OpenMenu->setModel(cbModel);
-	uiChoice->OpenMenu->lineEdit()->setPlaceholderText(tr("Select file..."));
+void Client::openWelcomeWin2(bool firstTime) {
+    uiChoice = std::make_shared<Ui::WelcomeWinClone> ();
+    ChoiceWin = std::make_shared<QDialog> ();
+    uiChoice->setupUi(ChoiceWin.get());
+    ChoiceWin->setWindowTitle("PiDiEsse - " + loggedUser->getUsername());
+    uiChoice->OpenTable->setRowCount(avail_file.size());
+    uiChoice->OpenTable->setColumnCount(1);
+    auto cbModel = new QStringListModel;
     uiChoice->ProfilePicture->setPixmap(circularPixmap(const_cast<QPixmap &&>(loggedUser->getPropic()), 100, loggedUser->getColor()));
-    
+
     if (firstTime) {
-	    uiChoice->WelcomeLabel->setText(tr("Welcome,\n%1!").arg(loggedUser->getName()));
+        uiChoice->WelcomeLabel->setText(tr("Welcome,\n%1!").arg(loggedUser->getName()));
     } else {
-	    uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(loggedUser->getName()));
+        uiChoice->WelcomeLabel->setText(tr("Welcome back,\n%1!").arg(loggedUser->getName()));
     }
-	
-	QStringList fileList;
-	for(auto s:avail_file){
-	    fileList+=s;
-	}
 
-	for (auto &file: fileList) {
-		uiChoice->OpenMenu->addItem(file);
-	}
-	uiChoice->OpenMenu->setCurrentText("");                 // Questo deve stare dopo il caricamento della lista
-	
-	connect(uiChoice->NewButton, &QPushButton::released, this, &Client::openNewFileWin);
-	connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
-	connect(uiChoice->OpenMenu->lineEdit(), &QLineEdit::returnPressed, this, &Client::openExistingFile);
-	connect(uiChoice->SettingsButton, &QPushButton::released, this, &Client::openSettingsWindow);
-	connect(uiChoice->LogoutButton, &QPushButton::released, this, &Client::requestLogout);
-	connect(uiChoice->RefreshButton, &QPushButton::released, this, &Client::refreshFileList);
+    QStringList fileList;
+    for(auto s:avail_file){
+        fileList+=s;
+    }
 
-	uiChoice->LinkURI->setClearButtonEnabled(true);
-	connect(uiChoice->LinkButton, &QPushButton::released, this, &Client::openLink);
+    int i = 0;
+    for (auto &file: fileList) {
+        QTableWidgetItem *item = new QTableWidgetItem(file);
+        item->setFlags(item->flags() ^ Qt::ItemIsEditable);
+        uiChoice->OpenTable->setItem(i, 0, item);
+        i++;
+    }
 
-	ChoiceWin->show();
+    connect(uiChoice->NewButton, &QPushButton::released, this, &Client::openNewFileWin);
+    connect(uiChoice->OpenButton, &QPushButton::released, this, &Client::openExistingFile);
+    connect(uiChoice->SettingsButton, &QPushButton::released, this, &Client::openSettingsWindow);
+    connect(uiChoice->LogoutButton, &QPushButton::released, this, &Client::requestLogout);
+    connect(uiChoice->RefreshButton, &QPushButton::released, this, &Client::refreshFileList);
+
+
+    ChoiceWin->show();
 }
 
 void Client::openNewFileWin() {
@@ -813,7 +812,7 @@ void Client::openNewFileWin() {
     NewFileWin = std::make_shared<QDialog>();
     uiNewFile->setupUi(NewFileWin.get());
 
-    connect(NewFileWin.get(), &QDialog::accepted, this, [this](){
+    connect(uiNewFile->newFileButtton, &QPushButton::released, this, [this](){
         if (tcpSocket != nullptr) {
             if (!tcpSocket->isValid()) {
                 qDebug() << "tcp socket invalid";
@@ -840,10 +839,14 @@ void Client::openNewFileWin() {
             }
             tcpSocket->flush();
         }
+        uiNewFile.reset();
+        NewFileWin->close();
         ChoiceWin->setVisible(true);
     });
-    connect(NewFileWin.get(), &QDialog::rejected, this, [this](){
+    connect(uiNewFile->loadURIButton, &QPushButton::released, this, &Client::openLink);
+    connect(uiNewFile->cancelButton, &QPushButton::released, this, [this](){
         uiNewFile.reset();
+        NewFileWin->close();
         ChoiceWin->setVisible(true);
     });
     NewFileWin->show();
@@ -851,11 +854,11 @@ void Client::openNewFileWin() {
 
 void Client::openExistingFile() {
 	// TODO: aprire file selezionato
-	if (uiChoice->OpenMenu->findText(uiChoice->OpenMenu->currentText()) == -1) {
-		QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("The file does not exist."), QMessageBox::Ok);
-		qDebug() << "The file does not exist.";
-		return;
-	}
+	//if (uiChoice->OpenTable->findItem(uiChoice->OpenMenu->currentText()) == -1) {
+	//	QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("The file does not exist."), QMessageBox::Ok);
+	//	qDebug() << "The file does not exist.";
+	//	return;
+	//}
 
 #if DEBUG
     qDebug() << "Opening selected file...";
@@ -877,7 +880,7 @@ void Client::openExistingFile() {
         QJsonObject message;
         message["header"] = "openfile";
         message["username"] = this->loggedUsername;
-        message["filename"] = uiChoice->OpenMenu->currentText();
+        message["filename"] = uiChoice->OpenTable->selectedItems()[0]->text();
         // send the JSON using QDataStream
         out << QJsonDocument(message).toJson();
 
@@ -888,7 +891,7 @@ void Client::openExistingFile() {
         tcpSocket->flush();
     }
     //ChoiceWin->close();
-}
+        NewFileWin->close();}
 
 void Client::refreshFileList() {
 	if (tcpSocket != nullptr) {
@@ -947,7 +950,7 @@ void Client::requestLogout() {
 
 bool Client::eventFilter(QObject *object, QEvent *event) {
 	if (event->type() == QEvent::FocusIn) {
-		if (object == uiChoice->OpenMenu) {
+		if (object == uiChoice->OpenTable) {
 			uiChoice->NewButton->setDefault(false);
 		}
 	}
@@ -1186,13 +1189,13 @@ QPixmap Client::circularPixmap(QPixmap &&source, int size, const QColor& color) 
 }
 
 void Client::openLink() {
-    if (uiChoice->LinkURI->text().isEmpty()) {
+    if (uiNewFile->filenameInput->text().isEmpty()) {
         QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("Link not inserted, insert link and try again"), QMessageBox::Ok);
         qDebug() << "Link not inserted";
         return;
     }
 
-    QString link = uiChoice->LinkURI->text();
+    QString link = uiNewFile->filenameInput->text();
     //check if the link is in a valid format
     QString prefix=link.split("/").at(0);
     if(prefix!="PDS-SharedEditor"){

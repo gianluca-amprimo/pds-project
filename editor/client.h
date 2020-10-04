@@ -13,6 +13,7 @@
 #include <QToolButton>
 #include <QLabel>
 #include <QLineEdit>
+#include <ui_WelcomeWinClone.h>
 
 QT_BEGIN_NAMESPACE
 class QTcpSocket;
@@ -55,6 +56,7 @@ private slots:
     void requestDeletion();
     
     void openWelcomeWin(bool firstTime);
+    void openWelcomeWin2(bool firstTime);
     void openNewFileWin();
     void openExistingFile();
     void refreshFileList();
@@ -106,7 +108,7 @@ private:
 	QAction *cancHidePassword;
 	
 	std::shared_ptr<QDialog> ChoiceWin;
-	std::shared_ptr<Ui::WelcomeWin> uiChoice;
+	std::shared_ptr<Ui::WelcomeWinClone> uiChoice;
 
 	std::shared_ptr<Ui::NewFile> uiNewFile;
     std::shared_ptr<QDialog> NewFileWin;
