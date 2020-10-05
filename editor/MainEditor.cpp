@@ -87,15 +87,6 @@ void MainEditor::setupActions() {
     //QObject::connect(sizeSelector, SIGNAL(textActivated()), this, SLOT( selectSize()));
     QObject::connect(this->textArea, &MyTextArea::currentCharFormatChanged, this, &MainEditor::updateStyleButton);
 
-    ui->alignCenter->setCheckable(true);
-    QObject::connect(ui->alignCenter, SIGNAL(triggered()), this, SLOT(alignCenter()));
-    ui->alignLeft->setCheckable(true);
-    QObject::connect(ui->alignLeft, SIGNAL(triggered()), this, SLOT(alignLeft()));
-    ui->alignRight->setCheckable(true);
-    QObject::connect(ui->alignRight, SIGNAL(triggered()), this, SLOT(alignRight()));
-    ui->alignJustified->setCheckable(true);
-    QObject::connect(ui->alignJustified, SIGNAL(triggered()), this, SLOT(alignJustify()));
-
     position = 0;
     QObject::connect(this->textArea, &QTextEdit::textChanged, this, &MainEditor::updateCharFormat);
     QObject::connect(ui->save, SIGNAL(triggered()), this, SLOT(save()));
@@ -139,7 +130,6 @@ void MainEditor::initUI(QDataStream *contentStream) {
     this->textArea->setAlignment(Qt::AlignLeft);
     fontSelector->setCurrentText(this->textArea->currentCharFormat().font().family());
     sizeSelector->setCurrentText(QString::number(this->textArea->currentCharFormat().font().pointSize()));
-    ui->alignLeft->setChecked(true);
 
     QObject::connect(this->fontSelector,  &QFontComboBox::currentFontChanged, this, &MainEditor::selectFont);
     QObject::connect(this->sizeSelector,  &QComboBox::currentTextChanged, this, &MainEditor::selectSize);
@@ -190,42 +180,6 @@ void MainEditor::selectSize() {
     QTextCharFormat format;
     format.setFontPointSize(this->sizeSelector->currentText().toDouble());
     this->textArea->mergeCurrentCharFormat(format);
-}
-
-void MainEditor::alignCenter() {
-    QTextBlockFormat blockFormat;
-    blockFormat.setAlignment(ui->alignCenter->isChecked() ? Qt::AlignHCenter : Qt::AlignLeft);
-    ui->alignLeft->setChecked(false);
-    ui->alignRight->setChecked(false);
-    ui->alignJustified->setChecked(false);
-    this->textArea->textCursor().setBlockFormat(blockFormat);
-}
-
-void MainEditor::alignLeft() {
-    QTextBlockFormat blockFormat;
-    blockFormat.setAlignment(Qt::AlignLeft);
-    ui->alignCenter->setChecked(false);
-    ui->alignRight->setChecked(false);
-    ui->alignJustified->setChecked(false);
-    this->textArea->textCursor().setBlockFormat(blockFormat);
-}
-
-void MainEditor::alignRight() {
-    QTextBlockFormat blockFormat;
-    blockFormat.setAlignment(ui->alignRight->isChecked() ? Qt::AlignRight : Qt::AlignLeft);
-    ui->alignLeft->setChecked(false);
-    ui->alignCenter->setChecked(false);
-    ui->alignJustified->setChecked(false);
-    this->textArea->textCursor().setBlockFormat(blockFormat);
-}
-
-void MainEditor::alignJustify() {
-    QTextBlockFormat blockFormat;
-    blockFormat.setAlignment(ui->alignJustified->isChecked() ? Qt::AlignJustify : Qt::AlignLeft);
-    ui->alignLeft->setChecked(false);
-    ui->alignCenter->setChecked(false);
-    ui->alignRight->setChecked(false);
-    this->textArea->textCursor().setBlockFormat(blockFormat);
 }
 
 void MainEditor::updateCharFormat() {
