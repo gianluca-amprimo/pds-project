@@ -69,11 +69,6 @@ private slots:
     void selectFont();
     void selectSize();
 
-    void alignCenter();
-    void alignLeft();
-    void alignRight();
-    void alignJustify();
-
     void updateCharFormat();
 
     void save();
