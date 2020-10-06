@@ -1252,7 +1252,7 @@ void Server::sendColors(QString filename, QString username){
     if (session->userMap.contains(username)){
         // the user opened the file
         // 1 send the other user his name and his color
-        // 2 send him all the other users username and color
+        // 2a send him all the other users username and color
 
         // 1
         for (QString user : session->userMap.keys()){
@@ -1268,7 +1268,7 @@ void Server::sendColors(QString filename, QString username){
             }
         }
 
-        // 2
+        // 2a
         QTcpSocket *socket = this->idleConnectedUsers.value(username);
         for (QString user : session->userMap.keys()){
             if (user != username){
