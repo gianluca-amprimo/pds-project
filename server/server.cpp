@@ -1057,7 +1057,7 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
             message["position"] = stringPosition;
             message["username"] = username;
             session->removeSymbol(symId);
-#ifdef DEBUG
+#if DEBUG
             qDebug() << "Symbol already removed";
 #endif
         }else{

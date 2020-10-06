@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/provaQT.iml" filepath="$PROJECT_DIR$/.idea/provaQT.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Editor.iml" filepath="$PROJECT_DIR$/.idea/Editor.iml" />
     </modules>
   </component>
 </project>

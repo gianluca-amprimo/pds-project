@@ -76,13 +76,10 @@ MainEditor::~MainEditor() {
 void MainEditor::setupActions() {
     ui->bold->setCheckable(true);
     QObject::connect(ui->bold, SIGNAL(triggered()), this, SLOT(Bold()));
-    QObject::connect(this->textArea, SIGNAL(boldFormatActivate()), this, SLOT(BoldShortcut()));
     ui->italic->setCheckable(true);
     QObject::connect(ui->italic, SIGNAL(triggered()), this, SLOT(Italic()));
-    QObject::connect(this->textArea, SIGNAL(italicFormatActivate()), this, SLOT(ItalicShortcut()));
     ui->underline->setCheckable(true);
     QObject::connect(ui->underline, SIGNAL(triggered()), this, SLOT(Underline()));
-    QObject::connect(this->textArea, SIGNAL(underlineFormatActivate()), this, SLOT(UnderlineShortcut()));
     //QObject::connect(fontSelector, SIGNAL(textActivated()), this, SLOT(selectFont()));
     //QObject::connect(sizeSelector, SIGNAL(textActivated()), this, SLOT( selectSize()));
     QObject::connect(this->textArea, &MyTextArea::currentCharFormatChanged, this, &MainEditor::updateStyleButton);
@@ -138,7 +135,7 @@ void MainEditor::initUI(QDataStream *contentStream) {
 
 
 void MainEditor::updateStyleButton(const QTextCharFormat &f) {
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "format has changed";
 #endif
     ui->italic->setChecked( f.fontItalic());
@@ -147,7 +144,7 @@ void MainEditor::updateStyleButton(const QTextCharFormat &f) {
 }
 
 void MainEditor::Bold() {
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "Ha dittu bold?";
 #endif
     QTextCharFormat format = this->textArea->textCursor().charFormat();
@@ -391,7 +388,7 @@ void MainEditor::receiveBatchDeletion(QJsonValueRef idsAndPositionsJson, QJsonVa
     else
         color = "";
 
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "remove symbol";
 #endif
     for(auto key : idsAndPositions.keys()){
@@ -564,7 +561,7 @@ void MainEditor::sendCharFormatChanged(QJsonObject message) {
 }
 
 void MainEditor::receiveFormatChanged(QJsonValueRef idsAndPositions, QJsonValueRef format) {
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "Io provo a cambiare il formato";
 #endif
     auto idsPositionsBytes = QByteArray::fromBase64(idsAndPositions.toString().toLatin1());

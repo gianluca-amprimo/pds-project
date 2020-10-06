@@ -121,6 +121,7 @@ void MyTextArea::keyPressEvent(QKeyEvent *e) {
             format.setFontUnderline(isUnderline);
         }
         this->textCursor().setCharFormat(format);
+        qDebug() << "changing style";
         if(selectionMode){
             int begin = this->anchor;
             int end = this->currentPosition;
@@ -433,16 +434,13 @@ void MyTextArea::changeSelectionFormat(int begin, int end, QTextCharFormat forma
 void MyTextArea::changeSymbolFormat(QString &symId, QString &fp, QTextCharFormat format) {
     FracPosition fracPos(fp);
 
-#if DEBUG
-    qDebug() << "Trying to delete character at frac position" << fracPos.getStringPosition();
-#endif
 
     QTextCursor cur = this->textCursor();
     cur.setPosition(this->getEditorPosition(fracPos));
     cur.setPosition(this->getEditorPosition(fracPos) + 1, QTextCursor::KeepAnchor);
 
     cur.setCharFormat(format);
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "font weight is" << format.fontWeight();
 #endif
 

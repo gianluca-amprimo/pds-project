@@ -812,6 +812,7 @@ void Client::openNewFileWin() {
     NewFileWin = std::make_shared<QDialog>();
     uiNewFile->setupUi(NewFileWin.get());
 
+    uiNewFile->newFileButtton->setDefault(true);
     connect(uiNewFile->newFileButtton, &QPushButton::released, this, [this](){
         if (tcpSocket != nullptr) {
             if (!tcpSocket->isValid()) {
@@ -854,13 +855,13 @@ void Client::openNewFileWin() {
 
 void Client::openExistingFile() {
     // control if file is selected or not
-	if (uiChoice->OpenTable->selectedItems().isEmpty()) {
-	    QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("No file selected."), QMessageBox::Ok);
-    #if DEBUG
-	    qDebug() << "The file is not selected.";
-    #endif
-		return;
-	}
+    if (uiChoice->OpenTable->selectedItems().isEmpty()) {
+        QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("No file selected."), QMessageBox::Ok);
+#if DEBUG
+        qDebug() << "The file is not selected.";
+#endif
+        return;
+    }
 
 #if DEBUG
     qDebug() << "Opening selected file...";
@@ -891,10 +892,10 @@ void Client::openExistingFile() {
             cancStatusBar->showMessage(tr("Could not send message."), 3000);
         }
         tcpSocket->flush();
+        // ChoiceWin->close();
+        // NewFileWin->close();
     }
-    // ChoiceWin->close();
-    // NewFileWin->close();
-    }
+}
 
 void Client::refreshFileList() {
 	if (tcpSocket != nullptr) {

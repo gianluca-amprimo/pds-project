@@ -19,28 +19,18 @@
     <select />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
-    <generated>
-      <config projectName="editor" targetName="editor" />
-      <config projectName="editor" targetName="editor_autogen" />
-      <config projectName="editor" targetName="provaQT_autogen" />
-    </generated>
+    <generated />
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_OPTIONS="-DCMAKE_PREFIX_PATH=/opt/Qt/5.12.3/gcc_64/lib/cmake" />
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="Aggiornato l'editing del font">
-      <change afterPath="$PROJECT_DIR$/WelcomeWin2.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WelcomeWinClone.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/bellissima" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/gioco" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/qualcosina" afterDir="false" />
+    <list default="true" id="c5b76d14-f26e-4973-99e4-1c73a087ceae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewFile.ui" beforeDir="false" afterPath="$PROJECT_DIR$/NewFile.ui" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../client/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../client/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../editor/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../editor/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -51,174 +41,37 @@
   <component name="ClangdSettings">
     <option name="formatViaClangd" value="false" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
-    <option name="RESET_MODE" value="HARD" />
   </component>
-  <component name="GithubPullRequestsUISettings">
-    <option name="hiddenUrls">
-      <set>
-        <option value="https://github.com/gianluca-amprimo/pds-project" />
-      </set>
-    </option>
-  </component>
-  <component name="MacroExpansionManager">
-    <option name="directoryName" value="ZWJEBDVq" />
-  </component>
-  <component name="ProjectId" id="1ZXVZedoB2havCxs0g6I0tRfCDj" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="1fSj3yoHQ7ve9n9q3P1G6dyvitG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="cf.first.check.clang-format" value="false" />
-    <property name="com.intellij.ide.scratch.LRUPopupBuilder$1/New Scratch File" value="ObjectiveC" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../server" />
-    <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="CMakeSettings" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../editor" />
   </component>
-  <component name="RunManager" selected="CMake Application.editor">
-    <configuration name="editor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="editor">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="editor_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor_autogen" CONFIG_NAME="Debug">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="provaQT-vera" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="provaQT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="provaQT">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="provaQT_autogen" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="provaQT" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="provaQT">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="CMake Application.editor" />
-      <item itemvalue="CMake Application.editor_autogen" />
-      <item itemvalue="CMake Application.provaQT-vera" />
-      <item itemvalue="CMake Application.provaQT_autogen" />
-    </list>
-  </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="" />
-      <created>1584985482270</created>
+      <changelist id="c5b76d14-f26e-4973-99e4-1c73a087ceae" name="Default Changelist" comment="" />
+      <created>1596218192881</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1584985482270</updated>
-      <workItem from="1584985483637" duration="2285000" />
-      <workItem from="1585302086261" duration="11602000" />
-      <workItem from="1586018795618" duration="7046000" />
-      <workItem from="1586426791635" duration="1065000" />
-      <workItem from="1586450493073" duration="236000" />
-      <workItem from="1586451183287" duration="1287000" />
-      <workItem from="1586465398024" duration="34000" />
-      <workItem from="1586465457967" duration="615000" />
-      <workItem from="1586769691550" duration="6421000" />
-      <workItem from="1586776862820" duration="3050000" />
-      <workItem from="1588695868672" duration="38635000" />
-      <workItem from="1588891741605" duration="25000" />
-      <workItem from="1588891769512" duration="2000" />
-      <workItem from="1588891816652" duration="11000" />
-      <workItem from="1588892662795" duration="1882000" />
-      <workItem from="1596217985076" duration="206000" />
-      <workItem from="1596218208294" duration="2295000" />
-      <workItem from="1596298908539" duration="3681000" />
-      <workItem from="1596303785385" duration="2842000" />
-      <workItem from="1597048424170" duration="21144000" />
-      <workItem from="1597310842432" duration="8519000" />
-      <workItem from="1597326896172" duration="9529000" />
-      <workItem from="1597340733418" duration="609000" />
-      <workItem from="1597487420148" duration="2593000" />
-      <workItem from="1597511893750" duration="1488000" />
-      <workItem from="1597567022118" duration="8111000" />
-      <workItem from="1597595397463" duration="4380000" />
-      <workItem from="1597934980844" duration="6000" />
-      <workItem from="1598780698851" duration="8834000" />
-      <workItem from="1598871632403" duration="1984000" />
-      <workItem from="1598950086253" duration="3173000" />
-      <workItem from="1598955001756" duration="18938000" />
-      <workItem from="1599036463475" duration="16905000" />
-      <workItem from="1599055896338" duration="1335000" />
-      <workItem from="1599059866555" duration="3799000" />
-      <workItem from="1599127912245" duration="13201000" />
-      <workItem from="1599145193913" duration="3962000" />
-      <workItem from="1599211864108" duration="512000" />
-      <workItem from="1599499069758" duration="3156000" />
-      <workItem from="1599668228509" duration="3817000" />
-      <workItem from="1599732229780" duration="3756000" />
-      <workItem from="1599750275469" duration="6465000" />
-      <workItem from="1600187872778" duration="3467000" />
-      <workItem from="1600421567973" duration="5227000" />
-      <workItem from="1600427009260" duration="6050000" />
-      <workItem from="1600973090780" duration="4317000" />
-      <workItem from="1601025432948" duration="5137000" />
-      <workItem from="1601200769903" duration="14775000" />
-      <workItem from="1601396375476" duration="5000000" />
-      <workItem from="1601484166268" duration="2251000" />
-      <workItem from="1601486441421" duration="1840000" />
-      <workItem from="1601739578853" duration="6966000" />
-      <workItem from="1601806137040" duration="4110000" />
+      <updated>1596218192881</updated>
+      <workItem from="1596218194227" duration="13000" />
+      <workItem from="1599668179467" duration="6000" />
+      <workItem from="1599668211438" duration="6000" />
     </task>
-    <task id="LOCAL-00001" summary="Inserita azione salva come nel menu">
-      <created>1586083395586</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1586083395586</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Sistemato tutto e risolto la guerra e la fame nel mondo">
-      <created>1586452321640</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1586452321640</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Implementato il copia incolla">
-      <created>1599139497472</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1599139497472</updated>
-    </task>
-    <task id="LOCAL-00004" summary="La transazione per leggere il socket è stata aggiustata">
-      <created>1600441305708</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1600441305708</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Aggiornato l'editing del font">
-      <created>1601487590402</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1601487590402</updated>
-    </task>
-    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -232,167 +85,10 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
-  <component name="VcsManagerConfiguration">
-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inserita azione salva come nel menu" />
-    <MESSAGE value="Sistemato tutto e risolto la guerra e la fame nel mondo" />
-    <MESSAGE value="Implementato il copia incolla" />
-    <MESSAGE value="La transazione per leggere il socket è stata aggiustata" />
-    <MESSAGE value="Aggiornato l'editing del font" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiornato l'editing del font" />
-  </component>
   <component name="WindowStateProjectService">
-    <state x="623" y="338" width="674" height="416" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596303818038">
+    <state x="744" y="303" key="FileChooserDialogImpl" timestamp="1596218205166">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="623" y="338" width="674" height="416" key="#com.intellij.fileTypes.FileTypeChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1596303818038" />
-    <state x="769" y="264" width="382" height="564" key="#com.intellij.ide.util.MemberChooser" timestamp="1601400782611">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="769" y="264" width="382" height="564" key="#com.intellij.ide.util.MemberChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1601400782611" />
-    <state x="694" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599045622054">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="694" y="291" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1599045622054" />
-    <state x="644" y="303" key="#org.exbin.bined.intellij.debug.DebugViewBinaryAction" timestamp="1597318497050">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="644" y="303" key="#org.exbin.bined.intellij.debug.DebugViewBinaryAction/0.32.1920.1048@0.32.1920.1048" timestamp="1597318497050" />
-    <state x="853" y="230" key="#xdebugger.XInspectDialog" timestamp="1597312769606">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="853" y="230" key="#xdebugger.XInspectDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1597312769606" />
-    <state width="479" height="605" key="DebuggerActiveHint" timestamp="1597314984803">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="479" height="605" key="DebuggerActiveHint/0.32.1920.1048@0.32.1920.1048" timestamp="1597314984803" />
-    <state x="96" y="106" width="1728" height="880" key="DiffContextDialog" timestamp="1599140111889">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="96" y="106" width="1728" height="880" key="DiffContextDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1599140111889" />
-    <state x="744" y="303" key="FileChooserDialogImpl" timestamp="1598976088282">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1598976088282" />
-    <state width="1866" height="275" key="GridCell.Tab.0.bottom" timestamp="1601809715652">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715652" />
-    <state width="1866" height="290" key="GridCell.Tab.0.bottom/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="1866" height="275" key="GridCell.Tab.0.center" timestamp="1601809715651">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715651" />
-    <state width="1866" height="290" key="GridCell.Tab.0.center/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="275" key="GridCell.Tab.0.left" timestamp="1601809715650">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715650" />
-    <state width="1866" height="290" key="GridCell.Tab.0.left/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="275" key="GridCell.Tab.0.right" timestamp="1601809715652">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715652" />
-    <state width="1866" height="290" key="GridCell.Tab.0.right/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="641" height="638" key="GridCell.Tab.1.bottom" timestamp="1601230709631">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="641" height="638" key="GridCell.Tab.1.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709631" />
-    <state width="641" height="638" key="GridCell.Tab.1.center" timestamp="1601230709630">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="641" height="638" key="GridCell.Tab.1.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709630" />
-    <state width="641" height="638" key="GridCell.Tab.1.left" timestamp="1601230709627">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="641" height="638" key="GridCell.Tab.1.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709627" />
-    <state width="641" height="638" key="GridCell.Tab.1.right" timestamp="1601230709631">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="641" height="638" key="GridCell.Tab.1.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709631" />
-    <state x="477" y="279" key="IDE.errors.dialog" timestamp="1596304361676">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="477" y="279" key="IDE.errors.dialog/0.32.1920.1048@0.32.1920.1048" timestamp="1596304361676" />
-    <state x="449" y="166" width="900" height="722" key="SettingsEditor" timestamp="1596218168309">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="449" y="166" key="SettingsEditor/0.32.1920.1048@0.32.1920.1048" timestamp="1596218168309" />
-    <state x="556" y="279" key="Vcs.Push.Dialog.v2" timestamp="1601487682225">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="556" y="279" key="Vcs.Push.Dialog.v2/0.32.1920.1048@0.32.1920.1048" timestamp="1601487682225" />
-    <state width="964" height="540" key="XDebugger.FullValuePopup" timestamp="1601227477057">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state width="964" height="540" key="XDebugger.FullValuePopup/0.32.1920.1048@0.32.1920.1048" timestamp="1601227477057" />
-    <state x="668" y="274" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1599043072589">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="668" y="274" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.32.1920.1048@0.32.1920.1048" timestamp="1599043072589" />
-    <state x="708" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601487600901">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="708" y="455" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.32.1920.1048@0.32.1920.1048" timestamp="1601487600901" />
-    <state x="478" y="206" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1600188647493">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="478" y="206" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.32.1920.1048@0.32.1920.1048" timestamp="1600188647493" />
-    <state x="46" y="32" width="1874" height="1028" key="dock-window-1" timestamp="1598953260172">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="46" y="32" width="1874" height="1028" key="dock-window-1/0.32.1920.1048@0.32.1920.1048" timestamp="1598953260172" />
-    <state x="626" y="75" width="702" height="942" key="find.popup" timestamp="1601226608978">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="626" y="75" width="702" height="942" key="find.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1601226608978" />
-    <state x="740" y="323" key="refactoring.ChangeSignatureDialog" timestamp="1600979020518">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="740" y="323" key="refactoring.ChangeSignatureDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1600979020518" />
-    <state x="620" y="249" key="run.anything.popup" timestamp="1597234959435">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="620" y="249" key="run.anything.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1597234959435" />
-    <state x="623" y="245" width="672" height="678" key="search.everywhere.popup" timestamp="1601028323335">
-      <screen x="0" y="32" width="1920" height="1048" />
-    </state>
-    <state x="623" y="245" width="672" height="678" key="search.everywhere.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1601028323335" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/client.cpp</url>
-          <line>411</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/MyTextArea.cpp</url>
-          <line>393</line>
-          <option name="timeStamp" value="8" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/client.cpp</url>
-          <line>137</line>
-          <option name="timeStamp" value="21" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/client.cpp</url>
-          <line>141</line>
-          <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/client.cpp</url>
-          <line>143</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-    <watches-manager>
-      <configuration name="CMakeRunConfiguration">
-        <watch expression="this-&gt;currentPosition" />
-      </configuration>
-    </watches-manager>
+    <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1596218205166" />
   </component>
 </project>

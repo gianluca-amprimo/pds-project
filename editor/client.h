@@ -54,8 +54,7 @@ private slots:
     void openCancellationWindow();
     void enableDelButton();
     void requestDeletion();
-    
-    // void openWelcomeWin(bool firstTime);
+
     void openWelcomeWin2(bool firstTime);
     void openNewFileWin();
     void openExistingFile();
