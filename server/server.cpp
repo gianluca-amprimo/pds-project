@@ -1057,7 +1057,7 @@ bool Server::deleteChar(QJsonObject &data, QTcpSocket *active_socket) {
             message["position"] = stringPosition;
             message["username"] = username;
             session->removeSymbol(symId);
-#ifdef DEBUG
+#if DEBUG
             qDebug() << "Symbol already removed";
 #endif
         }else{
@@ -1344,7 +1344,7 @@ bool Server::shareFileReq(QJsonObject data, QTcpSocket *active_socket) {
 
 bool Server::changeCharFormat(QJsonObject &data, QTcpSocket *active_socket) {
     QString filename = data["filename"].toString().toLatin1();
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "filename is: " << filename;
 #endif
 
@@ -1382,7 +1382,7 @@ bool Server::changeCharFormat(QJsonObject &data, QTcpSocket *active_socket) {
     message["idsAndPositions"] = QLatin1String(symbolPositionBytes.toBase64());
     message["username"] = user;
 
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "Format is going to change";
     qDebug() << "Font weight is " << format.fontWeight();
     qDebug() << "Is italic?" << format.fontItalic();

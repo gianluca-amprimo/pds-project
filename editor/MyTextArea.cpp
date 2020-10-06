@@ -440,7 +440,7 @@ void MyTextArea::changeSymbolFormat(QString &symId, QString &fp, QTextCharFormat
     cur.setPosition(this->getEditorPosition(fracPos) + 1, QTextCursor::KeepAnchor);
 
     cur.setCharFormat(format);
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "font weight is" << format.fontWeight();
 #endif
 

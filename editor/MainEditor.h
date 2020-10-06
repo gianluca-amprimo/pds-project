@@ -10,8 +10,6 @@
 #include "MyTextArea.h"
 #include <QtPrintSupport/QPrinter>
 
-#define DEBUG 1
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainEditor; }
 QT_END_NAMESPACE

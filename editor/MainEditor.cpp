@@ -135,7 +135,7 @@ void MainEditor::initUI(QDataStream *contentStream) {
 
 
 void MainEditor::updateStyleButton(const QTextCharFormat &f) {
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "format has changed";
 #endif
     ui->italic->setChecked( f.fontItalic());
@@ -144,7 +144,7 @@ void MainEditor::updateStyleButton(const QTextCharFormat &f) {
 }
 
 void MainEditor::Bold() {
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "Ha dittu bold?";
 #endif
     QTextCharFormat format = this->textArea->textCursor().charFormat();
@@ -388,7 +388,7 @@ void MainEditor::receiveBatchDeletion(QJsonValueRef idsAndPositionsJson, QJsonVa
     else
         color = "";
 
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "remove symbol";
 #endif
     for(auto key : idsAndPositions.keys()){
@@ -561,7 +561,7 @@ void MainEditor::sendCharFormatChanged(QJsonObject message) {
 }
 
 void MainEditor::receiveFormatChanged(QJsonValueRef idsAndPositions, QJsonValueRef format) {
-#ifdef DEBUG
+#if DEBUG
     qDebug() << "Io provo a cambiare il formato";
 #endif
     auto idsPositionsBytes = QByteArray::fromBase64(idsAndPositions.toString().toLatin1());

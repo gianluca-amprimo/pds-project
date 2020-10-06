@@ -32,16 +32,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="Aggiornato l'editing del font">
-      <change afterPath="$PROJECT_DIR$/../server/Pictures/epiffo2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/file2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MainEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MainEditor.ui" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.h" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MyTextArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MyTextArea.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/files/gioco" beforeDir="false" afterPath="$PROJECT_DIR$/../server/files/gioco" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/server.h" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.h" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,7 +186,7 @@
       <workItem from="1601486441421" duration="1840000" />
       <workItem from="1601739578853" duration="6966000" />
       <workItem from="1601806137040" duration="4110000" />
-      <workItem from="1601976958739" duration="1454000" />
+      <workItem from="1601976958739" duration="3628000" />
     </task>
     <task id="LOCAL-00001" summary="Inserita azione salva come nel menu">
       <created>1586083395586</created>
@@ -289,25 +287,25 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1598976088282" />
-    <state width="1866" height="191" key="GridCell.Tab.0.bottom" timestamp="1601977673133">
+    <state width="1866" height="186" key="GridCell.Tab.0.bottom" timestamp="1601990561178">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="191" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673133" />
+    <state width="1866" height="186" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601990561178" />
     <state width="1866" height="290" key="GridCell.Tab.0.bottom/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="1866" height="191" key="GridCell.Tab.0.center" timestamp="1601977673133">
+    <state width="1866" height="186" key="GridCell.Tab.0.center" timestamp="1601990561178">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="191" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673133" />
+    <state width="1866" height="186" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601990561178" />
     <state width="1866" height="290" key="GridCell.Tab.0.center/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="191" key="GridCell.Tab.0.left" timestamp="1601977673132">
+    <state width="1866" height="186" key="GridCell.Tab.0.left" timestamp="1601990561178">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="191" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673132" />
+    <state width="1866" height="186" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601990561178" />
     <state width="1866" height="290" key="GridCell.Tab.0.left/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="191" key="GridCell.Tab.0.right" timestamp="1601977673133">
+    <state width="1866" height="186" key="GridCell.Tab.0.right" timestamp="1601990561178">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="191" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673133" />
+    <state width="1866" height="186" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601990561178" />
     <state width="1866" height="290" key="GridCell.Tab.0.right/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
     <state width="641" height="638" key="GridCell.Tab.1.bottom" timestamp="1601917932860">
       <screen x="0" y="32" width="1920" height="1048" />
@@ -357,10 +355,10 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="46" y="32" width="1874" height="1028" key="dock-window-1/0.32.1920.1048@0.32.1920.1048" timestamp="1598953260172" />
-    <state x="626" y="75" width="702" height="942" key="find.popup" timestamp="1601226608978">
+    <state x="626" y="75" width="702" height="942" key="find.popup" timestamp="1601989303788">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state x="626" y="75" width="702" height="942" key="find.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1601226608978" />
+    <state x="626" y="75" width="702" height="942" key="find.popup/0.32.1920.1048@0.32.1920.1048" timestamp="1601989303788" />
     <state x="740" y="323" key="refactoring.ChangeSignatureDialog" timestamp="1600979020518">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>

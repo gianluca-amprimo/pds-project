@@ -14,7 +14,6 @@
 #include "Session.h"
 #include "FracPosition.h"
 
-#define DEBUG 1
 QT_BEGIN_NAMESPACE
 class QTcpServer;
 class QNetworkSession;

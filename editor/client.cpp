@@ -855,11 +855,16 @@ void Client::openNewFileWin() {
 
 void Client::openExistingFile() {
 	// TODO: aprire file selezionato
-	//if (uiChoice->OpenTable->findItem(uiChoice->OpenMenu->currentText()) == -1) {
+	//if (uiChoice->OpenTable->find(uiChoice->OpenTable->selectedItems()) == -1) {
 	//	QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("The file does not exist."), QMessageBox::Ok);
 	//	qDebug() << "The file does not exist.";
 	//	return;
 	//}
+
+	if(uiChoice->OpenTable->selectedItems().isEmpty()){
+	    QMessageBox::information(ChoiceWin.get(), tr("PdS Server"), tr("You have not selected."), QMessageBox::Ok);
+        return;
+	}
 
 #if DEBUG
     qDebug() << "Opening selected file...";
@@ -1238,5 +1243,7 @@ void Client::openLink() {
         }
         tcpSocket->flush();
     }
+    uiNewFile.reset();
+    NewFileWin->close();
 }
 
