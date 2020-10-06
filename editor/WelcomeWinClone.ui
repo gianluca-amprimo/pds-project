@@ -85,6 +85,9 @@
          <property name="text">
           <string>Refresh</string>
          </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
         </widget>
        </item>
        <item row="0" column="0">
@@ -99,12 +102,18 @@
          <property name="text">
           <string>New...</string>
          </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
         </widget>
        </item>
        <item row="1" column="2">
         <widget class="QPushButton" name="OpenButton">
          <property name="text">
           <string>Open</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -172,6 +181,9 @@
         <iconset resource="icons.qrc">
          <normaloff>:/misc/themes/material/settings.png</normaloff>:/misc/themes/material/settings.png</iconset>
        </property>
+       <property name="autoDefault">
+        <bool>false</bool>
+       </property>
       </widget>
      </item>
      <item>
@@ -190,6 +202,9 @@
        </property>
        <property name="text">
         <string>Logout</string>
+       </property>
+       <property name="autoDefault">
+        <bool>false</bool>
        </property>
       </widget>
      </item>
