@@ -304,7 +304,12 @@ void Client::readResponse()
     if (header == "refr") {
         if (result == "ok") {
             setFileList(jSobject);
+
+            // reset list of files
             uiChoice->OpenTable->clear();
+            uiChoice->OpenTable->setRowCount(avail_file.size());
+            uiChoice->OpenTable->setColumnCount(1);
+
             QStringList fileList;
             for (auto s: avail_file) {
                 fileList += s;
@@ -846,6 +851,11 @@ void Client::openNewFileWin() {
     });
     connect(uiNewFile->loadURIButton, &QPushButton::released, this, &Client::openLink);
     connect(uiNewFile->cancelButton, &QPushButton::released, this, [this](){
+        uiNewFile.reset();
+        NewFileWin->close();
+        ChoiceWin->setVisible(true);
+    });
+    connect(NewFileWin.get(), &QDialog::rejected, this, [this](){
         uiNewFile.reset();
         NewFileWin->close();
         ChoiceWin->setVisible(true);
