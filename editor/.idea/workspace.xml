@@ -20,8 +20,8 @@
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
-      <config projectName="editor" targetName="editor" />
       <config projectName="editor" targetName="editor_autogen" />
+      <config projectName="editor" targetName="editor" />
       <config projectName="editor" targetName="provaQT_autogen" />
     </generated>
   </component>
@@ -32,16 +32,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98d13054-aa4e-4540-8f1a-bafd3751e18e" name="Default Changelist" comment="Aggiornato l'editing del font">
-      <change afterPath="$PROJECT_DIR$/WelcomeWin2.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/WelcomeWinClone.ui" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/bellissima" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/gioco" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/files/qualcosina" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/Pictures/epiffo2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/files/file2" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NewFile.ui" beforeDir="false" afterPath="$PROJECT_DIR$/NewFile.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MainEditor.ui" beforeDir="false" afterPath="$PROJECT_DIR$/MainEditor.ui" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MyTextArea.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/MyTextArea.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/client.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client.h" beforeDir="false" afterPath="$PROJECT_DIR$/client.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/files/gioco" beforeDir="false" afterPath="$PROJECT_DIR$/../server/files/gioco" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/pds_db" beforeDir="false" afterPath="$PROJECT_DIR$/../server/pds_db" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/server.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../server/server.cpp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +87,12 @@
     <property name="settings.editor.selected.configurable" value="CMakeSettings" />
   </component>
   <component name="RunManager" selected="CMake Application.editor">
-    <configuration name="editor" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="editor">
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="editor" type="CMakeRunConfiguration" factoryName="Application" singleton="false" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="editor" TARGET_NAME="editor" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="editor" RUN_TARGET_NAME="editor">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -107,6 +112,11 @@
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="CMake Application.editor" />
       <item itemvalue="CMake Application.editor_autogen" />
@@ -114,7 +124,7 @@
       <item itemvalue="CMake Application.provaQT_autogen" />
     </list>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -178,6 +188,7 @@
       <workItem from="1601486441421" duration="1840000" />
       <workItem from="1601739578853" duration="6966000" />
       <workItem from="1601806137040" duration="4110000" />
+      <workItem from="1601976958739" duration="1454000" />
     </task>
     <task id="LOCAL-00001" summary="Inserita azione salva come nel menu">
       <created>1586083395586</created>
@@ -218,7 +229,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -242,6 +253,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="Aggiornato l'editing del font" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="419" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601918244169">
+      <screen x="0" y="32" width="1920" height="1048" />
+    </state>
+    <state x="419" y="213" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.32.1920.1048@0.32.1920.1048" timestamp="1601918244169" />
     <state x="623" y="338" width="674" height="416" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1596303818038">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
@@ -274,42 +289,42 @@
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
     <state x="744" y="303" key="FileChooserDialogImpl/0.32.1920.1048@0.32.1920.1048" timestamp="1598976088282" />
-    <state width="1866" height="275" key="GridCell.Tab.0.bottom" timestamp="1601809715652">
+    <state width="1866" height="191" key="GridCell.Tab.0.bottom" timestamp="1601977673133">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715652" />
+    <state width="1866" height="191" key="GridCell.Tab.0.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673133" />
     <state width="1866" height="290" key="GridCell.Tab.0.bottom/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="1866" height="275" key="GridCell.Tab.0.center" timestamp="1601809715651">
+    <state width="1866" height="191" key="GridCell.Tab.0.center" timestamp="1601977673133">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715651" />
+    <state width="1866" height="191" key="GridCell.Tab.0.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673133" />
     <state width="1866" height="290" key="GridCell.Tab.0.center/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="275" key="GridCell.Tab.0.left" timestamp="1601809715650">
+    <state width="1866" height="191" key="GridCell.Tab.0.left" timestamp="1601977673132">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715650" />
+    <state width="1866" height="191" key="GridCell.Tab.0.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673132" />
     <state width="1866" height="290" key="GridCell.Tab.0.left/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376192" />
-    <state width="1866" height="275" key="GridCell.Tab.0.right" timestamp="1601809715652">
+    <state width="1866" height="191" key="GridCell.Tab.0.right" timestamp="1601977673133">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="1866" height="275" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601809715652" />
+    <state width="1866" height="191" key="GridCell.Tab.0.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601977673133" />
     <state width="1866" height="290" key="GridCell.Tab.0.right/0.32.3840.1690@0.32.3840.1690" timestamp="1596272376193" />
-    <state width="641" height="638" key="GridCell.Tab.1.bottom" timestamp="1601230709631">
+    <state width="641" height="638" key="GridCell.Tab.1.bottom" timestamp="1601917932860">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="641" height="638" key="GridCell.Tab.1.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709631" />
-    <state width="641" height="638" key="GridCell.Tab.1.center" timestamp="1601230709630">
+    <state width="641" height="638" key="GridCell.Tab.1.bottom/0.32.1920.1048@0.32.1920.1048" timestamp="1601917932860" />
+    <state width="641" height="638" key="GridCell.Tab.1.center" timestamp="1601917932857">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="641" height="638" key="GridCell.Tab.1.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709630" />
-    <state width="641" height="638" key="GridCell.Tab.1.left" timestamp="1601230709627">
+    <state width="641" height="638" key="GridCell.Tab.1.center/0.32.1920.1048@0.32.1920.1048" timestamp="1601917932857" />
+    <state width="641" height="638" key="GridCell.Tab.1.left" timestamp="1601917932856">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="641" height="638" key="GridCell.Tab.1.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709627" />
-    <state width="641" height="638" key="GridCell.Tab.1.right" timestamp="1601230709631">
+    <state width="641" height="638" key="GridCell.Tab.1.left/0.32.1920.1048@0.32.1920.1048" timestamp="1601917932856" />
+    <state width="641" height="638" key="GridCell.Tab.1.right" timestamp="1601917932858">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
-    <state width="641" height="638" key="GridCell.Tab.1.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601230709631" />
+    <state width="641" height="638" key="GridCell.Tab.1.right/0.32.1920.1048@0.32.1920.1048" timestamp="1601917932858" />
     <state x="477" y="279" key="IDE.errors.dialog" timestamp="1596304361676">
       <screen x="0" y="32" width="1920" height="1048" />
     </state>
@@ -369,7 +384,7 @@
         </line-breakpoint>
         <line-breakpoint type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/MyTextArea.cpp</url>
-          <line>393</line>
+          <line>394</line>
           <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">

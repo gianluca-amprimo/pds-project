@@ -812,6 +812,7 @@ void Client::openNewFileWin() {
     NewFileWin = std::make_shared<QDialog>();
     uiNewFile->setupUi(NewFileWin.get());
 
+    uiNewFile->newFileButtton->setDefault(true);
     connect(uiNewFile->newFileButtton, &QPushButton::released, this, [this](){
         if (tcpSocket != nullptr) {
             if (!tcpSocket->isValid()) {
@@ -890,8 +891,7 @@ void Client::openExistingFile() {
         }
         tcpSocket->flush();
     }
-    //ChoiceWin->close();
-        NewFileWin->close();}
+}
 
 void Client::refreshFileList() {
 	if (tcpSocket != nullptr) {

@@ -76,13 +76,10 @@ MainEditor::~MainEditor() {
 void MainEditor::setupActions() {
     ui->bold->setCheckable(true);
     QObject::connect(ui->bold, SIGNAL(triggered()), this, SLOT(Bold()));
-    QObject::connect(this->textArea, SIGNAL(boldFormatActivate()), this, SLOT(BoldShortcut()));
     ui->italic->setCheckable(true);
     QObject::connect(ui->italic, SIGNAL(triggered()), this, SLOT(Italic()));
-    QObject::connect(this->textArea, SIGNAL(italicFormatActivate()), this, SLOT(ItalicShortcut()));
     ui->underline->setCheckable(true);
     QObject::connect(ui->underline, SIGNAL(triggered()), this, SLOT(Underline()));
-    QObject::connect(this->textArea, SIGNAL(underlineFormatActivate()), this, SLOT(UnderlineShortcut()));
     //QObject::connect(fontSelector, SIGNAL(textActivated()), this, SLOT(selectFont()));
     //QObject::connect(sizeSelector, SIGNAL(textActivated()), this, SLOT( selectSize()));
     QObject::connect(this->textArea, &MyTextArea::currentCharFormatChanged, this, &MainEditor::updateStyleButton);
